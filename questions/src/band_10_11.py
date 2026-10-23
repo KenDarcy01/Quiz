@@ -12,7 +12,7 @@ Q = [
 ('Y',3,"Which is the longest river in the UK?","The Severn","The Thames","The Trent","The Shannon"),
 ('Y',3,"Which country is directly north of the USA?","Canada","Mexico","Greenland","Russia"),
 ('H',3,"Which Tudor king started the Church of England?","Henry VIII","Henry VII","Edward VI","James I"),
-('M',3,"Which instrument has 88 keys?","The piano","The organ","The accordion","The harp"),
+('M',3,"Which Disney film features the song Let It Go?","Frozen","Moana","Tangled","Encanto"),
 ('M',3,"What is the name of the wizarding school in Harry Potter?","Hogwarts","Nevermore","Malory Towers","St Trinian's"),
 ('G',4,"What is 15% of 100?","15","1.5","150","10"),
 ('G',4,"How many sides does a pentagon have?","5","6","4","8"),
