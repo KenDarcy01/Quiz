@@ -23,9 +23,9 @@ Q = [
 ('M',1,"How many players are on a basketball team on the court?","5","6","7","11"),
 ('M',1,"Which country hosts the Tour de France?","France","Italy","Spain","Belgium"),
 # Grade 2
-('G',2,"How many sides does a hexagon have?","6","5","7","8"),
+('N',2,"How many sides does a hexagon have?","6","5","7","8"),
 ('G',2,"What is the largest internal organ in the human body?","The liver","The heart","The lungs","The kidneys"),
-('G',2,"How many minutes are there in a full day?","1,440","1,240","1,600","2,400"),
+('N',2,"How many minutes are there in a full day?","1,440","1,240","1,600","2,400"),
 ('G',2,"Which famous scientist developed the theory of relativity?","Albert Einstein","Isaac Newton","Niels Bohr","Stephen Hawking"),
 ('Y',2,"Which country has the largest population in South America?","Brazil","Argentina","Colombia","Peru"),
 ('Y',2,"What is the capital city of Germany?","Berlin","Munich","Frankfurt","Bonn"),
@@ -44,7 +44,7 @@ Q = [
 ('M',2,"In which city were the 2012 Summer Olympics held?","London","Beijing","Rio de Janeiro","Athens"),
 ('M',2,"Who wrote 'Romeo and Juliet'?","William Shakespeare","Christopher Marlowe","Ben Jonson","John Milton"),
 # Grade 3
-('G',3,"What is the square root of 196?","14","16","13","18"),
+('N',3,"What is the square root of 196?","14","16","13","18"),
 ('G',3,"What does 'NATO' stand for?","North Atlantic Treaty Organization","North American Trade Organization","National Alliance Treaty Office","Northern Allied Territories Organization"),
 ('G',3,"Which metal is the best conductor of electricity?","Silver","Copper","Gold","Aluminium"),
 ('G',3,"What is a baby kangaroo called?","A joey","A kit","A cub","A pup"),
@@ -65,7 +65,7 @@ Q = [
 ('M',3,"In which sport is the Ryder Cup contested?","Golf","Tennis","Sailing","Cricket"),
 ('M',3,"Who wrote 'War and Peace'?","Leo Tolstoy","Fyodor Dostoevsky","Anton Chekhov","Ivan Turgenev"),
 # Grade 4
-('G',4,"What is the Roman numeral for 2024?","MMXXIV","MMXIV","MMXXVI","MCMXXIV"),
+('N',4,"What is the Roman numeral for 2024?","MMXXIV","MMXIV","MMXXVI","MCMXXIV"),
 ('G',4,"What is the name for a group of owls?","A parliament","A murder","A pride","A gaggle"),
 ('G',4,"How many squares are on a chessboard?","64","81","100","48"),
 ('G',4,"Which French phrase means 'already seen'?","Déjà vu","Faux pas","Joie de vivre","Raison d'être"),

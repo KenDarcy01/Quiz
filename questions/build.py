@@ -11,7 +11,8 @@ import sys
 HERE = pathlib.Path(__file__).parent
 SRC = HERE / 'src'
 TOPICS = {'G': 'General knowledge', 'S': 'Science & nature', 'Y': 'Geography',
-          'H': 'History', 'M': 'Sport, music & film'}
+          'H': 'History', 'M': 'Sport, music & film',
+          'N': 'Maths & numbers'}
 HEADER = ['topic', 'age', 'grade', 'question', 'answer', 'wrong1', 'wrong2', 'wrong3']
 
 rows = list(csv.reader(open(SRC / 'base.csv', encoding='utf-8')))[1:]

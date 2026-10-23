@@ -7,13 +7,13 @@ General knowledge,10-11,3,What gas do plants take in from the air to make their 
 General knowledge,10-11,4,Which is the longest bone in the human body?,The femur (thigh bone),The spine,The arm bone,The shin bone
 General knowledge,10-11,3,In which country are the ancient pyramids of Giza?,Egypt,Mexico,Greece,India
 General knowledge,10-11,2,What is the hardest natural substance on Earth?,Diamond,Gold,Iron,Granite
-General knowledge,10-11,2,How many minutes are there in 3 hours?,180,120,300,160
-General knowledge,10-11,3,How many sides does a hexagon have?,6,5,8,7
+Maths & numbers,10-11,2,How many minutes are there in 3 hours?,180,120,300,160
+Maths & numbers,10-11,3,How many sides does a hexagon have?,6,5,8,7
 General knowledge,12-13,4,What is the chemical symbol for gold?,Au,Ag,Go,Gd
 General knowledge,12-13,2,Who painted the Mona Lisa?,Leonardo da Vinci,Michelangelo,Vincent van Gogh,Pablo Picasso
 General knowledge,12-13,2,What is the largest ocean on Earth?,The Pacific,The Atlantic,The Indian,The Arctic
 General knowledge,12-13,4,In which year did the Titanic sink?,1912,1905,1921,1898
-General knowledge,12-13,2,What is the square root of 144?,12,14,11,16
+Maths & numbers,12-13,2,What is the square root of 144?,12,14,11,16
 General knowledge,12-13,3,What is the smallest country in the world?,Vatican City,Monaco,Malta,San Marino
 General knowledge,12-13,3,Which type of blood cell fights infection?,White blood cells,Red blood cells,Platelets,Plasma cells
 General knowledge,12-13,1,Who wrote Romeo and Juliet?,William Shakespeare,Charles Dickens,Jane Austen,Roald Dahl
@@ -26,7 +26,7 @@ General knowledge,14-15,3,What does DNA stand for?,Deoxyribonucleic acid,Dinitro
 General knowledge,14-15,4,What is the largest desert in the world?,Antarctica,The Sahara,The Gobi,The Arabian
 General knowledge,14-15,2,Which element has atomic number 1?,Hydrogen,Helium,Oxygen,Carbon
 General knowledge,14-15,1,In which city is the Colosseum?,Rome,Athens,Naples,Paris
-General knowledge,14-15,2,What is 15% of 200?,30,15,20,45
+Maths & numbers,14-15,2,What is 15% of 200?,30,15,20,45
 General knowledge,14-15,1,Who developed the theory of relativity?,Albert Einstein,Isaac Newton,Stephen Hawking,Marie Curie
 General knowledge,14-15,3,What is the main language spoken in Brazil?,Portuguese,Spanish,Brazilian,French
 General knowledge,adult,2,In which year did the Berlin Wall fall?,1989,1991,1987,1985
@@ -201,11 +201,11 @@ History,adult,1,What was the fleet Spain sent to invade England in 1588 called?,
 "Sport, music & film",adult,3,"In cricket, how many balls are in an over?",6,5,8,4
 Science & nature,10-11,1,What is a baby sheep called?,A lamb,A kid,A calf,A foal
 "Sport, music & film",10-11,1,What colour is Pikachu?,Yellow,Red,Blue,Green
-General knowledge,10-11,2,How many hours are there in a day?,24,12,48,20
+Maths & numbers,10-11,2,How many hours are there in a day?,24,12,48,20
 Geography,10-11,2,What is the capital city of Wales?,Cardiff,Swansea,Newport,Bangor
 History,10-11,2,What did the Romans call Britain?,Britannia,Gaul,Hispania,Caledonia
-General knowledge,10-11,3,What is 8 x 7?,56,54,63,48
-General knowledge,10-11,3,How many years are there in a century?,100,10,"1,000",50
+Maths & numbers,10-11,3,What is 8 x 7?,56,54,63,48
+Maths & numbers,10-11,3,How many years are there in a century?,100,10,"1,000",50
 Science & nature,10-11,3,What do we call animals that eat both plants and meat?,Omnivores,Herbivores,Carnivores,Insectivores
 Science & nature,10-11,3,Which part of your body contains your brain?,Your skull,Your ribs,Your spine,Your pelvis
 Geography,10-11,3,Which is the longest river in the UK?,The Severn,The Thames,The Trent,The Shannon
@@ -213,10 +213,10 @@ Geography,10-11,3,Which country is directly north of the USA?,Canada,Mexico,Gree
 History,10-11,3,Which Tudor king started the Church of England?,Henry VIII,Henry VII,Edward VI,James I
 "Sport, music & film",10-11,3,Which Disney film features the song Let It Go?,Frozen,Moana,Tangled,Encanto
 "Sport, music & film",10-11,3,What is the name of the wizarding school in Harry Potter?,Hogwarts,Nevermore,Malory Towers,St Trinian's
-General knowledge,10-11,4,What is 15% of 100?,15,1.5,150,10
-General knowledge,10-11,4,How many sides does a pentagon have?,5,6,4,8
-General knowledge,10-11,4,What is the Roman numeral for 50?,L,C,X,D
-General knowledge,10-11,4,What is the next prime number after 7?,11,9,10,13
+Maths & numbers,10-11,4,What is 15% of 100?,15,1.5,150,10
+Maths & numbers,10-11,4,How many sides does a pentagon have?,5,6,4,8
+Maths & numbers,10-11,4,What is the Roman numeral for 50?,L,C,X,D
+Maths & numbers,10-11,4,What is the next prime number after 7?,11,9,10,13
 Science & nature,10-11,4,Which planet is famous for its rings?,Saturn,Mars,Mercury,Venus
 Science & nature,10-11,4,What is the boiling point of water in Celsius?,100°C,50°C,90°C,212°C
 Science & nature,10-11,4,Which organ do we use to breathe?,The lungs,The liver,The kidneys,The heart
@@ -229,10 +229,10 @@ History,10-11,4,Who was the first woman to fly solo across the Atlantic?,Amelia 
 "Sport, music & film",10-11,4,How many minutes are in each half of a football match?,45,40,30,50
 "Sport, music & film",10-11,4,Which country do the band BTS come from?,South Korea,Japan,China,Thailand
 "Sport, music & film",10-11,4,Who wrote Charlie and the Chocolate Factory?,Roald Dahl,J.K. Rowling,David Walliams,C.S. Lewis
-General knowledge,10-11,5,What is the square root of 81?,9,8,7,18
-General knowledge,10-11,5,How many millimetres are in a centimetre?,10,100,"1,000",12
-General knowledge,10-11,5,"What is 1,000 divided by 8?",125,120,150,100
-General knowledge,10-11,5,What is the name for a shape with ten sides?,A decagon,An octagon,A hexagon,A nonagon
+Maths & numbers,10-11,5,What is the square root of 81?,9,8,7,18
+Maths & numbers,10-11,5,How many millimetres are in a centimetre?,10,100,"1,000",12
+Maths & numbers,10-11,5,"What is 1,000 divided by 8?",125,120,150,100
+Maths & numbers,10-11,5,What is the name for a shape with ten sides?,A decagon,An octagon,A hexagon,A nonagon
 Science & nature,10-11,5,Which blood cells fight infection?,White blood cells,Red blood cells,Platelets,Plasma
 Science & nature,10-11,5,What is the chemical symbol for oxygen?,O,Ox,Og,Oy
 Science & nature,10-11,5,What do you call a scientist who studies rocks?,A geologist,A biologist,A botanist,An astronomer
@@ -250,9 +250,9 @@ History,10-11,5,In which year did the first person walk on the Moon?,1969,1959,1
 "Sport, music & film",10-11,5,Who directed the Star Wars film A New Hope?,George Lucas,Steven Spielberg,James Cameron,Peter Jackson
 "Sport, music & film",10-11,5,How many players are on a netball team on the court?,7,5,9,11
 General knowledge,10-11,1,How many months have 31 days?,7,6,5,8
-General knowledge,10-11,1,What is 9 x 2?,18,16,11,20
+Maths & numbers,10-11,1,What is 9 x 2?,18,16,11,20
 General knowledge,10-11,1,What do we call the person in charge of a school?,The head teacher,The caretaker,The librarian,The mayor
-General knowledge,10-11,1,How many seconds are in a minute?,60,100,30,10
+Maths & numbers,10-11,1,How many seconds are in a minute?,60,100,30,10
 Geography,10-11,1,What is the capital city of Germany?,Berlin,Munich,Vienna,Hamburg
 Geography,10-11,1,Which country is famous for the Great Wall?,China,Japan,India,Mongolia
 Geography,10-11,1,Which continent is Egypt in?,Africa,Asia,Europe,Australia
@@ -269,8 +269,8 @@ Science & nature,10-11,1,What is a group of wolves called?,A pack,A herd,A flock
 "Sport, music & film",10-11,1,What is the name of Mario's brother?,Luigi,Wario,Toad,Bowser
 "Sport, music & film",10-11,1,Which Disney film features a girl called Moana?,Moana,Encanto,Brave,Coco
 "Sport, music & film",10-11,1,In which sport do you use a cue to hit balls on a table?,Snooker,Table tennis,Hockey,Bowling
-General knowledge,10-11,2,What is 11 x 3?,33,31,36,30
-General knowledge,10-11,2,How many sides does an octagon have?,8,6,7,10
+Maths & numbers,10-11,2,What is 11 x 3?,33,31,36,30
+Maths & numbers,10-11,2,How many sides does an octagon have?,8,6,7,10
 General knowledge,10-11,2,What do we call a baby goat?,A kid,A calf,A lamb,A foal
 General knowledge,10-11,2,What is the plural of 'mouse'?,Mice,Mouses,Meese,Mousen
 Geography,10-11,2,What is the capital city of Belgium?,Brussels,Amsterdam,Antwerp,Luxembourg
@@ -289,10 +289,10 @@ Science & nature,10-11,2,What is the main gas in the air we breathe?,Nitrogen,Ox
 "Sport, music & film",10-11,2,What sport does Lewis Hamilton compete in?,Formula 1,Tennis,Golf,Cycling
 "Sport, music & film",10-11,2,Which superhero is known as the Dark Knight?,Batman,Superman,Iron Man,Thor
 "Sport, music & film",10-11,2,How many players are on each team in a game of volleyball on court?,6,5,7,11
-General knowledge,10-11,3,What is 12 x 5?,60,50,55,65
-General knowledge,10-11,3,How many years are in a decade?,10,100,5,12
+Maths & numbers,10-11,3,What is 12 x 5?,60,50,55,65
+Maths & numbers,10-11,3,How many years are in a decade?,10,100,5,12
 General knowledge,10-11,3,What is the past tense of 'run'?,Ran,Runned,Running,Runs
-General knowledge,10-11,3,What do you call a triangle with all sides equal?,Equilateral,Isosceles,Scalene,Right-angled
+Maths & numbers,10-11,3,What do you call a triangle with all sides equal?,Equilateral,Isosceles,Scalene,Right-angled
 Geography,10-11,3,What is the capital city of Greece?,Athens,Sparta,Rome,Istanbul
 Geography,10-11,3,Which is the largest island in the world?,Greenland,Australia,Madagascar,Iceland
 Geography,10-11,3,In which country are the Alps and the Matterhorn?,Switzerland,Spain,Belgium,Netherlands
@@ -309,10 +309,10 @@ Science & nature,10-11,3,What do we call animals that are active during the nigh
 "Sport, music & film",10-11,3,Which country hosts the Wimbledon tennis tournament?,England,France,USA,Australia
 "Sport, music & film",10-11,3,"In Despicable Me, what is the name of the man the Minions work for?",Gru,Vector,Dr Nefario,Scarlet
 "Sport, music & film",10-11,3,How many holes are there on a standard golf course?,18,9,12,24
-General knowledge,10-11,4,What is 144 divided by 12?,12,11,14,10
-General knowledge,10-11,4,How many grams are in a kilogram?,"1,000",100,10,500
-General knowledge,10-11,4,What is the next prime number after 11?,13,12,15,17
-General knowledge,10-11,4,What do you call a shape with six sides?,A hexagon,A pentagon,An octagon,A heptagon
+Maths & numbers,10-11,4,What is 144 divided by 12?,12,11,14,10
+Maths & numbers,10-11,4,How many grams are in a kilogram?,"1,000",100,10,500
+Maths & numbers,10-11,4,What is the next prime number after 11?,13,12,15,17
+Maths & numbers,10-11,4,What do you call a shape with six sides?,A hexagon,A pentagon,An octagon,A heptagon
 Geography,10-11,4,What is the capital city of Portugal?,Lisbon,Porto,Madrid,Seville
 Geography,10-11,4,Which river flows through Paris?,The Seine,The Thames,The Rhine,The Danube
 Geography,10-11,4,Which country has the city of Cape Town?,South Africa,Kenya,Nigeria,Egypt
@@ -329,10 +329,10 @@ Science & nature,10-11,4,What is the name for a scientist who studies stars and 
 "Sport, music & film",10-11,4,What is the name of the fictional African country in Black Panther?,Wakanda,Zamunda,Genovia,Asgard
 "Sport, music & film",10-11,4,How long is a standard Olympic swimming pool?,50 metres,25 metres,100 metres,75 metres
 "Sport, music & film",10-11,4,Which composer wrote the Nutcracker ballet music?,Tchaikovsky,Mozart,Beethoven,Bach
-General knowledge,10-11,5,What is 15 x 15?,225,215,250,200
-General knowledge,10-11,5,What is 3/4 as a percentage?,75%,34%,60%,80%
-General knowledge,10-11,5,How many sides does a heptagon have?,7,6,8,9
-General knowledge,10-11,5,"What is the Roman numeral for 1,000?",M,C,D,K
+Maths & numbers,10-11,5,What is 15 x 15?,225,215,250,200
+Maths & numbers,10-11,5,What is 3/4 as a percentage?,75%,34%,60%,80%
+Maths & numbers,10-11,5,How many sides does a heptagon have?,7,6,8,9
+Maths & numbers,10-11,5,"What is the Roman numeral for 1,000?",M,C,D,K
 Geography,10-11,5,What is the capital city of Egypt?,Cairo,Alexandria,Giza,Luxor
 Geography,10-11,5,Which Caribbean country has Havana as its capital?,Cuba,Jamaica,Haiti,Puerto Rico
 Geography,10-11,5,Which is the longest river in Europe?,The Volga,The Danube,The Rhine,The Thames
@@ -349,17 +349,45 @@ Science & nature,10-11,5,Which planet is furthest from the Sun?,Neptune,Uranus,S
 "Sport, music & film",10-11,5,Which artist painted The Starry Night?,Vincent van Gogh,Claude Monet,Pablo Picasso,Leonardo da Vinci
 "Sport, music & film",10-11,5,"Which footballer is nicknamed 'La Pulga', the flea?",Lionel Messi,Cristiano Ronaldo,Neymar,Kylian Mbappé
 "Sport, music & film",10-11,5,Which band sang 'Bohemian Rhapsody'?,Queen,The Beatles,Oasis,ABBA
-General knowledge,12-13,1,How many sides does a triangle have?,3,4,5,6
+General knowledge,10-11,1,What do you call the yellow part of an egg?,The yolk,The white,The shell,The crust
+General knowledge,10-11,1,Which festival is celebrated on 31 October?,Halloween,Easter,Bonfire Night,Diwali
+General knowledge,10-11,2,What is the name of the famous London wheel by the Thames?,The London Eye,The Shard,Big Ben,The Gherkin
+General knowledge,10-11,2,What is the opposite of 'ancient'?,Modern,Old,Antique,Historic
+General knowledge,10-11,2,"What is a word that sounds like a noise, like 'buzz' or 'bang'?",Onomatopoeia,Alliteration,A simile,A metaphor
+General knowledge,10-11,2,What do you call a person who designs buildings?,An architect,A builder,An engineer,A plumber
+General knowledge,10-11,3,What is the national animal of Scotland?,The unicorn,The lion,The stag,The eagle
+General knowledge,10-11,3,In which country is the city of Amsterdam?,The Netherlands,Belgium,Denmark,Germany
+General knowledge,10-11,3,What is the name of the fairy-tale girl who left a glass slipper at the ball?,Cinderella,Snow White,Rapunzel,Sleeping Beauty
+General knowledge,10-11,3,What is the name of the language spoken in Brazil?,Portuguese,Spanish,Brazilian,Italian
+General knowledge,10-11,3,Which famous detective lived at 221B Baker Street?,Sherlock Holmes,Hercule Poirot,Miss Marple,Inspector Gadget
+General knowledge,10-11,3,What do the letters 'UK' stand for?,United Kingdom,Universal Kingdom,United Kings,Upper Kingdom
+General knowledge,10-11,4,What is a word for a group of lions?,A pride,A pack,A flock,A herd
+General knowledge,10-11,4,What is the name of the Jewish festival of lights?,Hanukkah,Diwali,Eid,Passover
+General knowledge,10-11,4,What is the national flower of England?,The rose,The thistle,The daffodil,The shamrock
+General knowledge,10-11,4,Who invented the World Wide Web?,Tim Berners-Lee,Bill Gates,Steve Jobs,Mark Zuckerberg
+General knowledge,10-11,4,Which famous toy brand makes plastic building bricks?,Lego,Barbie,Hot Wheels,Nerf
+General knowledge,10-11,4,What do you call a word that means the opposite of another word?,An antonym,A synonym,A homophone,A verb
+General knowledge,10-11,4,What is the name of the Muslim festival at the end of Ramadan?,Eid al-Fitr,Diwali,Hanukkah,Easter
+General knowledge,10-11,4,What is the national flower of Wales?,The daffodil,The rose,The thistle,The shamrock
+General knowledge,10-11,5,What is the name of the national anthem of the UK?,God Save the King,Rule Britannia,Land of Hope and Glory,Jerusalem
+General knowledge,10-11,5,Who wrote the play Hamlet?,William Shakespeare,Charles Dickens,Roald Dahl,Oscar Wilde
+General knowledge,10-11,5,What does a cartographer make?,Maps,Cakes,Clocks,Carts
+General knowledge,10-11,5,What is the national flower of Scotland?,The thistle,The rose,The daffodil,The tulip
+General knowledge,10-11,5,What does the signal 'SOS' mean?,A call for help,All is well,Ship on the sea,Stop or slow down
+General knowledge,10-11,5,What is the main ingredient in guacamole?,Avocado,Peas,Spinach,Cucumber
+General knowledge,10-11,5,Which famous scientist has a type of electric car brand named after him?,Nikola Tesla,Isaac Newton,Albert Einstein,Thomas Edison
+General knowledge,10-11,5,What is the name for a baby kangaroo?,A joey,A cub,A kid,A kit
+Maths & numbers,12-13,1,How many sides does a triangle have?,3,4,5,6
 General knowledge,12-13,1,How many days are there in a normal year?,365,366,360,364
 Science & nature,12-13,1,Which animal is known as man's best friend?,The dog,The cat,The horse,The parrot
 Geography,12-13,1,What is the capital city of France?,Paris,Lyon,Marseille,Nice
 History,12-13,1,Who was the first person to walk on the Moon?,Neil Armstrong,Buzz Aldrin,Yuri Gagarin,Tim Peake
 "Sport, music & film",12-13,1,How many players are on a football team on the pitch?,11,10,12,9
 "Sport, music & film",12-13,1,Which company makes the PlayStation?,Sony,Nintendo,Microsoft,Sega
-General knowledge,12-13,2,What is 25 x 4?,100,90,125,80
+Maths & numbers,12-13,2,What is 25 x 4?,100,90,125,80
 Science & nature,12-13,2,What is the largest planet in our solar system?,Jupiter,Saturn,Uranus,Neptune
 History,12-13,2,In which country were the Pyramids of Giza built?,Egypt,Sudan,Iraq,Greece
-General knowledge,12-13,3,What is 3 cubed (3 x 3 x 3)?,27,9,18,33
+Maths & numbers,12-13,3,What is 3 cubed (3 x 3 x 3)?,27,9,18,33
 General knowledge,12-13,3,What is a word that sounds the same as another but has a different meaning called?,A homophone,A synonym,An antonym,An acronym
 Science & nature,12-13,3,What is the chemical symbol for iron?,Fe,Ir,In,I
 Science & nature,12-13,3,What type of rock is formed from cooled lava?,Igneous,Sedimentary,Metamorphic,Chalk
@@ -367,8 +395,8 @@ Geography,12-13,3,What is the capital city of Portugal?,Lisbon,Porto,Madrid,Sevi
 Geography,12-13,3,Which is the largest hot desert in the world?,The Sahara,The Gobi,The Kalahari,The Arabian
 History,12-13,3,Which ancient civilisation built Machu Picchu?,The Incas,The Aztecs,The Mayans,The Romans
 "Sport, music & film",12-13,3,Who wrote A Christmas Carol?,Charles Dickens,William Shakespeare,Roald Dahl,Jane Austen
-General knowledge,12-13,4,What is 0.75 written as a fraction?,3/4,1/4,7/5,2/3
-General knowledge,12-13,4,How many degrees are there in a right angle?,90,180,45,360
+Maths & numbers,12-13,4,What is 0.75 written as a fraction?,3/4,1/4,7/5,2/3
+Maths & numbers,12-13,4,How many degrees are there in a right angle?,90,180,45,360
 General knowledge,12-13,4,What does the 'www' in a web address stand for?,World Wide Web,World Web Window,Wide Web World,Web World Wide
 Science & nature,12-13,4,What force slows down a sliding object?,Friction,Gravity,Magnetism,Upthrust
 Science & nature,12-13,4,What is the process plants use to make food from sunlight?,Photosynthesis,Respiration,Digestion,Evaporation
@@ -379,10 +407,10 @@ Geography,12-13,4,Which country is home to the city of Rio de Janeiro?,Brazil,Ar
 History,12-13,4,Who was the leader of Nazi Germany?,Adolf Hitler,Joseph Stalin,Benito Mussolini,Otto von Bismarck
 History,12-13,4,In which year did the Battle of Hastings take place?,1066,1166,966,1266
 "Sport, music & film",12-13,4,Which artist painted The Starry Night?,Vincent van Gogh,Claude Monet,Pablo Picasso,Salvador Dalí
-General knowledge,12-13,5,What is the value of pi to two decimal places?,3.14,3.41,3.12,3.16
-General knowledge,12-13,5,What is the square root of 169?,13,12,14,17
-General knowledge,12-13,5,How many sides does a dodecagon have?,12,10,11,20
-General knowledge,12-13,5,What is 2 to the power of 10?,"1,024","1,000",512,"2,048"
+Maths & numbers,12-13,5,What is the value of pi to two decimal places?,3.14,3.41,3.12,3.16
+Maths & numbers,12-13,5,What is the square root of 169?,13,12,14,17
+Maths & numbers,12-13,5,How many sides does a dodecagon have?,12,10,11,20
+Maths & numbers,12-13,5,What is 2 to the power of 10?,"1,024","1,000",512,"2,048"
 Science & nature,12-13,5,What is the chemical symbol for potassium?,K,P,Po,Pt
 Science & nature,12-13,5,Which part of the cell contains its genetic information?,The nucleus,The cell membrane,The cytoplasm,The cell wall
 Science & nature,12-13,5,"What is the speed of sound in air, roughly?",343 metres per second,34 metres per second,"3,430 metres per second","1,000 metres per second"
@@ -399,10 +427,10 @@ History,12-13,5,Which ship did Charles Darwin sail on?,HMS Beagle,HMS Victory,Th
 "Sport, music & film",12-13,5,Which tennis tournament is played on clay courts in Paris?,The French Open,Wimbledon,The US Open,The Australian Open
 "Sport, music & film",12-13,5,In which year were the most recent London Olympics held?,2012,2008,2016,2000
 "Sport, music & film",12-13,5,Who wrote the Lord of the Rings books?,J.R.R. Tolkien,C.S. Lewis,J.K. Rowling,Philip Pullman
-General knowledge,12-13,1,How many hours are in two days?,48,24,36,72
-General knowledge,12-13,1,What is 50 + 50?,100,150,500,110
+Maths & numbers,12-13,1,How many hours are in two days?,48,24,36,72
+Maths & numbers,12-13,1,What is 50 + 50?,100,150,500,110
 General knowledge,12-13,1,What is the opposite of 'generous'?,Mean,Kind,Rich,Happy
-General knowledge,12-13,1,How many sides does a rectangle have?,4,3,5,6
+Maths & numbers,12-13,1,How many sides does a rectangle have?,4,3,5,6
 Geography,12-13,1,What is the capital city of Spain?,Madrid,Barcelona,Lisbon,Seville
 Geography,12-13,1,Which country is famous for the Taj Mahal?,India,Egypt,Turkey,Pakistan
 Geography,12-13,1,Which ocean lies between the UK and the USA?,The Atlantic,The Pacific,The Indian,The Arctic
@@ -419,8 +447,8 @@ Science & nature,12-13,1,"How many legs does a crab have, including claws?",10,8
 "Sport, music & film",12-13,1,Which wizard is the headmaster of Hogwarts for most of the Harry Potter books?,Albus Dumbledore,Severus Snape,Gandalf,Merlin
 "Sport, music & film",12-13,1,"Which video game features blocks, creepers and Steve?",Minecraft,Fortnite,Roblox,Tetris
 "Sport, music & film",12-13,1,What colour is the card that sends a footballer off?,Red,Yellow,Green,Blue
-General knowledge,12-13,2,What is 7 x 7?,49,42,56,47
-General knowledge,12-13,2,How many years are in a millennium?,"1,000",100,10,"10,000"
+Maths & numbers,12-13,2,What is 7 x 7?,49,42,56,47
+Maths & numbers,12-13,2,How many years are in a millennium?,"1,000",100,10,"10,000"
 General knowledge,12-13,2,What is the plural of 'child'?,Children,Childs,Childes,Childer
 General knowledge,12-13,2,What does a thermometer measure?,Temperature,Weight,Speed,Height
 Geography,12-13,2,What is the capital city of Russia?,Moscow,St Petersburg,Kyiv,Minsk
@@ -439,10 +467,10 @@ Science & nature,12-13,2,Which animal is the tallest in the world?,The giraffe,T
 "Sport, music & film",12-13,2,How many players are on a rugby union team on the pitch?,15,11,13,9
 "Sport, music & film",12-13,2,Which pop star released the album 'Thriller'?,Michael Jackson,Prince,Elvis Presley,Madonna
 "Sport, music & film",12-13,2,Which Pixar film is about emotions inside a girl's head?,Inside Out,Soul,Up,Coco
-General knowledge,12-13,3,What is 13 x 3?,39,36,33,42
-General knowledge,12-13,3,What is 20% of 80?,16,20,8,24
+Maths & numbers,12-13,3,What is 13 x 3?,39,36,33,42
+Maths & numbers,12-13,3,What is 20% of 80?,16,20,8,24
 General knowledge,12-13,3,What do we call a word that describes a noun?,An adjective,A verb,An adverb,A pronoun
-General knowledge,12-13,3,How many faces does a cube have?,6,4,8,12
+Maths & numbers,12-13,3,How many faces does a cube have?,6,4,8,12
 Geography,12-13,3,What is the capital city of Canada?,Ottawa,Toronto,Vancouver,Quebec City
 Geography,12-13,3,On which Italian island is the volcano Mount Etna?,Sicily,Sardinia,Corsica,Capri
 Geography,12-13,3,Which river flows through Egypt?,The Nile,The Amazon,The Ganges,The Tigris
@@ -459,10 +487,10 @@ Science & nature,12-13,3,What is the name for animals that eat both plants and m
 "Sport, music & film",12-13,3,Which country is the home of the samba dance?,Brazil,Spain,Argentina,Cuba
 "Sport, music & film",12-13,3,In which sport is the Stanley Cup awarded?,Ice hockey,Baseball,Golf,Tennis
 "Sport, music & film",12-13,3,In which film series is the character Katniss Everdeen?,The Hunger Games,Divergent,Twilight,The Maze Runner
-General knowledge,12-13,4,What is 2 to the power of 5?,32,25,10,16
-General knowledge,12-13,4,What is 0.5 as a fraction?,1/2,1/5,5/10,2/5
-General knowledge,12-13,4,How many minutes are in a day?,"1,440","1,000","2,400",720
-General knowledge,12-13,4,What is the name of a triangle with two equal sides?,Isosceles,Equilateral,Scalene,Obtuse
+Maths & numbers,12-13,4,What is 2 to the power of 5?,32,25,10,16
+Maths & numbers,12-13,4,What is 0.5 as a fraction?,1/2,1/5,5/10,2/5
+Maths & numbers,12-13,4,How many minutes are in a day?,"1,440","1,000","2,400",720
+Maths & numbers,12-13,4,What is the name of a triangle with two equal sides?,Isosceles,Equilateral,Scalene,Obtuse
 Geography,12-13,4,What is the capital city of Turkey?,Ankara,Istanbul,Izmir,Antalya
 Geography,12-13,4,Which is the longest mountain range in the world above sea level?,The Andes,The Himalayas,The Rockies,The Alps
 Geography,12-13,4,Which country has the largest population in Africa?,Nigeria,Egypt,South Africa,Kenya
@@ -479,10 +507,10 @@ Science & nature,12-13,4,What is the name for a material that lets electricity f
 "Sport, music & film",12-13,4,In which sport would you perform a 'Fosbury Flop'?,High jump,Swimming,Gymnastics,Diving
 "Sport, music & film",12-13,4,Which instrument did Ludwig van Beethoven mainly play?,The piano,The violin,The cello,The flute
 "Sport, music & film",12-13,4,Who wrote the novel Oliver Twist?,Charles Dickens,Jane Austen,Mark Twain,Thomas Hardy
-General knowledge,12-13,5,What is the square root of 256?,16,14,18,15
-General knowledge,12-13,5,What is 1/8 as a decimal?,0.125,0.18,0.8,0.25
-General knowledge,12-13,5,What is the name of a shape with 20 faces?,An icosahedron,A dodecahedron,An octahedron,A tetrahedron
-General knowledge,12-13,5,How many seconds are in an hour?,"3,600",360,"6,000","1,000"
+Maths & numbers,12-13,5,What is the square root of 256?,16,14,18,15
+Maths & numbers,12-13,5,What is 1/8 as a decimal?,0.125,0.18,0.8,0.25
+Maths & numbers,12-13,5,What is the name of a shape with 20 faces?,An icosahedron,A dodecahedron,An octahedron,A tetrahedron
+Maths & numbers,12-13,5,How many seconds are in an hour?,"3,600",360,"6,000","1,000"
 Geography,12-13,5,What is the capital city of Argentina?,Buenos Aires,Santiago,Lima,Montevideo
 Geography,12-13,5,Which is the largest lake in Africa?,Lake Victoria,Lake Tanganyika,Lake Malawi,Lake Chad
 Geography,12-13,5,Which strait separates Spain from Morocco?,The Strait of Gibraltar,The Bosphorus,The Strait of Dover,The Bering Strait
@@ -499,28 +527,54 @@ Science & nature,12-13,5,What is the most common gas in the Sun?,Hydrogen,Helium
 "Sport, music & film",12-13,5,In which city is the Louvre art museum?,Paris,Rome,London,Madrid
 "Sport, music & film",12-13,5,Which country has won the most Olympic gold medals in total?,The USA,China,Russia,Great Britain
 "Sport, music & film",12-13,5,Who wrote the novel Frankenstein?,Mary Shelley,Bram Stoker,Jane Austen,Emily Brontë
-General knowledge,14-15,1,How many minutes are there in an hour?,60,100,30,90
+General knowledge,12-13,1,What is the name of the King of the United Kingdom?,Charles III,William V,George VII,Henry IX
+General knowledge,12-13,1,Which social media app has a ghost as its logo?,Snapchat,Instagram,TikTok,WhatsApp
+General knowledge,12-13,1,What is the main ingredient in chips?,Potatoes,Carrots,Rice,Bread
+General knowledge,12-13,1,What is the name of the famous toy doll made by Mattel?,Barbie,Sindy,Bratz,Polly
+General knowledge,12-13,2,What do the letters 'NHS' stand for?,National Health Service,National Hospital System,New Health Service,National Help Scheme
+General knowledge,12-13,2,What colour are the stars on the European Union flag?,Gold,White,Red,Blue
+General knowledge,12-13,2,What is the name of the famous big cat on Frosties cereal boxes?,Tony the Tiger,Leo the Lion,Shere Khan,Simba
+General knowledge,12-13,2,Which language is spoken in Mexico?,Spanish,Portuguese,Mexican,English
+General knowledge,12-13,3,What is the name of the Prime Minister's house in London?,10 Downing Street,Buckingham Palace,Number 1 London,Windsor Castle
+General knowledge,12-13,3,What does 'RSVP' on an invitation ask you to do?,Reply,Bring a gift,Dress smartly,Arrive early
+General knowledge,12-13,3,What is the name for a word made by rearranging the letters of another word?,An anagram,A palindrome,An acronym,A synonym
+General knowledge,12-13,3,"What is the national animal of Wales, shown on its flag?",A dragon,A lion,A unicorn,An eagle
+General knowledge,12-13,4,What is the name for a figure of speech comparing two things using 'like' or 'as'?,A simile,A metaphor,Alliteration,A pun
+General knowledge,12-13,4,Which company created the iPhone?,Apple,Samsung,Google,Microsoft
+General knowledge,12-13,4,What is the name of the London home of the King?,Buckingham Palace,Kensington Palace,Windsor Castle,Hampton Court
+General knowledge,12-13,4,What do the letters 'BBC' stand for?,British Broadcasting Corporation,British Business Council,Big British Channel,British Box Corporation
+General knowledge,12-13,4,What is the currency of the USA?,The dollar,The euro,The pound,The peso
+General knowledge,12-13,4,Which famous author wrote Charlie and the Chocolate Factory?,Roald Dahl,David Walliams,Enid Blyton,Michael Morpurgo
+General knowledge,12-13,5,What is the name for a group of crows?,A murder,A flock,A parliament,A gaggle
+General knowledge,12-13,5,What is the name for the study of ancient remains and objects?,Archaeology,Astrology,Anthropology,Geology
+General knowledge,12-13,5,What does the 'PS' at the end of a letter stand for?,Postscript,Private script,Please see,Past signature
+General knowledge,12-13,5,Which girl wrote a famous diary while hiding from the Nazis in Amsterdam?,Anne Frank,Malala Yousafzai,Helen Keller,Grace Darling
+General knowledge,12-13,5,What is the name for the fear of spiders?,Arachnophobia,Claustrophobia,Agoraphobia,Acrophobia
+General knowledge,12-13,5,What is a group of geese on the ground called?,A gaggle,A pride,A pod,A swarm
+General knowledge,12-13,5,What is the name of the yearly event where countries sing for Europe's top prize?,Eurovision,The Brits,The Grammys,Glastonbury
+General knowledge,12-13,5,What is the name of the ancient stone circle in Wiltshire?,Stonehenge,Avebury Ring,Castlerigg,The Ring of Brodgar
+Maths & numbers,14-15,1,How many minutes are there in an hour?,60,100,30,90
 General knowledge,14-15,1,What is the freezing point of water in Celsius?,0°C,32°C,10°C,-10°C
 Science & nature,14-15,1,Which planet do we live on?,Earth,Mars,Venus,Jupiter
 Geography,14-15,1,What is the capital city of England?,London,Manchester,Birmingham,Leeds
 Geography,14-15,1,Which country is famous for the Eiffel Tower?,France,Germany,Italy,Belgium
 History,14-15,1,Which region did the Vikings come from?,Scandinavia,Italy,North Africa,Spain
 "Sport, music & film",14-15,1,Which sport is played at the Super Bowl?,American football,Baseball,Basketball,Ice hockey
-General knowledge,14-15,2,What is 20% of 50?,10,5,20,25
-General knowledge,14-15,2,How many centimetres are in a metre?,100,10,"1,000",12
+Maths & numbers,14-15,2,What is 20% of 50?,10,5,20,25
+Maths & numbers,14-15,2,How many centimetres are in a metre?,100,10,"1,000",12
 Science & nature,14-15,2,What is the chemical formula for water?,H2O,CO2,NaCl,O2
 Science & nature,14-15,2,Which organ filters blood to make urine?,The kidneys,The liver,The lungs,The heart
 Geography,14-15,2,What is the capital city of Spain?,Madrid,Barcelona,Valencia,Seville
 History,14-15,2,In which year did World War II end?,1945,1944,1939,1950
 "Sport, music & film",14-15,2,Which social media app is known for short videos and was launched by ByteDance?,TikTok,Instagram,Snapchat,YouTube
-General knowledge,14-15,3,What is the square root of 225?,15,25,14,16
+Maths & numbers,14-15,3,What is the square root of 225?,15,25,14,16
 Science & nature,14-15,3,What is the most common gas in the air we breathe?,Nitrogen,Oxygen,Carbon dioxide,Argon
 Geography,14-15,3,What is the capital city of Greece?,Athens,Sparta,Thessaloniki,Corfu
 History,14-15,3,Who was the US President during the American Civil War?,Abraham Lincoln,George Washington,Thomas Jefferson,Ulysses S. Grant
 "Sport, music & film",14-15,3,Which singer released the album 1989?,Taylor Swift,Ariana Grande,Billie Eilish,Olivia Rodrigo
 "Sport, music & film",14-15,3,Who wrote the novel Of Mice and Men?,John Steinbeck,Harper Lee,George Orwell,F. Scott Fitzgerald
-General knowledge,14-15,4,What is the sum of the angles in a triangle?,180°,360°,90°,270°
-General knowledge,14-15,4,What is 7 squared minus 9?,40,49,31,58
+Maths & numbers,14-15,4,What is the sum of the angles in a triangle?,180°,360°,90°,270°
+Maths & numbers,14-15,4,What is 7 squared minus 9?,40,49,31,58
 Science & nature,14-15,4,What is the chemical symbol for silver?,Ag,Si,Sv,Au
 Science & nature,14-15,4,What is the unit of electrical current?,The ampere,The volt,The ohm,The watt
 Geography,14-15,4,Which African country has the largest population?,Nigeria,Egypt,South Africa,Ethiopia
@@ -529,10 +583,10 @@ History,14-15,4,In which year did the Berlin Wall fall?,1989,1991,1961,1979
 History,14-15,4,Who wrote the Communist Manifesto with Friedrich Engels?,Karl Marx,Vladimir Lenin,Joseph Stalin,Leon Trotsky
 "Sport, music & film",14-15,4,Who painted the ceiling of the Sistine Chapel?,Michelangelo,Leonardo da Vinci,Raphael,Donatello
 "Sport, music & film",14-15,4,Who wrote the novel To Kill a Mockingbird?,Harper Lee,John Steinbeck,Mark Twain,Ernest Hemingway
-General knowledge,14-15,5,"What is the next number in the sequence 1, 1, 2, 3, 5, 8?",13,11,12,16
-General knowledge,14-15,5,How many edges does a cube have?,12,8,6,10
-General knowledge,14-15,5,"What is the area of a circle with radius 1, to two decimal places?",3.14,6.28,1.57,2.00
-General knowledge,14-15,5,What is a polygon with nine sides called?,A nonagon,A decagon,An octagon,A heptagon
+Maths & numbers,14-15,5,"What is the next number in the sequence 1, 1, 2, 3, 5, 8?",13,11,12,16
+Maths & numbers,14-15,5,How many edges does a cube have?,12,8,6,10
+Maths & numbers,14-15,5,"What is the area of a circle with radius 1, to two decimal places?",3.14,6.28,1.57,2.00
+Maths & numbers,14-15,5,What is a polygon with nine sides called?,A nonagon,A decagon,An octagon,A heptagon
 Science & nature,14-15,5,What is the chemical symbol for lead?,Pb,Le,Ld,Pd
 Science & nature,14-15,5,Which scientist proposed the theory of evolution by natural selection?,Charles Darwin,Gregor Mendel,Isaac Newton,Louis Pasteur
 Science & nature,14-15,5,What is the powerhouse of the cell?,The mitochondria,The ribosome,The nucleus,The vacuole
@@ -550,7 +604,7 @@ History,14-15,5,Who was the leader of the Soviet Union at the start of the Cold 
 "Sport, music & film",14-15,5,Which composer wrote the Moonlight Sonata?,Ludwig van Beethoven,Frédéric Chopin,Wolfgang Amadeus Mozart,Franz Schubert
 "Sport, music & film",14-15,5,Which footballer has won the most Ballon d'Or awards?,Lionel Messi,Cristiano Ronaldo,Michel Platini,Johan Cruyff
 General knowledge,14-15,1,How many days are in a leap year?,366,365,364,360
-General knowledge,14-15,1,What is 12 x 10?,120,112,100,130
+Maths & numbers,14-15,1,What is 12 x 10?,120,112,100,130
 General knowledge,14-15,1,What is the largest planet in our solar system?,Jupiter,Saturn,Earth,Neptune
 General knowledge,14-15,1,What does 'www' stand for in a web address?,World Wide Web,World Web Wide,Wide World Web,Web World Wide
 Geography,14-15,1,What is the capital city of Japan?,Tokyo,Osaka,Kyoto,Beijing
@@ -569,9 +623,9 @@ Science & nature,14-15,1,How many bones are in the adult human body?,206,196,216
 "Sport, music & film",14-15,1,Which singer is known for the Eras Tour?,Taylor Swift,Beyoncé,Adele,Rihanna
 "Sport, music & film",14-15,1,In which film series does a character say 'I'll be back'?,The Terminator,Rocky,Die Hard,Rambo
 "Sport, music & film",14-15,1,Which game is played on a board with 64 squares and has a king and queen?,Chess,Draughts,Backgammon,Scrabble
-General knowledge,14-15,2,What is 25% of 200?,50,25,40,75
-General knowledge,14-15,2,What is the square root of 64?,8,6,9,7
-General knowledge,14-15,2,How many degrees are in a right angle?,90,180,45,360
+Maths & numbers,14-15,2,What is 25% of 200?,50,25,40,75
+Maths & numbers,14-15,2,What is the square root of 64?,8,6,9,7
+Maths & numbers,14-15,2,How many degrees are in a right angle?,90,180,45,360
 General knowledge,14-15,2,What is the opposite of 'transparent'?,Opaque,Clear,Shiny,Bright
 Geography,14-15,2,What is the capital city of China?,Beijing,Shanghai,Hong Kong,Guangzhou
 Geography,14-15,2,Which river flows through Rome?,The Tiber,The Po,The Arno,The Seine
@@ -589,10 +643,10 @@ Science & nature,14-15,2,Which type of rock is made from layers of sand and mud?
 "Sport, music & film",14-15,2,Which large orchestral instrument has 47 strings that are plucked?,The harp,The cello,The piano,The guitar
 "Sport, music & film",14-15,2,In which country did the sport of judo begin?,Japan,China,Korea,Thailand
 "Sport, music & film",14-15,2,Which British band had a hit with 'Wonderwall'?,Oasis,Blur,Coldplay,Radiohead
-General knowledge,14-15,3,What is 17 x 3?,51,47,54,41
-General knowledge,14-15,3,"What is the mean of 2, 4 and 9?",5,4,6,15
+Maths & numbers,14-15,3,What is 17 x 3?,51,47,54,41
+Maths & numbers,14-15,3,"What is the mean of 2, 4 and 9?",5,4,6,15
 General knowledge,14-15,3,What is the name for a word that reads the same backwards and forwards?,A palindrome,An anagram,A homophone,An acronym
-General knowledge,14-15,3,How many sides does a dodecagon have?,12,10,11,20
+Maths & numbers,14-15,3,How many sides does a dodecagon have?,12,10,11,20
 Geography,14-15,3,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Perth
 Geography,14-15,3,Which country is the island of Bali part of?,Indonesia,Thailand,Malaysia,Philippines
 Geography,14-15,3,Which sea is so salty that people float easily in it?,The Dead Sea,The Red Sea,The Black Sea,The North Sea
@@ -609,10 +663,10 @@ Science & nature,14-15,3,Which planet has the shortest year?,Mercury,Venus,Mars,
 "Sport, music & film",14-15,3,Which band was Harry Styles in before going solo?,One Direction,The Wanted,Take That,JLS
 "Sport, music & film",14-15,3,How many players are on a baseball team on the field?,9,11,7,10
 "Sport, music & film",14-15,3,Which novel by George Orwell features animals taking over a farm?,Animal Farm,1984,Watership Down,Charlotte's Web
-General knowledge,14-15,4,What is 3 to the power of 4?,81,64,12,27
-General knowledge,14-15,4,What is 5/8 as a decimal?,0.625,0.58,0.6,0.85
-General knowledge,14-15,4,What is the circumference of a circle divided by its diameter?,Pi,Radius,Area,Two
-General knowledge,14-15,4,How many vertices (corners) does a cube have?,8,6,12,4
+Maths & numbers,14-15,4,What is 3 to the power of 4?,81,64,12,27
+Maths & numbers,14-15,4,What is 5/8 as a decimal?,0.625,0.58,0.6,0.85
+Maths & numbers,14-15,4,What is the circumference of a circle divided by its diameter?,Pi,Radius,Area,Two
+Maths & numbers,14-15,4,How many vertices (corners) does a cube have?,8,6,12,4
 Geography,14-15,4,What is the capital city of Brazil?,Brasília,Rio de Janeiro,São Paulo,Salvador
 Geography,14-15,4,Which country has the most lakes in the world?,Canada,Russia,Finland,USA
 Geography,14-15,4,What is the highest mountain in Africa?,Kilimanjaro,Mount Kenya,Table Mountain,Atlas
@@ -629,10 +683,10 @@ Science & nature,14-15,4,What is the name for a pure substance made of only one 
 "Sport, music & film",14-15,4,In which year did England win the men's football World Cup?,1966,1970,1958,1990
 "Sport, music & film",14-15,4,Which composer wrote 'The Four Seasons'?,Antonio Vivaldi,Johann Sebastian Bach,Mozart,Handel
 "Sport, music & film",14-15,4,Which city hosted the 2008 Summer Olympics?,Beijing,Athens,London,Sydney
-General knowledge,14-15,5,What is 13 squared?,169,139,196,156
-General knowledge,14-15,5,What is the sum of the interior angles of a quadrilateral?,360°,180°,540°,270°
-General knowledge,14-15,5,What is the name for a number that can only be divided by 1 and itself?,A prime number,A square number,An even number,A factor
-General knowledge,14-15,5,What is 0.2 x 0.3?,0.06,0.6,0.5,0.05
+Maths & numbers,14-15,5,What is 13 squared?,169,139,196,156
+Maths & numbers,14-15,5,What is the sum of the interior angles of a quadrilateral?,360°,180°,540°,270°
+Maths & numbers,14-15,5,What is the name for a number that can only be divided by 1 and itself?,A prime number,A square number,An even number,A factor
+Maths & numbers,14-15,5,What is 0.2 x 0.3?,0.06,0.6,0.5,0.05
 Geography,14-15,5,What is the capital city of Pakistan?,Islamabad,Karachi,Lahore,Peshawar
 Geography,14-15,5,Which country is the city of Timbuktu in?,Mali,Niger,Chad,Senegal
 Geography,14-15,5,What is the deepest ocean trench in the world?,The Mariana Trench,The Puerto Rico Trench,The Java Trench,The Tonga Trench
@@ -649,10 +703,36 @@ Science & nature,14-15,5,What is the name for the energy an object has because i
 "Sport, music & film",14-15,5,Which artist is famous for paintings of soup cans?,Andy Warhol,Roy Lichtenstein,Jackson Pollock,Banksy
 "Sport, music & film",14-15,5,In which country were the first modern Olympic Games held in 1896?,Greece,France,UK,USA
 "Sport, music & film",14-15,5,Which opera composer wrote 'La Bohème'?,Giacomo Puccini,Giuseppe Verdi,Gioachino Rossini,Richard Wagner
+General knowledge,14-15,1,Which company makes the Xbox?,Microsoft,Sony,Nintendo,Apple
+General knowledge,14-15,1,What is the currency of Japan?,The yen,The yuan,The won,The rupee
+General knowledge,14-15,2,What do the letters 'UN' stand for?,United Nations,Universal Nations,United Network,Union of Nations
+General knowledge,14-15,2,What is the name of the famous Swedish furniture shop known for flat-pack furniture?,IKEA,H&M,Volvo,Spotify
+General knowledge,14-15,2,Which famous diarist hid from the Nazis in an Amsterdam annexe?,Anne Frank,Eva Braun,Marie Curie,Edith Cavell
+General knowledge,14-15,2,What is the name of the famous cathedral in Paris damaged by fire in 2019?,Notre-Dame,Sacré-Cœur,Sainte-Chapelle,Saint-Denis
+General knowledge,14-15,2,What does 'Wi-Fi' let you do?,Connect to the internet without wires,Charge your phone,Take photos,Make your screen brighter
+General knowledge,14-15,2,What is the name for the official language of Austria?,German,Austrian,French,Dutch
+General knowledge,14-15,3,"What is the name for a word that is spelled the same but has two meanings, like 'bat'?",A homonym,An antonym,A synonym,An acronym
+General knowledge,14-15,3,Which car company makes the Model 3 and Model Y?,Tesla,Ford,Toyota,BMW
+General knowledge,14-15,3,Who founded Microsoft with Paul Allen?,Bill Gates,Steve Jobs,Mark Zuckerberg,Elon Musk
+General knowledge,14-15,3,What do the letters 'CV' stand for?,Curriculum vitae,Career value,Certified version,Current vacancy
+General knowledge,14-15,4,What is the name for a doctor who specialises in skin?,A dermatologist,A cardiologist,A neurologist,A podiatrist
+General knowledge,14-15,4,What is the name of the official residence of the US President?,The White House,Capitol Hill,The Pentagon,Camp David
+General knowledge,14-15,4,What does the Latin phrase 'carpe diem' mean?,Seize the day,Love conquers all,"I came, I saw, I conquered",Know yourself
+General knowledge,14-15,4,Which country does sushi originally come from?,Japan,China,Korea,Thailand
+General knowledge,14-15,4,What is the name for a speech given by one actor alone on stage?,A soliloquy,A chorus,A prologue,A sonnet
+General knowledge,14-15,4,What is the name of the yearly award ceremony for films in Hollywood?,The Oscars,The BAFTAs,The Grammys,The Emmys
+General knowledge,14-15,5,Which scientist won Nobel Prizes in both physics and chemistry?,Marie Curie,Albert Einstein,Rosalind Franklin,Niels Bohr
+General knowledge,14-15,5,What does the abbreviation 'i.e.' stand for?,Id est,In example,Ipso exemplum,In effect
+General knowledge,14-15,5,What is the name for the fear of enclosed spaces?,Claustrophobia,Agoraphobia,Arachnophobia,Acrophobia
+General knowledge,14-15,5,What is the name of the Paris museum that houses the Mona Lisa?,The Louvre,The Musée d'Orsay,The Prado,The Uffizi
+General knowledge,14-15,5,Which famous playwright wrote 'The Importance of Being Earnest'?,Oscar Wilde,George Bernard Shaw,William Shakespeare,Noël Coward
+General knowledge,14-15,5,What is the name of the Greek letter that comes first in the alphabet?,Alpha,Beta,Omega,Delta
+General knowledge,14-15,5,What is the international dialling code for the UK?,+44,+1,+33,+49
+General knowledge,14-15,5,What is the name of the yearly race between Oxford and Cambridge universities on the Thames?,The Boat Race,The Regatta,The Henley Cup,The Varsity Sprint
 General knowledge,16-17,1,How many weeks are there in a year?,52,48,56,50
-General knowledge,16-17,1,What is 10 x 10?,100,"1,000",20,110
+Maths & numbers,16-17,1,What is 10 x 10?,100,"1,000",20,110
 General knowledge,16-17,1,How many continents are there?,7,5,6,8
-General knowledge,16-17,1,How many sides does a hexagon have?,6,5,7,8
+Maths & numbers,16-17,1,How many sides does a hexagon have?,6,5,7,8
 Science & nature,16-17,1,What is H2O better known as?,Water,Salt,Oxygen,Hydrogen
 Science & nature,16-17,1,Which organ pumps blood around the body?,The heart,The liver,The brain,The lungs
 Science & nature,16-17,1,What do bees make?,Honey,Wax only,Milk,Silk
@@ -669,9 +749,9 @@ History,16-17,1,Which ancient people built the pyramids at Giza?,The Egyptians,T
 "Sport, music & film",16-17,1,Who sang 'Shape of You'?,Ed Sheeran,Harry Styles,Justin Bieber,Lewis Capaldi
 "Sport, music & film",16-17,1,Which streaming service made Stranger Things?,Netflix,Disney+,Amazon Prime Video,Apple TV+
 "Sport, music & film",16-17,1,How many players are on a basketball team on the court?,5,6,7,11
-General knowledge,16-17,2,What is 15% of 200?,30,15,20,45
-General knowledge,16-17,2,How many sides does an octagon have?,8,6,10,12
-General knowledge,16-17,2,What is the Roman numeral for 100?,C,M,L,D
+Maths & numbers,16-17,2,What is 15% of 200?,30,15,20,45
+Maths & numbers,16-17,2,How many sides does an octagon have?,8,6,10,12
+Maths & numbers,16-17,2,What is the Roman numeral for 100?,C,M,L,D
 General knowledge,16-17,2,What does 'CPU' stand for in computing?,Central Processing Unit,Computer Power Unit,Central Program Utility,Core Processing Unit
 Science & nature,16-17,2,What is the chemical symbol for gold?,Au,Ag,Gd,Go
 Science & nature,16-17,2,What gas do plants release during photosynthesis?,Oxygen,Carbon dioxide,Nitrogen,Methane
@@ -689,10 +769,10 @@ History,16-17,2,In which city was the Titanic built?,Belfast,Liverpool,Southampt
 "Sport, music & film",16-17,2,In which sport would you perform a slam dunk?,Basketball,Volleyball,Tennis,Netball
 "Sport, music & film",16-17,2,Who played Iron Man in the Marvel films?,Robert Downey Jr.,Chris Evans,Chris Hemsworth,Mark Ruffalo
 "Sport, music & film",16-17,2,Which country hosts the Tour de France?,France,Italy,Spain,Belgium
-General knowledge,16-17,3,What is 2 to the power of 8?,256,128,512,64
+Maths & numbers,16-17,3,What is 2 to the power of 8?,256,128,512,64
 General knowledge,16-17,3,How many degrees are in a full circle?,360,180,270,400
-General knowledge,16-17,3,How many zeros are there in one million?,6,5,7,9
-General knowledge,16-17,3,What is the next prime number after 13?,17,15,19,16
+Maths & numbers,16-17,3,How many zeros are there in one million?,6,5,7,9
+Maths & numbers,16-17,3,What is the next prime number after 13?,17,15,19,16
 Science & nature,16-17,3,What is the most abundant gas in Earth's atmosphere?,Nitrogen,Oxygen,Argon,Carbon dioxide
 Science & nature,16-17,3,What is the pH of a neutral solution?,7,0,14,1
 Science & nature,16-17,3,Which vitamin does the body make from sunlight?,Vitamin D,Vitamin C,Vitamin A,Vitamin B12
@@ -709,9 +789,9 @@ History,16-17,3,Who became President of South Africa in 1994?,Nelson Mandela,Des
 "Sport, music & film",16-17,3,Which Formula 1 driver has won seven world championships along with Michael Schumacher?,Lewis Hamilton,Sebastian Vettel,Max Verstappen,Ayrton Senna
 "Sport, music & film",16-17,3,Who directed the film Inception?,Christopher Nolan,Steven Spielberg,Ridley Scott,Quentin Tarantino
 "Sport, music & film",16-17,3,Which singer is known as the Queen of Pop?,Madonna,Beyoncé,Lady Gaga,Kylie Minogue
-General knowledge,16-17,4,What is the square root of 196?,14,16,13,18
-General knowledge,16-17,4,What is 3/8 as a decimal?,0.375,0.38,0.35,0.83
-General knowledge,16-17,4,How many faces does a dodecahedron have?,12,10,20,8
+Maths & numbers,16-17,4,What is the square root of 196?,14,16,13,18
+Maths & numbers,16-17,4,What is 3/8 as a decimal?,0.375,0.38,0.35,0.83
+Maths & numbers,16-17,4,How many faces does a dodecahedron have?,12,10,20,8
 General knowledge,16-17,4,What does GDP stand for?,Gross Domestic Product,General Domestic Price,Gross Development Plan,Global Domestic Profit
 Science & nature,16-17,4,What is the chemical symbol for sodium?,Na,So,Sd,Sm
 Science & nature,16-17,4,What is the SI unit of force?,The newton,The joule,The pascal,The watt
@@ -729,10 +809,10 @@ History,16-17,4,"Which country gave women the vote first, in 1893?",New Zealand,
 "Sport, music & film",16-17,4,Who wrote the novel Pride and Prejudice?,Jane Austen,Charlotte Brontë,Emily Brontë,Mary Shelley
 "Sport, music & film",16-17,4,Which country won the first FIFA World Cup in 1930?,Uruguay,Brazil,Argentina,Italy
 "Sport, music & film",16-17,4,Which rapper released the album To Pimp a Butterfly?,Kendrick Lamar,Drake,Kanye West,J. Cole
-General knowledge,16-17,5,What is the sum of the interior angles of a hexagon?,720°,540°,360°,900°
-General knowledge,16-17,5,What is the derivative of x squared?,2x,x,x squared,2
+Maths & numbers,16-17,5,What is the sum of the interior angles of a hexagon?,720°,540°,360°,900°
+Maths & numbers,16-17,5,What is the derivative of x squared?,2x,x,x squared,2
 General knowledge,16-17,5,How many bits are in a byte?,8,4,16,10
-General knowledge,16-17,5,What is the only even prime number?,2,4,0,6
+Maths & numbers,16-17,5,What is the only even prime number?,2,4,0,6
 Science & nature,16-17,5,"What is Avogadro's number, roughly?",6.02 × 10²³,3.00 × 10⁸,9.81,1.6 × 10⁻¹⁹
 Science & nature,16-17,5,What is the chemical symbol for tungsten?,W,Tu,Tg,Tn
 Science & nature,16-17,5,Which subatomic particle has no electric charge?,The neutron,The proton,The electron,The positron
@@ -749,8 +829,8 @@ History,16-17,5,Which Roman emperor made Christianity legal in 313?,Constantine,
 "Sport, music & film",16-17,5,"Which novel begins 'It was the best of times, it was the worst of times'?",A Tale of Two Cities,Great Expectations,Oliver Twist,Bleak House
 "Sport, music & film",16-17,5,"Which film won the Oscar for Best Picture in 2020, the first non-English-language winner?",Parasite,1917,Joker,Roma
 "Sport, music & film",16-17,5,In which city is the Prado art museum?,Madrid,Barcelona,Lisbon,Paris
-General knowledge,16-17,1,How many minutes are in two hours?,120,100,60,200
-General knowledge,16-17,1,How many sides does a triangle have?,3,4,5,6
+Maths & numbers,16-17,1,How many minutes are in two hours?,120,100,60,200
+Maths & numbers,16-17,1,How many sides does a triangle have?,3,4,5,6
 General knowledge,16-17,1,What is the freezing point of water in Celsius?,0°C,32°C,-10°C,4°C
 General knowledge,16-17,1,Which language has the most native speakers in the world?,Mandarin Chinese,English,Spanish,Hindi
 Geography,16-17,1,What is the capital city of France?,Paris,Lyon,Marseille,Nice
@@ -769,9 +849,9 @@ Science & nature,16-17,1,How many planets are in our solar system?,8,9,7,10
 "Sport, music & film",16-17,1,Which wizard is Harry Potter's enemy?,Lord Voldemort,Albus Dumbledore,Gandalf,Saruman
 "Sport, music & film",16-17,1,Who sang 'Rolling in the Deep'?,Adele,Amy Winehouse,Dua Lipa,Lady Gaga
 "Sport, music & film",16-17,1,How many players are on a football team on the pitch?,11,10,12,9
-General knowledge,16-17,2,What is 30% of 50?,15,30,20,35
-General knowledge,16-17,2,How many sides does a pentagon have?,5,6,7,8
-General knowledge,16-17,2,What is the square root of 121?,11,12,10,13
+Maths & numbers,16-17,2,What is 30% of 50?,15,30,20,35
+Maths & numbers,16-17,2,How many sides does a pentagon have?,5,6,7,8
+Maths & numbers,16-17,2,What is the square root of 121?,11,12,10,13
 General knowledge,16-17,2,What does 'USB' stand for in computing?,Universal Serial Bus,United System Board,Universal Storage Box,Unique Serial Bridge
 Geography,16-17,2,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Adelaide
 Geography,16-17,2,Which country is home to Mount Fuji?,Japan,China,South Korea,Nepal
@@ -789,10 +869,10 @@ Science & nature,16-17,2,Which planet has a day longer than its year?,Venus,Merc
 "Sport, music & film",16-17,2,Who wrote the novel 'Great Expectations'?,Charles Dickens,Thomas Hardy,Jane Austen,George Eliot
 "Sport, music & film",16-17,2,Which tennis player is nicknamed 'Djoker'?,Novak Djokovic,Rafael Nadal,Roger Federer,Andy Murray
 "Sport, music & film",16-17,2,Which artist released the album 'Purple Rain'?,Prince,Michael Jackson,David Bowie,Stevie Wonder
-General knowledge,16-17,3,What is 2 to the power of 9?,512,256,"1,024",128
-General knowledge,16-17,3,"What is the median of 3, 7, 1, 9 and 5?",5,7,3,25
+Maths & numbers,16-17,3,What is 2 to the power of 9?,512,256,"1,024",128
+Maths & numbers,16-17,3,"What is the median of 3, 7, 1, 9 and 5?",5,7,3,25
 General knowledge,16-17,3,What does 'RAM' stand for in computing?,Random Access Memory,Read Access Memory,Rapid Action Memory,Run All Modules
-General knowledge,16-17,3,What is the name of the longest side of a right-angled triangle?,The hypotenuse,The adjacent,The opposite,The base
+Maths & numbers,16-17,3,What is the name of the longest side of a right-angled triangle?,The hypotenuse,The adjacent,The opposite,The base
 Geography,16-17,3,What is the capital city of New Zealand?,Wellington,Auckland,Christchurch,Queenstown
 Geography,16-17,3,Which country has the most pyramids in the world?,Sudan,Egypt,Mexico,Peru
 Geography,16-17,3,What is the capital city of Morocco?,Rabat,Casablanca,Marrakech,Fez
@@ -809,10 +889,10 @@ Science & nature,16-17,3,"What is absolute zero in Celsius, roughly?",-273°C,-1
 "Sport, music & film",16-17,3,Which band released the album 'OK Computer'?,Radiohead,Coldplay,Muse,Oasis
 "Sport, music & film",16-17,3,Which sport is played in the Six Nations Championship?,Rugby union,Football,Cricket,Hockey
 "Sport, music & film",16-17,3,Who wrote the novel 'Brave New World'?,Aldous Huxley,George Orwell,Ray Bradbury,H.G. Wells
-General knowledge,16-17,4,What is the integral of 2x with respect to x?,x squared plus a constant,2,2x squared,x
-General knowledge,16-17,4,What is 7/20 as a percentage?,35%,72%,27%,14%
+Maths & numbers,16-17,4,What is the integral of 2x with respect to x?,x squared plus a constant,2,2x squared,x
+Maths & numbers,16-17,4,What is 7/20 as a percentage?,35%,72%,27%,14%
 General knowledge,16-17,4,"How many bytes are in a kilobyte, in the binary sense?","1,024","1,000",512,"2,048"
-General knowledge,16-17,4,What is the sum of the interior angles of an octagon?,"1,080°",720°,900°,"1,440°"
+Maths & numbers,16-17,4,What is the sum of the interior angles of an octagon?,"1,080°",720°,900°,"1,440°"
 Geography,16-17,4,What is the capital city of Nigeria?,Abuja,Lagos,Kano,Ibadan
 Geography,16-17,4,Which is the largest desert in Asia?,The Gobi,The Thar,The Karakum,The Arabian
 Geography,16-17,4,What is the capital city of Hungary?,Budapest,Vienna,Prague,Bucharest
@@ -829,10 +909,10 @@ Science & nature,16-17,4,What is Newton's third law about?,Every action has an e
 "Sport, music & film",16-17,4,Who wrote 'Wuthering Heights'?,Emily Brontë,Charlotte Brontë,Anne Brontë,Jane Austen
 "Sport, music & film",16-17,4,Which country hosted the 2014 FIFA World Cup?,Brazil,South Africa,Germany,Russia
 "Sport, music & film",16-17,4,Which artist painted 'The Scream'?,Edvard Munch,Gustav Klimt,Egon Schiele,Wassily Kandinsky
-General knowledge,16-17,5,What is the value of 5 factorial (5!)?,120,25,60,720
-General knowledge,16-17,5,What is the derivative of sin x?,cos x,-sin x,-cos x,tan x
-General knowledge,16-17,5,"What is log base 10 of 1,000?",3,10,100,30
-General knowledge,16-17,5,How many edges does a tetrahedron have?,6,4,8,12
+Maths & numbers,16-17,5,What is the value of 5 factorial (5!)?,120,25,60,720
+Maths & numbers,16-17,5,What is the derivative of sin x?,cos x,-sin x,-cos x,tan x
+Maths & numbers,16-17,5,"What is log base 10 of 1,000?",3,10,100,30
+Maths & numbers,16-17,5,How many edges does a tetrahedron have?,6,4,8,12
 Geography,16-17,5,What is the capital city of Kenya?,Nairobi,Mombasa,Kampala,Addis Ababa
 Geography,16-17,5,Which is the world's longest river entirely within one country?,The Yangtze,The Mississippi,The Volga,The Amazon
 Geography,16-17,5,What is the capital city of Myanmar?,Naypyidaw,Yangon,Mandalay,Bangkok
@@ -849,10 +929,39 @@ Science & nature,16-17,5,"What is the half-life of carbon-14, roughly?","5,700 y
 "Sport, music & film",16-17,5,Which poet wrote 'The Waste Land'?,T.S. Eliot,W.B. Yeats,Ezra Pound,Dylan Thomas
 "Sport, music & film",16-17,5,Which composer wrote 'The Rite of Spring'?,Igor Stravinsky,Sergei Prokofiev,Claude Debussy,Maurice Ravel
 "Sport, music & film",16-17,5,Who was the first gymnast to score a perfect 10 at the Olympics?,Nadia Comăneci,Olga Korbut,Simone Biles,Mary Lou Retton
+General knowledge,16-17,1,What is the currency of the USA?,The dollar,The euro,The pound,The peso
+General knowledge,16-17,1,Which company owns Instagram and WhatsApp?,Meta,Google,Apple,Microsoft
+General knowledge,16-17,1,What is the name of the King of the United Kingdom?,Charles III,William V,George VII,Edward IX
+General knowledge,16-17,1,What does 'AI' stand for in technology?,Artificial intelligence,Automatic internet,Advanced interface,Analogue information
+General knowledge,16-17,2,What is the minimum voting age in UK general elections?,18,16,21,17
+General knowledge,16-17,2,What do the letters 'GPS' stand for?,Global Positioning System,General Power Supply,Global Phone Service,Ground Pointing Signal
+General knowledge,16-17,2,What is the name for the money you borrow to buy a house?,A mortgage,A pension,A dividend,A tariff
+General knowledge,16-17,2,What does 'FAQ' stand for?,Frequently asked questions,Fast answer queue,Final answer quiz,Formal application query
+General knowledge,16-17,2,Which country is the car maker Volvo originally from?,Sweden,Germany,Norway,Japan
+General knowledge,16-17,2,What is the name of the French national anthem?,La Marseillaise,Ode to Joy,Les Misérables,La Vie en Rose
+General knowledge,16-17,3,What does 'NATO' stand for?,North Atlantic Treaty Organization,National Alliance of Treaty Officers,North American Trade Organization,Northern Allied Territories Office
+General knowledge,16-17,3,What is the name of the house of the UK Parliament whose members are elected?,The House of Commons,The House of Lords,The Senate,The Cabinet
+General knowledge,16-17,3,"What do we call a public vote on a single question, like the Brexit vote?",A referendum,A general election,A by-election,A census
+General knowledge,16-17,3,Which economic idea says prices rise when lots of people want something that is scarce?,Supply and demand,Profit and loss,Stocks and shares,Debit and credit
+General knowledge,16-17,3,Which famous fashion house was founded by Coco Chanel?,Chanel,Dior,Gucci,Prada
+General knowledge,16-17,3,What does 'e.g.' stand for?,For example,End of game,Every group,Extra good
+General knowledge,16-17,4,What does the Latin phrase 'status quo' mean?,The way things are now,A change of plan,A secret vote,A legal promise
+General knowledge,16-17,4,What is the name for a government by a single ruler with total power?,A dictatorship,A democracy,A republic,A federation
+General knowledge,16-17,4,What does 'GDP' measure?,The value of what a country produces,A country's population,Government debt,The price of petrol
+General knowledge,16-17,4,Which organisation awards the Nobel Peace Prize?,The Norwegian Nobel Committee,The United Nations,The Swedish Academy,The Red Cross
+General knowledge,16-17,4,What is the name of the Paris museum that houses the Mona Lisa?,The Louvre,The Musée d'Orsay,The Pompidou Centre,The Rodin Museum
+General knowledge,16-17,4,"What is the name for a word formed from the initials of other words and spoken as a word, like 'NASA'?",An acronym,An abbreviation,An anagram,An eponym
+General knowledge,16-17,5,"What is the name for a figure of speech that deliberately exaggerates, like 'I've told you a million times'?",Hyperbole,Irony,Oxymoron,Litotes
+General knowledge,16-17,5,"What does the Latin phrase 'veni, vidi, vici' mean?","I came, I saw, I conquered",Seize the day,Know yourself,Love conquers all
+General knowledge,16-17,5,Which international organisation has its headquarters in Geneva and deals with world health?,The WHO,UNESCO,NATO,The IMF
+General knowledge,16-17,5,"What is the name for a phrase that contradicts itself, like 'deafening silence'?",An oxymoron,A paradox,A simile,A pun
+General knowledge,16-17,5,What does a sommelier specialise in?,Wine,Cheese,Perfume,Bread
+General knowledge,16-17,5,What is the name of the stock market index of the 100 largest UK companies?,The FTSE 100,The Dow Jones,The Nasdaq,The Nikkei
+General knowledge,16-17,5,Which famous economist wrote 'The Wealth of Nations'?,Adam Smith,John Maynard Keynes,Karl Marx,David Ricardo
 General knowledge,6-7,1,What colour is the sky on a sunny day?,Blue,Green,Red,Purple
 General knowledge,6-7,1,How many days are there in a week?,7,5,10,6
 General knowledge,6-7,1,What do you use to brush your teeth?,A toothbrush,A comb,A spoon,A pencil
-General knowledge,6-7,1,Which shape has three sides?,A triangle,A square,A circle,A rectangle
+Maths & numbers,6-7,1,Which shape has three sides?,A triangle,A square,A circle,A rectangle
 Science & nature,6-7,1,What sound does a cow make?,Moo,Woof,Quack,Baa
 Science & nature,6-7,1,Which animal has a very long neck?,A giraffe,A pig,A rabbit,A penguin
 Science & nature,6-7,1,What do bees make?,Honey,Milk,Jam,Butter
@@ -890,9 +999,9 @@ History,6-7,2,Who wears a crown and rules a kingdom?,A king or queen,A teacher,A
 "Sport, music & film",6-7,2,Which superhero dresses as a bat?,Batman,Superman,Spider-Man,The Hulk
 "Sport, music & film",6-7,2,Which instrument do you bang with sticks?,A drum,A violin,A flute,A piano
 General knowledge,6-7,3,How many months are there in a year?,12,10,7,52
-General knowledge,6-7,3,What is 5 + 5?,10,9,11,55
+Maths & numbers,6-7,3,What is 5 + 5?,10,9,11,55
 General knowledge,6-7,3,What do we call a person who flies a plane?,A pilot,A driver,A sailor,A chef
-General knowledge,6-7,3,How many sides does a square have?,4,3,5,6
+Maths & numbers,6-7,3,How many sides does a square have?,4,3,5,6
 Science & nature,6-7,3,What is the opposite of hot?,Cold,Warm,Wet,Fast
 Science & nature,6-7,3,Which part of your body do you smell with?,Your nose,Your ears,Your elbows,Your knees
 Science & nature,6-7,3,What do tadpoles grow into?,Frogs,Fish,Snakes,Ducks
@@ -909,8 +1018,8 @@ History,6-7,3,What kind of boats did the Vikings sail in?,Longships,Submarines,C
 "Sport, music & film",6-7,3,Which sport is played with an orange ball and a hoop?,Basketball,Football,Tennis,Golf
 "Sport, music & film",6-7,3,Which film has a forgetful blue fish called Dory?,Finding Nemo,Frozen,Cars,Shrek
 "Sport, music & film",6-7,3,What do footballers try to kick the ball into?,The goal,The basket,The hole,The bucket
-General knowledge,6-7,4,What is 10 take away 3?,7,6,8,13
-General knowledge,6-7,4,How many hours are there in a day?,24,12,60,100
+Maths & numbers,6-7,4,What is 10 take away 3?,7,6,8,13
+Maths & numbers,6-7,4,How many hours are there in a day?,24,12,60,100
 General knowledge,6-7,4,Which day comes after Friday?,Saturday,Sunday,Thursday,Monday
 General knowledge,6-7,4,In which season do leaves fall off the trees?,Autumn,Spring,Summer,Winter
 Science & nature,6-7,4,How many legs does an insect have?,6,8,4,10
@@ -929,9 +1038,9 @@ History,6-7,4,Who were the pharaohs?,Kings of Ancient Egypt,Roman soldiers,Vikin
 "Sport, music & film",6-7,4,What colour is the Hulk?,Green,Blue,Red,Yellow
 "Sport, music & film",6-7,4,In which sport do you score a try?,Rugby,Tennis,Swimming,Golf
 "Sport, music & film",6-7,4,What kind of fish is Nemo?,A clownfish,A shark,A goldfish,A whale
-General knowledge,6-7,5,What is 3 + 4 + 5?,12,11,13,10
-General knowledge,6-7,5,How many minutes are there in an hour?,60,100,30,24
-General knowledge,6-7,5,"Which is bigger, 100 or 99?",100,99,They are the same,90
+Maths & numbers,6-7,5,What is 3 + 4 + 5?,12,11,13,10
+Maths & numbers,6-7,5,How many minutes are there in an hour?,60,100,30,24
+Maths & numbers,6-7,5,"Which is bigger, 100 or 99?",100,99,They are the same,90
 General knowledge,6-7,5,What is the capital city of France?,Paris,London,Rome,Berlin
 Science & nature,6-7,5,Which planet is closest to the Sun?,Mercury,Earth,Mars,Jupiter
 Science & nature,6-7,5,What do we call water when it is heated and turns into a gas?,Steam,Ice,Snow,Rain
@@ -971,8 +1080,8 @@ Science & nature,6-7,1,How many legs does a dog have?,4,2,6,8
 "Sport, music & film",6-7,1,What do you need to go swimming?,Water,Snow,Sand,Grass
 General knowledge,6-7,2,What colour do you get by mixing red and yellow?,Orange,Green,Purple,Blue
 General knowledge,6-7,2,How many toes are on one foot?,5,4,6,10
-General knowledge,6-7,2,What is 2 + 3?,5,4,6,23
-General knowledge,6-7,2,What shape is a wheel?,A circle,A square,A triangle,A star
+Maths & numbers,6-7,2,What is 2 + 3?,5,4,6,23
+Maths & numbers,6-7,2,What shape is a wheel?,A circle,A square,A triangle,A star
 Geography,6-7,2,Which animal with black and white fur lives in China and eats bamboo?,A panda,A zebra,A penguin,A skunk
 Geography,6-7,2,What is the coldest season of the year?,Winter,Summer,Spring,Autumn
 Geography,6-7,2,What do we call a mountain that can erupt with hot lava?,A volcano,A hill,A cliff,A cave
@@ -990,7 +1099,7 @@ Science & nature,6-7,2,What do spiders spin?,Webs,Nests,Hives,Burrows
 "Sport, music & film",6-7,2,Which sport do you play with a bat and a ball and stumps?,Cricket,Tennis,Football,Swimming
 "Sport, music & film",6-7,2,What colour is Peppa Pig?,Pink,Blue,Green,Yellow
 General knowledge,6-7,3,How many days are there in a weekend?,2,3,5,7
-General knowledge,6-7,3,What is 6 + 4?,10,9,11,12
+Maths & numbers,6-7,3,What is 6 + 4?,10,9,11,12
 General knowledge,6-7,3,What do bees live in?,A hive,A nest,A burrow,A kennel
 General knowledge,6-7,3,Which month comes after March?,April,May,February,June
 Geography,6-7,3,What is the capital city of Scotland?,Edinburgh,Glasgow,London,Cardiff
@@ -1009,10 +1118,10 @@ Science & nature,6-7,3,How many wings does a bird have?,2,4,6,1
 "Sport, music & film",6-7,3,Which instrument do you blow into and has holes for your fingers?,A recorder,A drum,A piano,A guitar
 "Sport, music & film",6-7,3,What colour is the Mario character Luigi's hat?,Green,Red,Blue,Yellow
 "Sport, music & film",6-7,3,In which sport do you ride waves on a board?,Surfing,Skiing,Golf,Boxing
-General knowledge,6-7,4,What is 9 + 6?,15,14,16,13
+Maths & numbers,6-7,4,What is 9 + 6?,15,14,16,13
 General knowledge,6-7,4,How many legs does a spider have?,8,6,4,10
 General knowledge,6-7,4,What do we call a baby frog?,A tadpole,A puppy,A chick,A lamb
-General knowledge,6-7,4,Which number comes after 99?,100,98,101,90
+Maths & numbers,6-7,4,Which number comes after 99?,100,98,101,90
 Geography,6-7,4,What is the capital city of Wales?,Cardiff,Swansea,Edinburgh,Belfast
 Geography,6-7,4,Which is the biggest country in the world?,Russia,England,Japan,Spain
 Geography,6-7,4,What is the longest river in Africa?,The Nile,The Thames,The Amazon,The Seine
@@ -1029,9 +1138,9 @@ Science & nature,6-7,4,What do plants take in through their leaves to make food?
 "Sport, music & film",6-7,4,What is the name of the snowman in Frozen?,Olaf,Sven,Hans,Kristoff
 "Sport, music & film",6-7,4,How many players are on a netball team on the court?,7,5,11,3
 "Sport, music & film",6-7,4,What is the name of Shrek's donkey friend?,Donkey,Puss,Fiona,Dragon
-General knowledge,6-7,5,What is 4 + 4 + 4?,12,8,16,10
+Maths & numbers,6-7,5,What is 4 + 4 + 4?,12,8,16,10
 General knowledge,6-7,5,How many weeks are in a year?,52,12,7,100
-General knowledge,6-7,5,What is half of 10?,5,2,4,6
+Maths & numbers,6-7,5,What is half of 10?,5,2,4,6
 General knowledge,6-7,5,What is the opposite of 'ancient'?,Modern,Old,Dusty,Broken
 Geography,6-7,5,What is the capital city of Spain?,Madrid,Barcelona,Rome,Lisbon
 Geography,6-7,5,Which country is famous for the Leaning Tower of Pisa?,Italy,France,Spain,Greece
@@ -1049,9 +1158,24 @@ Science & nature,6-7,5,Which organ in your body pumps blood?,The heart,The stoma
 "Sport, music & film",6-7,5,Who wrote the book The Gruffalo?,Julia Donaldson,Roald Dahl,J.K. Rowling,Dr Seuss
 "Sport, music & film",6-7,5,In which film does a lion cub called Simba grow up to be king?,The Lion King,Madagascar,Jungle Book,Zootopia
 "Sport, music & film",6-7,5,How many strings does a violin have?,4,6,2,8
+General knowledge,6-7,1,What do you call the meal you eat at lunchtime?,Lunch,Breakfast,Supper,Pudding
+General knowledge,6-7,2,Who brings presents on Christmas Eve?,Father Christmas,The Easter Bunny,The Tooth Fairy,A pirate
+General knowledge,6-7,2,What do you put on a letter before you post it?,A stamp,A sticker,A plaster,A badge
+General knowledge,6-7,3,Who leaves a coin under your pillow when you lose a tooth?,The Tooth Fairy,Father Christmas,The Easter Bunny,A dragon
+General knowledge,6-7,3,What do firefighters use to put out fires?,Water,Milk,Sand only,Juice
+General knowledge,6-7,3,What colour is a London bus usually?,Red,Blue,Green,Purple
+General knowledge,6-7,4,What do you call a doctor for animals?,A vet,A dentist,A chef,A pilot
+General knowledge,6-7,4,What fruit do monkeys love in cartoons?,Bananas,Grapes,Lemons,Coconuts
+General knowledge,6-7,4,What do we call the day you were born each year?,Your birthday,Your holiday,Your weekday,Your bedtime
+General knowledge,6-7,4,Which festival has chocolate eggs?,Easter,Christmas,Halloween,Bonfire Night
+General knowledge,6-7,5,What do you call a person who looks after your teeth?,A dentist,A vet,A baker,A farmer
+General knowledge,6-7,5,What do people dress up for and say 'trick or treat'?,Halloween,Christmas,Easter,Birthdays
+General knowledge,6-7,5,Which letter comes after A in the alphabet?,B,C,D,Z
+General knowledge,6-7,5,What is the name of the King of the United Kingdom since 2022?,King Charles III,King William,King George,King Henry
+General knowledge,6-7,5,What do you call the hard shell that grows on the end of your fingers?,Nails,Claws,Hooves,Scales
 General knowledge,8-9,1,How many days are there in a weekend?,2,3,1,5
 General knowledge,8-9,1,What colour are ripe bananas?,Yellow,Blue,Red,Purple
-General knowledge,8-9,1,What is 2 + 2?,4,3,5,22
+Maths & numbers,8-9,1,What is 2 + 2?,4,3,5,22
 General knowledge,8-9,1,What do you call the meal you eat in the morning?,Breakfast,Dinner,Supper,Lunch
 Science & nature,8-9,1,What is a baby dog called?,A puppy,A kitten,A foal,A lamb
 Science & nature,8-9,1,Which animal is known for its black and white stripes?,A zebra,A lion,A bear,A fox
@@ -1070,7 +1194,7 @@ History,8-9,1,What did Ancient Egyptians build to bury their kings?,Pyramids,Chu
 "Sport, music & film",8-9,1,Which sport is played at Wimbledon?,Tennis,Football,Cricket,Rugby
 "Sport, music & film",8-9,1,What colour is Sonic the Hedgehog?,Blue,Red,Green,Yellow
 General knowledge,8-9,2,How many legs does a spider have?,8,6,10,4
-General knowledge,8-9,2,What is 6 x 2?,12,8,10,14
+Maths & numbers,8-9,2,What is 6 x 2?,12,8,10,14
 General knowledge,8-9,2,How many letters are in the English alphabet?,26,24,28,20
 General knowledge,8-9,2,Which month has the fewest days?,February,January,June,November
 Science & nature,8-9,2,Which organ pumps blood around your body?,The heart,The brain,The lungs,The stomach
@@ -1089,9 +1213,9 @@ History,8-9,2,Which outlaw robbed from the rich to give to the poor?,Robin Hood,
 "Sport, music & film",8-9,2,How many players are in a football team on the pitch?,11,10,9,12
 "Sport, music & film",8-9,2,What is the name of Harry Potter's owl?,Hedwig,Errol,Scabbers,Crookshanks
 "Sport, music & film",8-9,2,Which instrument do you blow into: a flute or a drum?,A flute,A drum,Both,Neither
-General knowledge,8-9,3,What is 7 x 3?,21,24,18,27
-General knowledge,8-9,3,How many sides does a hexagon have?,6,5,7,8
-General knowledge,8-9,3,How many seconds are there in a minute?,60,100,30,24
+Maths & numbers,8-9,3,What is 7 x 3?,21,24,18,27
+Maths & numbers,8-9,3,How many sides does a hexagon have?,6,5,7,8
+Maths & numbers,8-9,3,How many seconds are there in a minute?,60,100,30,24
 General knowledge,8-9,3,What do you call a word that means the opposite of another word?,An antonym,A synonym,A verb,A noun
 Science & nature,8-9,3,What do we call animals that eat only meat?,Carnivores,Herbivores,Omnivores,Vegetarians
 Science & nature,8-9,3,How many planets are in our solar system?,8,9,7,10
@@ -1109,10 +1233,10 @@ History,8-9,3,What were Viking warriors' ships called?,Longships,Galleons,Steame
 "Sport, music & film",8-9,3,"In Toy Story, what is the name of the space ranger?",Buzz Lightyear,Woody,Rex,Zurg
 "Sport, music & film",8-9,3,How many rings are on the Olympic flag?,5,4,6,7
 "Sport, music & film",8-9,3,What sport does Lionel Messi play?,Football,Basketball,Tennis,Golf
-General knowledge,8-9,4,What is 9 x 9?,81,72,99,79
+Maths & numbers,8-9,4,What is 9 x 9?,81,72,99,79
 General knowledge,8-9,4,How many days are there in a leap year?,366,365,364,360
-General knowledge,8-9,4,What is half of 50?,25,20,30,15
-General knowledge,8-9,4,How many is a dozen?,12,10,20,6
+Maths & numbers,8-9,4,What is half of 50?,25,20,30,15
+Maths & numbers,8-9,4,How many is a dozen?,12,10,20,6
 Science & nature,8-9,4,What gas do plants take in to make food?,Carbon dioxide,Oxygen,Helium,Nitrogen
 Science & nature,8-9,4,Which planet is known as the Red Planet?,Mars,Venus,Jupiter,Neptune
 Science & nature,8-9,4,What is a young frog called?,A tadpole,A cub,A kid,A joey
@@ -1129,10 +1253,10 @@ History,8-9,4,What was the name of the ship the Pilgrims sailed to America?,The 
 "Sport, music & film",8-9,4,In which sport do players use a puck?,Ice hockey,Cricket,Golf,Netball
 "Sport, music & film",8-9,4,Who wrote the Harry Potter books?,J.K. Rowling,Roald Dahl,David Walliams,Enid Blyton
 "Sport, music & film",8-9,4,How many strings does a violin have?,4,6,5,3
-General knowledge,8-9,5,What is 12 x 12?,144,124,132,122
-General knowledge,8-9,5,How many sides does an octagon have?,8,6,10,7
-General knowledge,8-9,5,What is the Roman numeral for 10?,X,V,I,L
-General knowledge,8-9,5,How many grams are in a kilogram?,"1,000",100,10,"10,000"
+Maths & numbers,8-9,5,What is 12 x 12?,144,124,132,122
+Maths & numbers,8-9,5,How many sides does an octagon have?,8,6,10,7
+Maths & numbers,8-9,5,What is the Roman numeral for 10?,X,V,I,L
+Maths & numbers,8-9,5,How many grams are in a kilogram?,"1,000",100,10,"10,000"
 Science & nature,8-9,5,What is the closest star to Earth?,The Sun,The North Star,Sirius,The Moon
 Science & nature,8-9,5,Which gas do we breathe out?,Carbon dioxide,Oxygen,Hydrogen,Helium
 Science & nature,8-9,5,What is the largest planet in our solar system?,Jupiter,Saturn,Neptune,Earth
@@ -1150,7 +1274,7 @@ History,8-9,5,"Who discovered gravity when an apple fell, according to the story
 "Sport, music & film",8-9,5,Which composer wrote music even after becoming deaf?,Ludwig van Beethoven,Wolfgang Amadeus Mozart,Johann Sebastian Bach,Antonio Vivaldi
 "Sport, music & film",8-9,5,In which city is the famous Hollywood sign?,Los Angeles,New York,London,Las Vegas
 General knowledge,8-9,1,How many wheels does a tricycle have?,3,2,4,1
-General knowledge,8-9,1,What is 5 + 5?,10,11,9,55
+Maths & numbers,8-9,1,What is 5 + 5?,10,11,9,55
 General knowledge,8-9,1,What colour is a ripe tomato?,Red,Blue,Purple,White
 General knowledge,8-9,1,What do you call a person who makes bread and cakes?,A baker,A butcher,A builder,A plumber
 Geography,8-9,1,Which country is London the capital of?,England,France,Spain,Germany
@@ -1169,8 +1293,8 @@ Science & nature,8-9,1,What is a baby cow called?,A calf,A lamb,A kid,A piglet
 "Sport, music & film",8-9,1,What is the name of the toy cowboy in Toy Story?,Woody,Andy,Bo Peep,Slinky
 "Sport, music & film",8-9,1,Which instrument has 6 strings and you strum it?,A guitar,A drum,A trumpet,A flute
 "Sport, music & film",8-9,1,Which Disney film has a mermaid called Ariel?,The Little Mermaid,Frozen,Moana,Tangled
-General knowledge,8-9,2,What is 3 x 4?,12,7,10,14
-General knowledge,8-9,2,How many minutes are in an hour?,60,100,30,24
+Maths & numbers,8-9,2,What is 3 x 4?,12,7,10,14
+Maths & numbers,8-9,2,How many minutes are in an hour?,60,100,30,24
 General knowledge,8-9,2,What is the opposite of 'empty'?,Full,Light,Clean,Quiet
 General knowledge,8-9,2,Which day comes before Wednesday?,Tuesday,Thursday,Monday,Friday
 Geography,8-9,2,What is the capital city of France?,Paris,Lyon,Rome,Berlin
@@ -1189,10 +1313,10 @@ Science & nature,8-9,2,Which bird is a symbol of peace?,The dove,The crow,The vu
 "Sport, music & film",8-9,2,Which sport is Serena Williams famous for?,Tennis,Swimming,Football,Golf
 "Sport, music & film",8-9,2,Which film has a robot called WALL-E?,WALL-E,Cars,Up,Ratatouille
 "Sport, music & film",8-9,2,What colour is the Cookie Monster?,Blue,Red,Green,Orange
-General knowledge,8-9,3,What is 8 x 5?,40,45,35,13
-General knowledge,8-9,3,How many hours are in a day?,24,12,60,48
+Maths & numbers,8-9,3,What is 8 x 5?,40,45,35,13
+Maths & numbers,8-9,3,How many hours are in a day?,24,12,60,48
 General knowledge,8-9,3,What do you call a word that means the same as another word?,A synonym,An antonym,A verb,A plural
-General knowledge,8-9,3,How many sides does a pentagon have?,5,6,4,8
+Maths & numbers,8-9,3,How many sides does a pentagon have?,5,6,4,8
 Geography,8-9,3,What is the capital city of Italy?,Rome,Milan,Venice,Paris
 Geography,8-9,3,Which ocean is the biggest?,The Pacific,The Atlantic,The Indian,The Arctic
 Geography,8-9,3,"Which country is famous for windmills, tulips and clogs?",The Netherlands,Italy,Mexico,Greece
@@ -1209,10 +1333,10 @@ Science & nature,8-9,3,What do you call a scientist who studies animals?,A zoolo
 "Sport, music & film",8-9,3,Which famous Beatles song is about a yellow underwater boat?,Yellow Submarine,Hey Jude,Let It Be,Help!
 "Sport, music & film",8-9,3,What is the name of the dog in the Wallace and Gromit films?,Gromit,Pluto,Scooby,Snoopy
 "Sport, music & film",8-9,3,How many players are on a cricket team?,11,9,15,7
-General knowledge,8-9,4,What is 100 take away 25?,75,65,85,70
+Maths & numbers,8-9,4,What is 100 take away 25?,75,65,85,70
 General knowledge,8-9,4,How many days are there in a year that is not a leap year?,365,366,360,300
-General knowledge,8-9,4,What is the Roman numeral for 5?,V,X,I,L
-General knowledge,8-9,4,Which shape has 4 equal sides and 4 right angles?,A square,A rectangle,A triangle,A pentagon
+Maths & numbers,8-9,4,What is the Roman numeral for 5?,V,X,I,L
+Maths & numbers,8-9,4,Which shape has 4 equal sides and 4 right angles?,A square,A rectangle,A triangle,A pentagon
 Geography,8-9,4,What is the capital city of Ireland?,Dublin,Cork,Belfast,Galway
 Geography,8-9,4,What is the tallest mountain in the UK?,Ben Nevis,Snowdon,Scafell Pike,Everest
 Geography,8-9,4,Which country has the most people in Europe outside Russia?,Germany,France,Italy,Spain
@@ -1229,10 +1353,10 @@ Science & nature,8-9,4,What is the name for the path a planet takes around the S
 "Sport, music & film",8-9,4,Which country do Lego bricks come from?,Denmark,Germany,Japan,USA
 "Sport, music & film",8-9,4,What is the highest score in a game of ten-pin bowling?,300,100,200,500
 "Sport, music & film",8-9,4,In which sport is the Ashes series played between England and Australia?,Cricket,Rugby,Tennis,Football
-General knowledge,8-9,5,What is 7 x 8?,56,54,48,64
-General knowledge,8-9,5,How many centimetres are in a metre?,100,10,"1,000",50
-General knowledge,8-9,5,What is a quarter of 100?,25,20,50,40
-General knowledge,8-9,5,What is the Roman numeral for 50?,L,C,X,D
+Maths & numbers,8-9,5,What is 7 x 8?,56,54,48,64
+Maths & numbers,8-9,5,How many centimetres are in a metre?,100,10,"1,000",50
+Maths & numbers,8-9,5,What is a quarter of 100?,25,20,50,40
+Maths & numbers,8-9,5,What is the Roman numeral for 50?,L,C,X,D
 Geography,8-9,5,What is the capital city of Canada?,Ottawa,Toronto,Vancouver,Montreal
 Geography,8-9,5,Which country has the most people in the world?,India,China,USA,Brazil
 Geography,8-9,5,What is the smallest country in the world?,Vatican City,Monaco,Malta,Wales
@@ -1249,8 +1373,33 @@ Science & nature,8-9,5,What is the name of the force that pulls things down to E
 "Sport, music & film",8-9,5,In which city were the 2012 Summer Olympics held?,London,Paris,Beijing,Tokyo
 "Sport, music & film",8-9,5,What is the name of the fairy in Peter Pan?,Tinker Bell,Cinderella,Belle,Aurora
 "Sport, music & film",8-9,5,How many points is a try worth in rugby union?,5,3,7,2
-General knowledge,adult,1,How many hours are there in a day?,24,12,36,48
-General knowledge,adult,1,How many sides does a square have?,4,3,5,6
+General knowledge,8-9,1,What do bees and wasps have that can hurt you?,A sting,A horn,A claw,A beak
+General knowledge,8-9,1,What do you call the person who drives a train?,A train driver,A pilot,A captain,A jockey
+General knowledge,8-9,2,What is the opposite of 'whisper'?,Shout,Mumble,Sing,Sneeze
+General knowledge,8-9,2,What do you call a house made of ice blocks?,An igloo,A tepee,A hut,A cabin
+General knowledge,8-9,2,Which festival of light is celebrated by Hindus with lamps and fireworks?,Diwali,Easter,Hanukkah,Thanksgiving
+General knowledge,8-9,3,What is the name of the famous clock tower in London?,Big Ben,The Shard,The Gherkin,Tower Bridge
+General knowledge,8-9,3,"What do you call a story told with pictures in boxes, like the Beano?",A comic,A novel,A poem,A diary
+General knowledge,8-9,3,What do you call the person who cuts hair?,A hairdresser,A tailor,A baker,A florist
+General knowledge,8-9,3,In which country did pizza first become famous?,Italy,America,France,China
+General knowledge,8-9,3,What does a lighthouse do?,Warns ships with a light,Stores boats,Catches fish,Makes electricity
+General knowledge,8-9,3,What are the two colours of a zebra crossing?,Black and white,Red and white,Yellow and black,Blue and white
+General knowledge,8-9,4,Which day of the year is Bonfire Night in the UK?,5 November,31 October,25 December,1 January
+General knowledge,8-9,4,What is the name for a book of maps?,An atlas,A dictionary,A diary,A novel
+General knowledge,8-9,4,What is a word for a person who writes books?,An author,An actor,An artist,An architect
+General knowledge,8-9,4,What is the name of the bear from Peru who loves marmalade?,Paddington,Baloo,Winnie the Pooh,Fozzie
+General knowledge,8-9,4,What do you call a baby swan?,A cygnet,A duckling,A gosling,A chick
+General knowledge,8-9,4,What is the name for a doctor who does operations?,A surgeon,A nurse,A pharmacist,A vet
+General knowledge,8-9,5,What is the name of the book that lists words and their meanings?,A dictionary,An atlas,An encyclopedia,A diary
+General knowledge,8-9,5,What do you call a person who studies the stars?,An astronomer,An archaeologist,An architect,An athlete
+General knowledge,8-9,5,What is the name of the famous tower in Paris?,The Eiffel Tower,The Leaning Tower,Big Ben,The CN Tower
+General knowledge,8-9,5,What is a female sheep called?,A ewe,A doe,A mare,A sow
+General knowledge,8-9,5,What does a vegetarian not eat?,Meat,Vegetables,Bread,Fruit
+General knowledge,8-9,5,What is the name of the famous ship that took Charles Darwin around the world?,The Beagle,The Titanic,The Victory,The Mayflower
+General knowledge,8-9,5,Which country invented paper?,China,Egypt,Greece,England
+General knowledge,8-9,5,What is the name of Father Christmas's red-nosed reindeer?,Rudolph,Dasher,Comet,Blitzen
+Maths & numbers,adult,1,How many hours are there in a day?,24,12,36,48
+Maths & numbers,adult,1,How many sides does a square have?,4,3,5,6
 Science & nature,adult,1,What is the largest planet in our solar system?,Jupiter,Saturn,Earth,Neptune
 Science & nature,adult,1,Which animal is known as the King of the Jungle?,The lion,The tiger,The elephant,The gorilla
 Science & nature,adult,1,What do caterpillars turn into?,Butterflies or moths,Beetles,Bees,Dragonflies
@@ -1261,7 +1410,7 @@ History,adult,1,Who was the first man to walk on the Moon?,Neil Armstrong,Buzz A
 History,adult,1,In which year did World War II end?,1945,1944,1946,1939
 "Sport, music & film",adult,1,How many players are on a football team on the pitch?,11,10,12,9
 "Sport, music & film",adult,1,Which band sang 'Hey Jude'?,The Beatles,The Rolling Stones,The Kinks,The Who
-General knowledge,adult,2,What is 12 x 12?,144,124,132,156
+Maths & numbers,adult,2,What is 12 x 12?,144,124,132,156
 Science & nature,adult,2,What is the chemical symbol for gold?,Au,Ag,Go,Gd
 Geography,adult,2,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Perth
 History,adult,2,Who painted the Mona Lisa?,Leonardo da Vinci,Michelangelo,Raphael,Botticelli
@@ -1272,7 +1421,7 @@ Science & nature,adult,3,What is the chemical symbol for potassium?,K,P,Pt,Po
 Geography,adult,3,What is the capital city of Canada?,Ottawa,Toronto,Montreal,Vancouver
 History,adult,3,Which English king was killed at the Battle of Bosworth Field in 1485?,Richard III,Henry VI,Edward IV,Richard II
 "Sport, music & film",adult,3,Who wrote Pride and Prejudice?,Jane Austen,Charlotte Brontë,George Eliot,Emily Brontë
-General knowledge,adult,4,What is the square root of 289?,17,19,13,27
+Maths & numbers,adult,4,What is the square root of 289?,17,19,13,27
 General knowledge,adult,4,"In poker, which hand beats a full house?",Four of a kind,A flush,A straight,Three of a kind
 Science & nature,adult,4,What is the hardest mineral on the Mohs scale?,Diamond,Corundum,Topaz,Quartz
 Science & nature,adult,4,Which element has the chemical symbol Hg?,Mercury,Silver,Hydrogen,Magnesium
@@ -1284,7 +1433,7 @@ History,adult,4,Who was the first Prime Minister of Great Britain?,Robert Walpol
 "Sport, music & film",adult,4,Which golfer has won the most men's major championships?,Jack Nicklaus,Tiger Woods,Arnold Palmer,Gary Player
 "Sport, music & film",adult,4,Who wrote the novel One Hundred Years of Solitude?,Gabriel García Márquez,Isabel Allende,Jorge Luis Borges,Mario Vargas Llosa
 General knowledge,adult,5,What is the name for a word that reads the same backwards as forwards?,A palindrome,An anagram,A homonym,An oxymoron
-General knowledge,adult,5,What is the sum of the interior angles of a pentagon?,540°,360°,720°,480°
+Maths & numbers,adult,5,What is the sum of the interior angles of a pentagon?,540°,360°,720°,480°
 General knowledge,adult,5,What is a group of crows called?,A murder,A parliament,A pride,A murmuration
 Science & nature,adult,5,What is the most abundant element in the Earth's crust?,Oxygen,Silicon,Iron,Aluminium
 Science & nature,adult,5,Which scientist first described the laws of inheritance using pea plants?,Gregor Mendel,Charles Darwin,Louis Pasteur,Alfred Wallace
@@ -1319,9 +1468,9 @@ Science & nature,adult,1,How many legs does an insect have?,6,8,4,10
 "Sport, music & film",adult,1,Who played Jack Sparrow in Pirates of the Caribbean?,Johnny Depp,Orlando Bloom,Brad Pitt,Keanu Reeves
 "Sport, music & film",adult,1,How many players are on a basketball team on the court?,5,6,7,11
 "Sport, music & film",adult,1,Which country hosts the Tour de France?,France,Italy,Spain,Belgium
-General knowledge,adult,2,How many sides does a hexagon have?,6,5,7,8
+Maths & numbers,adult,2,How many sides does a hexagon have?,6,5,7,8
 General knowledge,adult,2,What is the largest internal organ in the human body?,The liver,The heart,The lungs,The kidneys
-General knowledge,adult,2,How many minutes are there in a full day?,"1,440","1,240","1,600","2,400"
+Maths & numbers,adult,2,How many minutes are there in a full day?,"1,440","1,240","1,600","2,400"
 General knowledge,adult,2,Which famous scientist developed the theory of relativity?,Albert Einstein,Isaac Newton,Niels Bohr,Stephen Hawking
 Geography,adult,2,Which country has the largest population in South America?,Brazil,Argentina,Colombia,Peru
 Geography,adult,2,What is the capital city of Germany?,Berlin,Munich,Frankfurt,Bonn
@@ -1339,7 +1488,7 @@ Science & nature,adult,2,What is the powerhouse of the cell?,The mitochondrion,T
 "Sport, music & film",adult,2,Which Beatle was shot in New York in 1980?,John Lennon,Paul McCartney,George Harrison,Ringo Starr
 "Sport, music & film",adult,2,In which city were the 2012 Summer Olympics held?,London,Beijing,Rio de Janeiro,Athens
 "Sport, music & film",adult,2,Who wrote 'Romeo and Juliet'?,William Shakespeare,Christopher Marlowe,Ben Jonson,John Milton
-General knowledge,adult,3,What is the square root of 196?,14,16,13,18
+Maths & numbers,adult,3,What is the square root of 196?,14,16,13,18
 General knowledge,adult,3,What does 'NATO' stand for?,North Atlantic Treaty Organization,North American Trade Organization,National Alliance Treaty Office,Northern Allied Territories Organization
 General knowledge,adult,3,Which metal is the best conductor of electricity?,Silver,Copper,Gold,Aluminium
 General knowledge,adult,3,What is a baby kangaroo called?,A joey,A kit,A cub,A pup
@@ -1359,7 +1508,7 @@ Science & nature,adult,3,Which planet has the Great Red Spot?,Jupiter,Saturn,Mar
 "Sport, music & film",adult,3,Which singer was known as 'The King of Rock and Roll'?,Elvis Presley,Chuck Berry,Little Richard,Buddy Holly
 "Sport, music & film",adult,3,In which sport is the Ryder Cup contested?,Golf,Tennis,Sailing,Cricket
 "Sport, music & film",adult,3,Who wrote 'War and Peace'?,Leo Tolstoy,Fyodor Dostoevsky,Anton Chekhov,Ivan Turgenev
-General knowledge,adult,4,What is the Roman numeral for 2024?,MMXXIV,MMXIV,MMXXVI,MCMXXIV
+Maths & numbers,adult,4,What is the Roman numeral for 2024?,MMXXIV,MMXIV,MMXXVI,MCMXXIV
 General knowledge,adult,4,What is the name for a group of owls?,A parliament,A murder,A pride,A gaggle
 General knowledge,adult,4,How many squares are on a chessboard?,64,81,100,48
 General knowledge,adult,4,Which French phrase means 'already seen'?,Déjà vu,Faux pas,Joie de vivre,Raison d'être
@@ -1399,3 +1548,12 @@ Science & nature,adult,5,Which scientist first measured the charge of an electro
 "Sport, music & film",adult,5,Who wrote the novel 'Middlemarch'?,George Eliot,Elizabeth Gaskell,Charlotte Brontë,Virginia Woolf
 "Sport, music & film",adult,5,Which composer wrote the 'Ring' cycle of operas?,Richard Wagner,Giuseppe Verdi,Richard Strauss,Gustav Mahler
 "Sport, music & film",adult,5,How many times did the horse Red Rum win the Grand National?,3,2,4,5
+General knowledge,adult,1,Which Italian city is famous for its leaning tower?,Pisa,Rome,Venice,Naples
+General knowledge,adult,1,Which company makes the iPhone?,Apple,Samsung,Google,Nokia
+General knowledge,adult,2,What does 'RSVP' stand for?,Répondez s'il vous plaît,Reply soon very please,Return slip via post,Rendez-vous s'il vous plaît
+General knowledge,adult,2,Which famous London department store is in Knightsbridge?,Harrods,Selfridges,Liberty,Fortnum & Mason
+General knowledge,adult,2,What is the name of the London Underground line coloured red on the Tube map?,The Central line,The Victoria line,The Northern line,The Jubilee line
+General knowledge,adult,3,What is the name of the oldest university in the English-speaking world?,Oxford,Cambridge,St Andrews,Harvard
+General knowledge,adult,4,What is the collective noun for a group of flamingos?,A flamboyance,A parliament,A murder,A dazzle
+General knowledge,adult,4,What does the Latin phrase 'caveat emptor' mean?,Let the buyer beware,Seize the day,Beware of the dog,Buyer's remorse
+General knowledge,adult,5,What is the name of the tiny plastic or metal tip on the end of a shoelace?,An aglet,A ferrule,A grommet,A toggle
