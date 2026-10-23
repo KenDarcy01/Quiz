@@ -40,7 +40,7 @@ Q = [
 ('S',2,"What is the name for the change from liquid to gas?","Evaporation","Condensation","Melting","Freezing"),
 ('S',2,"Which type of rock is made from layers of sand and mud?","Sedimentary","Igneous","Metamorphic","Volcanic"),
 ('M',2,"Who played Jack in the film Titanic?","Leonardo DiCaprio","Brad Pitt","Tom Cruise","Johnny Depp"),
-('M',2,"Which instrument has pedals, strings and is played by plucking, often in orchestras?","The harp","The cello","The piano","The guitar"),
+('M',2,"Which large orchestral instrument has 47 strings that are plucked?","The harp","The cello","The piano","The guitar"),
 ('M',2,"In which country did the sport of judo begin?","Japan","China","Korea","Thailand"),
 ('M',2,"Which British band had a hit with 'Wonderwall'?","Oasis","Blur","Coldplay","Radiohead"),
 # Grade 3

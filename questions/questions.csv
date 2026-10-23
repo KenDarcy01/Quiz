@@ -586,7 +586,7 @@ Science & nature,14-15,2,Which vitamin do we mainly get from sunlight?,Vitamin D
 Science & nature,14-15,2,What is the name for the change from liquid to gas?,Evaporation,Condensation,Melting,Freezing
 Science & nature,14-15,2,Which type of rock is made from layers of sand and mud?,Sedimentary,Igneous,Metamorphic,Volcanic
 "Sport, music & film",14-15,2,Who played Jack in the film Titanic?,Leonardo DiCaprio,Brad Pitt,Tom Cruise,Johnny Depp
-"Sport, music & film",14-15,2,"Which instrument has pedals, strings and is played by plucking, often in orchestras?",The harp,The cello,The piano,The guitar
+"Sport, music & film",14-15,2,Which large orchestral instrument has 47 strings that are plucked?,The harp,The cello,The piano,The guitar
 "Sport, music & film",14-15,2,In which country did the sport of judo begin?,Japan,China,Korea,Thailand
 "Sport, music & film",14-15,2,Which British band had a hit with 'Wonderwall'?,Oasis,Blur,Coldplay,Radiohead
 General knowledge,14-15,3,What is 17 x 3?,51,47,54,41
@@ -959,7 +959,7 @@ Geography,6-7,1,Where do fish live?,In water,In trees,In the sky,Under beds
 Geography,6-7,1,"What do we call the hot, bright thing in the sky during the day?",The Sun,The Moon,A star,A cloud
 History,6-7,1,Who lives in a palace?,A king or queen,A farmer,A pirate,A teacher
 History,6-7,1,What did old ships use to move across the sea?,Sails,Wheels,Wings,Legs
-History,6-7,1,What do you call a very old thing that is kept in a museum?,An antique,A toy,A snack,A sticker
+History,6-7,1,What do we call a building where old and interesting things are kept for people to see?,A museum,A hospital,A garage,A supermarket
 History,6-7,1,What did cowboys ride?,Horses,Bicycles,Scooters,Buses
 Science & nature,6-7,1,What do cows give us to drink?,Milk,Juice,Lemonade,Tea
 Science & nature,6-7,1,Which animal says quack?,A duck,A dog,A cow,A pig
@@ -976,7 +976,7 @@ General knowledge,6-7,2,What shape is a wheel?,A circle,A square,A triangle,A st
 Geography,6-7,2,Which animal with black and white fur lives in China and eats bamboo?,A panda,A zebra,A penguin,A skunk
 Geography,6-7,2,What is the coldest season of the year?,Winter,Summer,Spring,Autumn
 Geography,6-7,2,What do we call a mountain that can erupt with hot lava?,A volcano,A hill,A cliff,A cave
-Geography,6-7,2,What do we call the place where a river meets the sea?,The coast,The forest,The desert,The field
+Geography,6-7,2,What do we call the sandy place by the sea where people build sandcastles?,The beach,The forest,The desert,The field
 History,6-7,2,What did people use to tell the time before clocks?,The Sun,A phone,A television,A computer
 History,6-7,2,What was a knight's big pointed weapon called?,A lance,A spoon,A paintbrush,A hammer
 History,6-7,2,What do archaeologists dig up?,Old objects from long ago,Potatoes,Treasure maps only,New toys
@@ -1241,7 +1241,7 @@ History,8-9,5,Who was the first woman to win a Nobel Prize?,Marie Curie,Florence
 History,8-9,5,Which Roman emperor built a wall across northern England?,Hadrian,Nero,Caesar,Augustus
 History,8-9,5,Which ship did Captain Cook sail to Australia?,The Endeavour,The Titanic,The Mayflower,The Victory
 History,8-9,5,What were the Ancient Egyptian picture symbols called?,Hieroglyphs,Emojis,Runes,Letters
-Science & nature,8-9,5,What is the chemical name for water?,H2O,CO2,O2,NaCl
+Science & nature,8-9,5,What is the chemical formula for water?,H2O,CO2,O2,NaCl
 Science & nature,8-9,5,Which planet has the most famous rings?,Saturn,Jupiter,Mars,Mercury
 Science & nature,8-9,5,What is it called when birds fly to warmer places for winter?,Migration,Hibernation,Evaporation,Pollination
 Science & nature,8-9,5,What is the name of the force that pulls things down to Earth?,Gravity,Magnetism,Friction,Electricity
@@ -1311,7 +1311,7 @@ History,adult,1,Who was the first President of the United States?,George Washing
 History,adult,1,Which ship sank in 1912 after hitting an iceberg?,The Titanic,The Lusitania,The Queen Mary,The Britannic
 History,adult,1,Which British queen reigned from 1952 to 2022?,Elizabeth II,Victoria,Elizabeth I,Mary II
 History,adult,1,In which year did World War I begin?,1914,1916,1918,1912
-Science & nature,adult,1,What is the chemical symbol for water?,H2O,CO2,O2,H2O2
+Science & nature,adult,1,What is the chemical formula for water?,H2O,CO2,O2,H2O2
 Science & nature,adult,1,Which planet is closest to the Sun?,Mercury,Venus,Mars,Earth
 Science & nature,adult,1,What is the closest star to Earth?,The Sun,Sirius,Polaris,Alpha Centauri
 Science & nature,adult,1,How many legs does an insect have?,6,8,4,10

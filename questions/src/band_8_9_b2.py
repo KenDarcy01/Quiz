@@ -98,7 +98,7 @@ Q = [
 ('H',5,"Which Roman emperor built a wall across northern England?","Hadrian","Nero","Caesar","Augustus"),
 ('H',5,"Which ship did Captain Cook sail to Australia?","The Endeavour","The Titanic","The Mayflower","The Victory"),
 ('H',5,"What were the Ancient Egyptian picture symbols called?","Hieroglyphs","Emojis","Runes","Letters"),
-('S',5,"What is the chemical name for water?","H2O","CO2","O2","NaCl"),
+('S',5,"What is the chemical formula for water?","H2O","CO2","O2","NaCl"),
 ('S',5,"Which planet has the most famous rings?","Saturn","Jupiter","Mars","Mercury"),
 ('S',5,"What is it called when birds fly to warmer places for winter?","Migration","Hibernation","Evaporation","Pollination"),
 ('S',5,"What is the name of the force that pulls things down to Earth?","Gravity","Magnetism","Friction","Electricity"),

@@ -14,7 +14,7 @@ Q = [
 ('H',1,"Which ship sank in 1912 after hitting an iceberg?","The Titanic","The Lusitania","The Queen Mary","The Britannic"),
 ('H',1,"Which British queen reigned from 1952 to 2022?","Elizabeth II","Victoria","Elizabeth I","Mary II"),
 ('H',1,"In which year did World War I begin?","1914","1916","1918","1912"),
-('S',1,"What is the chemical symbol for water?","H2O","CO2","O2","H2O2"),
+('S',1,"What is the chemical formula for water?","H2O","CO2","O2","H2O2"),
 ('S',1,"Which planet is closest to the Sun?","Mercury","Venus","Mars","Earth"),
 ('S',1,"What is the closest star to Earth?","The Sun","Sirius","Polaris","Alpha Centauri"),
 ('S',1,"How many legs does an insect have?","6","8","4","10"),
