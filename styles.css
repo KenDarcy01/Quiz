@@ -1,0 +1,164 @@
+/* Sticker Pop theme: lilac ground, ink outlines, hard offset shadows. */
+:root {
+  --ground: #EEE7FF;
+  --card: #FFFFFF;
+  --ink: #141218;
+  --ink-soft: #4A4458;
+  --orange: #FF7A1A;
+  --cyan: #4CC9F0;
+  --lime: #B9F227;
+  --pink: #FF5CA8;
+  --wrong: #FF8A8A;
+  --display: 'Lilita One', 'Arial Rounded MT Bold', system-ui, sans-serif;
+  --body: 'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius: 16px;
+  --line: 3px solid var(--ink);
+  --shadow: 5px 5px 0 var(--ink);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  min-height: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: max(28px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1, h2 { margin: 0; font-family: var(--display); font-weight: 400; line-height: 1.1; text-wrap: balance; }
+p { margin: 0; }
+
+.eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; }
+.muted { color: var(--ink-soft); }
+.spacer { flex: 1; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.row { display: flex; align-items: center; gap: 12px; }
+
+/* Stickers and cards */
+.sticker {
+  display: inline-block;
+  border: var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 4px 14px;
+  font-family: var(--display);
+}
+.card {
+  background: var(--card);
+  border: var(--line);
+  border-radius: var(--radius);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 12px 14px;
+}
+
+.wordmark { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 8px; }
+.wordmark .sticker { font-size: 44px; line-height: 1.1; }
+.wordmark .a { background: var(--orange); transform: rotate(-3deg); }
+.wordmark .b { background: var(--card); transform: rotate(2deg); margin-left: 40px; }
+
+.badge {
+  width: 40px; height: 40px; flex: none;
+  border: var(--line); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-size: 19px;
+}
+.tilt-0 { transform: rotate(-6deg); }
+.tilt-1 { transform: rotate(5deg); }
+.tilt-2 { transform: rotate(-4deg); }
+.tilt-3 { transform: rotate(6deg); }
+
+.player-name { flex: 1; font-weight: 800; min-width: 0; overflow-wrap: anywhere; }
+.age-pill { font-size: 14px; font-weight: 700; background: var(--ground); border-radius: 8px; padding: 3px 8px; }
+
+/* Buttons */
+button, .btn {
+  font: inherit;
+  color: var(--ink);
+  cursor: pointer;
+}
+.btn {
+  min-height: 64px;
+  width: 100%;
+  border: var(--line);
+  border-radius: var(--radius);
+  background: var(--orange);
+  box-shadow: var(--shadow);
+  font-family: var(--display);
+  font-size: 26px;
+  text-transform: uppercase;
+  transition: transform 80ms ease, box-shadow 80ms ease;
+}
+.btn:active, .choice:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--ink); }
+.btn.secondary { background: var(--card); font-size: 20px; min-height: 52px; }
+.btn.good { background: var(--lime); }
+.btn.bad { background: var(--wrong); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.link-btn {
+  background: none; border: none; padding: 8px; font-weight: 700; text-decoration: underline;
+  text-underline-offset: 3px; align-self: center; min-height: 44px;
+}
+:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+/* Question screen */
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.chip { border: var(--line); border-radius: 12px; padding: 5px 12px; font-weight: 800; font-size: 15px; }
+.timer {
+  width: 56px; height: 56px; flex: none; border-radius: 50%;
+  border: var(--line); background: var(--card); box-shadow: 3px 3px 0 var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-size: 22px; font-variant-numeric: tabular-nums;
+}
+.timer.low { background: var(--wrong); }
+.question {
+  background: var(--card); border: var(--line); border-radius: 20px; box-shadow: 6px 6px 0 var(--ink);
+  padding: 28px 22px; min-height: 170px; display: flex; align-items: center;
+  font-family: var(--body); font-size: 27px; font-weight: 800; line-height: 1.22; overflow-wrap: anywhere;
+}
+.choices { display: flex; flex-direction: column; gap: 12px; }
+.choice {
+  min-height: 58px; width: 100%; padding: 10px 16px;
+  border: var(--line); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink);
+  font-size: 20px; font-weight: 800; text-align: center;
+}
+.choice.picked { background: var(--cyan); }
+.choice.correct { background: var(--lime); }
+.choice.wrong { background: var(--wrong); }
+.choice:disabled { cursor: default; }
+.answer-reveal { font-size: 22px; font-weight: 800; }
+
+/* Pass screen */
+.pass { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; text-align: center; }
+.pass .badge { width: 96px; height: 96px; border-radius: 22px; font-size: 48px; }
+.pass h1 { font-size: 44px; }
+
+/* Scoreboard */
+.leader { display: flex; align-items: center; gap: 12px; }
+.leader .rank { font-family: var(--display); font-size: 24px; width: 28px; }
+.leader .score { font-family: var(--display); font-size: 28px; font-variant-numeric: tabular-nums; }
+.leader.first { background: var(--lime); box-shadow: var(--shadow); padding: 14px; }
+
+/* Settings */
+label { font-weight: 700; font-size: 15px; }
+input, select {
+  font: inherit; width: 100%; min-height: 48px; padding: 8px 12px;
+  border: var(--line); border-radius: 12px; background: var(--card); color: var(--ink);
+}
+.player-edit { display: grid; grid-template-columns: 40px minmax(0, 1fr) 110px; gap: 10px; align-items: center; }
+.notice { background: var(--card); border: var(--line); border-radius: 12px; padding: 10px 12px; font-size: 15px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

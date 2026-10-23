@@ -1,0 +1,41 @@
+round,age,number,question,answer,wrong1,wrong2,wrong3
+1,10,1,How many legs does a spider have?,8,6,10,4
+1,10,2,What colour do you get by mixing blue and yellow?,Green,Purple,Orange,Brown
+1,10,3,What is the largest planet in our solar system?,Jupiter,Saturn,Earth,Neptune
+1,10,4,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Perth
+1,10,5,What gas do plants take in from the air to make their food?,Carbon dioxide,Oxygen,Nitrogen,Helium
+1,10,6,Which is the longest bone in the human body?,The femur (thigh bone),The spine,The arm bone,The shin bone
+1,10,7,In which country are the ancient pyramids of Giza?,Egypt,Mexico,Greece,India
+1,10,8,What is the hardest natural substance on Earth?,Diamond,Gold,Iron,Granite
+1,10,9,How many minutes are there in 3 hours?,180,120,300,160
+1,10,10,How many sides does a hexagon have?,6,5,8,7
+1,13,1,What is the chemical symbol for gold?,Au,Ag,Go,Gd
+1,13,2,Who painted the Mona Lisa?,Leonardo da Vinci,Michelangelo,Vincent van Gogh,Pablo Picasso
+1,13,3,What is the largest ocean on Earth?,The Pacific,The Atlantic,The Indian,The Arctic
+1,13,4,In which year did the Titanic sink?,1912,1905,1921,1898
+1,13,5,What is the square root of 144?,12,14,11,16
+1,13,6,What is the smallest country in the world?,Vatican City,Monaco,Malta,San Marino
+1,13,7,Which type of blood cell fights infection?,White blood cells,Red blood cells,Platelets,Plasma cells
+1,13,8,Who wrote Romeo and Juliet?,William Shakespeare,Charles Dickens,Jane Austen,Roald Dahl
+1,13,9,What is the longest river in South America?,The Amazon,The Orinoco,The Paraná,The Nile
+1,13,10,How many continents are there?,7,5,6,8
+1,14,1,At what temperature in Fahrenheit does water boil at sea level?,212°F,100°F,180°F,250°F
+1,14,2,Who was the first person to walk on the Moon?,Neil Armstrong,Buzz Aldrin,Yuri Gagarin,John Glenn
+1,14,3,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal
+1,14,4,What does DNA stand for?,Deoxyribonucleic acid,Dinitrogen acid,Dual nucleic acid,Deoxyribose nitrate
+1,14,5,What is the largest desert in the world?,Antarctica,The Sahara,The Gobi,The Arabian
+1,14,6,Which element has atomic number 1?,Hydrogen,Helium,Oxygen,Carbon
+1,14,7,In which city is the Colosseum?,Rome,Athens,Naples,Paris
+1,14,8,What is 15% of 200?,30,15,20,45
+1,14,9,Who developed the theory of relativity?,Albert Einstein,Isaac Newton,Stephen Hawking,Marie Curie
+1,14,10,What is the main language spoken in Brazil?,Portuguese,Spanish,Brazilian,French
+1,adult,1,In which year did the Berlin Wall fall?,1989,1991,1987,1985
+1,adult,2,What is the capital of New Zealand?,Wellington,Auckland,Christchurch,Queenstown
+1,adult,3,Which planet spins on its side?,Uranus,Neptune,Saturn,Venus
+1,adult,4,Who composed The Four Seasons?,Antonio Vivaldi,Johann Sebastian Bach,Wolfgang Amadeus Mozart,George Frideric Handel
+1,adult,5,What is the currency of Japan?,The yen,The yuan,The won,The ringgit
+1,adult,6,What is the largest organ of the human body?,The skin,The liver,The brain,The lungs
+1,adult,7,"Which country has the most time zones, counting its overseas territories?",France,Russia,The USA,The UK
+1,adult,8,Who wrote Nineteen Eighty-Four?,George Orwell,Aldous Huxley,H. G. Wells,Ray Bradbury
+1,adult,9,What is the smallest bone in the human body?,The stapes (in the ear),The coccyx,The little toe bone,The hyoid
+1,adult,10,Which treaty formally ended World War I between the Allies and Germany?,The Treaty of Versailles,The Treaty of Paris,The Treaty of Ghent,The Treaty of Utrecht
