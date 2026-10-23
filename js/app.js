@@ -1,14 +1,26 @@
-// Family Quiz: a pass-the-phone quiz where each player gets questions for their age group.
+// Family Quiz: a pass-the-phone quiz where each player gets questions for their age.
 
 const SETTINGS_KEY = 'fq.settings.v1';
-const GAME_KEY = 'fq.game.v1';
+const GAME_KEY = 'fq.game.v2';
+const SEEN_KEY = 'fq.seen.v1';
 const COLOURS = ['var(--cyan)', 'var(--pink)', 'var(--lime)', 'var(--orange)'];
-const AGE_LABELS = { 10: 'Age 10', 13: 'Age 13', 14: 'Age 14', adult: 'Adult' };
+const AGES = ['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', 'adult'];
+const POINTS_STRAIGHT = 2; // answered without seeing the choices
+const POINTS_CHOICES = 1;  // answered from the multiple choice
+const DIFFICULTIES = [
+  { id: 'mixed', label: 'Mixed (1–5)', grades: [1, 2, 3, 4, 5] },
+  { id: 'easy', label: 'Easy (1–2)', grades: [1, 2] },
+  { id: 'medium', label: 'Medium (2–4)', grades: [2, 3, 4] },
+  { id: 'hard', label: 'Hard (4–5)', grades: [4, 5] },
+];
 
 const DEFAULT_SETTINGS = {
   quizMaster: 'Ken',
   sheetUrl: '',
   seconds: 20,
+  perPlayer: 10,
+  topic: '',
+  difficulty: 'mixed',
   players: [
     { name: 'Player 1', age: '10' },
     { name: 'Player 2', age: '13' },
@@ -20,11 +32,10 @@ const DEFAULT_SETTINGS = {
 const app = document.getElementById('app');
 const state = {
   screen: 'home',
-  settings: load(SETTINGS_KEY) || structuredClone(DEFAULT_SETTINGS),
-  bank: null,          // { questions, source, error }
+  settings: { ...DEFAULT_SETTINGS, ...(load(SETTINGS_KEY) || {}) },
+  bank: null, // { questions, source, error }
   loading: true,
-  round: null,
-  game: load(GAME_KEY), // { round, turns: [{ player, question }], at, scores, choices, picked, revealed, verdict }
+  game: load(GAME_KEY),
   timer: null,
   deadline: 0,
 };
@@ -52,6 +63,18 @@ function shuffle(list) {
   return a;
 }
 
+function ageLabel(age) {
+  return age === 'adult' ? 'Adult' : `Age ${age}`;
+}
+
+function difficulty() {
+  return DIFFICULTIES.find((d) => d.id === state.settings.difficulty) || DIFFICULTIES[0];
+}
+
+function sheetUrl() {
+  return state.settings.sheetUrl || DEFAULT_SHEET_URL;
+}
+
 function badge(pi, extra = '') {
   return `<div class="badge tilt-${pi % 4} ${extra}" style="background:${COLOURS[pi % 4]}" aria-hidden="true">${pi + 1}</div>`;
 }
@@ -62,29 +85,57 @@ async function refreshQuestions() {
   state.loading = true;
   render();
   try {
-    state.bank = await loadQuestions(state.settings.sheetUrl);
+    state.bank = await loadQuestions(sheetUrl());
   } catch (e) {
     state.bank = { questions: [], source: 'none', error: e.message || String(e) };
   }
-  const rounds = roundsIn(state.bank.questions);
-  if (!rounds.includes(state.round)) state.round = rounds[0] || null;
+  if (state.settings.topic && !topicsIn(state.bank.questions).includes(state.settings.topic)) {
+    state.settings.topic = '';
+  }
   state.loading = false;
   render();
+}
+
+function poolForPlayer(p) {
+  return state.bank ? poolFor(state.bank.questions, p.age, state.settings.topic, difficulty().grades) : [];
+}
+
+// Picks questions this player hasn't had yet, topping up with repeats only when the pool runs dry.
+function deal(p, seen) {
+  const key = p.name.trim().toLowerCase();
+  const had = new Set(seen[key] || []);
+  const pool = poolForPlayer(p);
+  const fresh = shuffle(pool.filter((q) => !had.has(q.id)));
+  const repeats = shuffle(pool.filter((q) => had.has(q.id)));
+  const picked = fresh.concat(repeats).slice(0, state.settings.perPlayer);
+  seen[key] = [...had, ...picked.map((q) => q.id)];
+  return picked.sort((a, b) => a.grade - b.grade); // easier questions first
 }
 
 // ---------- Game flow ----------
 
 function startRound() {
   const { players } = state.settings;
-  const sets = players.map((p) => questionsFor(state.bank.questions, state.round, p.age));
+  const seen = load(SEEN_KEY) || {};
+  const sets = players.map((p) => deal(p, seen));
   const longest = Math.max(0, ...sets.map((s) => s.length));
   const turns = [];
   // Interleave: everyone answers question 1, then everyone answers question 2, and so on.
   for (let qi = 0; qi < longest; qi++) {
-    sets.forEach((set, pi) => { if (set[qi]) turns.push({ player: pi, question: set[qi], of: set.length }); });
+    sets.forEach((set, pi) => {
+      if (set[qi]) turns.push({ player: pi, question: set[qi], n: qi + 1, of: set.length });
+    });
   }
   if (!turns.length) return;
-  state.game = { round: state.round, turns, at: 0, scores: players.map(() => 0) };
+  save(SEEN_KEY, seen);
+  state.game = {
+    topic: state.settings.topic || 'Mixed topics',
+    difficulty: difficulty().label,
+    turns,
+    at: 0,
+    scores: players.map(() => 0),
+    correct: players.map(() => 0),
+  };
   beginTurn();
   state.screen = 'pass';
   persist();
@@ -99,9 +150,10 @@ function beginTurn() {
   const g = state.game;
   const q = currentTurn().question;
   g.choices = q.wrong.length ? shuffle([q.answer, ...q.wrong]) : null;
+  g.mode = 'open';  // open → (choices | revealed)
   g.picked = null;
-  g.revealed = false;
   g.verdict = null; // true, false, or null while undecided
+  g.points = 0;
 }
 
 function showQuestion() {
@@ -139,9 +191,25 @@ function tick() {
 
 function timeUp() {
   const g = state.game;
-  if (g.verdict !== null || g.revealed) return;
-  g.revealed = true;
-  if (g.choices) g.verdict = false; // multiple choice: no answer counts as wrong
+  if (g.verdict !== null) return;
+  if (g.mode === 'choices') settle(false, 0);
+  else { g.mode = 'revealed'; persist(); render(); } // the quiz master still judges a spoken answer
+}
+
+function settle(right, points) {
+  const g = state.game;
+  const p = currentTurn().player;
+  stopTimer();
+  g.verdict = right;
+  g.points = right ? points : 0;
+  g.scores[p] += g.points;
+  if (right) g.correct[p] += 1;
+  persist();
+  render();
+}
+
+function showChoices() {
+  state.game.mode = 'choices';
   persist();
   render();
 }
@@ -149,29 +217,20 @@ function timeUp() {
 function pick(choice) {
   const g = state.game;
   if (g.verdict !== null) return;
-  stopTimer();
   g.picked = choice;
-  g.revealed = true;
-  g.verdict = choice === currentTurn().question.answer;
-  if (g.verdict) g.scores[currentTurn().player] += 1;
-  persist();
-  render();
+  settle(choice === currentTurn().question.answer, POINTS_CHOICES);
 }
 
 function reveal() {
   stopTimer();
-  state.game.revealed = true;
+  state.game.mode = 'revealed';
   persist();
   render();
 }
 
 function judge(right) {
-  const g = state.game;
-  if (g.verdict !== null) return;
-  g.verdict = right;
-  if (right) g.scores[currentTurn().player] += 1;
-  persist();
-  render();
+  if (state.game.verdict !== null) return;
+  settle(right, POINTS_STRAIGHT);
 }
 
 function nextTurn() {
@@ -203,10 +262,7 @@ function endGame() {
 
 function homeScreen() {
   const { players, quizMaster } = state.settings;
-  const rounds = state.bank ? roundsIn(state.bank.questions) : [];
-  const counts = state.bank && state.round
-    ? players.map((p) => questionsFor(state.bank.questions, state.round, p.age).length)
-    : players.map(() => 0);
+  const counts = players.map((p) => poolForPlayer(p).length);
   const canStart = !state.loading && counts.some((c) => c > 0);
   const resume = state.game && state.game.at < state.game.turns.length;
 
@@ -215,7 +271,7 @@ function homeScreen() {
       <span class="sticker a">FAMILY</span>
       <span class="sticker b">QUIZ!</span>
     </div>
-    ${roundPicker(rounds)}
+    ${roundSetup()}
     <section class="stack" aria-labelledby="players-h">
       <div class="row" style="justify-content:space-between">
         <h2 id="players-h" class="eyebrow" style="font-family:var(--body)">Who's in?</h2>
@@ -225,59 +281,68 @@ function homeScreen() {
         <div class="card row">
           ${badge(i)}
           <div class="player-name">${esc(p.name)}</div>
-          <div class="age-pill">${esc(AGE_LABELS[p.age] || p.age)}</div>
+          <div class="age-pill">${esc(ageLabel(p.age))}</div>
         </div>
-        ${state.bank && !state.loading && !counts[i] ? `<p class="muted" style="font-size:14px;margin-top:-4px">No ${esc(AGE_LABELS[p.age] || p.age)} questions in this round.</p>` : ''}
+        ${state.bank && !state.loading && counts[i] < state.settings.perPlayer
+          ? `<p class="muted" style="font-size:14px;margin-top:-4px">${counts[i] ? `Only ${counts[i]} questions` : 'No questions'} for ${esc(ageLabel(p.age).toLowerCase())} with this topic and difficulty.</p>` : ''}
       `).join('')}
     </section>
     ${sourceNotice()}
     <div class="spacer"></div>
-    ${resume ? `<button class="btn good" data-action="resume">Carry on round ${esc(state.game.round)}</button>` : ''}
+    ${resume ? `<button class="btn good" data-action="resume">Carry on this round</button>` : ''}
     <button class="btn" data-action="start" ${canStart ? '' : 'disabled'}>${state.loading ? 'Loading…' : "Let's go"}</button>
     <p class="muted" style="text-align:center;font-size:14px;font-weight:700">Quiz master: ${esc(quizMaster)}</p>
   `;
 }
 
-function roundPicker(rounds) {
-  if (rounds.length <= 1) {
-    return `<p style="font-weight:700">${rounds.length ? `Round ${esc(rounds[0])}` : 'No rounds yet'} · General knowledge</p>`;
-  }
+function roundSetup() {
+  const topics = state.bank ? topicsIn(state.bank.questions) : [];
   return `
-    <div class="stack" style="gap:6px">
-      <label for="round">Round</label>
-      <select id="round" data-change="round">
-        ${rounds.map((r) => `<option value="${esc(r)}" ${r === state.round ? 'selected' : ''}>Round ${esc(r)}</option>`).join('')}
-      </select>
+    <div class="setup">
+      <div class="stack" style="gap:6px">
+        <label for="topic">Topic</label>
+        <select id="topic" data-change="topic">
+          <option value="">Mixed topics</option>
+          ${topics.map((t) => `<option value="${esc(t)}" ${t === state.settings.topic ? 'selected' : ''}>${esc(t)}</option>`).join('')}
+        </select>
+      </div>
+      <div class="stack" style="gap:6px">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty" data-change="difficulty">
+          ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === difficulty().id ? 'selected' : ''}>${d.label}</option>`).join('')}
+        </select>
+      </div>
     </div>`;
 }
 
 function sourceNotice() {
   const b = state.bank;
-  if (!b || state.loading) return '';
-  if (b.source === 'sheet') return '';
+  if (!b || state.loading || b.source === 'sheet') return '';
   if (b.source === 'cache') return `<p class="notice">Using the last copy of your sheet. ${esc(b.error)}</p>`;
-  if (b.error) return `<p class="notice">${esc(b.error)} Playing the sample round instead.</p>`;
-  return `<p class="notice">Playing the built-in sample round. Add your Google Sheet in <b>Edit players</b> to use your own questions.</p>`;
+  if (b.error) return `<p class="notice">${esc(b.error)} Using the built-in questions instead.</p>`;
+  return '';
 }
 
 function passScreen() {
-  const g = state.game;
   const turn = currentTurn();
   const p = state.settings.players[turn.player];
-  const qNumber = turn.question.number;
   return `
     <div class="topbar">
-      <span class="eyebrow">Round ${esc(g.round)}</span>
+      <span class="eyebrow">${esc(state.game.topic)}</span>
       <button class="link-btn" data-action="quit">End round</button>
     </div>
     <div class="pass">
       ${badge(turn.player)}
       <p class="eyebrow">Pass the phone to</p>
       <h1>${esc(p.name)}</h1>
-      <p style="font-weight:700">Question ${qNumber} of ${turn.of} · ${esc(AGE_LABELS[p.age] || p.age)}</p>
+      <p style="font-weight:700">Question ${turn.n} of ${turn.of} · ${esc(ageLabel(p.age))}</p>
     </div>
     <button class="btn" data-action="ready">I'm ready</button>
   `;
+}
+
+function gradeDots(grade) {
+  return `<span class="grade" aria-label="Grade ${grade} of 5">${[1, 2, 3, 4, 5].map((n) => `<i class="${n <= grade ? 'on' : ''}"></i>`).join('')}</span>`;
 }
 
 function questionScreen() {
@@ -286,49 +351,55 @@ function questionScreen() {
   const q = turn.question;
   const p = state.settings.players[turn.player];
   const seconds = Number(state.settings.seconds) || 0;
-  const left = state.timer ? secondsLeft() : (g.revealed ? 0 : seconds);
+  const done = g.verdict !== null;
+  const timerOn = seconds && !done && g.mode !== 'revealed';
+  const left = state.timer ? secondsLeft() : seconds;
   const isLast = g.at === g.turns.length - 1;
   const next = isLast ? 'See scores' : `Pass to ${esc(state.settings.players[g.turns[g.at + 1].player].name)}`;
 
-  let body;
-  if (g.choices) {
+  let body = '';
+  if (g.mode === 'choices') {
     body = `<div class="choices" role="group" aria-label="Answers">
       ${g.choices.map((c) => {
         let cls = '';
-        if (g.revealed) cls = c === q.answer ? 'correct' : (c === g.picked ? 'wrong' : '');
-        return `<button class="choice ${cls}" data-action="pick" data-value="${esc(c)}" ${g.revealed ? 'disabled' : ''}>${esc(c)}</button>`;
+        if (done) cls = c === q.answer ? 'correct' : (c === g.picked ? 'wrong' : '');
+        return `<button class="choice ${cls}" data-action="pick" data-value="${esc(c)}" ${done ? 'disabled' : ''}>${esc(c)}</button>`;
       }).join('')}
     </div>`;
-  } else if (!g.revealed) {
-    body = `<p class="muted" style="font-weight:700">Say your answer out loud, then ${esc(state.settings.quizMaster)} shows the answer.</p>`;
-  } else {
+  } else if (g.mode === 'revealed') {
     body = `<div class="card stack" style="gap:4px"><span class="eyebrow">Answer</span><span class="answer-reveal">${esc(q.answer)}</span></div>`;
+  } else {
+    body = `<p class="muted" style="font-weight:700">Say your answer out loud for ${POINTS_STRAIGHT} points.${g.choices ? ` Stuck? Show the choices for ${POINTS_CHOICES} point.` : ''}</p>`;
   }
 
   let footer;
-  if (g.verdict !== null) {
+  if (done) {
+    const msg = g.verdict ? `Correct! +${g.points}` : (g.mode === 'choices' && !g.picked ? "Time's up" : 'Not this time');
     footer = `
-      <p class="sticker" style="align-self:flex-start;background:${g.verdict ? 'var(--lime)' : 'var(--wrong)'};font-size:26px;transform:rotate(-2deg)">
-        ${g.verdict ? 'Correct!' : (g.choices && !g.picked ? "Time's up" : 'Not this time')}
-      </p>
+      <p class="sticker" style="align-self:flex-start;background:${g.verdict ? 'var(--lime)' : 'var(--wrong)'};font-size:26px;transform:rotate(-2deg)">${msg}</p>
       <button class="btn" data-action="next">${next}</button>`;
-  } else if (!g.choices && g.revealed) {
+  } else if (g.mode === 'revealed') {
     footer = `<div class="row">
-      <button class="btn good" data-action="right">Right</button>
+      <button class="btn good" data-action="right">Right +${POINTS_STRAIGHT}</button>
       <button class="btn bad" data-action="wrong">Wrong</button>
     </div>`;
-  } else if (!g.choices) {
-    footer = `<button class="btn" data-action="reveal">Show answer</button>`;
+  } else if (g.mode === 'open') {
+    footer = `
+      ${g.choices ? `<button class="btn secondary" data-action="choices">Show choices (${POINTS_CHOICES} point)</button>` : ''}
+      <button class="btn" data-action="reveal">Show answer</button>`;
   } else {
     footer = '';
   }
 
   return `
     <div class="topbar">
-      <span class="chip" style="background:${COLOURS[turn.player % 4]}">${esc(p.name)} · ${esc(AGE_LABELS[p.age] || p.age)}</span>
-      ${seconds && !g.revealed ? `<div id="timer" class="timer ${left <= 5 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>` : ''}
+      <span class="chip" style="background:${COLOURS[turn.player % 4]}">${esc(p.name)} · ${esc(ageLabel(p.age))}</span>
+      ${timerOn ? `<div id="timer" class="timer ${left <= 5 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>` : ''}
     </div>
-    <p style="font-family:var(--display);font-size:22px">Q${q.number} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">of ${turn.of}</span></p>
+    <div class="row" style="justify-content:space-between">
+      <p style="font-family:var(--display);font-size:22px">Q${turn.n} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">of ${turn.of} · ${esc(q.topic)}</span></p>
+      ${gradeDots(q.grade)}
+    </div>
     <h1 class="question">${esc(q.question)}</h1>
     ${body}
     <div class="spacer"></div>
@@ -340,7 +411,7 @@ function scoresScreen() {
   const g = state.game;
   const { players } = state.settings;
   const totals = players.map((p, i) => ({
-    i, p, score: g.scores[i],
+    i, p, score: g.scores[i], correct: g.correct[i],
     of: g.turns.filter((t) => t.player === i).length,
   })).filter((r) => r.of > 0).sort((a, b) => b.score - a.score);
   let rank = 0;
@@ -349,7 +420,7 @@ function scoresScreen() {
 
   return `
     <div class="stack" style="align-items:flex-start;gap:8px">
-      <span class="eyebrow">After round ${esc(g.round)}</span>
+      <span class="eyebrow">${esc(g.topic)} · ${esc(g.difficulty)}</span>
       <h1 class="sticker" style="background:var(--cyan);font-size:36px;transform:rotate(-2deg)">LEADERBOARD</h1>
     </div>
     <ol class="stack" style="list-style:none;margin:6px 0 0;padding:0">
@@ -357,10 +428,11 @@ function scoresScreen() {
         <li class="card leader ${r.rank === 1 ? 'first' : ''}">
           <span class="rank">${r.rank}</span>
           ${badge(r.i)}
-          <span class="player-name">${esc(r.p.name)}</span>
-          <span class="score">${r.score}<span class="muted" style="font-family:var(--body);font-size:15px;font-weight:700">/${r.of}</span></span>
+          <span class="player-name">${esc(r.p.name)}<br><span class="muted" style="font-size:13px;font-weight:700">${r.correct} of ${r.of} right</span></span>
+          <span class="score">${r.score}<span class="muted" style="font-family:var(--body);font-size:14px;font-weight:700"> pts</span></span>
         </li>`).join('')}
     </ol>
+    <p class="muted" style="font-size:14px">${POINTS_STRAIGHT} points for a straight answer, ${POINTS_CHOICES} for an answer from the choices.</p>
     <div class="spacer"></div>
     <button class="btn" data-action="done">Back to start</button>
   `;
@@ -368,8 +440,7 @@ function scoresScreen() {
 
 function settingsScreen() {
   const s = state.settings;
-  const ageOptions = (age) => Object.entries(AGE_LABELS)
-    .map(([v, l]) => `<option value="${v}" ${v === age ? 'selected' : ''}>${l}</option>`).join('');
+  const ageOptions = (age) => AGES.map((a) => `<option value="${a}" ${a === age ? 'selected' : ''}>${ageLabel(a)}</option>`).join('');
   return `
     <h1 style="font-size:36px">Settings</h1>
     <form id="settings" class="stack" style="gap:18px">
@@ -379,7 +450,7 @@ function settingsScreen() {
           <div class="player-edit">
             ${badge(i)}
             <input id="name-${i}" name="name-${i}" value="${esc(p.name)}" aria-label="Player ${i + 1} name" maxlength="20" required>
-            <select id="age-${i}" name="age-${i}" aria-label="Player ${i + 1} age group">${ageOptions(p.age)}</select>
+            <select id="age-${i}" name="age-${i}" aria-label="Player ${i + 1} age">${ageOptions(p.age)}</select>
           </div>`).join('')}
       </fieldset>
       <div class="stack" style="gap:6px">
@@ -387,15 +458,20 @@ function settingsScreen() {
         <input id="quizMaster" name="quizMaster" value="${esc(s.quizMaster)}" maxlength="20">
       </div>
       <div class="stack" style="gap:6px">
+        <label for="perPlayer">Questions per player each round</label>
+        <input id="perPlayer" name="perPlayer" type="number" min="1" max="50" step="1" value="${esc(s.perPlayer)}">
+      </div>
+      <div class="stack" style="gap:6px">
         <label for="seconds">Seconds per question (0 for no timer)</label>
         <input id="seconds" name="seconds" type="number" min="0" max="120" step="1" value="${esc(s.seconds)}">
       </div>
       <div class="stack" style="gap:6px">
         <label for="sheetUrl">Google Sheet link</label>
-        <input id="sheetUrl" name="sheetUrl" type="url" inputmode="url" placeholder="https://docs.google.com/spreadsheets/d/…" value="${esc(s.sheetUrl)}">
-        <p class="muted" style="font-size:14px">Share the sheet as "Anyone with the link can view". Leave empty to play the sample round.</p>
+        <input id="sheetUrl" name="sheetUrl" type="url" inputmode="url" placeholder="Using the family sheet" value="${esc(s.sheetUrl)}">
+        <p class="muted" style="font-size:14px">Leave empty to use the family question sheet.</p>
       </div>
       <button class="btn" type="submit">Save</button>
+      <button class="btn secondary" type="button" data-action="forget">Forget questions already asked</button>
       <button class="btn secondary" type="button" data-action="cancel">Cancel</button>
     </form>
   `;
@@ -414,9 +490,11 @@ app.addEventListener('click', (e) => {
   const actions = {
     settings: () => { state.screen = 'settings'; render(); },
     cancel: () => { state.screen = 'home'; render(); },
+    forget: () => { save(SEEN_KEY, null); el.textContent = 'Done: everyone starts fresh'; el.disabled = true; },
     start: startRound,
-    resume: () => { state.screen = state.game.verdict === null && !state.game.revealed ? 'pass' : 'question'; render(); },
+    resume: () => { state.screen = state.game.mode === 'open' && state.game.verdict === null ? 'pass' : 'question'; render(); },
     ready: showQuestion,
+    choices: showChoices,
     pick: () => pick(el.dataset.value),
     reveal,
     right: () => judge(true),
@@ -429,8 +507,10 @@ app.addEventListener('click', (e) => {
 });
 
 app.addEventListener('change', (e) => {
-  if (e.target.dataset.change === 'round') {
-    state.round = e.target.value;
+  const field = e.target.dataset.change;
+  if (field === 'topic' || field === 'difficulty') {
+    state.settings[field] = e.target.value;
+    save(SETTINGS_KEY, state.settings);
     render();
   }
 });
@@ -445,6 +525,7 @@ app.addEventListener('submit', (e) => {
     age: String(f.get(`age-${i}`) || p.age),
   }));
   s.quizMaster = String(f.get('quizMaster') || '').trim() || 'Quiz master';
+  s.perPlayer = Math.max(1, Math.min(50, Number(f.get('perPlayer')) || 10));
   s.seconds = Math.max(0, Math.min(120, Number(f.get('seconds')) || 0));
   s.sheetUrl = String(f.get('sheetUrl') || '').trim();
   save(SETTINGS_KEY, s);

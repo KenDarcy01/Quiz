@@ -139,6 +139,12 @@ button, .btn {
 .choice:disabled { cursor: default; }
 .answer-reveal { font-size: 22px; font-weight: 800; }
 
+/* Round setup */
+.setup { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.grade { display: inline-flex; gap: 4px; }
+.grade i { width: 10px; height: 10px; border-radius: 3px; border: 2px solid var(--ink); background: var(--card); }
+.grade i.on { background: var(--orange); }
+
 /* Pass screen */
 .pass { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; text-align: center; }
 .pass .badge { width: 96px; height: 96px; border-radius: 22px; font-size: 48px; }

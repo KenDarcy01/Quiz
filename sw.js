@@ -1,6 +1,6 @@
 // Offline support: the app shell is cached on install; question sheets are always fetched fresh
 // (the app keeps its own copy of the last sheet in localStorage).
-const CACHE = 'fq-shell-v1';
+const CACHE = 'fq-shell-v2';
 const SHELL = [
   './',
   'index.html',
@@ -8,7 +8,7 @@ const SHELL = [
   'js/csv.js',
   'js/questions.js',
   'js/app.js',
-  'questions/sample.csv',
+  'questions/questions.csv',
   'manifest.webmanifest',
   'icons/icon.svg',
   'icons/icon-192.png',

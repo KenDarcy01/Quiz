@@ -1,8 +1,8 @@
 # Family Quiz
 
-A pass-the-phone family quiz, built as a Progressive Web App (PWA). Each player gets questions for their own age group (10, 13, 14 or adult), everyone answers question 1, then question 2, and so on, and a leaderboard closes each round.
+A pass-the-phone family quiz, built as a Progressive Web App (PWA). Each player gets questions graded for their own age (6 to adult), everyone answers question 1, then question 2, and so on, and a leaderboard closes each round.
 
-It is plain HTML, CSS and JavaScript with no build step. Questions come from a Google Sheet, with a sample round built in.
+It is plain HTML, CSS and JavaScript with no build step. Questions come from a Google Sheet, with a bundled copy as a fallback.
 
 ## Run it locally
 
@@ -21,20 +21,26 @@ Then open http://localhost:8000. A service worker needs `localhost` or HTTPS, so
 
 ## Questions in a Google Sheet
 
-1. Create a Google Sheet with these column headings in row 1:
+The app loads the family question sheet by default (set `DEFAULT_SHEET_URL` in `js/questions.js`). A different sheet can be pasted into **Edit players → Google Sheet link**.
 
-   | round | age | number | question | answer | wrong1 | wrong2 | wrong3 |
-   |---|---|---|---|---|---|---|---|
+Row 1 holds these column headings, and every other row is one question:
 
-   - `age` is one of `10`, `13`, `14` or `adult`.
-   - `wrong1`–`wrong3` are optional. With them, the player sees multiple choice. Without them, the player says the answer out loud and the quiz master taps **Show answer**, then **Right** or **Wrong**.
-   - `number` is optional and sets the order within a round.
+| topic | age | grade | question | answer | wrong1 | wrong2 | wrong3 |
+|---|---|---|---|---|---|---|---|
 
-   The quickest start is **File → Import** on [`questions/sample.csv`](questions/sample.csv), which is round 1 in this format.
-2. Click **Share** and set **General access** to **Anyone with the link → Viewer**.
-3. In the app, tap **Edit players**, paste the sheet's link into **Google Sheet link**, and save.
+- `topic`: any name, such as Geography. Topics appear in the home screen's topic picker.
+- `age`: who the question suits: one age (`10`), a range (`8-9`), `16+`, `adult`, or blank for everyone.
+- `grade`: difficulty from 1 (easiest) to 5 (hardest) for that age.
+- `wrong1`–`wrong3`: optional. With them, a stuck player can tap **Show choices**.
 
-The app keeps a copy of the last sheet it loaded, so a quiz still runs without signal. Add more rounds by adding rows with `round` set to 2, 3 and so on. A round picker appears on the home screen.
+The sheet must be shared as **Anyone with the link → Viewer**. The app keeps a copy of the last sheet it loaded, so a quiz still runs without signal. [`questions/questions.csv`](questions/questions.csv) is a bundled copy used when the sheet can't be reached.
+
+## How a round works
+
+Pick a topic (or mixed) and a difficulty, then each player is dealt questions that suit their age, easiest first. The app remembers which questions each player has had, so they don't repeat until the pool runs out (Settings has a button to start fresh).
+
+- **2 points** for answering out loud straight away. The quiz master taps **Show answer**, then **Right** or **Wrong**.
+- **1 point** if the player taps **Show choices** and picks the right one.
 
 ## Files
 
@@ -43,11 +49,11 @@ The app keeps a copy of the last sheet it loaded, so a quiz still runs without s
 | `index.html` | App page |
 | `styles.css` | Sticker Pop theme |
 | `js/app.js` | Screens and game flow |
-| `js/questions.js` | Loads and groups questions from the sheet or the sample |
+| `js/questions.js` | Loads questions and picks them by age, grade and topic |
 | `js/csv.js` | CSV parser |
 | `sw.js` | Offline caching |
 | `manifest.webmanifest`, `icons/` | Install as an app |
-| `questions/sample.csv` | Built-in sample round |
+| `questions/questions.csv` | Bundled copy of the questions |
 
 ## Later
 

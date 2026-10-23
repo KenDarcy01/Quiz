@@ -1,8 +1,10 @@
-// Loads questions from a Google Sheet (or the bundled sample) and groups them by round and age.
+// Loads questions from a Google Sheet (or the bundled copy) and picks them by age, grade and topic.
 
-const SAMPLE_URL = 'questions/sample.csv';
-const CACHE_KEY = 'fq.questions.v1';
-const AGE_GROUPS = ['10', '13', '14', 'adult'];
+// The family question sheet, used when no other link is set in Settings.
+const DEFAULT_SHEET_URL = '';
+const BUNDLED_URL = 'questions/questions.csv';
+const CACHE_KEY = 'fq.questions.v2';
+const ADULT_AGE = 18;
 
 // Accepts a normal share link, a "Publish to web" CSV link, or any CSV URL.
 function sheetCsvUrl(url) {
@@ -17,33 +19,62 @@ function sheetCsvUrl(url) {
   return trimmed;
 }
 
-function normaliseAge(value) {
+// "adult", "10", "6-7", "16+" or blank (any age) → { min, max }.
+function parseAgeRange(value) {
   const v = String(value || '').trim().toLowerCase();
-  if (v.startsWith('adult')) return 'adult';
-  const n = v.replace(/[^0-9]/g, '');
-  return AGE_GROUPS.includes(n) ? n : v;
+  if (!v || v === 'all' || v === 'any') return { min: 0, max: 999 };
+  if (v.startsWith('adult')) return { min: ADULT_AGE, max: 999 };
+  const range = v.match(/^(\d+)\s*[-–to]+\s*(\d+)$/);
+  if (range) return { min: Number(range[1]), max: Number(range[2]) };
+  const plus = v.match(/^(\d+)\s*\+$/);
+  if (plus) return { min: Number(plus[1]), max: 999 };
+  const n = Number(v.replace(/[^0-9]/g, ''));
+  return Number.isFinite(n) && n > 0 ? { min: n, max: n } : { min: 0, max: 999 };
+}
+
+// A player's age setting ("6"–"17" or "adult") as a number.
+function playerAge(age) {
+  return String(age).toLowerCase() === 'adult' ? ADULT_AGE : Number(age) || ADULT_AGE;
+}
+
+function hashId(text) {
+  let h = 5381;
+  for (let i = 0; i < text.length; i++) h = ((h << 5) + h + text.charCodeAt(i)) >>> 0;
+  return h.toString(36);
 }
 
 function rowsToQuestions(rows) {
   if (!rows.length) return [];
   const header = rows[0].map((h) => h.trim().toLowerCase());
-  const col = (name) => header.indexOf(name);
+  const col = (...names) => names.map((n) => header.indexOf(n)).find((i) => i >= 0) ?? -1;
   const idx = {
-    round: col('round'), age: col('age'), number: col('number'),
-    question: col('question'), answer: col('answer'),
-    wrong: ['wrong1', 'wrong2', 'wrong3'].map(col),
+    topic: col('topic', 'category', 'round name'),
+    age: col('age', 'ages', 'age band'),
+    grade: col('grade', 'difficulty'),
+    question: col('question'),
+    answer: col('answer'),
+    wrong: ['wrong1', 'wrong2', 'wrong3'].map((n) => col(n)),
   };
-  if (idx.question < 0 || idx.answer < 0 || idx.age < 0) {
-    throw new Error('The sheet needs columns named round, age, question and answer.');
+  if (idx.question < 0 || idx.answer < 0) {
+    throw new Error('The sheet needs columns named question and answer.');
   }
-  return rows.slice(1).map((r, i) => ({
-    round: idx.round >= 0 ? (r[idx.round] || '1').trim() : '1',
-    age: normaliseAge(r[idx.age]),
-    number: idx.number >= 0 ? Number(r[idx.number]) || i + 1 : i + 1,
-    question: (r[idx.question] || '').trim(),
-    answer: (r[idx.answer] || '').trim(),
-    wrong: idx.wrong.filter((w) => w >= 0).map((w) => (r[w] || '').trim()).filter(Boolean),
-  })).filter((q) => q.question && q.answer);
+  const cell = (r, i) => (i >= 0 ? (r[i] || '').trim() : '');
+  return rows.slice(1).map((r) => {
+    const question = cell(r, idx.question);
+    const answer = cell(r, idx.answer);
+    const ageText = cell(r, idx.age);
+    const grade = Math.min(5, Math.max(1, Number(cell(r, idx.grade)) || 3));
+    return {
+      id: hashId(`${question}|${answer}|${ageText}`),
+      topic: cell(r, idx.topic) || 'General knowledge',
+      ageText,
+      age: parseAgeRange(ageText),
+      grade,
+      question,
+      answer,
+      wrong: idx.wrong.map((w) => cell(r, w)).filter(Boolean),
+    };
+  }).filter((q) => q.question && q.answer);
 }
 
 async function fetchCsv(url) {
@@ -61,7 +92,7 @@ function writeCache(entry) {
   try { localStorage.setItem(CACHE_KEY, JSON.stringify(entry)); } catch { /* storage full or blocked */ }
 }
 
-// Returns { questions, source: 'sheet' | 'cache' | 'sample', error }.
+// Returns { questions, source: 'sheet' | 'cache' | 'bundled', error }.
 async function loadQuestions(sheetUrl) {
   const url = sheetCsvUrl(sheetUrl);
   let error = null;
@@ -77,14 +108,18 @@ async function loadQuestions(sheetUrl) {
       if (cached && cached.url === url) return { questions: cached.questions, source: 'cache', error };
     }
   }
-  const questions = await fetchCsv(SAMPLE_URL);
-  return { questions, source: 'sample', error };
+  const questions = await fetchCsv(BUNDLED_URL);
+  return { questions, source: 'bundled', error };
 }
 
-function roundsIn(questions) {
-  return [...new Set(questions.map((q) => q.round))].sort((a, b) => Number(a) - Number(b) || a.localeCompare(b));
+function topicsIn(questions) {
+  return [...new Set(questions.map((q) => q.topic))].sort((a, b) => a.localeCompare(b));
 }
 
-function questionsFor(questions, round, age) {
-  return questions.filter((q) => q.round === round && q.age === age).sort((a, b) => a.number - b.number);
+// Questions that suit a player of this age, in the chosen topic and grade range.
+function poolFor(questions, age, topic, grades) {
+  const years = playerAge(age);
+  return questions.filter((q) => years >= q.age.min && years <= q.age.max
+    && (!topic || q.topic === topic)
+    && grades.includes(q.grade));
 }
