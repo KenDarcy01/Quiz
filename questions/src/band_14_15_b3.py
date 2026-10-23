@@ -25,7 +25,7 @@ Q = [
 # Grade 2
 ('G',2,"What does 'Wi-Fi' let you connect to without cables?","The internet","A plug socket","A TV aerial","A landline"),
 ('G',2,"What is the name for a female fox?","A vixen","A doe","A sow","A mare"),
-('G',2,"What is the name for a female deer?","A doe","A vixen","A sow","A ewe"),
+('G',2,"What is the name for a male duck?","A drake","A gander","A cob","A buck"),
 ('G',2,"What is the term for a play written to be sung, like 'Carmen'?","An opera","A ballet","A sonnet","A sitcom"),
 ('Y',2,"What is the capital city of Russia?","Moscow","St Petersburg","Kyiv","Minsk"),
 ('Y',2,"Which country is home to the Great Barrier Reef?","Australia","Indonesia","Fiji","New Zealand"),
