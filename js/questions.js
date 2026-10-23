@@ -92,24 +92,25 @@ function writeCache(entry) {
   try { localStorage.setItem(CACHE_KEY, JSON.stringify(entry)); } catch { /* storage full or blocked */ }
 }
 
+// The built-in question bank plus the family's own questions from the sheet.
 // Returns { questions, source: 'sheet' | 'cache' | 'bundled', error }.
 async function loadQuestions(sheetUrl) {
+  const bundled = await fetchCsv(BUNDLED_URL);
   const url = sheetCsvUrl(sheetUrl);
+  if (!url) return { questions: bundled, source: 'bundled', error: null };
+  let own = [];
+  let source = 'sheet';
   let error = null;
-  if (url) {
-    try {
-      const questions = await fetchCsv(url);
-      if (!questions.length) throw new Error('The sheet has no questions yet.');
-      writeCache({ url, questions, at: Date.now() });
-      return { questions, source: 'sheet', error };
-    } catch (e) {
-      error = e.message || String(e);
-      const cached = readCache();
-      if (cached && cached.url === url) return { questions: cached.questions, source: 'cache', error };
-    }
+  try {
+    own = await fetchCsv(url);
+    writeCache({ url, questions: own, at: Date.now() });
+  } catch (e) {
+    error = e.message || String(e);
+    const cached = readCache();
+    if (cached && cached.url === url) { own = cached.questions; source = 'cache'; } else source = 'bundled';
   }
-  const questions = await fetchCsv(BUNDLED_URL);
-  return { questions, source: 'bundled', error };
+  const ids = new Set(bundled.map((q) => q.id));
+  return { questions: bundled.concat(own.filter((q) => !ids.has(q.id))), source, error };
 }
 
 function topicsIn(questions) {

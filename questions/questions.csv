@@ -1,201 +1,701 @@
 topic,age,grade,question,answer,wrong1,wrong2,wrong3
-General knowledge,10,1,How many legs does a spider have?,8,6,10,4
-General knowledge,10,1,What colour do you get by mixing blue and yellow?,Green,Purple,Orange,Brown
-General knowledge,10,1,What is the largest planet in our solar system?,Jupiter,Saturn,Earth,Neptune
-General knowledge,10,3,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Perth
-General knowledge,10,3,What gas do plants take in from the air to make their food?,Carbon dioxide,Oxygen,Nitrogen,Helium
-General knowledge,10,3,Which is the longest bone in the human body?,The femur (thigh bone),The spine,The arm bone,The shin bone
-General knowledge,10,3,In which country are the ancient pyramids of Giza?,Egypt,Mexico,Greece,India
-General knowledge,10,3,What is the hardest natural substance on Earth?,Diamond,Gold,Iron,Granite
-General knowledge,10,3,How many minutes are there in 3 hours?,180,120,300,160
-General knowledge,10,3,How many sides does a hexagon have?,6,5,8,7
-General knowledge,13,3,What is the chemical symbol for gold?,Au,Ag,Go,Gd
-General knowledge,13,3,Who painted the Mona Lisa?,Leonardo da Vinci,Michelangelo,Vincent van Gogh,Pablo Picasso
-General knowledge,13,3,What is the largest ocean on Earth?,The Pacific,The Atlantic,The Indian,The Arctic
-General knowledge,13,3,In which year did the Titanic sink?,1912,1905,1921,1898
-General knowledge,13,3,What is the square root of 144?,12,14,11,16
-General knowledge,13,3,What is the smallest country in the world?,Vatican City,Monaco,Malta,San Marino
-General knowledge,13,3,Which type of blood cell fights infection?,White blood cells,Red blood cells,Platelets,Plasma cells
-General knowledge,13,3,Who wrote Romeo and Juliet?,William Shakespeare,Charles Dickens,Jane Austen,Roald Dahl
-General knowledge,13,3,What is the longest river in South America?,The Amazon,The Orinoco,The Paraná,The Nile
-General knowledge,13,3,How many continents are there?,7,5,6,8
-General knowledge,14,3,At what temperature in Fahrenheit does water boil at sea level?,212°F,100°F,180°F,250°F
-General knowledge,14,3,Who was the first person to walk on the Moon?,Neil Armstrong,Buzz Aldrin,Yuri Gagarin,John Glenn
-General knowledge,14,3,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal
-General knowledge,14,3,What does DNA stand for?,Deoxyribonucleic acid,Dinitrogen acid,Dual nucleic acid,Deoxyribose nitrate
-General knowledge,14,3,What is the largest desert in the world?,Antarctica,The Sahara,The Gobi,The Arabian
-General knowledge,14,3,Which element has atomic number 1?,Hydrogen,Helium,Oxygen,Carbon
-General knowledge,14,3,In which city is the Colosseum?,Rome,Athens,Naples,Paris
-General knowledge,14,3,What is 15% of 200?,30,15,20,45
-General knowledge,14,3,Who developed the theory of relativity?,Albert Einstein,Isaac Newton,Stephen Hawking,Marie Curie
-General knowledge,14,3,What is the main language spoken in Brazil?,Portuguese,Spanish,Brazilian,French
-General knowledge,adult,3,In which year did the Berlin Wall fall?,1989,1991,1987,1985
-General knowledge,adult,3,What is the capital of New Zealand?,Wellington,Auckland,Christchurch,Queenstown
+General knowledge,10-11,1,How many legs does a spider have?,8,6,10,4
+General knowledge,10-11,1,What colour do you get by mixing blue and yellow?,Green,Purple,Orange,Brown
+General knowledge,10-11,2,What is the largest planet in our solar system?,Jupiter,Saturn,Earth,Neptune
+General knowledge,10-11,4,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Perth
+General knowledge,10-11,3,What gas do plants take in from the air to make their food?,Carbon dioxide,Oxygen,Nitrogen,Helium
+General knowledge,10-11,4,Which is the longest bone in the human body?,The femur (thigh bone),The spine,The arm bone,The shin bone
+General knowledge,10-11,3,In which country are the ancient pyramids of Giza?,Egypt,Mexico,Greece,India
+General knowledge,10-11,2,What is the hardest natural substance on Earth?,Diamond,Gold,Iron,Granite
+General knowledge,10-11,2,How many minutes are there in 3 hours?,180,120,300,160
+General knowledge,10-11,3,How many sides does a hexagon have?,6,5,8,7
+General knowledge,12-13,4,What is the chemical symbol for gold?,Au,Ag,Go,Gd
+General knowledge,12-13,2,Who painted the Mona Lisa?,Leonardo da Vinci,Michelangelo,Vincent van Gogh,Pablo Picasso
+General knowledge,12-13,2,What is the largest ocean on Earth?,The Pacific,The Atlantic,The Indian,The Arctic
+General knowledge,12-13,4,In which year did the Titanic sink?,1912,1905,1921,1898
+General knowledge,12-13,2,What is the square root of 144?,12,14,11,16
+General knowledge,12-13,3,What is the smallest country in the world?,Vatican City,Monaco,Malta,San Marino
+General knowledge,12-13,3,Which type of blood cell fights infection?,White blood cells,Red blood cells,Platelets,Plasma cells
+General knowledge,12-13,1,Who wrote Romeo and Juliet?,William Shakespeare,Charles Dickens,Jane Austen,Roald Dahl
+General knowledge,12-13,3,What is the longest river in South America?,The Amazon,The Orinoco,The Paraná,The Nile
+General knowledge,12-13,1,How many continents are there?,7,5,6,8
+General knowledge,14-15,4,At what temperature in Fahrenheit does water boil at sea level?,212°F,100°F,180°F,250°F
+General knowledge,14-15,1,Who was the first person to walk on the Moon?,Neil Armstrong,Buzz Aldrin,Yuri Gagarin,John Glenn
+General knowledge,14-15,3,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal
+General knowledge,14-15,3,What does DNA stand for?,Deoxyribonucleic acid,Dinitrogen acid,Dual nucleic acid,Deoxyribose nitrate
+General knowledge,14-15,4,What is the largest desert in the world?,Antarctica,The Sahara,The Gobi,The Arabian
+General knowledge,14-15,2,Which element has atomic number 1?,Hydrogen,Helium,Oxygen,Carbon
+General knowledge,14-15,1,In which city is the Colosseum?,Rome,Athens,Naples,Paris
+General knowledge,14-15,2,What is 15% of 200?,30,15,20,45
+General knowledge,14-15,1,Who developed the theory of relativity?,Albert Einstein,Isaac Newton,Stephen Hawking,Marie Curie
+General knowledge,14-15,3,What is the main language spoken in Brazil?,Portuguese,Spanish,Brazilian,French
+General knowledge,adult,2,In which year did the Berlin Wall fall?,1989,1991,1987,1985
+General knowledge,adult,2,What is the capital of New Zealand?,Wellington,Auckland,Christchurch,Queenstown
 General knowledge,adult,3,Which planet spins on its side?,Uranus,Neptune,Saturn,Venus
-General knowledge,adult,3,Who composed The Four Seasons?,Antonio Vivaldi,Johann Sebastian Bach,Wolfgang Amadeus Mozart,George Frideric Handel
-General knowledge,adult,3,What is the currency of Japan?,The yen,The yuan,The won,The ringgit
-General knowledge,adult,3,What is the largest organ of the human body?,The skin,The liver,The brain,The lungs
-General knowledge,adult,3,"Which country has the most time zones, counting its overseas territories?",France,Russia,The USA,The UK
-General knowledge,adult,3,Who wrote Nineteen Eighty-Four?,George Orwell,Aldous Huxley,H. G. Wells,Ray Bradbury
+General knowledge,adult,2,Who composed The Four Seasons?,Antonio Vivaldi,Johann Sebastian Bach,Wolfgang Amadeus Mozart,George Frideric Handel
+General knowledge,adult,1,What is the currency of Japan?,The yen,The yuan,The won,The ringgit
+General knowledge,adult,2,What is the largest organ of the human body?,The skin,The liver,The brain,The lungs
+General knowledge,adult,5,"Which country has the most time zones, counting its overseas territories?",France,Russia,The USA,The UK
+General knowledge,adult,1,Who wrote Nineteen Eighty-Four?,George Orwell,Aldous Huxley,H. G. Wells,Ray Bradbury
 General knowledge,adult,3,What is the smallest bone in the human body?,The stapes (in the ear),The coccyx,The little toe bone,The hyoid
-General knowledge,adult,3,Which treaty formally ended World War I between the Allies and Germany?,The Treaty of Versailles,The Treaty of Paris,The Treaty of Ghent,The Treaty of Utrecht
-Science & nature,10,1,What do caterpillars turn into?,A butterfly,A beetle,A dragonfly,A bee
-Science & nature,10,1,What is frozen water called?,Ice,Steam,Fog,Dew
-Science & nature,10,1,Which animal is known as the King of the Jungle?,Lion,Tiger,Elephant,Gorilla
-Science & nature,10,3,Which planet is known as the Red Planet?,Mars,Venus,Jupiter,Mercury
-Science & nature,10,3,How many bones does an adult human have?,206,150,300,98
-Science & nature,10,3,What is the closest star to Earth?,The Sun,Sirius,The North Star,Proxima Centauri
-Science & nature,10,3,Which part of a plant makes the seeds?,The flower,The root,The stem,The leaf
-Science & nature,10,3,What is the fastest land animal?,Cheetah,Lion,Horse,Gazelle
-Science & nature,10,3,What force keeps us on the ground?,Gravity,Magnetism,Friction,Electricity
-Science & nature,10,3,What do bees collect from flowers to make honey?,Nectar,Pollen,Sap,Water
-Science & nature,13,3,What is the chemical formula for water?,H2O,CO2,O2,HO2
-Science & nature,13,3,Which part of the cell is known as its powerhouse?,Mitochondria,Nucleus,Ribosome,Cell wall
-Science & nature,13,3,How many planets are in our solar system?,8,9,7,10
-Science & nature,13,3,"At what temperature does water boil at sea level, in Celsius?",100°C,90°C,120°C,212°C
-Science & nature,13,3,Which organ pumps blood around the body?,The heart,The lungs,The liver,The kidneys
-Science & nature,13,3,What is a baby kangaroo called?,A joey,A cub,A kit,A calf
-Science & nature,13,3,What type of animal is a dolphin?,A mammal,A fish,An amphibian,A reptile
-Science & nature,13,3,What is the largest animal that has ever lived?,The blue whale,The African elephant,The sperm whale,Argentinosaurus
-Science & nature,13,3,Which gas makes up most of the Earth's atmosphere?,Nitrogen,Oxygen,Carbon dioxide,Argon
-Science & nature,13,3,What are animals that eat only plants called?,Herbivores,Carnivores,Omnivores,Insectivores
-Science & nature,14,3,Roughly how fast does light travel?,"300,000 km per second","30,000 km per second","3,000 km per second",3 million km per second
-Science & nature,14,3,What is the chemical symbol for sodium?,Na,So,Sd,S
-Science & nature,14,3,Which part of the eye controls how much light gets in?,The iris,The retina,The lens,The cornea
-Science & nature,14,3,Which blood type is known as the universal donor?,O negative,AB positive,A positive,B negative
-Science & nature,14,3,What is it called when plants lose water through their leaves?,Transpiration,Photosynthesis,Respiration,Condensation
-Science & nature,14,3,Newton's first law of motion is about what?,Inertia,Gravity,Action and reaction,Air resistance
-Science & nature,14,3,What is the pH of pure water?,7,0,14,5
-Science & nature,14,3,Which planet has the most known moons?,Saturn,Jupiter,Uranus,Neptune
-Science & nature,14,3,What do you call an animal that is active at night?,Nocturnal,Diurnal,Migratory,Dormant
-Science & nature,14,3,Diamonds and graphite are both made of which element?,Carbon,Silicon,Quartz,Iron
-Science & nature,adult,3,What is the most abundant element in the universe?,Hydrogen,Helium,Oxygen,Carbon
-Science & nature,adult,3,Which astronomer set out the three laws of planetary motion?,Johannes Kepler,Galileo Galilei,Nicolaus Copernicus,Tycho Brahe
-Science & nature,adult,3,Which is the only metal that is liquid at standard room temperature?,Mercury,Gallium,Caesium,Sodium
-Science & nature,adult,3,Which organ produces insulin?,The pancreas,The liver,The kidneys,The spleen
+General knowledge,adult,2,Which treaty formally ended World War I between the Allies and Germany?,The Treaty of Versailles,The Treaty of Paris,The Treaty of Ghent,The Treaty of Utrecht
+Science & nature,10-11,1,What do caterpillars turn into?,A butterfly,A beetle,A dragonfly,A bee
+Science & nature,10-11,1,What is frozen water called?,Ice,Steam,Fog,Dew
+Science & nature,10-11,1,Which animal is known as the King of the Jungle?,Lion,Tiger,Elephant,Gorilla
+Science & nature,10-11,2,Which planet is known as the Red Planet?,Mars,Venus,Jupiter,Mercury
+Science & nature,10-11,4,How many bones does an adult human have?,206,150,300,98
+Science & nature,10-11,3,What is the closest star to Earth?,The Sun,Sirius,The North Star,Proxima Centauri
+Science & nature,10-11,2,Which part of a plant makes the seeds?,The flower,The root,The stem,The leaf
+Science & nature,10-11,2,What is the fastest land animal?,Cheetah,Lion,Horse,Gazelle
+Science & nature,10-11,2,What force keeps us on the ground?,Gravity,Magnetism,Friction,Electricity
+Science & nature,10-11,3,What do bees collect from flowers to make honey?,Nectar,Pollen,Sap,Water
+Science & nature,12-13,1,What is the chemical formula for water?,H2O,CO2,O2,HO2
+Science & nature,12-13,3,Which part of the cell is known as its powerhouse?,Mitochondria,Nucleus,Ribosome,Cell wall
+Science & nature,12-13,1,How many planets are in our solar system?,8,9,7,10
+Science & nature,12-13,2,"At what temperature does water boil at sea level, in Celsius?",100°C,90°C,120°C,212°C
+Science & nature,12-13,1,Which organ pumps blood around the body?,The heart,The lungs,The liver,The kidneys
+Science & nature,12-13,3,What is a baby kangaroo called?,A joey,A cub,A kit,A calf
+Science & nature,12-13,2,What type of animal is a dolphin?,A mammal,A fish,An amphibian,A reptile
+Science & nature,12-13,2,What is the largest animal that has ever lived?,The blue whale,The African elephant,The sperm whale,Argentinosaurus
+Science & nature,12-13,4,Which gas makes up most of the Earth's atmosphere?,Nitrogen,Oxygen,Carbon dioxide,Argon
+Science & nature,12-13,2,What are animals that eat only plants called?,Herbivores,Carnivores,Omnivores,Insectivores
+Science & nature,14-15,3,Roughly how fast does light travel?,"300,000 km per second","30,000 km per second","3,000 km per second",3 million km per second
+Science & nature,14-15,3,What is the chemical symbol for sodium?,Na,So,Sd,S
+Science & nature,14-15,3,Which part of the eye controls how much light gets in?,The iris,The retina,The lens,The cornea
+Science & nature,14-15,3,Which blood type is known as the universal donor?,O negative,AB positive,A positive,B negative
+Science & nature,14-15,4,What is it called when plants lose water through their leaves?,Transpiration,Photosynthesis,Respiration,Condensation
+Science & nature,14-15,4,Newton's first law of motion is about what?,Inertia,Gravity,Action and reaction,Air resistance
+Science & nature,14-15,3,What is the pH of pure water?,7,0,14,5
+Science & nature,14-15,4,Which planet has the most known moons?,Saturn,Jupiter,Uranus,Neptune
+Science & nature,14-15,1,What do you call an animal that is active at night?,Nocturnal,Diurnal,Migratory,Dormant
+Science & nature,14-15,2,Diamonds and graphite are both made of which element?,Carbon,Silicon,Quartz,Iron
+Science & nature,adult,2,What is the most abundant element in the universe?,Hydrogen,Helium,Oxygen,Carbon
+Science & nature,adult,4,Which astronomer set out the three laws of planetary motion?,Johannes Kepler,Galileo Galilei,Nicolaus Copernicus,Tycho Brahe
+Science & nature,adult,2,Which is the only metal that is liquid at standard room temperature?,Mercury,Gallium,Caesium,Sodium
+Science & nature,adult,2,Which organ produces insulin?,The pancreas,The liver,The kidneys,The spleen
 Science & nature,adult,3,What is the SI unit of electrical resistance?,The ohm,The volt,The ampere,The watt
-Science & nature,adult,3,What type of bond holds the two strands of DNA together?,Hydrogen bonds,Ionic bonds,Covalent bonds,Metallic bonds
-Science & nature,adult,3,Which bird has the largest wingspan?,The wandering albatross,The Andean condor,The golden eagle,The marabou stork
-Science & nature,adult,3,Roughly what is Avogadro's number?,6.02 × 10²³,3.14 × 10²³,6.02 × 10²⁰,1.6 × 10⁻¹⁹
+Science & nature,adult,4,What type of bond holds the two strands of DNA together?,Hydrogen bonds,Ionic bonds,Covalent bonds,Metallic bonds
+Science & nature,adult,4,Which bird has the largest wingspan?,The wandering albatross,The Andean condor,The golden eagle,The marabou stork
+Science & nature,adult,5,Roughly what is Avogadro's number?,6.02 × 10²³,3.14 × 10²³,6.02 × 10²⁰,1.6 × 10⁻¹⁹
 Science & nature,adult,3,How many hearts does an octopus have?,3,1,2,8
 Science & nature,adult,3,Which layer of the atmosphere contains the ozone layer?,The stratosphere,The troposphere,The mesosphere,The thermosphere
-Geography,10,1,Which is the biggest continent?,Asia,Africa,Europe,Australia
-Geography,10,1,What is the capital of Japan?,Tokyo,Beijing,Seoul,Osaka
-Geography,10,1,Which country is shaped like a boot?,Italy,Spain,France,Greece
-Geography,10,3,What is the longest river in Africa?,The Nile,The Congo,The Niger,The Zambezi
-Geography,10,3,What is the tallest mountain in the world?,Mount Everest,K2,Kilimanjaro,Mont Blanc
-Geography,10,3,In which country is the Eiffel Tower?,France,Italy,Belgium,Spain
-Geography,10,3,What is the capital of Spain?,Madrid,Barcelona,Seville,Valencia
-Geography,10,3,Which ocean lies between Europe and North America?,The Atlantic,The Pacific,The Indian,The Arctic
-Geography,10,3,What is the coldest continent?,Antarctica,North America,Europe,Asia
-Geography,10,3,Which country has a maple leaf on its flag?,Canada,USA,Australia,New Zealand
-Geography,13,3,What is the capital of Germany?,Berlin,Munich,Frankfurt,Hamburg
-Geography,13,3,What is the largest country in the world by area?,Russia,Canada,China,USA
-Geography,13,3,On which continent is Kenya?,Africa,Asia,South America,Australia
-Geography,13,3,What is the capital of Italy?,Rome,Milan,Venice,Naples
-Geography,13,3,Which river flows through London?,The Thames,The Seine,The Severn,The Avon
-Geography,13,3,Mount Kilimanjaro is in which country?,Tanzania,Kenya,Uganda,Ethiopia
-Geography,13,3,What is the capital of the USA?,"Washington, D.C.",New York,Los Angeles,Chicago
-Geography,13,3,Which country has the most people?,India,China,USA,Indonesia
-Geography,13,3,Which desert covers much of northern Africa?,The Sahara,The Gobi,The Kalahari,The Atacama
-Geography,13,3,How many states are there in the USA?,50,48,52,51
-Geography,14,3,What is the capital of Turkey?,Ankara,Istanbul,Izmir,Antalya
-Geography,14,3,Which country has the longest coastline?,Canada,Russia,Australia,Norway
-Geography,14,3,What is the smallest continent?,Australia,Europe,Antarctica,South America
-Geography,14,3,What is the capital of Argentina?,Buenos Aires,Santiago,Lima,Montevideo
-Geography,14,3,Which imaginary line runs around the middle of the Earth?,The equator,The Tropic of Cancer,The prime meridian,The Arctic Circle
-Geography,14,3,Which mountain range is the traditional border between Europe and Asia?,The Urals,The Alps,The Himalayas,The Carpathians
-Geography,14,3,What is the largest lake in Africa?,Lake Victoria,Lake Tanganyika,Lake Malawi,Lake Chad
-Geography,14,3,In which country is the city of Marrakesh?,Morocco,Egypt,Tunisia,Algeria
-Geography,14,3,The Great Barrier Reef lies off which Australian state?,Queensland,New South Wales,Western Australia,Victoria
-Geography,14,3,What is the capital of South Korea?,Seoul,Busan,Pyongyang,Incheon
-Geography,adult,3,What is the capital of Kazakhstan?,Astana,Almaty,Tashkent,Bishkek
-Geography,adult,3,Which country has the most natural lakes?,Canada,Finland,Russia,USA
+Geography,10-11,2,Which is the biggest continent?,Asia,Africa,Europe,Australia
+Geography,10-11,1,What is the capital of Japan?,Tokyo,Beijing,Seoul,Osaka
+Geography,10-11,1,Which country is shaped like a boot?,Italy,Spain,France,Greece
+Geography,10-11,2,What is the longest river in Africa?,The Nile,The Congo,The Niger,The Zambezi
+Geography,10-11,1,What is the tallest mountain in the world?,Mount Everest,K2,Kilimanjaro,Mont Blanc
+Geography,10-11,1,In which country is the Eiffel Tower?,France,Italy,Belgium,Spain
+Geography,10-11,2,What is the capital of Spain?,Madrid,Barcelona,Seville,Valencia
+Geography,10-11,2,Which ocean lies between Europe and North America?,The Atlantic,The Pacific,The Indian,The Arctic
+Geography,10-11,2,What is the coldest continent?,Antarctica,North America,Europe,Asia
+Geography,10-11,1,Which country has a maple leaf on its flag?,Canada,USA,Australia,New Zealand
+Geography,12-13,2,What is the capital of Germany?,Berlin,Munich,Frankfurt,Hamburg
+Geography,12-13,2,What is the largest country in the world by area?,Russia,Canada,China,USA
+Geography,12-13,1,On which continent is Kenya?,Africa,Asia,South America,Australia
+Geography,12-13,1,What is the capital of Italy?,Rome,Milan,Venice,Naples
+Geography,12-13,2,Which river flows through London?,The Thames,The Seine,The Severn,The Avon
+Geography,12-13,4,Mount Kilimanjaro is in which country?,Tanzania,Kenya,Uganda,Ethiopia
+Geography,12-13,2,What is the capital of the USA?,"Washington, D.C.",New York,Los Angeles,Chicago
+Geography,12-13,3,Which country has the most people?,India,China,USA,Indonesia
+Geography,12-13,2,Which desert covers much of northern Africa?,The Sahara,The Gobi,The Kalahari,The Atacama
+Geography,12-13,3,How many states are there in the USA?,50,48,52,51
+Geography,14-15,3,What is the capital of Turkey?,Ankara,Istanbul,Izmir,Antalya
+Geography,14-15,4,Which country has the longest coastline?,Canada,Russia,Australia,Norway
+Geography,14-15,2,What is the smallest continent?,Australia,Europe,Antarctica,South America
+Geography,14-15,2,What is the capital of Argentina?,Buenos Aires,Santiago,Lima,Montevideo
+Geography,14-15,1,Which imaginary line runs around the middle of the Earth?,The equator,The Tropic of Cancer,The prime meridian,The Arctic Circle
+Geography,14-15,4,Which mountain range is the traditional border between Europe and Asia?,The Urals,The Alps,The Himalayas,The Carpathians
+Geography,14-15,3,What is the largest lake in Africa?,Lake Victoria,Lake Tanganyika,Lake Malawi,Lake Chad
+Geography,14-15,2,In which country is the city of Marrakesh?,Morocco,Egypt,Tunisia,Algeria
+Geography,14-15,4,The Great Barrier Reef lies off which Australian state?,Queensland,New South Wales,Western Australia,Victoria
+Geography,14-15,1,What is the capital of South Korea?,Seoul,Busan,Pyongyang,Incheon
+Geography,adult,4,What is the capital of Kazakhstan?,Astana,Almaty,Tashkent,Bishkek
+Geography,adult,4,Which country has the most natural lakes?,Canada,Finland,Russia,USA
 Geography,adult,3,What is the deepest known point in the oceans?,The Challenger Deep,The Puerto Rico Trench,The Java Trench,The Tonga Trench
 Geography,adult,3,Which African country was once known as Abyssinia?,Ethiopia,Eritrea,Somalia,Sudan
-Geography,adult,3,Which is the highest capital city (seat of government) in the world?,La Paz,Quito,Bogotá,Kathmandu
-Geography,adult,3,Which two countries share the world's longest international border?,Canada and the USA,Russia and Kazakhstan,Argentina and Chile,China and Mongolia
-Geography,adult,3,Which country has coastline on both the Atlantic and Indian Oceans?,South Africa,Namibia,Mozambique,Madagascar
-Geography,adult,3,Which river flows through Baghdad?,The Tigris,The Euphrates,The Jordan,The Nile
+Geography,adult,4,Which is the highest capital city (seat of government) in the world?,La Paz,Quito,Bogotá,Kathmandu
+Geography,adult,1,Which two countries share the world's longest international border?,Canada and the USA,Russia and Kazakhstan,Argentina and Chile,China and Mongolia
+Geography,adult,2,Which country has coastline on both the Atlantic and Indian Oceans?,South Africa,Namibia,Mozambique,Madagascar
+Geography,adult,4,Which river flows through Baghdad?,The Tigris,The Euphrates,The Jordan,The Nile
 Geography,adult,3,Which European capital city is built across 14 islands?,Stockholm,Copenhagen,Helsinki,Oslo
-Geography,adult,3,"Aconcagua, the highest peak outside Asia, is in which country?",Argentina,Chile,Peru,Bolivia
-History,10,1,Who was the first President of the USA?,George Washington,Abraham Lincoln,Thomas Jefferson,John Adams
-History,10,1,What did the Ancient Egyptians build as tombs for their pharaohs?,Pyramids,Castles,Lighthouses,Towers
-History,10,1,What animals did knights ride into battle?,Horses,Camels,Elephants,Donkeys
-History,10,3,Who were the sea raiders from Scandinavia?,The Vikings,The Romans,The Normans,The Celts
-History,10,3,Which wall did the Romans build across northern England?,Hadrian's Wall,The Great Wall,The Berlin Wall,Offa's Dyke
-History,10,3,What language did the Ancient Romans speak?,Latin,Greek,Italian,French
-History,10,3,Who made the first long-lasting electric light bulb that people could buy?,Thomas Edison,Alexander Graham Bell,Isaac Newton,Albert Einstein
-History,10,3,Which dinosaur had three horns on its face?,Triceratops,Stegosaurus,T. rex,Diplodocus
-History,10,3,What is the Ancient Egyptian picture writing called?,Hieroglyphics,Runes,Emojis,Graffiti
-History,10,3,In which country did the Olympic Games begin?,Greece,Italy,Egypt,France
-History,13,3,In which year did World War II end?,1945,1918,1939,1950
-History,13,3,Who was the British Prime Minister for most of World War II?,Winston Churchill,Neville Chamberlain,Clement Attlee,Margaret Thatcher
-History,13,3,Which English king had six wives?,Henry VIII,Henry V,Richard III,Edward I
-History,13,3,Who was the first woman to fly solo across the Atlantic?,Amelia Earhart,Amy Johnson,Bessie Coleman,Valentina Tereshkova
-History,13,3,What was the ship the Pilgrims sailed to America in 1620?,The Mayflower,The Santa María,The Endeavour,The Beagle
-History,13,3,Which queen of Ancient Egypt allied with Mark Antony?,Cleopatra,Nefertiti,Hatshepsut,Boudicca
-History,13,3,In which city was President John F. Kennedy assassinated?,Dallas,"Washington, D.C.",New York,Chicago
-History,13,3,Who discovered penicillin in 1928?,Alexander Fleming,Louis Pasteur,Marie Curie,Edward Jenner
-History,13,3,Which empire did Genghis Khan found?,The Mongol Empire,The Ottoman Empire,The Roman Empire,The Persian Empire
-History,13,3,Which country gave the Statue of Liberty to the USA?,France,Britain,Spain,Italy
-History,14,3,In which year did World War I begin?,1914,1912,1916,1918
-History,14,3,Who led the Soviet Union during World War II?,Joseph Stalin,Vladimir Lenin,Nikita Khrushchev,Leon Trotsky
-History,14,3,"Who gave the ""I Have a Dream"" speech?",Martin Luther King Jr.,Malcolm X,Nelson Mandela,John F. Kennedy
-History,14,3,In which year did Christopher Columbus first reach the Americas?,1492,1588,1066,1620
-History,14,3,At which battle in 1066 did William the Conqueror defeat King Harold?,The Battle of Hastings,The Battle of Agincourt,The Battle of Bosworth,The Battle of the Boyne
-History,14,3,Who was the first Roman emperor?,Augustus,Julius Caesar,Nero,Caligula
-History,14,3,What is the name for the rebirth of art and learning in Europe from the 14th century?,The Renaissance,The Enlightenment,The Reformation,The Middle Ages
-History,14,3,Nelson Mandela became president of which country in 1994?,South Africa,Zimbabwe,Kenya,Nigeria
-History,14,3,Which Russian royal family was overthrown in 1917?,The Romanovs,The Habsburgs,The Tudors,The Bourbons
-History,14,3,What did the Wright brothers achieve in 1903?,The first powered aeroplane flight,The first petrol car,The first telephone call,The first radio broadcast
-History,adult,3,In which year did the French Revolution begin?,1789,1776,1815,1848
-History,adult,3,Who was the last Tsar of Russia?,Nicholas II,Alexander III,Peter the Great,Alexander II
+Geography,adult,5,"Aconcagua, the highest peak outside Asia, is in which country?",Argentina,Chile,Peru,Bolivia
+History,10-11,2,Who was the first President of the USA?,George Washington,Abraham Lincoln,Thomas Jefferson,John Adams
+History,10-11,1,What did the Ancient Egyptians build as tombs for their pharaohs?,Pyramids,Castles,Lighthouses,Towers
+History,10-11,1,What animals did knights ride into battle?,Horses,Camels,Elephants,Donkeys
+History,10-11,2,Who were the sea raiders from Scandinavia?,The Vikings,The Romans,The Normans,The Celts
+History,10-11,4,Which wall did the Romans build across northern England?,Hadrian's Wall,The Great Wall,The Berlin Wall,Offa's Dyke
+History,10-11,3,What language did the Ancient Romans speak?,Latin,Greek,Italian,French
+History,10-11,3,Who made the first long-lasting electric light bulb that people could buy?,Thomas Edison,Alexander Graham Bell,Isaac Newton,Albert Einstein
+History,10-11,1,Which dinosaur had three horns on its face?,Triceratops,Stegosaurus,T. rex,Diplodocus
+History,10-11,3,What is the Ancient Egyptian picture writing called?,Hieroglyphics,Runes,Emojis,Graffiti
+History,10-11,3,In which country did the Olympic Games begin?,Greece,Italy,Egypt,France
+History,12-13,3,In which year did World War II end?,1945,1918,1939,1950
+History,12-13,2,Who was the British Prime Minister for most of World War II?,Winston Churchill,Neville Chamberlain,Clement Attlee,Margaret Thatcher
+History,12-13,2,Which English king had six wives?,Henry VIII,Henry V,Richard III,Edward I
+History,12-13,4,Who was the first woman to fly solo across the Atlantic?,Amelia Earhart,Amy Johnson,Bessie Coleman,Valentina Tereshkova
+History,12-13,3,What was the ship the Pilgrims sailed to America in 1620?,The Mayflower,The Santa María,The Endeavour,The Beagle
+History,12-13,2,Which queen of Ancient Egypt allied with Mark Antony?,Cleopatra,Nefertiti,Hatshepsut,Boudicca
+History,12-13,4,In which city was President John F. Kennedy assassinated?,Dallas,"Washington, D.C.",New York,Chicago
+History,12-13,4,Who discovered penicillin in 1928?,Alexander Fleming,Louis Pasteur,Marie Curie,Edward Jenner
+History,12-13,3,Which empire did Genghis Khan found?,The Mongol Empire,The Ottoman Empire,The Roman Empire,The Persian Empire
+History,12-13,3,Which country gave the Statue of Liberty to the USA?,France,Britain,Spain,Italy
+History,14-15,2,In which year did World War I begin?,1914,1912,1916,1918
+History,14-15,2,Who led the Soviet Union during World War II?,Joseph Stalin,Vladimir Lenin,Nikita Khrushchev,Leon Trotsky
+History,14-15,1,"Who gave the ""I Have a Dream"" speech?",Martin Luther King Jr.,Malcolm X,Nelson Mandela,John F. Kennedy
+History,14-15,2,In which year did Christopher Columbus first reach the Americas?,1492,1588,1066,1620
+History,14-15,2,At which battle in 1066 did William the Conqueror defeat King Harold?,The Battle of Hastings,The Battle of Agincourt,The Battle of Bosworth,The Battle of the Boyne
+History,14-15,4,Who was the first Roman emperor?,Augustus,Julius Caesar,Nero,Caligula
+History,14-15,3,What is the name for the rebirth of art and learning in Europe from the 14th century?,The Renaissance,The Enlightenment,The Reformation,The Middle Ages
+History,14-15,1,Nelson Mandela became president of which country in 1994?,South Africa,Zimbabwe,Kenya,Nigeria
+History,14-15,4,Which Russian royal family was overthrown in 1917?,The Romanovs,The Habsburgs,The Tudors,The Bourbons
+History,14-15,1,What did the Wright brothers achieve in 1903?,The first powered aeroplane flight,The first petrol car,The first telephone call,The first radio broadcast
+History,adult,2,In which year did the French Revolution begin?,1789,1776,1815,1848
+History,adult,2,Who was the last Tsar of Russia?,Nicholas II,Alexander III,Peter the Great,Alexander II
 History,adult,3,Which ancient wonder stood at the harbour of Rhodes?,The Colossus,The Lighthouse,The Hanging Gardens,The Mausoleum
-History,adult,3,In which year was Magna Carta sealed?,1215,1066,1314,1415
+History,adult,2,In which year was Magna Carta sealed?,1215,1066,1314,1415
 History,adult,3,Which empire was ruled from Constantinople after the fall of the Western Roman Empire?,The Byzantine Empire,The Holy Roman Empire,The Carolingian Empire,The Persian Empire
-History,adult,3,Who was the first woman to win a Nobel Prize?,Marie Curie,Florence Nightingale,Rosalind Franklin,Ada Lovelace
+History,adult,1,Who was the first woman to win a Nobel Prize?,Marie Curie,Florence Nightingale,Rosalind Franklin,Ada Lovelace
 History,adult,3,In which year did the Cuban Missile Crisis take place?,1962,1959,1965,1956
-History,adult,3,Which treaty created the European Union when it came into force in 1993?,The Maastricht Treaty,The Treaty of Rome,The Lisbon Treaty,The Treaty of Nice
-History,adult,3,Which Carthaginian general crossed the Alps with elephants?,Hannibal,Hamilcar,Scipio,Spartacus
-History,adult,3,What was the fleet Spain sent to invade England in 1588 called?,The Spanish Armada,The Grand Fleet,The Invincible Navy,The Royal Flotilla
-"Sport, music & film",10,1,How many players does a football (soccer) team have on the pitch?,11,9,10,12
-"Sport, music & film",10,1,What colour is Shrek?,Green,Blue,Brown,Yellow
-"Sport, music & film",10,1,What is the name of the snowman in Frozen?,Olaf,Sven,Kristoff,Hans
-"Sport, music & film",10,3,Which sport uses a shuttlecock?,Badminton,Tennis,Squash,Table tennis
-"Sport, music & film",10,3,How many strings does a standard guitar have?,6,4,5,8
-"Sport, music & film",10,3,What is the name of the boy wizard who goes to Hogwarts?,Harry Potter,Ron Weasley,Percy Jackson,Merlin
-"Sport, music & film",10,3,In which sport would you do a slam dunk?,Basketball,Volleyball,Netball,Rugby
-"Sport, music & film",10,3,Which instrument usually has 88 keys?,The piano,The organ,The accordion,The xylophone
-"Sport, music & film",10,3,What is the name of the cowboy in Toy Story?,Woody,Buzz,Jessie,Rex
-"Sport, music & film",10,3,How many rings are on the Olympic flag?,5,4,6,7
-"Sport, music & film",13,3,Which country won the 2022 FIFA World Cup?,Argentina,France,Brazil,Croatia
-"Sport, music & film",13,3,How many minutes long is a standard football match?,90,80,60,100
-"Sport, music & film",13,3,"Which band sang ""Hey Jude""?",The Beatles,The Rolling Stones,Queen,ABBA
-"Sport, music & film",13,3,"In tennis, what is a score of zero called?",Love,Nil,Duck,Zip
-"Sport, music & film",13,3,"Who sings ""Shake It Off""?",Taylor Swift,Ariana Grande,Katy Perry,Billie Eilish
-"Sport, music & film",13,3,Which film follows a clownfish searching for his son?,Finding Nemo,Shark Tale,The Little Mermaid,Moana
-"Sport, music & film",13,3,How many points is a touchdown worth in American football?,6,7,3,5
-"Sport, music & film",13,3,What is the name of the lion cub in The Lion King?,Simba,Mufasa,Nala,Scar
-"Sport, music & film",13,3,Which sport is played at Wimbledon?,Tennis,Golf,Cricket,Rugby
-"Sport, music & film",13,3,Which superhero is secretly Peter Parker?,Spider-Man,Iron Man,Captain America,Ant-Man
-"Sport, music & film",14,3,How many players does a rugby union team have on the pitch?,15,13,11,12
-"Sport, music & film",14,3,Freddie Mercury was the lead singer of which band?,Queen,Led Zeppelin,The Who,Aerosmith
-"Sport, music & film",14,3,Which city will host the 2028 Summer Olympics?,Los Angeles,Brisbane,Paris,Tokyo
-"Sport, music & film",14,3,Who directed Jurassic Park?,Steven Spielberg,George Lucas,James Cameron,Christopher Nolan
-"Sport, music & film",14,3,What is the highest score possible with three darts?,180,150,200,160
-"Sport, music & film",14,3,Which rapper's real name is Marshall Mathers?,Eminem,Drake,Jay-Z,Snoop Dogg
-"Sport, music & film",14,3,Which footballer is nicknamed CR7?,Cristiano Ronaldo,Lionel Messi,Neymar,Kylian Mbappé
-"Sport, music & film",14,3,Which instrument was Jimi Hendrix famous for playing?,Electric guitar,Drums,Bass guitar,Saxophone
-"Sport, music & film",14,3,"Which film series features the line ""May the Force be with you""?",Star Wars,Star Trek,Guardians of the Galaxy,The Matrix
-"Sport, music & film",14,3,How many Grand Slam tournaments are there in tennis each year?,4,3,5,6
-"Sport, music & film",adult,3,Which country has won the most men's FIFA World Cups?,Brazil,Germany,Italy,Argentina
-"Sport, music & film",adult,3,Who composed the opera The Magic Flute?,Wolfgang Amadeus Mozart,Giuseppe Verdi,Richard Wagner,Giacomo Puccini
-"Sport, music & film",adult,3,Which film won the first Academy Award for Best Picture?,Wings,Sunrise,The Jazz Singer,Metropolis
-"Sport, music & film",adult,3,"In golf, what is a score of three under par on one hole called?",An albatross,An eagle,A birdie,A condor
-"Sport, music & film",adult,3,Which singer was known as the Queen of Soul?,Aretha Franklin,Whitney Houston,Diana Ross,Tina Turner
+History,adult,4,Which treaty created the European Union when it came into force in 1993?,The Maastricht Treaty,The Treaty of Rome,The Lisbon Treaty,The Treaty of Nice
+History,adult,2,Which Carthaginian general crossed the Alps with elephants?,Hannibal,Hamilcar,Scipio,Spartacus
+History,adult,1,What was the fleet Spain sent to invade England in 1588 called?,The Spanish Armada,The Grand Fleet,The Invincible Navy,The Royal Flotilla
+"Sport, music & film",10-11,1,How many players does a football (soccer) team have on the pitch?,11,9,10,12
+"Sport, music & film",10-11,1,What colour is Shrek?,Green,Blue,Brown,Yellow
+"Sport, music & film",10-11,1,What is the name of the snowman in Frozen?,Olaf,Sven,Kristoff,Hans
+"Sport, music & film",10-11,2,Which sport uses a shuttlecock?,Badminton,Tennis,Squash,Table tennis
+"Sport, music & film",10-11,3,How many strings does a standard guitar have?,6,4,5,8
+"Sport, music & film",10-11,1,What is the name of the boy wizard who goes to Hogwarts?,Harry Potter,Ron Weasley,Percy Jackson,Merlin
+"Sport, music & film",10-11,2,In which sport would you do a slam dunk?,Basketball,Volleyball,Netball,Rugby
+"Sport, music & film",10-11,3,Which instrument usually has 88 keys?,The piano,The organ,The accordion,The xylophone
+"Sport, music & film",10-11,1,What is the name of the cowboy in Toy Story?,Woody,Buzz,Jessie,Rex
+"Sport, music & film",10-11,2,How many rings are on the Olympic flag?,5,4,6,7
+"Sport, music & film",12-13,2,Which country won the 2022 FIFA World Cup?,Argentina,France,Brazil,Croatia
+"Sport, music & film",12-13,1,How many minutes long is a standard football match?,90,80,60,100
+"Sport, music & film",12-13,2,"Which band sang ""Hey Jude""?",The Beatles,The Rolling Stones,Queen,ABBA
+"Sport, music & film",12-13,3,"In tennis, what is a score of zero called?",Love,Nil,Duck,Zip
+"Sport, music & film",12-13,1,"Who sings ""Shake It Off""?",Taylor Swift,Ariana Grande,Katy Perry,Billie Eilish
+"Sport, music & film",12-13,1,Which film follows a clownfish searching for his son?,Finding Nemo,Shark Tale,The Little Mermaid,Moana
+"Sport, music & film",12-13,4,How many points is a touchdown worth in American football?,6,7,3,5
+"Sport, music & film",12-13,1,What is the name of the lion cub in The Lion King?,Simba,Mufasa,Nala,Scar
+"Sport, music & film",12-13,1,Which sport is played at Wimbledon?,Tennis,Golf,Cricket,Rugby
+"Sport, music & film",12-13,1,Which superhero is secretly Peter Parker?,Spider-Man,Iron Man,Captain America,Ant-Man
+"Sport, music & film",14-15,3,How many players does a rugby union team have on the pitch?,15,13,11,12
+"Sport, music & film",14-15,1,Freddie Mercury was the lead singer of which band?,Queen,Led Zeppelin,The Who,Aerosmith
+"Sport, music & film",14-15,3,Which city will host the 2028 Summer Olympics?,Los Angeles,Brisbane,Paris,Tokyo
+"Sport, music & film",14-15,2,Who directed Jurassic Park?,Steven Spielberg,George Lucas,James Cameron,Christopher Nolan
+"Sport, music & film",14-15,3,What is the highest score possible with three darts?,180,150,200,160
+"Sport, music & film",14-15,2,Which rapper's real name is Marshall Mathers?,Eminem,Drake,Jay-Z,Snoop Dogg
+"Sport, music & film",14-15,1,Which footballer is nicknamed CR7?,Cristiano Ronaldo,Lionel Messi,Neymar,Kylian Mbappé
+"Sport, music & film",14-15,1,Which instrument was Jimi Hendrix famous for playing?,Electric guitar,Drums,Bass guitar,Saxophone
+"Sport, music & film",14-15,1,"Which film series features the line ""May the Force be with you""?",Star Wars,Star Trek,Guardians of the Galaxy,The Matrix
+"Sport, music & film",14-15,2,How many Grand Slam tournaments are there in tennis each year?,4,3,5,6
+"Sport, music & film",adult,1,Which country has won the most men's FIFA World Cups?,Brazil,Germany,Italy,Argentina
+"Sport, music & film",adult,1,Who composed the opera The Magic Flute?,Wolfgang Amadeus Mozart,Giuseppe Verdi,Richard Wagner,Giacomo Puccini
+"Sport, music & film",adult,5,Which film won the first Academy Award for Best Picture?,Wings,Sunrise,The Jazz Singer,Metropolis
+"Sport, music & film",adult,4,"In golf, what is a score of three under par on one hole called?",An albatross,An eagle,A birdie,A condor
+"Sport, music & film",adult,2,Which singer was known as the Queen of Soul?,Aretha Franklin,Whitney Houston,Diana Ross,Tina Turner
 "Sport, music & film",adult,3,Which city hosted the 1992 Summer Olympics?,Barcelona,Atlanta,Seoul,Sydney
-"Sport, music & film",adult,3,Who directed the 1960 film Psycho?,Alfred Hitchcock,Stanley Kubrick,Orson Welles,Billy Wilder
-"Sport, music & film",adult,3,How long is a marathon?,26.2 miles (42.2 km),24 miles (38.6 km),25 miles (40.2 km),28 miles (45 km)
-"Sport, music & film",adult,3,Which band released the album The Dark Side of the Moon?,Pink Floyd,Led Zeppelin,The Who,Genesis
+"Sport, music & film",adult,1,Who directed the 1960 film Psycho?,Alfred Hitchcock,Stanley Kubrick,Orson Welles,Billy Wilder
+"Sport, music & film",adult,2,How long is a marathon?,26.2 miles (42.2 km),24 miles (38.6 km),25 miles (40.2 km),28 miles (45 km)
+"Sport, music & film",adult,2,Which band released the album The Dark Side of the Moon?,Pink Floyd,Led Zeppelin,The Who,Genesis
 "Sport, music & film",adult,3,"In cricket, how many balls are in an over?",6,5,8,4
+Science & nature,10-11,1,What is a baby sheep called?,A lamb,A kid,A calf,A foal
+"Sport, music & film",10-11,1,What colour is Pikachu?,Yellow,Red,Blue,Green
+General knowledge,10-11,2,How many hours are there in a day?,24,12,48,20
+Geography,10-11,2,What is the capital city of Wales?,Cardiff,Swansea,Newport,Bangor
+History,10-11,2,What did the Romans call Britain?,Britannia,Gaul,Hispania,Caledonia
+General knowledge,10-11,3,What is 8 x 7?,56,54,63,48
+General knowledge,10-11,3,How many years are there in a century?,100,10,"1,000",50
+Science & nature,10-11,3,What do we call animals that eat both plants and meat?,Omnivores,Herbivores,Carnivores,Insectivores
+Science & nature,10-11,3,Which part of your body contains your brain?,Your skull,Your ribs,Your spine,Your pelvis
+Geography,10-11,3,Which is the longest river in the UK?,The Severn,The Thames,The Trent,The Shannon
+Geography,10-11,3,Which country is directly north of the USA?,Canada,Mexico,Greenland,Russia
+History,10-11,3,Which Tudor king started the Church of England?,Henry VIII,Henry VII,Edward VI,James I
+"Sport, music & film",10-11,3,Which instrument has 88 keys?,The piano,The organ,The accordion,The harp
+"Sport, music & film",10-11,3,What is the name of the wizarding school in Harry Potter?,Hogwarts,Nevermore,Malory Towers,St Trinian's
+General knowledge,10-11,4,What is 15% of 100?,15,1.5,150,10
+General knowledge,10-11,4,How many sides does a pentagon have?,5,6,4,8
+General knowledge,10-11,4,What is the Roman numeral for 50?,L,C,X,D
+General knowledge,10-11,4,What is the next prime number after 7?,11,9,10,13
+Science & nature,10-11,4,Which planet is famous for its rings?,Saturn,Mars,Mercury,Venus
+Science & nature,10-11,4,What is the boiling point of water in Celsius?,100°C,50°C,90°C,212°C
+Science & nature,10-11,4,Which organ do we use to breathe?,The lungs,The liver,The kidneys,The heart
+Geography,10-11,4,What is the capital city of Canada?,Ottawa,Toronto,Vancouver,Montreal
+Geography,10-11,4,In which continent is Brazil?,South America,Africa,North America,Europe
+Geography,10-11,4,What is the largest ocean on Earth?,The Pacific,The Atlantic,The Indian,The Southern
+History,10-11,4,Who was the British Prime Minister during most of World War II?,Winston Churchill,Margaret Thatcher,Tony Blair,Neville Chamberlain
+History,10-11,4,Which wall was built to divide a German city during the Cold War?,The Berlin Wall,Hadrian's Wall,The Great Wall,The Western Wall
+History,10-11,4,Who was the first woman to fly solo across the Atlantic?,Amelia Earhart,Amy Johnson,Florence Nightingale,Rosa Parks
+"Sport, music & film",10-11,4,How many minutes are in each half of a football match?,45,40,30,50
+"Sport, music & film",10-11,4,Which country do the band BTS come from?,South Korea,Japan,China,Thailand
+"Sport, music & film",10-11,4,Who wrote Charlie and the Chocolate Factory?,Roald Dahl,J.K. Rowling,David Walliams,C.S. Lewis
+General knowledge,10-11,5,What is the square root of 81?,9,8,7,18
+General knowledge,10-11,5,How many millimetres are in a centimetre?,10,100,"1,000",12
+General knowledge,10-11,5,"What is 1,000 divided by 8?",125,120,150,100
+General knowledge,10-11,5,What is the name for a shape with ten sides?,A decagon,An octagon,A hexagon,A nonagon
+Science & nature,10-11,5,Which blood cells fight infection?,White blood cells,Red blood cells,Platelets,Plasma
+Science & nature,10-11,5,What is the chemical symbol for oxygen?,O,Ox,Og,Oy
+Science & nature,10-11,5,What do you call a scientist who studies rocks?,A geologist,A biologist,A botanist,An astronomer
+Science & nature,10-11,5,Which planet is the hottest in our solar system?,Venus,Mercury,Mars,Jupiter
+Geography,10-11,5,What is the capital city of Italy?,Rome,Milan,Venice,Florence
+Geography,10-11,5,Which mountain range includes Mount Everest?,The Himalayas,The Alps,The Andes,The Rockies
+Geography,10-11,5,Which country has the most people in the world?,India,China,USA,Russia
+Geography,10-11,5,What is the smallest country in the world?,Vatican City,Monaco,Malta,Luxembourg
+History,10-11,5,In which year did World War I begin?,1914,1918,1939,1900
+History,10-11,5,Who was the Egyptian queen famous for her beauty who allied with Rome?,Cleopatra,Nefertiti,Tutankhamun,Boudicca
+History,10-11,5,Which queen led the Iceni tribe against the Romans?,Boudicca,Cleopatra,Elizabeth I,Victoria
+History,10-11,5,In which year did the first person walk on the Moon?,1969,1959,1979,1989
+"Sport, music & film",10-11,5,Which planet gives its name to a Holst piece called 'the Bringer of War'?,Mars,Jupiter,Saturn,Venus
+"Sport, music & film",10-11,5,Which country has won the most men's football World Cups?,Brazil,Germany,Italy,England
+"Sport, music & film",10-11,5,Who directed the Star Wars film A New Hope?,George Lucas,Steven Spielberg,James Cameron,Peter Jackson
+"Sport, music & film",10-11,5,How many players are on a netball team on the court?,7,5,9,11
+General knowledge,12-13,1,How many sides does a triangle have?,3,4,5,6
+General knowledge,12-13,1,How many days are there in a normal year?,365,366,360,364
+Science & nature,12-13,1,Which animal is known as man's best friend?,The dog,The cat,The horse,The parrot
+Geography,12-13,1,What is the capital city of France?,Paris,Lyon,Marseille,Nice
+History,12-13,1,Who was the first person to walk on the Moon?,Neil Armstrong,Buzz Aldrin,Yuri Gagarin,Tim Peake
+"Sport, music & film",12-13,1,How many players are on a football team on the pitch?,11,10,12,9
+"Sport, music & film",12-13,1,Which company makes the PlayStation?,Sony,Nintendo,Microsoft,Sega
+General knowledge,12-13,2,What is 25 x 4?,100,90,125,80
+Science & nature,12-13,2,What is the largest planet in our solar system?,Jupiter,Saturn,Uranus,Neptune
+History,12-13,2,In which country were the Pyramids of Giza built?,Egypt,Sudan,Iraq,Greece
+General knowledge,12-13,3,What is 3 cubed (3 x 3 x 3)?,27,9,18,33
+General knowledge,12-13,3,What is a word that sounds the same as another but has a different meaning called?,A homophone,A synonym,An antonym,An acronym
+Science & nature,12-13,3,What is the chemical symbol for iron?,Fe,Ir,In,I
+Science & nature,12-13,3,What type of rock is formed from cooled lava?,Igneous,Sedimentary,Metamorphic,Chalk
+Geography,12-13,3,What is the capital city of Portugal?,Lisbon,Porto,Madrid,Seville
+Geography,12-13,3,Which is the largest hot desert in the world?,The Sahara,The Gobi,The Kalahari,The Arabian
+History,12-13,3,Which ancient civilisation built Machu Picchu?,The Incas,The Aztecs,The Mayans,The Romans
+"Sport, music & film",12-13,3,Who wrote A Christmas Carol?,Charles Dickens,William Shakespeare,Roald Dahl,Jane Austen
+General knowledge,12-13,4,What is 0.75 written as a fraction?,3/4,1/4,7/5,2/3
+General knowledge,12-13,4,How many degrees are there in a right angle?,90,180,45,360
+General knowledge,12-13,4,What does the 'www' in a web address stand for?,World Wide Web,World Web Window,Wide Web World,Web World Wide
+Science & nature,12-13,4,What force slows down a sliding object?,Friction,Gravity,Magnetism,Upthrust
+Science & nature,12-13,4,What is the process plants use to make food from sunlight?,Photosynthesis,Respiration,Digestion,Evaporation
+Science & nature,12-13,4,What is the centre of an atom called?,The nucleus,The electron,The shell,The cell
+Geography,12-13,4,Which river runs through Paris?,The Seine,The Rhine,The Thames,The Danube
+Geography,12-13,4,What is the capital city of Egypt?,Cairo,Alexandria,Luxor,Giza
+Geography,12-13,4,Which country is home to the city of Rio de Janeiro?,Brazil,Argentina,Mexico,Portugal
+History,12-13,4,Who was the leader of Nazi Germany?,Adolf Hitler,Joseph Stalin,Benito Mussolini,Otto von Bismarck
+History,12-13,4,In which year did the Battle of Hastings take place?,1066,1166,966,1266
+"Sport, music & film",12-13,4,Which artist painted The Starry Night?,Vincent van Gogh,Claude Monet,Pablo Picasso,Salvador Dalí
+General knowledge,12-13,5,What is the value of pi to two decimal places?,3.14,3.41,3.12,3.16
+General knowledge,12-13,5,What is the square root of 169?,13,12,14,17
+General knowledge,12-13,5,How many sides does a dodecagon have?,12,10,11,20
+General knowledge,12-13,5,What is 2 to the power of 10?,"1,024","1,000",512,"2,048"
+Science & nature,12-13,5,What is the chemical symbol for potassium?,K,P,Po,Pt
+Science & nature,12-13,5,Which part of the cell contains its genetic information?,The nucleus,The cell membrane,The cytoplasm,The cell wall
+Science & nature,12-13,5,"What is the speed of sound in air, roughly?",343 metres per second,34 metres per second,"3,430 metres per second","1,000 metres per second"
+Science & nature,12-13,5,What is the name of the longest bone in the human body?,The femur,The tibia,The humerus,The spine
+Geography,12-13,5,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Brisbane
+Geography,12-13,5,Which country has the most time zones on its mainland?,Russia,USA,China,Canada
+Geography,12-13,5,Which sea separates Europe from Africa?,The Mediterranean,The Red Sea,The Black Sea,The North Sea
+Geography,12-13,5,What is the capital city of Norway?,Oslo,Bergen,Stockholm,Copenhagen
+History,12-13,5,Which emperor built a wall across northern Britain?,Hadrian,Nero,Augustus,Caligula
+History,12-13,5,In which year did the Great Fire of London happen?,1666,1066,1766,1566
+History,12-13,5,Who was the first female Prime Minister of the UK?,Margaret Thatcher,Theresa May,Liz Truss,Queen Victoria
+History,12-13,5,Which ship did Charles Darwin sail on?,HMS Beagle,HMS Victory,The Mayflower,HMS Endeavour
+"Sport, music & film",12-13,5,Which composer wrote The Four Seasons?,Antonio Vivaldi,Ludwig van Beethoven,Johann Sebastian Bach,Wolfgang Amadeus Mozart
+"Sport, music & film",12-13,5,Which tennis tournament is played on clay courts in Paris?,The French Open,Wimbledon,The US Open,The Australian Open
+"Sport, music & film",12-13,5,In which year were the most recent London Olympics held?,2012,2008,2016,2000
+"Sport, music & film",12-13,5,Who wrote the Lord of the Rings books?,J.R.R. Tolkien,C.S. Lewis,J.K. Rowling,Philip Pullman
+General knowledge,14-15,1,How many minutes are there in an hour?,60,100,30,90
+General knowledge,14-15,1,What is the freezing point of water in Celsius?,0°C,32°C,10°C,-10°C
+Science & nature,14-15,1,Which planet do we live on?,Earth,Mars,Venus,Jupiter
+Geography,14-15,1,What is the capital city of England?,London,Manchester,Birmingham,Leeds
+Geography,14-15,1,Which country is famous for the Eiffel Tower?,France,Germany,Italy,Belgium
+History,14-15,1,Which region did the Vikings come from?,Scandinavia,Italy,North Africa,Spain
+"Sport, music & film",14-15,1,Which sport is played at the Super Bowl?,American football,Baseball,Basketball,Ice hockey
+General knowledge,14-15,2,What is 20% of 50?,10,5,20,25
+General knowledge,14-15,2,How many centimetres are in a metre?,100,10,"1,000",12
+Science & nature,14-15,2,What is the chemical formula for water?,H2O,CO2,NaCl,O2
+Science & nature,14-15,2,Which organ filters blood to make urine?,The kidneys,The liver,The lungs,The heart
+Geography,14-15,2,What is the capital city of Spain?,Madrid,Barcelona,Valencia,Seville
+History,14-15,2,In which year did World War II end?,1945,1944,1939,1950
+"Sport, music & film",14-15,2,Which social media app is known for short videos and was launched by ByteDance?,TikTok,Instagram,Snapchat,YouTube
+General knowledge,14-15,3,What is the square root of 225?,15,25,14,16
+Science & nature,14-15,3,What is the most common gas in the air we breathe?,Nitrogen,Oxygen,Carbon dioxide,Argon
+Geography,14-15,3,What is the capital city of Greece?,Athens,Sparta,Thessaloniki,Corfu
+History,14-15,3,Who was the US President during the American Civil War?,Abraham Lincoln,George Washington,Thomas Jefferson,Ulysses S. Grant
+"Sport, music & film",14-15,3,Which singer released the album 1989?,Taylor Swift,Ariana Grande,Billie Eilish,Olivia Rodrigo
+"Sport, music & film",14-15,3,Who wrote the novel Of Mice and Men?,John Steinbeck,Harper Lee,George Orwell,F. Scott Fitzgerald
+General knowledge,14-15,4,What is the sum of the angles in a triangle?,180°,360°,90°,270°
+General knowledge,14-15,4,What is 7 squared minus 9?,40,49,31,58
+Science & nature,14-15,4,What is the chemical symbol for silver?,Ag,Si,Sv,Au
+Science & nature,14-15,4,What is the unit of electrical current?,The ampere,The volt,The ohm,The watt
+Geography,14-15,4,Which African country has the largest population?,Nigeria,Egypt,South Africa,Ethiopia
+Geography,14-15,4,What is the longest river in Europe?,The Volga,The Danube,The Rhine,The Thames
+History,14-15,4,In which year did the Berlin Wall fall?,1989,1991,1961,1979
+History,14-15,4,Who wrote the Communist Manifesto with Friedrich Engels?,Karl Marx,Vladimir Lenin,Joseph Stalin,Leon Trotsky
+"Sport, music & film",14-15,4,Who painted the ceiling of the Sistine Chapel?,Michelangelo,Leonardo da Vinci,Raphael,Donatello
+"Sport, music & film",14-15,4,Who wrote the novel To Kill a Mockingbird?,Harper Lee,John Steinbeck,Mark Twain,Ernest Hemingway
+General knowledge,14-15,5,"What is the next number in the sequence 1, 1, 2, 3, 5, 8?",13,11,12,16
+General knowledge,14-15,5,How many edges does a cube have?,12,8,6,10
+General knowledge,14-15,5,"What is the area of a circle with radius 1, to two decimal places?",3.14,6.28,1.57,2.00
+General knowledge,14-15,5,What is a polygon with nine sides called?,A nonagon,A decagon,An octagon,A heptagon
+Science & nature,14-15,5,What is the chemical symbol for lead?,Pb,Le,Ld,Pd
+Science & nature,14-15,5,Which scientist proposed the theory of evolution by natural selection?,Charles Darwin,Gregor Mendel,Isaac Newton,Louis Pasteur
+Science & nature,14-15,5,What is the powerhouse of the cell?,The mitochondria,The ribosome,The nucleus,The vacuole
+Science & nature,14-15,5,What particle has a negative charge?,The electron,The proton,The neutron,The photon
+Geography,14-15,5,What is the capital city of New Zealand?,Wellington,Auckland,Christchurch,Dunedin
+Geography,14-15,5,Which country has the largest land area in South America?,Brazil,Argentina,Peru,Colombia
+Geography,14-15,5,Which strait separates Europe and Africa at its narrowest point?,The Strait of Gibraltar,The Bosphorus,The Strait of Hormuz,The English Channel
+Geography,14-15,5,What is the capital city of Switzerland?,Bern,Zurich,Geneva,Basel
+History,14-15,5,Which document was signed by King John in 1215?,Magna Carta,The Bill of Rights,The Domesday Book,The Treaty of Versailles
+History,14-15,5,Who was the first Emperor of the French?,Napoleon Bonaparte,Louis XIV,Charlemagne,Louis XVI
+History,14-15,5,Which war was fought between the North and South of the USA?,The American Civil War,The War of Independence,The Vietnam War,The Korean War
+History,14-15,5,Who was the leader of the Soviet Union at the start of the Cold War?,Joseph Stalin,Mikhail Gorbachev,Nikita Khrushchev,Vladimir Putin
+"Sport, music & film",14-15,5,Which Shakespeare play features the line 'To be or not to be'?,Hamlet,Macbeth,Othello,King Lear
+"Sport, music & film",14-15,5,Which country hosted the 2016 Summer Olympics?,Brazil,China,UK,Japan
+"Sport, music & film",14-15,5,Which composer wrote the Moonlight Sonata?,Ludwig van Beethoven,Frédéric Chopin,Wolfgang Amadeus Mozart,Franz Schubert
+"Sport, music & film",14-15,5,Which footballer has won the most Ballon d'Or awards?,Lionel Messi,Cristiano Ronaldo,Michel Platini,Johan Cruyff
+General knowledge,16-17,1,How many weeks are there in a year?,52,48,56,50
+General knowledge,16-17,1,What is 10 x 10?,100,"1,000",20,110
+General knowledge,16-17,1,How many continents are there?,7,5,6,8
+General knowledge,16-17,1,How many sides does a hexagon have?,6,5,7,8
+Science & nature,16-17,1,What is H2O better known as?,Water,Salt,Oxygen,Hydrogen
+Science & nature,16-17,1,Which organ pumps blood around the body?,The heart,The liver,The brain,The lungs
+Science & nature,16-17,1,What do bees make?,Honey,Wax only,Milk,Silk
+Science & nature,16-17,1,What is the closest planet to the Sun?,Mercury,Venus,Earth,Mars
+Geography,16-17,1,What is the capital city of Italy?,Rome,Milan,Naples,Turin
+Geography,16-17,1,Which ocean is the largest?,The Pacific,The Atlantic,The Indian,The Arctic
+Geography,16-17,1,In which country is the Statue of Liberty?,The USA,France,Canada,The UK
+Geography,16-17,1,Which country is home to kangaroos?,Australia,New Zealand,South Africa,Argentina
+History,16-17,1,In which year did World War II end?,1945,1939,1918,1950
+History,16-17,1,Who was the first President of the USA?,George Washington,Abraham Lincoln,John Adams,Thomas Jefferson
+History,16-17,1,Which ship sank on its first voyage in 1912?,The Titanic,The Lusitania,The Britannic,The Bismarck
+History,16-17,1,Which ancient people built the pyramids at Giza?,The Egyptians,The Romans,The Greeks,The Aztecs
+"Sport, music & film",16-17,1,"Which sport uses a bat, a ball and wickets?",Cricket,Baseball,Rounders,Hockey
+"Sport, music & film",16-17,1,Who sang 'Shape of You'?,Ed Sheeran,Harry Styles,Justin Bieber,Lewis Capaldi
+"Sport, music & film",16-17,1,Which streaming service made Stranger Things?,Netflix,Disney+,Amazon Prime Video,Apple TV+
+"Sport, music & film",16-17,1,How many players are on a basketball team on the court?,5,6,7,11
+General knowledge,16-17,2,What is 15% of 200?,30,15,20,45
+General knowledge,16-17,2,How many sides does an octagon have?,8,6,10,12
+General knowledge,16-17,2,What is the Roman numeral for 100?,C,M,L,D
+General knowledge,16-17,2,What does 'CPU' stand for in computing?,Central Processing Unit,Computer Power Unit,Central Program Utility,Core Processing Unit
+Science & nature,16-17,2,What is the chemical symbol for gold?,Au,Ag,Gd,Go
+Science & nature,16-17,2,What gas do plants release during photosynthesis?,Oxygen,Carbon dioxide,Nitrogen,Methane
+Science & nature,16-17,2,How many chromosomes do most humans have?,46,23,48,44
+Science & nature,16-17,2,What is the hardest natural substance?,Diamond,Quartz,Steel,Granite
+Geography,16-17,2,What is the capital city of Japan?,Tokyo,Kyoto,Osaka,Hiroshima
+Geography,16-17,2,Which is the longest river in South America?,The Amazon,The Paraná,The Orinoco,The Rio Grande
+Geography,16-17,2,Mount Everest is on the border of Nepal and which other country?,China,India,Bhutan,Pakistan
+Geography,16-17,2,What is the capital city of Germany?,Berlin,Frankfurt,Hamburg,Bonn
+History,16-17,2,Who was the British Prime Minister during most of World War II?,Winston Churchill,Clement Attlee,Neville Chamberlain,Anthony Eden
+History,16-17,2,In which year did humans first land on the Moon?,1969,1965,1972,1959
+History,16-17,2,Which civil rights leader gave the 'I Have a Dream' speech?,Martin Luther King Jr.,Malcolm X,Rosa Parks,Barack Obama
+History,16-17,2,In which city was the Titanic built?,Belfast,Liverpool,Southampton,Glasgow
+"Sport, music & film",16-17,2,Which band released the album Abbey Road?,The Beatles,The Rolling Stones,Pink Floyd,Queen
+"Sport, music & film",16-17,2,In which sport would you perform a slam dunk?,Basketball,Volleyball,Tennis,Netball
+"Sport, music & film",16-17,2,Who played Iron Man in the Marvel films?,Robert Downey Jr.,Chris Evans,Chris Hemsworth,Mark Ruffalo
+"Sport, music & film",16-17,2,Which country hosts the Tour de France?,France,Italy,Spain,Belgium
+General knowledge,16-17,3,What is 2 to the power of 8?,256,128,512,64
+General knowledge,16-17,3,How many degrees are in a full circle?,360,180,270,400
+General knowledge,16-17,3,How many zeros are there in one million?,6,5,7,9
+General knowledge,16-17,3,What is the next prime number after 13?,17,15,19,16
+Science & nature,16-17,3,What is the most abundant gas in Earth's atmosphere?,Nitrogen,Oxygen,Argon,Carbon dioxide
+Science & nature,16-17,3,What is the pH of a neutral solution?,7,0,14,1
+Science & nature,16-17,3,Which vitamin does the body make from sunlight?,Vitamin D,Vitamin C,Vitamin A,Vitamin B12
+Science & nature,16-17,3,What part of the plant carries out photosynthesis?,The leaves,The roots,The stem,The flowers
+Geography,16-17,3,What is the capital city of Canada?,Ottawa,Toronto,Montreal,Vancouver
+Geography,16-17,3,Which desert is the largest hot desert in the world?,The Sahara,The Arabian,The Gobi,The Kalahari
+Geography,16-17,3,Which river flows through Cairo?,The Nile,The Tigris,The Congo,The Euphrates
+Geography,16-17,3,What is the capital city of Turkey?,Ankara,Istanbul,Izmir,Bursa
+History,16-17,3,In which year did the Battle of Hastings take place?,1066,1166,1006,1086
+History,16-17,3,Who was the first Tudor king of England?,Henry VII,Henry VIII,Richard III,Edward IV
+History,16-17,3,Which revolution began in 1789?,The French Revolution,The Russian Revolution,The American Revolution,The Industrial Revolution
+History,16-17,3,Who became President of South Africa in 1994?,Nelson Mandela,Desmond Tutu,F.W. de Klerk,Thabo Mbeki
+"Sport, music & film",16-17,3,Who wrote the novel 1984?,George Orwell,Aldous Huxley,Ray Bradbury,H.G. Wells
+"Sport, music & film",16-17,3,Which Formula 1 driver has won seven world championships along with Michael Schumacher?,Lewis Hamilton,Sebastian Vettel,Max Verstappen,Ayrton Senna
+"Sport, music & film",16-17,3,Who directed the film Inception?,Christopher Nolan,Steven Spielberg,Ridley Scott,Quentin Tarantino
+"Sport, music & film",16-17,3,Which singer is known as the Queen of Pop?,Madonna,Beyoncé,Lady Gaga,Kylie Minogue
+General knowledge,16-17,4,What is the square root of 196?,14,16,13,18
+General knowledge,16-17,4,What is 3/8 as a decimal?,0.375,0.38,0.35,0.83
+General knowledge,16-17,4,How many faces does a dodecahedron have?,12,10,20,8
+General knowledge,16-17,4,What does GDP stand for?,Gross Domestic Product,General Domestic Price,Gross Development Plan,Global Domestic Profit
+Science & nature,16-17,4,What is the chemical symbol for sodium?,Na,So,Sd,Sm
+Science & nature,16-17,4,What is the SI unit of force?,The newton,The joule,The pascal,The watt
+Science & nature,16-17,4,Which blood vessels carry blood away from the heart?,Arteries,Veins,Capillaries,Valves
+Science & nature,16-17,4,What is the name of the process by which cells divide to make identical copies?,Mitosis,Meiosis,Osmosis,Diffusion
+Geography,16-17,4,Which country has the longest coastline in the world?,Canada,Russia,Norway,Indonesia
+Geography,16-17,4,What is the capital city of Argentina?,Buenos Aires,Córdoba,Santiago,Montevideo
+Geography,16-17,4,Which is the deepest lake in the world?,Lake Baikal,Lake Superior,Lake Tanganyika,Lake Victoria
+Geography,16-17,4,Which mountain range runs down the west side of South America?,The Andes,The Rockies,The Alps,The Urals
+History,16-17,4,Who was the leader of the Soviet Union when it collapsed in 1991?,Mikhail Gorbachev,Boris Yeltsin,Leonid Brezhnev,Joseph Stalin
+History,16-17,4,Which empire was ruled by Montezuma?,The Aztec Empire,The Inca Empire,The Maya Empire,The Ottoman Empire
+History,16-17,4,In which year did the Wall Street Crash happen?,1929,1919,1939,1945
+History,16-17,4,"Which country gave women the vote first, in 1893?",New Zealand,The UK,The USA,Australia
+"Sport, music & film",16-17,4,Which artist painted Guernica?,Pablo Picasso,Salvador Dalí,Joan Miró,Henri Matisse
+"Sport, music & film",16-17,4,Who wrote the novel Pride and Prejudice?,Jane Austen,Charlotte Brontë,Emily Brontë,Mary Shelley
+"Sport, music & film",16-17,4,Which country won the first FIFA World Cup in 1930?,Uruguay,Brazil,Argentina,Italy
+"Sport, music & film",16-17,4,Which rapper released the album To Pimp a Butterfly?,Kendrick Lamar,Drake,Kanye West,J. Cole
+General knowledge,16-17,5,What is the sum of the interior angles of a hexagon?,720°,540°,360°,900°
+General knowledge,16-17,5,What is the derivative of x squared?,2x,x,x squared,2
+General knowledge,16-17,5,How many bits are in a byte?,8,4,16,10
+General knowledge,16-17,5,What is the only even prime number?,2,4,0,6
+Science & nature,16-17,5,"What is Avogadro's number, roughly?",6.02 × 10²³,3.00 × 10⁸,9.81,1.6 × 10⁻¹⁹
+Science & nature,16-17,5,What is the chemical symbol for tungsten?,W,Tu,Tg,Tn
+Science & nature,16-17,5,Which subatomic particle has no electric charge?,The neutron,The proton,The electron,The positron
+Science & nature,16-17,5,"What is the acceleration due to gravity on Earth, roughly?",9.8 m/s²,3.0 m/s²,12.5 m/s²,1.6 m/s²
+Geography,16-17,5,What is the capital city of Kazakhstan?,Astana,Almaty,Bishkek,Tashkent
+Geography,16-17,5,What is the capital city of Vietnam?,Hanoi,Ho Chi Minh City,Bangkok,Phnom Penh
+Geography,16-17,5,"Which African country was never colonised by a European power, apart from a brief Italian occupation?",Ethiopia,Kenya,Ghana,Nigeria
+Geography,16-17,5,What is the capital city of Mongolia?,Ulaanbaatar,Astana,Bishkek,Kabul
+History,16-17,5,Which treaty ended World War I?,The Treaty of Versailles,The Treaty of Paris,The Treaty of Rome,The Treaty of Utrecht
+History,16-17,5,"Who was the first Holy Roman Emperor, crowned in 800?",Charlemagne,Otto I,Frederick Barbarossa,Charles V
+History,16-17,5,In which year did the Chernobyl nuclear disaster happen?,1986,1979,1991,1984
+History,16-17,5,Which Roman emperor made Christianity legal in 313?,Constantine,Nero,Augustus,Diocletian
+"Sport, music & film",16-17,5,Who composed the opera The Marriage of Figaro?,Wolfgang Amadeus Mozart,Gioachino Rossini,Giuseppe Verdi,Richard Wagner
+"Sport, music & film",16-17,5,"Which novel begins 'It was the best of times, it was the worst of times'?",A Tale of Two Cities,Great Expectations,Oliver Twist,Bleak House
+"Sport, music & film",16-17,5,"Which film won the Oscar for Best Picture in 2020, the first non-English-language winner?",Parasite,1917,Joker,Roma
+"Sport, music & film",16-17,5,In which city is the Prado art museum?,Madrid,Barcelona,Lisbon,Paris
+General knowledge,6-7,1,What colour is the sky on a sunny day?,Blue,Green,Red,Purple
+General knowledge,6-7,1,How many days are there in a week?,7,5,10,6
+General knowledge,6-7,1,What do you use to brush your teeth?,A toothbrush,A comb,A spoon,A pencil
+General knowledge,6-7,1,Which shape has three sides?,A triangle,A square,A circle,A rectangle
+Science & nature,6-7,1,What sound does a cow make?,Moo,Woof,Quack,Baa
+Science & nature,6-7,1,Which animal has a very long neck?,A giraffe,A pig,A rabbit,A penguin
+Science & nature,6-7,1,What do bees make?,Honey,Milk,Jam,Butter
+Science & nature,6-7,1,Which animal says woof?,A dog,A cat,A duck,A sheep
+Geography,6-7,1,Do penguins live somewhere hot or somewhere cold?,Somewhere cold,Somewhere hot,In the desert,In the jungle
+Geography,6-7,1,What is the big salty water that ships sail on called?,The sea,A puddle,A pond,A bath
+Geography,6-7,1,What often covers the top of a very tall mountain?,Snow,Sand,Grass,Chocolate
+Geography,6-7,1,"Which is bigger, a city or a house?",A city,A house,They are the same size,A garden
+History,6-7,1,What did people ride before cars were invented?,Horses,Lions,Rockets,Skateboards
+History,6-7,1,What do we call a big old stone building with towers where a king or queen lived?,A castle,A garage,A shop,A tent
+History,6-7,1,Which creatures lived millions of years ago and are now extinct?,Dinosaurs,Dogs,Cats,Horses
+History,6-7,1,What did knights wear to protect themselves?,Armour,Pyjamas,Swimsuits,Raincoats
+"Sport, music & film",6-7,1,What shape is a football?,Round,Square,Triangle,Star
+"Sport, music & film",6-7,1,What is the name of Mickey Mouse's girlfriend?,Minnie Mouse,Daisy Duck,Peppa Pig,Elsa
+"Sport, music & film",6-7,1,Which pig has a little brother called George?,Peppa Pig,Miss Piggy,Babe,Wilbur
+"Sport, music & film",6-7,1,What do you hit the ball with in tennis?,A racket,A golf club,A spoon,A hockey stick
+General knowledge,6-7,2,"How many fingers are on one hand, counting the thumb?",5,4,6,10
+General knowledge,6-7,2,What colour do you get by mixing red and white?,Pink,Purple,Orange,Green
+General knowledge,6-7,2,Which month comes after January?,February,March,December,April
+General knowledge,6-7,2,How many wheels does a bicycle have?,2,3,4,1
+Science & nature,6-7,2,What do caterpillars eat?,Leaves,Meat,Sweets,Fish
+Science & nature,6-7,2,"Which is bigger, an elephant or a mouse?",An elephant,A mouse,They are the same size,Neither
+Science & nature,6-7,2,What do plants need to grow?,Water and sunlight,Juice and darkness,Sand only,Milk and biscuits
+Science & nature,6-7,2,What is a baby cat called?,A kitten,A puppy,A calf,A chick
+Geography,6-7,2,What is the name of the planet we live on?,Earth,Mars,The Moon,The Sun
+Geography,6-7,2,What do we often see shining in the sky at night?,The Moon,A rainbow,The Sun,Clouds
+Geography,6-7,2,Which animal lives in the desert and has humps on its back?,A camel,A polar bear,A penguin,A seal
+Geography,6-7,2,In which country do kangaroos live in the wild?,Australia,France,Canada,Japan
+History,6-7,2,What did pirates bury and look for?,Treasure,Homework,Vegetables,Socks
+History,6-7,2,What did people use to light their homes before electricity?,Candles,Torches with batteries,Televisions,Phones
+History,6-7,2,What did the Ancient Egyptians wrap mummies in?,Bandages,Newspaper,Tinfoil,Plastic bags
+History,6-7,2,Who wears a crown and rules a kingdom?,A king or queen,A teacher,A doctor,A farmer
+"Sport, music & film",6-7,2,How many players are on each side in a tennis singles match?,1,2,4,11
+"Sport, music & film",6-7,2,What colour is SpongeBob SquarePants?,Yellow,Blue,Green,Pink
+"Sport, music & film",6-7,2,Which superhero dresses as a bat?,Batman,Superman,Spider-Man,The Hulk
+"Sport, music & film",6-7,2,Which instrument do you bang with sticks?,A drum,A violin,A flute,A piano
+General knowledge,6-7,3,How many months are there in a year?,12,10,7,52
+General knowledge,6-7,3,What is 5 + 5?,10,9,11,55
+General knowledge,6-7,3,What do we call a person who flies a plane?,A pilot,A driver,A sailor,A chef
+General knowledge,6-7,3,How many sides does a square have?,4,3,5,6
+Science & nature,6-7,3,What is the opposite of hot?,Cold,Warm,Wet,Fast
+Science & nature,6-7,3,Which part of your body do you smell with?,Your nose,Your ears,Your elbows,Your knees
+Science & nature,6-7,3,What do tadpoles grow into?,Frogs,Fish,Snakes,Ducks
+Science & nature,6-7,3,Which animal can change the colour of its skin?,A chameleon,A dog,A sheep,A horse
+Geography,6-7,3,What is the capital city of England?,London,Paris,Dublin,Madrid
+Geography,6-7,3,Which is the biggest animal in the ocean?,The blue whale,The shark,The octopus,The dolphin
+Geography,6-7,3,What is the icy land at the very bottom of the world called?,Antarctica,Africa,America,Asia
+Geography,6-7,3,What do we call a very large group of trees?,A forest,A garden,A field,A beach
+History,6-7,3,What are the giant pointed stone tombs in Egypt called?,Pyramids,Castles,Igloos,Skyscrapers
+History,6-7,3,Which big ship sank after hitting an iceberg?,The Titanic,Noah's Ark,The Mayflower,The Black Pearl
+History,6-7,3,What did people long ago dip in ink to write with?,A feather quill,A crayon,A laptop,A paintbrush
+History,6-7,3,What kind of boats did the Vikings sail in?,Longships,Submarines,Cruise ships,Canoes
+"Sport, music & film",6-7,3,"In Frozen, who has magic ice powers?",Elsa,Anna,Olaf,Moana
+"Sport, music & film",6-7,3,Which sport is played with an orange ball and a hoop?,Basketball,Football,Tennis,Golf
+"Sport, music & film",6-7,3,Which film has a forgetful blue fish called Dory?,Finding Nemo,Frozen,Cars,Shrek
+"Sport, music & film",6-7,3,What do footballers try to kick the ball into?,The goal,The basket,The hole,The bucket
+General knowledge,6-7,4,What is 10 take away 3?,7,6,8,13
+General knowledge,6-7,4,How many hours are there in a day?,24,12,60,100
+General knowledge,6-7,4,Which day comes after Friday?,Saturday,Sunday,Thursday,Monday
+General knowledge,6-7,4,In which season do leaves fall off the trees?,Autumn,Spring,Summer,Winter
+Science & nature,6-7,4,How many legs does an insect have?,6,8,4,10
+Science & nature,6-7,4,What gas do we breathe in to stay alive?,Oxygen,Smoke,Helium,Steam
+Science & nature,6-7,4,Which bird cannot fly and lives where it is very cold?,The penguin,The eagle,The robin,The parrot
+Science & nature,6-7,4,Where does a bird usually lay its eggs?,In a nest,In a hive,In a web,In a kennel
+Geography,6-7,4,In which country is the Eiffel Tower?,France,Spain,Italy,Germany
+Geography,6-7,4,"Which is hotter, the Sun or the Moon?",The Sun,The Moon,They are the same,Neither
+Geography,6-7,4,What do we call land with water all around it?,An island,A mountain,A valley,A desert
+Geography,6-7,4,Which black and white bear comes from China?,The giant panda,The polar bear,The grizzly bear,The koala
+History,6-7,4,What did cave people use to make fire?,Sticks and flint stones,Matches,A lighter,A cooker
+History,6-7,4,Which famous nurse was known as the Lady with the Lamp?,Florence Nightingale,Mary Poppins,Cinderella,Marie Curie
+History,6-7,4,What is the name of the ancient stone circle in England?,Stonehenge,Big Ben,The London Eye,Tower Bridge
+History,6-7,4,Who were the pharaohs?,Kings of Ancient Egypt,Roman soldiers,Viking ships,Greek gods
+"Sport, music & film",6-7,4,Which instrument has black and white keys?,The piano,The guitar,The trumpet,The drum
+"Sport, music & film",6-7,4,What colour is the Hulk?,Green,Blue,Red,Yellow
+"Sport, music & film",6-7,4,In which sport do you score a try?,Rugby,Tennis,Swimming,Golf
+"Sport, music & film",6-7,4,What kind of fish is Nemo?,A clownfish,A shark,A goldfish,A whale
+General knowledge,6-7,5,What is 3 + 4 + 5?,12,11,13,10
+General knowledge,6-7,5,How many minutes are there in an hour?,60,100,30,24
+General knowledge,6-7,5,"Which is bigger, 100 or 99?",100,99,They are the same,90
+General knowledge,6-7,5,What is the capital city of France?,Paris,London,Rome,Berlin
+Science & nature,6-7,5,Which planet is closest to the Sun?,Mercury,Earth,Mars,Jupiter
+Science & nature,6-7,5,What do we call water when it is heated and turns into a gas?,Steam,Ice,Snow,Rain
+Science & nature,6-7,5,What does a thermometer measure?,How hot or cold something is,How heavy something is,How long something is,How fast something is
+Science & nature,6-7,5,Which planet has big rings around it?,Saturn,Earth,Mars,Mercury
+Geography,6-7,5,Which is the biggest ocean?,The Pacific,The Atlantic,The Indian,The Arctic
+Geography,6-7,5,In which country are the Great Pyramids?,Egypt,Mexico,China,France
+Geography,6-7,5,What is the capital city of Ireland?,Dublin,Belfast,Cork,London
+Geography,6-7,5,Which country is famous for pizza and pasta?,Italy,Spain,Japan,Germany
+History,6-7,5,Who was the first person to walk on the Moon?,Neil Armstrong,Buzz Lightyear,Albert Einstein,Christopher Columbus
+History,6-7,5,What did people in Ancient Rome wear?,Togas,Jeans,Kilts,Kimonos
+History,6-7,5,Who invented the telephone?,Alexander Graham Bell,Thomas Edison,Isaac Newton,Leonardo da Vinci
+History,6-7,5,Where did the Vikings come from?,Scandinavia,Africa,America,Australia
+"Sport, music & film",6-7,5,Which instrument usually has six strings?,The guitar,The violin,The drum,The trumpet
+"Sport, music & film",6-7,5,In which sport might you get a hole in one?,Golf,Tennis,Football,Basketball
+"Sport, music & film",6-7,5,Which boy wizard is best friends with Ron and Hermione?,Harry Potter,Gandalf,Merlin,Dumbledore
+"Sport, music & film",6-7,5,Which band sang Yellow Submarine?,The Beatles,ABBA,Queen,Coldplay
+General knowledge,8-9,1,How many days are there in a weekend?,2,3,1,5
+General knowledge,8-9,1,What colour are ripe bananas?,Yellow,Blue,Red,Purple
+General knowledge,8-9,1,What is 2 + 2?,4,3,5,22
+General knowledge,8-9,1,What do you call the meal you eat in the morning?,Breakfast,Dinner,Supper,Lunch
+Science & nature,8-9,1,What is a baby dog called?,A puppy,A kitten,A foal,A lamb
+Science & nature,8-9,1,Which animal is known for its black and white stripes?,A zebra,A lion,A bear,A fox
+Science & nature,8-9,1,What falls from clouds when it rains?,Water,Sand,Leaves,Feathers
+Science & nature,8-9,1,Which animal hops and carries its baby in a pouch?,A kangaroo,A frog,A rabbit,A horse
+Geography,8-9,1,What is the opposite of north?,South,East,West,Up
+Geography,8-9,1,What do we call a very high hill with a pointed top?,A mountain,A valley,A beach,A lake
+Geography,8-9,1,What do we call a large area of sand with very little rain?,A desert,A rainforest,A swamp,A meadow
+Geography,8-9,1,What is the name of the star that gives Earth light and heat?,The Sun,The Moon,Mars,The North Star
+History,8-9,1,What did knights ride into battle?,Horses,Bicycles,Camels,Elephants
+History,8-9,1,Which giant reptiles roamed the Earth millions of years ago?,Dinosaurs,Crocodiles,Snakes,Lizards
+History,8-9,1,What is a castle's water-filled ditch called?,A moat,A pond,A river,A pool
+History,8-9,1,What did Ancient Egyptians build to bury their kings?,Pyramids,Churches,Skyscrapers,Bridges
+"Sport, music & film",8-9,1,How many players are on a basketball team on the court?,5,11,7,3
+"Sport, music & film",8-9,1,What is the name of the friendly green ogre in a famous film?,Shrek,Hulk,Grinch,Yoda
+"Sport, music & film",8-9,1,Which sport is played at Wimbledon?,Tennis,Football,Cricket,Rugby
+"Sport, music & film",8-9,1,What colour is Sonic the Hedgehog?,Blue,Red,Green,Yellow
+General knowledge,8-9,2,How many legs does a spider have?,8,6,10,4
+General knowledge,8-9,2,What is 6 x 2?,12,8,10,14
+General knowledge,8-9,2,How many letters are in the English alphabet?,26,24,28,20
+General knowledge,8-9,2,Which month has the fewest days?,February,January,June,November
+Science & nature,8-9,2,Which organ pumps blood around your body?,The heart,The brain,The lungs,The stomach
+Science & nature,8-9,2,What do bees collect from flowers?,Nectar and pollen,Water and mud,Seeds and leaves,Sand and grass
+Science & nature,8-9,2,What is frozen water called?,Ice,Steam,Mist,Rain
+Science & nature,8-9,2,What is the largest land animal?,The African elephant,The giraffe,The hippo,The rhino
+Geography,8-9,2,Which country has a red maple leaf on its flag?,Canada,Japan,Brazil,India
+Geography,8-9,2,What is the capital city of Scotland?,Edinburgh,Glasgow,Aberdeen,Dundee
+Geography,8-9,2,Which continent is Egypt in?,Africa,Asia,Europe,South America
+Geography,8-9,2,What is the name of our galaxy?,The Milky Way,The Mars Bar,The Galaxy Way,The Sun Belt
+History,8-9,2,Who was the boy king of Ancient Egypt whose tomb was found in 1922?,Tutankhamun,Cleopatra,Julius Caesar,King Arthur
+History,8-9,2,What did the Romans build to carry water into their cities?,Aqueducts,Pipelines,Canals,Wells
+History,8-9,2,Which famous legend tells of a king with a round table?,King Arthur,Robin Hood,King Kong,Peter Pan
+History,8-9,2,Which outlaw robbed from the rich to give to the poor?,Robin Hood,Blackbeard,Ned Kelly,Billy the Kid
+"Sport, music & film",8-9,2,In which film does a girl called Moana sail across the ocean?,Moana,Frozen,Brave,Tangled
+"Sport, music & film",8-9,2,How many players are in a football team on the pitch?,11,10,9,12
+"Sport, music & film",8-9,2,What is the name of Harry Potter's owl?,Hedwig,Errol,Scabbers,Crookshanks
+"Sport, music & film",8-9,2,Which instrument do you blow into: a flute or a drum?,A flute,A drum,Both,Neither
+General knowledge,8-9,3,What is 7 x 3?,21,24,18,27
+General knowledge,8-9,3,How many sides does a hexagon have?,6,5,7,8
+General knowledge,8-9,3,How many seconds are there in a minute?,60,100,30,24
+General knowledge,8-9,3,What do you call a word that means the opposite of another word?,An antonym,A synonym,A verb,A noun
+Science & nature,8-9,3,What do we call animals that eat only meat?,Carnivores,Herbivores,Omnivores,Vegetarians
+Science & nature,8-9,3,How many planets are in our solar system?,8,9,7,10
+Science & nature,8-9,3,What is the hardest natural material?,Diamond,Iron,Gold,Stone
+Science & nature,8-9,3,Which part of a plant takes in water from the soil?,The roots,The petals,The leaves,The flowers
+Geography,8-9,3,What is the capital city of Spain?,Madrid,Barcelona,Lisbon,Rome
+Geography,8-9,3,Which is the largest continent?,Asia,Africa,Europe,North America
+Geography,8-9,3,Which country is shaped like a boot?,Italy,Greece,Portugal,Spain
+Geography,8-9,3,In which country would you find the Great Wall?,China,Japan,India,Egypt
+History,8-9,3,Who was the first President of the United States?,George Washington,Abraham Lincoln,Donald Trump,Barack Obama
+History,8-9,3,What language did the Ancient Romans speak?,Latin,Greek,Italian,English
+History,8-9,3,In which country did the Olympic Games start?,Greece,Italy,Egypt,China
+History,8-9,3,What were Viking warriors' ships called?,Longships,Galleons,Steamers,Rafts
+"Sport, music & film",8-9,3,Which band sang Mamma Mia?,ABBA,The Beatles,Queen,Little Mix
+"Sport, music & film",8-9,3,"In Toy Story, what is the name of the space ranger?",Buzz Lightyear,Woody,Rex,Zurg
+"Sport, music & film",8-9,3,How many rings are on the Olympic flag?,5,4,6,7
+"Sport, music & film",8-9,3,What sport does Lionel Messi play?,Football,Basketball,Tennis,Golf
+General knowledge,8-9,4,What is 9 x 9?,81,72,99,79
+General knowledge,8-9,4,How many days are there in a leap year?,366,365,364,360
+General knowledge,8-9,4,What is half of 50?,25,20,30,15
+General knowledge,8-9,4,How many is a dozen?,12,10,20,6
+Science & nature,8-9,4,What gas do plants take in to make food?,Carbon dioxide,Oxygen,Helium,Nitrogen
+Science & nature,8-9,4,Which planet is known as the Red Planet?,Mars,Venus,Jupiter,Neptune
+Science & nature,8-9,4,What is a young frog called?,A tadpole,A cub,A kid,A joey
+Science & nature,8-9,4,How many bones are in the human body?,206,100,300,52
+Geography,8-9,4,What is the longest river in Africa?,The Nile,The Thames,The Amazon,The Danube
+Geography,8-9,4,Which ocean lies between Africa and Australia?,The Indian Ocean,The Atlantic Ocean,The Pacific Ocean,The Arctic Ocean
+Geography,8-9,4,What is the capital city of Germany?,Berlin,Munich,Vienna,Paris
+Geography,8-9,4,Which is the tallest mountain in the world?,Mount Everest,Ben Nevis,Mount Kilimanjaro,Mont Blanc
+History,8-9,4,Which king of England had six wives?,Henry VIII,Richard III,William I,Charles I
+History,8-9,4,In which year did World War II end?,1945,1918,1960,1900
+History,8-9,4,Who painted the Mona Lisa?,Leonardo da Vinci,Pablo Picasso,Vincent van Gogh,Claude Monet
+History,8-9,4,What was the name of the ship the Pilgrims sailed to America?,The Mayflower,The Titanic,The Victory,The Endeavour
+"Sport, music & film",8-9,4,Which country won the 2022 FIFA World Cup?,Argentina,England,Brazil,France
+"Sport, music & film",8-9,4,In which sport do players use a puck?,Ice hockey,Cricket,Golf,Netball
+"Sport, music & film",8-9,4,Who wrote the Harry Potter books?,J.K. Rowling,Roald Dahl,David Walliams,Enid Blyton
+"Sport, music & film",8-9,4,How many strings does a violin have?,4,6,5,3
+General knowledge,8-9,5,What is 12 x 12?,144,124,132,122
+General knowledge,8-9,5,How many sides does an octagon have?,8,6,10,7
+General knowledge,8-9,5,What is the Roman numeral for 10?,X,V,I,L
+General knowledge,8-9,5,How many grams are in a kilogram?,"1,000",100,10,"10,000"
+Science & nature,8-9,5,What is the closest star to Earth?,The Sun,The North Star,Sirius,The Moon
+Science & nature,8-9,5,Which gas do we breathe out?,Carbon dioxide,Oxygen,Hydrogen,Helium
+Science & nature,8-9,5,What is the largest planet in our solar system?,Jupiter,Saturn,Neptune,Earth
+Science & nature,8-9,5,What is it called when an animal sleeps through the winter?,Hibernation,Migration,Camouflage,Grazing
+Geography,8-9,5,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Perth
+Geography,8-9,5,Which is the largest country in the world?,Russia,China,USA,Canada
+Geography,8-9,5,What is the capital city of Japan?,Tokyo,Beijing,Seoul,Bangkok
+Geography,8-9,5,Which line divides the Earth into the northern and southern halves?,The equator,The prime meridian,The horizon,The date line
+History,8-9,5,Who was the Roman leader who was stabbed in 44 BC?,Julius Caesar,Augustus,Nero,Hadrian
+History,8-9,5,Which Tudor queen never married and was called the Virgin Queen?,Elizabeth I,Mary I,Victoria,Anne Boleyn
+History,8-9,5,In which year did the Titanic sink?,1912,1812,1945,1969
+History,8-9,5,"Who discovered gravity when an apple fell, according to the story?",Isaac Newton,Albert Einstein,Charles Darwin,Galileo
+"Sport, music & film",8-9,5,Which band was Freddie Mercury the singer of?,Queen,The Beatles,ABBA,Oasis
+"Sport, music & film",8-9,5,How many points is a bullseye worth in darts?,50,25,100,60
+"Sport, music & film",8-9,5,Which composer wrote music even after becoming deaf?,Ludwig van Beethoven,Wolfgang Amadeus Mozart,Johann Sebastian Bach,Antonio Vivaldi
+"Sport, music & film",8-9,5,In which city is the famous Hollywood sign?,Los Angeles,New York,London,Las Vegas
+General knowledge,adult,1,How many hours are there in a day?,24,12,36,48
+General knowledge,adult,1,How many sides does a square have?,4,3,5,6
+Science & nature,adult,1,What is the largest planet in our solar system?,Jupiter,Saturn,Earth,Neptune
+Science & nature,adult,1,Which animal is known as the King of the Jungle?,The lion,The tiger,The elephant,The gorilla
+Science & nature,adult,1,What do caterpillars turn into?,Butterflies or moths,Beetles,Bees,Dragonflies
+Geography,adult,1,What is the capital city of France?,Paris,Lyon,Marseille,Bordeaux
+Geography,adult,1,In which country are the pyramids of Giza?,Egypt,Mexico,Peru,Sudan
+Geography,adult,1,What is the capital city of the USA?,"Washington, D.C.",New York,Los Angeles,Philadelphia
+History,adult,1,Who was the first man to walk on the Moon?,Neil Armstrong,Buzz Aldrin,Michael Collins,Yuri Gagarin
+History,adult,1,In which year did World War II end?,1945,1944,1946,1939
+"Sport, music & film",adult,1,How many players are on a football team on the pitch?,11,10,12,9
+"Sport, music & film",adult,1,Which band sang 'Hey Jude'?,The Beatles,The Rolling Stones,The Kinks,The Who
+General knowledge,adult,2,What is 12 x 12?,144,124,132,156
+Science & nature,adult,2,What is the chemical symbol for gold?,Au,Ag,Go,Gd
+Geography,adult,2,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Perth
+History,adult,2,Who painted the Mona Lisa?,Leonardo da Vinci,Michelangelo,Raphael,Botticelli
+General knowledge,adult,3,What does the abbreviation 'e.g.' stand for?,Exempli gratia,Et genus,Ergo gratia,Exempli generalis
+General knowledge,adult,3,How many players are there in a rugby union team?,15,13,11,12
+Science & nature,adult,3,What is the most abundant gas in the Earth's atmosphere?,Nitrogen,Oxygen,Carbon dioxide,Argon
+Science & nature,adult,3,What is the chemical symbol for potassium?,K,P,Pt,Po
+Geography,adult,3,What is the capital city of Canada?,Ottawa,Toronto,Montreal,Vancouver
+History,adult,3,Which English king was killed at the Battle of Bosworth Field in 1485?,Richard III,Henry VI,Edward IV,Richard II
+"Sport, music & film",adult,3,Who wrote Pride and Prejudice?,Jane Austen,Charlotte Brontë,George Eliot,Emily Brontë
+General knowledge,adult,4,What is the square root of 289?,17,19,13,27
+General knowledge,adult,4,"In poker, which hand beats a full house?",Four of a kind,A flush,A straight,Three of a kind
+Science & nature,adult,4,What is the hardest mineral on the Mohs scale?,Diamond,Corundum,Topaz,Quartz
+Science & nature,adult,4,Which element has the chemical symbol Hg?,Mercury,Silver,Hydrogen,Magnesium
+Geography,adult,4,What is the capital city of Brazil?,Brasília,Rio de Janeiro,São Paulo,Salvador
+Geography,adult,4,Which is the longest river in Europe?,The Volga,The Danube,The Rhine,The Dnieper
+History,adult,4,In which year did the Battle of Waterloo take place?,1815,1805,1812,1798
+History,adult,4,Who was the first Prime Minister of Great Britain?,Robert Walpole,William Pitt the Younger,Benjamin Disraeli,Duke of Wellington
+"Sport, music & film",adult,4,"Who painted The Persistence of Memory, with its melting clocks?",Salvador Dalí,René Magritte,Pablo Picasso,Max Ernst
+"Sport, music & film",adult,4,Which golfer has won the most men's major championships?,Jack Nicklaus,Tiger Woods,Arnold Palmer,Gary Player
+"Sport, music & film",adult,4,Who wrote the novel One Hundred Years of Solitude?,Gabriel García Márquez,Isabel Allende,Jorge Luis Borges,Mario Vargas Llosa
+General knowledge,adult,5,What is the name for a word that reads the same backwards as forwards?,A palindrome,An anagram,A homonym,An oxymoron
+General knowledge,adult,5,What is the sum of the interior angles of a pentagon?,540°,360°,720°,480°
+General knowledge,adult,5,What is a group of crows called?,A murder,A parliament,A pride,A murmuration
+Science & nature,adult,5,What is the most abundant element in the Earth's crust?,Oxygen,Silicon,Iron,Aluminium
+Science & nature,adult,5,Which scientist first described the laws of inheritance using pea plants?,Gregor Mendel,Charles Darwin,Louis Pasteur,Alfred Wallace
+Science & nature,adult,5,What is the name of the closest star to the Sun?,Proxima Centauri,Sirius,Betelgeuse,Alpha Centauri A
+Geography,adult,5,What is the capital city of Bhutan?,Thimphu,Kathmandu,Dhaka,Paro
+Geography,adult,5,Which is the largest island in the Mediterranean Sea?,Sicily,Sardinia,Cyprus,Crete
+Geography,adult,5,Through how many countries does the River Danube flow?,10,6,8,12
+History,adult,5,Who was the last Anglo-Saxon king of England?,Harold Godwinson,Edward the Confessor,Alfred the Great,Æthelred the Unready
+History,adult,5,In which year did the Peasants' Revolt take place in England?,1381,1415,1349,1265
+History,adult,5,"What was the name of the first artificial satellite, launched in 1957?",Sputnik 1,Explorer 1,Vostok 1,Telstar
+"Sport, music & film",adult,5,Which composer wrote the opera Carmen?,Georges Bizet,Giuseppe Verdi,Giacomo Puccini,Jules Massenet
+"Sport, music & film",adult,5,Which novel features the character Atticus Finch?,To Kill a Mockingbird,The Grapes of Wrath,Of Mice and Men,Catch-22
+"Sport, music & film",adult,5,In which year did Wimbledon first allow professional players?,1968,1957,1973,1980
+"Sport, music & film",adult,5,Who directed the 1941 film Citizen Kane?,Orson Welles,John Ford,Howard Hawks,Frank Capra

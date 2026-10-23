@@ -1,0 +1,201 @@
+topic,age,grade,question,answer,wrong1,wrong2,wrong3
+General knowledge,10-11,1,How many legs does a spider have?,8,6,10,4
+General knowledge,10-11,1,What colour do you get by mixing blue and yellow?,Green,Purple,Orange,Brown
+General knowledge,10-11,2,What is the largest planet in our solar system?,Jupiter,Saturn,Earth,Neptune
+General knowledge,10-11,4,What is the capital city of Australia?,Canberra,Sydney,Melbourne,Perth
+General knowledge,10-11,3,What gas do plants take in from the air to make their food?,Carbon dioxide,Oxygen,Nitrogen,Helium
+General knowledge,10-11,4,Which is the longest bone in the human body?,The femur (thigh bone),The spine,The arm bone,The shin bone
+General knowledge,10-11,3,In which country are the ancient pyramids of Giza?,Egypt,Mexico,Greece,India
+General knowledge,10-11,2,What is the hardest natural substance on Earth?,Diamond,Gold,Iron,Granite
+General knowledge,10-11,2,How many minutes are there in 3 hours?,180,120,300,160
+General knowledge,10-11,3,How many sides does a hexagon have?,6,5,8,7
+General knowledge,12-13,4,What is the chemical symbol for gold?,Au,Ag,Go,Gd
+General knowledge,12-13,2,Who painted the Mona Lisa?,Leonardo da Vinci,Michelangelo,Vincent van Gogh,Pablo Picasso
+General knowledge,12-13,2,What is the largest ocean on Earth?,The Pacific,The Atlantic,The Indian,The Arctic
+General knowledge,12-13,4,In which year did the Titanic sink?,1912,1905,1921,1898
+General knowledge,12-13,2,What is the square root of 144?,12,14,11,16
+General knowledge,12-13,3,What is the smallest country in the world?,Vatican City,Monaco,Malta,San Marino
+General knowledge,12-13,3,Which type of blood cell fights infection?,White blood cells,Red blood cells,Platelets,Plasma cells
+General knowledge,12-13,1,Who wrote Romeo and Juliet?,William Shakespeare,Charles Dickens,Jane Austen,Roald Dahl
+General knowledge,12-13,3,What is the longest river in South America?,The Amazon,The Orinoco,The Paraná,The Nile
+General knowledge,12-13,1,How many continents are there?,7,5,6,8
+General knowledge,14-15,4,At what temperature in Fahrenheit does water boil at sea level?,212°F,100°F,180°F,250°F
+General knowledge,14-15,1,Who was the first person to walk on the Moon?,Neil Armstrong,Buzz Aldrin,Yuri Gagarin,John Glenn
+General knowledge,14-15,3,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal
+General knowledge,14-15,3,What does DNA stand for?,Deoxyribonucleic acid,Dinitrogen acid,Dual nucleic acid,Deoxyribose nitrate
+General knowledge,14-15,4,What is the largest desert in the world?,Antarctica,The Sahara,The Gobi,The Arabian
+General knowledge,14-15,2,Which element has atomic number 1?,Hydrogen,Helium,Oxygen,Carbon
+General knowledge,14-15,1,In which city is the Colosseum?,Rome,Athens,Naples,Paris
+General knowledge,14-15,2,What is 15% of 200?,30,15,20,45
+General knowledge,14-15,1,Who developed the theory of relativity?,Albert Einstein,Isaac Newton,Stephen Hawking,Marie Curie
+General knowledge,14-15,3,What is the main language spoken in Brazil?,Portuguese,Spanish,Brazilian,French
+General knowledge,adult,2,In which year did the Berlin Wall fall?,1989,1991,1987,1985
+General knowledge,adult,2,What is the capital of New Zealand?,Wellington,Auckland,Christchurch,Queenstown
+General knowledge,adult,3,Which planet spins on its side?,Uranus,Neptune,Saturn,Venus
+General knowledge,adult,2,Who composed The Four Seasons?,Antonio Vivaldi,Johann Sebastian Bach,Wolfgang Amadeus Mozart,George Frideric Handel
+General knowledge,adult,1,What is the currency of Japan?,The yen,The yuan,The won,The ringgit
+General knowledge,adult,2,What is the largest organ of the human body?,The skin,The liver,The brain,The lungs
+General knowledge,adult,5,"Which country has the most time zones, counting its overseas territories?",France,Russia,The USA,The UK
+General knowledge,adult,1,Who wrote Nineteen Eighty-Four?,George Orwell,Aldous Huxley,H. G. Wells,Ray Bradbury
+General knowledge,adult,3,What is the smallest bone in the human body?,The stapes (in the ear),The coccyx,The little toe bone,The hyoid
+General knowledge,adult,2,Which treaty formally ended World War I between the Allies and Germany?,The Treaty of Versailles,The Treaty of Paris,The Treaty of Ghent,The Treaty of Utrecht
+Science & nature,10-11,1,What do caterpillars turn into?,A butterfly,A beetle,A dragonfly,A bee
+Science & nature,10-11,1,What is frozen water called?,Ice,Steam,Fog,Dew
+Science & nature,10-11,1,Which animal is known as the King of the Jungle?,Lion,Tiger,Elephant,Gorilla
+Science & nature,10-11,2,Which planet is known as the Red Planet?,Mars,Venus,Jupiter,Mercury
+Science & nature,10-11,4,How many bones does an adult human have?,206,150,300,98
+Science & nature,10-11,3,What is the closest star to Earth?,The Sun,Sirius,The North Star,Proxima Centauri
+Science & nature,10-11,2,Which part of a plant makes the seeds?,The flower,The root,The stem,The leaf
+Science & nature,10-11,2,What is the fastest land animal?,Cheetah,Lion,Horse,Gazelle
+Science & nature,10-11,2,What force keeps us on the ground?,Gravity,Magnetism,Friction,Electricity
+Science & nature,10-11,3,What do bees collect from flowers to make honey?,Nectar,Pollen,Sap,Water
+Science & nature,12-13,1,What is the chemical formula for water?,H2O,CO2,O2,HO2
+Science & nature,12-13,3,Which part of the cell is known as its powerhouse?,Mitochondria,Nucleus,Ribosome,Cell wall
+Science & nature,12-13,1,How many planets are in our solar system?,8,9,7,10
+Science & nature,12-13,2,"At what temperature does water boil at sea level, in Celsius?",100°C,90°C,120°C,212°C
+Science & nature,12-13,1,Which organ pumps blood around the body?,The heart,The lungs,The liver,The kidneys
+Science & nature,12-13,3,What is a baby kangaroo called?,A joey,A cub,A kit,A calf
+Science & nature,12-13,2,What type of animal is a dolphin?,A mammal,A fish,An amphibian,A reptile
+Science & nature,12-13,2,What is the largest animal that has ever lived?,The blue whale,The African elephant,The sperm whale,Argentinosaurus
+Science & nature,12-13,4,Which gas makes up most of the Earth's atmosphere?,Nitrogen,Oxygen,Carbon dioxide,Argon
+Science & nature,12-13,2,What are animals that eat only plants called?,Herbivores,Carnivores,Omnivores,Insectivores
+Science & nature,14-15,3,Roughly how fast does light travel?,"300,000 km per second","30,000 km per second","3,000 km per second",3 million km per second
+Science & nature,14-15,3,What is the chemical symbol for sodium?,Na,So,Sd,S
+Science & nature,14-15,3,Which part of the eye controls how much light gets in?,The iris,The retina,The lens,The cornea
+Science & nature,14-15,3,Which blood type is known as the universal donor?,O negative,AB positive,A positive,B negative
+Science & nature,14-15,4,What is it called when plants lose water through their leaves?,Transpiration,Photosynthesis,Respiration,Condensation
+Science & nature,14-15,4,Newton's first law of motion is about what?,Inertia,Gravity,Action and reaction,Air resistance
+Science & nature,14-15,3,What is the pH of pure water?,7,0,14,5
+Science & nature,14-15,4,Which planet has the most known moons?,Saturn,Jupiter,Uranus,Neptune
+Science & nature,14-15,1,What do you call an animal that is active at night?,Nocturnal,Diurnal,Migratory,Dormant
+Science & nature,14-15,2,Diamonds and graphite are both made of which element?,Carbon,Silicon,Quartz,Iron
+Science & nature,adult,2,What is the most abundant element in the universe?,Hydrogen,Helium,Oxygen,Carbon
+Science & nature,adult,4,Which astronomer set out the three laws of planetary motion?,Johannes Kepler,Galileo Galilei,Nicolaus Copernicus,Tycho Brahe
+Science & nature,adult,2,Which is the only metal that is liquid at standard room temperature?,Mercury,Gallium,Caesium,Sodium
+Science & nature,adult,2,Which organ produces insulin?,The pancreas,The liver,The kidneys,The spleen
+Science & nature,adult,3,What is the SI unit of electrical resistance?,The ohm,The volt,The ampere,The watt
+Science & nature,adult,4,What type of bond holds the two strands of DNA together?,Hydrogen bonds,Ionic bonds,Covalent bonds,Metallic bonds
+Science & nature,adult,4,Which bird has the largest wingspan?,The wandering albatross,The Andean condor,The golden eagle,The marabou stork
+Science & nature,adult,5,Roughly what is Avogadro's number?,6.02 × 10²³,3.14 × 10²³,6.02 × 10²⁰,1.6 × 10⁻¹⁹
+Science & nature,adult,3,How many hearts does an octopus have?,3,1,2,8
+Science & nature,adult,3,Which layer of the atmosphere contains the ozone layer?,The stratosphere,The troposphere,The mesosphere,The thermosphere
+Geography,10-11,2,Which is the biggest continent?,Asia,Africa,Europe,Australia
+Geography,10-11,1,What is the capital of Japan?,Tokyo,Beijing,Seoul,Osaka
+Geography,10-11,1,Which country is shaped like a boot?,Italy,Spain,France,Greece
+Geography,10-11,2,What is the longest river in Africa?,The Nile,The Congo,The Niger,The Zambezi
+Geography,10-11,1,What is the tallest mountain in the world?,Mount Everest,K2,Kilimanjaro,Mont Blanc
+Geography,10-11,1,In which country is the Eiffel Tower?,France,Italy,Belgium,Spain
+Geography,10-11,2,What is the capital of Spain?,Madrid,Barcelona,Seville,Valencia
+Geography,10-11,2,Which ocean lies between Europe and North America?,The Atlantic,The Pacific,The Indian,The Arctic
+Geography,10-11,2,What is the coldest continent?,Antarctica,North America,Europe,Asia
+Geography,10-11,1,Which country has a maple leaf on its flag?,Canada,USA,Australia,New Zealand
+Geography,12-13,2,What is the capital of Germany?,Berlin,Munich,Frankfurt,Hamburg
+Geography,12-13,2,What is the largest country in the world by area?,Russia,Canada,China,USA
+Geography,12-13,1,On which continent is Kenya?,Africa,Asia,South America,Australia
+Geography,12-13,1,What is the capital of Italy?,Rome,Milan,Venice,Naples
+Geography,12-13,2,Which river flows through London?,The Thames,The Seine,The Severn,The Avon
+Geography,12-13,4,Mount Kilimanjaro is in which country?,Tanzania,Kenya,Uganda,Ethiopia
+Geography,12-13,2,What is the capital of the USA?,"Washington, D.C.",New York,Los Angeles,Chicago
+Geography,12-13,3,Which country has the most people?,India,China,USA,Indonesia
+Geography,12-13,2,Which desert covers much of northern Africa?,The Sahara,The Gobi,The Kalahari,The Atacama
+Geography,12-13,3,How many states are there in the USA?,50,48,52,51
+Geography,14-15,3,What is the capital of Turkey?,Ankara,Istanbul,Izmir,Antalya
+Geography,14-15,4,Which country has the longest coastline?,Canada,Russia,Australia,Norway
+Geography,14-15,2,What is the smallest continent?,Australia,Europe,Antarctica,South America
+Geography,14-15,2,What is the capital of Argentina?,Buenos Aires,Santiago,Lima,Montevideo
+Geography,14-15,1,Which imaginary line runs around the middle of the Earth?,The equator,The Tropic of Cancer,The prime meridian,The Arctic Circle
+Geography,14-15,4,Which mountain range is the traditional border between Europe and Asia?,The Urals,The Alps,The Himalayas,The Carpathians
+Geography,14-15,3,What is the largest lake in Africa?,Lake Victoria,Lake Tanganyika,Lake Malawi,Lake Chad
+Geography,14-15,2,In which country is the city of Marrakesh?,Morocco,Egypt,Tunisia,Algeria
+Geography,14-15,4,The Great Barrier Reef lies off which Australian state?,Queensland,New South Wales,Western Australia,Victoria
+Geography,14-15,1,What is the capital of South Korea?,Seoul,Busan,Pyongyang,Incheon
+Geography,adult,4,What is the capital of Kazakhstan?,Astana,Almaty,Tashkent,Bishkek
+Geography,adult,4,Which country has the most natural lakes?,Canada,Finland,Russia,USA
+Geography,adult,3,What is the deepest known point in the oceans?,The Challenger Deep,The Puerto Rico Trench,The Java Trench,The Tonga Trench
+Geography,adult,3,Which African country was once known as Abyssinia?,Ethiopia,Eritrea,Somalia,Sudan
+Geography,adult,4,Which is the highest capital city (seat of government) in the world?,La Paz,Quito,Bogotá,Kathmandu
+Geography,adult,1,Which two countries share the world's longest international border?,Canada and the USA,Russia and Kazakhstan,Argentina and Chile,China and Mongolia
+Geography,adult,2,Which country has coastline on both the Atlantic and Indian Oceans?,South Africa,Namibia,Mozambique,Madagascar
+Geography,adult,4,Which river flows through Baghdad?,The Tigris,The Euphrates,The Jordan,The Nile
+Geography,adult,3,Which European capital city is built across 14 islands?,Stockholm,Copenhagen,Helsinki,Oslo
+Geography,adult,5,"Aconcagua, the highest peak outside Asia, is in which country?",Argentina,Chile,Peru,Bolivia
+History,10-11,2,Who was the first President of the USA?,George Washington,Abraham Lincoln,Thomas Jefferson,John Adams
+History,10-11,1,What did the Ancient Egyptians build as tombs for their pharaohs?,Pyramids,Castles,Lighthouses,Towers
+History,10-11,1,What animals did knights ride into battle?,Horses,Camels,Elephants,Donkeys
+History,10-11,2,Who were the sea raiders from Scandinavia?,The Vikings,The Romans,The Normans,The Celts
+History,10-11,4,Which wall did the Romans build across northern England?,Hadrian's Wall,The Great Wall,The Berlin Wall,Offa's Dyke
+History,10-11,3,What language did the Ancient Romans speak?,Latin,Greek,Italian,French
+History,10-11,3,Who made the first long-lasting electric light bulb that people could buy?,Thomas Edison,Alexander Graham Bell,Isaac Newton,Albert Einstein
+History,10-11,1,Which dinosaur had three horns on its face?,Triceratops,Stegosaurus,T. rex,Diplodocus
+History,10-11,3,What is the Ancient Egyptian picture writing called?,Hieroglyphics,Runes,Emojis,Graffiti
+History,10-11,3,In which country did the Olympic Games begin?,Greece,Italy,Egypt,France
+History,12-13,3,In which year did World War II end?,1945,1918,1939,1950
+History,12-13,2,Who was the British Prime Minister for most of World War II?,Winston Churchill,Neville Chamberlain,Clement Attlee,Margaret Thatcher
+History,12-13,2,Which English king had six wives?,Henry VIII,Henry V,Richard III,Edward I
+History,12-13,4,Who was the first woman to fly solo across the Atlantic?,Amelia Earhart,Amy Johnson,Bessie Coleman,Valentina Tereshkova
+History,12-13,3,What was the ship the Pilgrims sailed to America in 1620?,The Mayflower,The Santa María,The Endeavour,The Beagle
+History,12-13,2,Which queen of Ancient Egypt allied with Mark Antony?,Cleopatra,Nefertiti,Hatshepsut,Boudicca
+History,12-13,4,In which city was President John F. Kennedy assassinated?,Dallas,"Washington, D.C.",New York,Chicago
+History,12-13,4,Who discovered penicillin in 1928?,Alexander Fleming,Louis Pasteur,Marie Curie,Edward Jenner
+History,12-13,3,Which empire did Genghis Khan found?,The Mongol Empire,The Ottoman Empire,The Roman Empire,The Persian Empire
+History,12-13,3,Which country gave the Statue of Liberty to the USA?,France,Britain,Spain,Italy
+History,14-15,2,In which year did World War I begin?,1914,1912,1916,1918
+History,14-15,2,Who led the Soviet Union during World War II?,Joseph Stalin,Vladimir Lenin,Nikita Khrushchev,Leon Trotsky
+History,14-15,1,"Who gave the ""I Have a Dream"" speech?",Martin Luther King Jr.,Malcolm X,Nelson Mandela,John F. Kennedy
+History,14-15,2,In which year did Christopher Columbus first reach the Americas?,1492,1588,1066,1620
+History,14-15,2,At which battle in 1066 did William the Conqueror defeat King Harold?,The Battle of Hastings,The Battle of Agincourt,The Battle of Bosworth,The Battle of the Boyne
+History,14-15,4,Who was the first Roman emperor?,Augustus,Julius Caesar,Nero,Caligula
+History,14-15,3,What is the name for the rebirth of art and learning in Europe from the 14th century?,The Renaissance,The Enlightenment,The Reformation,The Middle Ages
+History,14-15,1,Nelson Mandela became president of which country in 1994?,South Africa,Zimbabwe,Kenya,Nigeria
+History,14-15,4,Which Russian royal family was overthrown in 1917?,The Romanovs,The Habsburgs,The Tudors,The Bourbons
+History,14-15,1,What did the Wright brothers achieve in 1903?,The first powered aeroplane flight,The first petrol car,The first telephone call,The first radio broadcast
+History,adult,2,In which year did the French Revolution begin?,1789,1776,1815,1848
+History,adult,2,Who was the last Tsar of Russia?,Nicholas II,Alexander III,Peter the Great,Alexander II
+History,adult,3,Which ancient wonder stood at the harbour of Rhodes?,The Colossus,The Lighthouse,The Hanging Gardens,The Mausoleum
+History,adult,2,In which year was Magna Carta sealed?,1215,1066,1314,1415
+History,adult,3,Which empire was ruled from Constantinople after the fall of the Western Roman Empire?,The Byzantine Empire,The Holy Roman Empire,The Carolingian Empire,The Persian Empire
+History,adult,1,Who was the first woman to win a Nobel Prize?,Marie Curie,Florence Nightingale,Rosalind Franklin,Ada Lovelace
+History,adult,3,In which year did the Cuban Missile Crisis take place?,1962,1959,1965,1956
+History,adult,4,Which treaty created the European Union when it came into force in 1993?,The Maastricht Treaty,The Treaty of Rome,The Lisbon Treaty,The Treaty of Nice
+History,adult,2,Which Carthaginian general crossed the Alps with elephants?,Hannibal,Hamilcar,Scipio,Spartacus
+History,adult,1,What was the fleet Spain sent to invade England in 1588 called?,The Spanish Armada,The Grand Fleet,The Invincible Navy,The Royal Flotilla
+"Sport, music & film",10-11,1,How many players does a football (soccer) team have on the pitch?,11,9,10,12
+"Sport, music & film",10-11,1,What colour is Shrek?,Green,Blue,Brown,Yellow
+"Sport, music & film",10-11,1,What is the name of the snowman in Frozen?,Olaf,Sven,Kristoff,Hans
+"Sport, music & film",10-11,2,Which sport uses a shuttlecock?,Badminton,Tennis,Squash,Table tennis
+"Sport, music & film",10-11,3,How many strings does a standard guitar have?,6,4,5,8
+"Sport, music & film",10-11,1,What is the name of the boy wizard who goes to Hogwarts?,Harry Potter,Ron Weasley,Percy Jackson,Merlin
+"Sport, music & film",10-11,2,In which sport would you do a slam dunk?,Basketball,Volleyball,Netball,Rugby
+"Sport, music & film",10-11,3,Which instrument usually has 88 keys?,The piano,The organ,The accordion,The xylophone
+"Sport, music & film",10-11,1,What is the name of the cowboy in Toy Story?,Woody,Buzz,Jessie,Rex
+"Sport, music & film",10-11,2,How many rings are on the Olympic flag?,5,4,6,7
+"Sport, music & film",12-13,2,Which country won the 2022 FIFA World Cup?,Argentina,France,Brazil,Croatia
+"Sport, music & film",12-13,1,How many minutes long is a standard football match?,90,80,60,100
+"Sport, music & film",12-13,2,"Which band sang ""Hey Jude""?",The Beatles,The Rolling Stones,Queen,ABBA
+"Sport, music & film",12-13,3,"In tennis, what is a score of zero called?",Love,Nil,Duck,Zip
+"Sport, music & film",12-13,1,"Who sings ""Shake It Off""?",Taylor Swift,Ariana Grande,Katy Perry,Billie Eilish
+"Sport, music & film",12-13,1,Which film follows a clownfish searching for his son?,Finding Nemo,Shark Tale,The Little Mermaid,Moana
+"Sport, music & film",12-13,4,How many points is a touchdown worth in American football?,6,7,3,5
+"Sport, music & film",12-13,1,What is the name of the lion cub in The Lion King?,Simba,Mufasa,Nala,Scar
+"Sport, music & film",12-13,1,Which sport is played at Wimbledon?,Tennis,Golf,Cricket,Rugby
+"Sport, music & film",12-13,1,Which superhero is secretly Peter Parker?,Spider-Man,Iron Man,Captain America,Ant-Man
+"Sport, music & film",14-15,3,How many players does a rugby union team have on the pitch?,15,13,11,12
+"Sport, music & film",14-15,1,Freddie Mercury was the lead singer of which band?,Queen,Led Zeppelin,The Who,Aerosmith
+"Sport, music & film",14-15,3,Which city will host the 2028 Summer Olympics?,Los Angeles,Brisbane,Paris,Tokyo
+"Sport, music & film",14-15,2,Who directed Jurassic Park?,Steven Spielberg,George Lucas,James Cameron,Christopher Nolan
+"Sport, music & film",14-15,3,What is the highest score possible with three darts?,180,150,200,160
+"Sport, music & film",14-15,2,Which rapper's real name is Marshall Mathers?,Eminem,Drake,Jay-Z,Snoop Dogg
+"Sport, music & film",14-15,1,Which footballer is nicknamed CR7?,Cristiano Ronaldo,Lionel Messi,Neymar,Kylian Mbappé
+"Sport, music & film",14-15,1,Which instrument was Jimi Hendrix famous for playing?,Electric guitar,Drums,Bass guitar,Saxophone
+"Sport, music & film",14-15,1,"Which film series features the line ""May the Force be with you""?",Star Wars,Star Trek,Guardians of the Galaxy,The Matrix
+"Sport, music & film",14-15,2,How many Grand Slam tournaments are there in tennis each year?,4,3,5,6
+"Sport, music & film",adult,1,Which country has won the most men's FIFA World Cups?,Brazil,Germany,Italy,Argentina
+"Sport, music & film",adult,1,Who composed the opera The Magic Flute?,Wolfgang Amadeus Mozart,Giuseppe Verdi,Richard Wagner,Giacomo Puccini
+"Sport, music & film",adult,5,Which film won the first Academy Award for Best Picture?,Wings,Sunrise,The Jazz Singer,Metropolis
+"Sport, music & film",adult,4,"In golf, what is a score of three under par on one hole called?",An albatross,An eagle,A birdie,A condor
+"Sport, music & film",adult,2,Which singer was known as the Queen of Soul?,Aretha Franklin,Whitney Houston,Diana Ross,Tina Turner
+"Sport, music & film",adult,3,Which city hosted the 1992 Summer Olympics?,Barcelona,Atlanta,Seoul,Sydney
+"Sport, music & film",adult,1,Who directed the 1960 film Psycho?,Alfred Hitchcock,Stanley Kubrick,Orson Welles,Billy Wilder
+"Sport, music & film",adult,2,How long is a marathon?,26.2 miles (42.2 km),24 miles (38.6 km),25 miles (40.2 km),28 miles (45 km)
+"Sport, music & film",adult,2,Which band released the album The Dark Side of the Moon?,Pink Floyd,Led Zeppelin,The Who,Genesis
+"Sport, music & film",adult,3,"In cricket, how many balls are in an over?",6,5,8,4
