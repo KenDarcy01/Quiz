@@ -319,7 +319,7 @@ function sourceNotice() {
   const b = state.bank;
   if (!b || state.loading || b.source === 'sheet') return '';
   if (b.source === 'cache') return `<p class="notice">Using the last copy of your sheet. ${esc(b.error)}</p>`;
-  if (b.error) return `<p class="notice">${esc(b.error)} Using the built-in questions instead.</p>`;
+  if (b.error) return `<p class="notice">${esc(b.error)} Playing with the built-in questions for now.</p>`;
   return '';
 }
 

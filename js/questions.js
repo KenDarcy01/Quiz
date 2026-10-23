@@ -1,7 +1,7 @@
 // Loads questions from a Google Sheet (or the bundled copy) and picks them by age, grade and topic.
 
 // The family question sheet, used when no other link is set in Settings.
-const DEFAULT_SHEET_URL = '';
+const DEFAULT_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1Q-vsC1R0agSt0r20phZ5n2Lfsm-e5x_Qtfa-WhVc-HI/edit';
 const BUNDLED_URL = 'questions/questions.csv';
 const CACHE_KEY = 'fq.questions.v2';
 const ADULT_AGE = 18;
@@ -78,7 +78,10 @@ function rowsToQuestions(rows) {
 }
 
 async function fetchCsv(url) {
-  const res = await fetch(url, { cache: 'no-store' });
+  let res;
+  try { res = await fetch(url, { cache: 'no-store' }); } catch {
+    throw new Error('The family sheet could not be reached. Check it is shared as "Anyone with the link: Viewer".');
+  }
   if (!res.ok) throw new Error(`The sheet could not be loaded (error ${res.status}).`);
   const text = await res.text();
   if (/^\s*</.test(text)) throw new Error('The sheet is not shared publicly. Set sharing to "Anyone with the link can view".');
