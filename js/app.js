@@ -71,6 +71,11 @@ function difficulty() {
   return DIFFICULTIES.find((d) => d.id === state.settings.difficulty) || DIFFICULTIES[0];
 }
 
+// A player's own level, or the game's difficulty when they haven't been given one.
+function difficultyFor(p) {
+  return DIFFICULTIES.find((d) => d.id === p.difficulty) || difficulty();
+}
+
 function sheetUrl() {
   return state.settings.sheetUrl || DEFAULT_SHEET_URL;
 }
@@ -97,7 +102,7 @@ async function refreshQuestions() {
 }
 
 function poolForPlayer(p) {
-  return state.bank ? poolFor(state.bank.questions, p.age, state.settings.topic, difficulty().grades) : [];
+  return state.bank ? poolFor(state.bank.questions, p.age, state.settings.topic, difficultyFor(p).grades) : [];
 }
 
 // Picks questions this player hasn't had yet, topping up with repeats only when the pool runs dry.
@@ -280,8 +285,14 @@ function homeScreen() {
       ${players.map((p, i) => `
         <div class="card row">
           ${badge(i)}
-          <div class="player-name">${esc(p.name)}</div>
-          <div class="age-pill">${esc(ageLabel(p.age))}</div>
+          <div class="player-main">
+            <div class="player-name">${esc(p.name)}</div>
+            <div class="muted player-age">${esc(ageLabel(p.age))}</div>
+          </div>
+          <select class="level-select" data-change="level" data-player="${i}" aria-label="${esc(p.name)}'s level">
+            <option value="">Game level</option>
+            ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === p.difficulty ? 'selected' : ''}>${d.label.split(' ')[0]}</option>`).join('')}
+          </select>
         </div>
         ${state.bank && !state.loading && counts[i] < state.settings.perPlayer
           ? `<p class="muted" style="font-size:14px;margin-top:-4px">${counts[i] ? `Only ${counts[i]} questions` : 'No questions'} for ${esc(ageLabel(p.age).toLowerCase())} with this topic and difficulty.</p>` : ''}
@@ -335,7 +346,7 @@ function passScreen() {
       ${badge(turn.player)}
       <p class="eyebrow">Pass the phone to</p>
       <h1>${esc(p.name)}</h1>
-      <p style="font-weight:700">Question ${turn.n} of ${turn.of} · ${esc(ageLabel(p.age))}</p>
+      <p style="font-weight:700">Question ${turn.n} of ${turn.of} · ${esc(ageLabel(p.age))}${p.difficulty ? ` · ${esc(difficultyFor(p).label)}` : ''}</p>
     </div>
     <button class="btn" data-action="ready">I'm ready</button>
   `;
@@ -510,9 +521,13 @@ app.addEventListener('change', (e) => {
   const field = e.target.dataset.change;
   if (field === 'topic' || field === 'difficulty') {
     state.settings[field] = e.target.value;
-    save(SETTINGS_KEY, state.settings);
-    render();
+  } else if (field === 'level') {
+    state.settings.players[Number(e.target.dataset.player)].difficulty = e.target.value;
+  } else {
+    return;
   }
+  save(SETTINGS_KEY, state.settings);
+  render();
 });
 
 app.addEventListener('submit', (e) => {
@@ -523,6 +538,7 @@ app.addEventListener('submit', (e) => {
   s.players = s.players.map((p, i) => ({
     name: String(f.get(`name-${i}`) || '').trim() || `Player ${i + 1}`,
     age: String(f.get(`age-${i}`) || p.age),
+    difficulty: p.difficulty || '',
   }));
   s.quizMaster = String(f.get('quizMaster') || '').trim() || 'Quiz master';
   s.perPlayer = Math.max(1, Math.min(50, Number(f.get('perPlayer')) || 10));

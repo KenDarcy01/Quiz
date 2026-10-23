@@ -81,6 +81,9 @@ p { margin: 0; }
 .tilt-3 { transform: rotate(6deg); }
 
 .player-name { flex: 1; font-weight: 800; min-width: 0; overflow-wrap: anywhere; }
+.player-main { flex: 1; min-width: 0; }
+.player-age { font-size: 14px; font-weight: 700; }
+.level-select { width: auto; min-width: 118px; min-height: 40px; padding: 4px 8px; font-size: 15px; font-weight: 700; }
 .age-pill { font-size: 14px; font-weight: 700; background: var(--ground); border-radius: 8px; padding: 3px 8px; }
 
 /* Buttons */
