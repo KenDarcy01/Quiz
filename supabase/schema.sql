@@ -595,6 +595,51 @@ drop policy if exists "parents remove devices" on public.profile_devices;
 create policy "parents remove devices" on public.profile_devices for delete to authenticated using (
   exists (select 1 from public.profiles p where p.id = profile_id and p.owner_id = auth.uid()));
 
+-- Anonymous sign-ins (kids' devices) can play, but can't host, add questions or make profiles.
+create or replace function public.is_full_account() returns boolean
+language sql stable set search_path = '' as $$
+  select auth.uid() is not null and coalesce((auth.jwt()->>'is_anonymous')::boolean, false) = false
+$$;
+
+alter policy "add family questions" on public.questions
+  with check (source = 'family' and created_by = auth.uid() and public.is_full_account());
+alter policy "add child profiles" on public.profiles
+  with check (owner_id = auth.uid() and (user_id is null or user_id = auth.uid()) and public.is_full_account());
+
+create or replace function public.create_game(p_settings jsonb default '{}')
+returns public.games
+language plpgsql security definer set search_path = public, extensions as $$
+declare
+  g public.games;
+  letters constant text := 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';  -- no 0/O or 1/I
+  c text;
+begin
+  if not public.is_full_account() then raise exception 'Sign in to host a game'; end if;
+  loop
+    c := '';
+    for i in 1..4 loop
+      c := c || substr(letters, 1 + floor(random() * length(letters))::int, 1);
+    end loop;
+    exit when not exists (select 1 from public.games where code = c and status <> 'finished');
+  end loop;
+  insert into public.games (code, host_id, settings) values (c, auth.uid(), coalesce(p_settings, '{}'))
+  returning * into g;
+  return g;
+end $$;
+
+-- Anonymous sign-ups don't get a profile of their own; they play as the child they're linked to.
+create or replace function public.handle_new_user() returns trigger
+language plpgsql security definer set search_path = public as $$
+begin
+  if coalesce(new.is_anonymous, false) then return new; end if;
+  insert into public.profiles (user_id, owner_id, display_name)
+  values (new.id, new.id, left(coalesce(new.raw_user_meta_data->>'full_name',
+                                         new.raw_user_meta_data->>'name',
+                                         split_part(new.email, '@', 1), 'Player'), 30))
+  on conflict (user_id) do nothing;
+  return new;
+end $$;
+
 -- ---------------------------------------------------------------------------
 -- Live updates: phones in a game subscribe to these tables
 -- ---------------------------------------------------------------------------
