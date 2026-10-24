@@ -1,6 +1,6 @@
 // Offline support: the app shell is cached on install; question sheets and the database are always fetched fresh
 // (the app keeps its own copy of the last sheet in localStorage).
-const CACHE = 'fq-shell-v9';
+const CACHE = 'fq-shell-v10';
 const SHELL = [
   './',
   'index.html',
@@ -19,7 +19,7 @@ const SHELL = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL.map((url) => new Request(url, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (event) => {
@@ -50,9 +50,10 @@ self.addEventListener('fetch', (event) => {
 
   if (url.origin !== self.location.origin) return;
 
-  // Same-origin files: network first so updates arrive, cache when offline.
+  // Same-origin files: network first so updates arrive, cache when offline. "no-cache" makes the
+  // browser check with the server instead of reusing its own HTTP cache (GitHub Pages allows 10 minutes).
   event.respondWith(
-    fetch(req).then((res) => {
+    fetch(new Request(req.url, { cache: 'no-cache', credentials: 'same-origin' })).then((res) => {
       const copy = res.clone();
       caches.open(CACHE).then((c) => c.put(req, copy));
       return res;
