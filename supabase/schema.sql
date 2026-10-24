@@ -728,6 +728,7 @@ begin
       where every > 0 and q.active and q.kind = 'picture'
         and pl.years between q.age_min and q.age_max
         and q.grade = any (pl.grades)
+        and (v_topic is null or q.topic = v_topic)
       order by exists (select 1 from public.seen_questions s
                        where s.profile_id = pl.profile_id and s.question_id = q.id),
                random()

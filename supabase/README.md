@@ -42,6 +42,10 @@ Called from the app with `supabase.rpc(...)`:
 - Every streak bonus is a random silly game: penalties, basketball, whack-a-mole or prize wheel.
 - Each player has one Challenge card per game. `start_challenge(challenger, opponent, mode)` dares another player, and the challenger picks how: `buzzer` (3 rounds; each round both players get their own multiple choice question at their own level at the same moment, first to tap the right answer wins the round, a wrong tap locks you out of it, best of 3) or `game` (both play the same random silly game; higher score wins). The challenged player accepts or refuses with `answer_challenge(id, accept)`; refusing costs them 1 point (`settings.challenge_refuse` can be `never` or `free` instead). Buzzes go through `challenge_answer(id, player, round, response)`, game scores through `challenge_game_score(id, player, score)`. The winner steals 2 points. The host can call it off with `cancel_challenge(id)`, which gives the card back. The game can't move on mid-duel.
 
+## Picture rounds
+
+Picture questions have `kind = 'picture'`, an image in `media_url` (a path in this repo, such as `media/flags/ie.svg`) and `media` with how it's revealed (`zoom` or `blur`) and the `prompt` players see. The first set is 195 flags in five difficulty grades, built by `questions/build.py` from `questions/src/flags.py` (images from flag-icons, MIT licence). `start_game` makes every 4th question for each player a picture; `settings.picture_every` changes that, and 0 turns pictures off. The picture starts zoomed in or blurred and comes clear over 20 seconds on every phone.
+
 ## Kids on their own devices
 
 A child's phone or tablet signs in anonymously (Supabase **Allow anonymous sign-ins** must be on), types the game code and taps their name from `family_profiles(code)`, which lists the child profiles of the host and the families already in the game. `request_device(code, profile_id)` sends the request, and the parent or host approves it with `decide_device(request_id, true)`. That links the device in `profile_devices` and puts the child in the game. The device then counts as the child in every later game, until the parent removes it. Older kids can sign up with their own email instead.
@@ -66,4 +70,4 @@ Done: questions from the database, email sign-in with kids' profiles, account de
 
 1. An "Add a question" screen for the family's own questions (to replace the Google Sheet).
 2. Google sign-in, with Sign in with Apple alongside it for the App Store.
-3. More streak mini-games, picture and music rounds.
+3. More picture sets (landmarks, animals, family photos) and music rounds.
