@@ -380,9 +380,10 @@ function playScreen(g) {
       ${q.choices.map((c) => `<button class="choice" data-action="pickMp" data-value="${esc(c)}" ${myTurn && !mp.busy ? '' : 'disabled'}>${esc(c)}</button>`).join('')}
     </div>
     ${!myTurn ? `<p class="muted" style="font-weight:700">${esc(player.name)} is choosing…</p>` : ''}`;
-  } else if (g.is_host && q.answer) {
-    body = `<div class="card stack" style="gap:4px"><span class="eyebrow">Answer (only you can see this)</span><span class="answer-reveal">${esc(q.answer)}</span></div>
-      <p class="muted" style="font-weight:700">${esc(player.name)} says their answer out loud.</p>`;
+  } else if (q.answer) {
+    // The host judging someone else's question, or anyone once the answer is shown.
+    body = `<div class="card stack" style="gap:4px"><span class="eyebrow">${q.revealed ? 'Answer' : 'Answer (only you can see this)'}</span><span class="answer-reveal">${esc(q.answer)}</span></div>
+      ${q.revealed ? '' : `<p class="muted" style="font-weight:700">${esc(player.name)} says their answer out loud.</p>`}`;
   } else {
     body = `<p class="muted" style="font-weight:700">${myTurn ? `Say your answer out loud for ${POINTS_STRAIGHT} points.` : `${esc(player.name)} is answering out loud.`}</p>`;
   }
@@ -395,7 +396,10 @@ function playScreen(g) {
       footer += `<button class="btn secondary" data-action="choicesMp" ${mp.busy ? 'disabled' : ''}>Show choices (${POINTS_CHOICES} point)</button>`;
     }
     if (g.is_host && !q.choices_shown) {
-      footer += judgeButtons(player.name, 'markRight', 'markWrong', mp.busy);
+      // On a question for someone on the host's own phone, the answer stays hidden until they've said theirs.
+      footer += q.answer
+        ? judgeButtons(player.name, 'markRight', 'markWrong', mp.busy)
+        : `<button class="btn" data-action="revealMp" ${mp.busy ? 'disabled' : ''}>Show answer</button>`;
     }
     if (g.is_host) footer += `<button class="link-btn" data-action="nextMp" style="align-self:center">Skip this question</button>`;
   }

@@ -785,7 +785,11 @@ begin
         'id', gq.id, 'seq', gq.seq, 'player_id', gq.player_id, 'kind', gq.kind,
         'topic', q.topic, 'grade', q.grade, 'text', q.question,
         'asked_at', gq.asked_at, 'revealed', gq.revealed_at is not null,
-        'answer', case when is_host or gq.revealed_at is not null
+        -- The host sees the answer to judge it, except on questions for players on their own phone.
+        'answer', case when (is_host and gq.player_id not in (
+                              select id from public.game_players
+                              where game_id = g.id and profile_id in (select public.my_profile_ids())))
+                       or gq.revealed_at is not null
                        or exists (select 1 from public.answers a where a.game_question_id = gq.id) then q.answer end,
         -- The same shuffled order on every phone.
         'choices', case when cardinality(q.wrong) > 0 then (
