@@ -272,6 +272,7 @@ function homeScreen() {
   const resume = state.game && state.game.at < state.game.turns.length;
 
   return `
+    ${accountLink()}
     <div class="wordmark" role="img" aria-label="Family Quiz">
       <span class="sticker a">FAMILY</span>
       <span class="sticker b">QUIZ!</span>
@@ -488,8 +489,114 @@ function settingsScreen() {
   `;
 }
 
+// ---------- Account ----------
+
+function accountLink() {
+  if (!sb) return '';
+  const label = auth.user && !auth.user.is_anonymous
+    ? esc((auth.profile && auth.profile.display_name) || 'My account')
+    : 'Sign in';
+  return `<div class="topbar" style="justify-content:flex-end;margin-bottom:-12px">
+    <button class="link-btn" data-action="account">${label}</button>
+  </div>`;
+}
+
+function authNotes() {
+  return `${auth.message ? `<p class="notice">${esc(auth.message)}</p>` : ''}
+    ${auth.error ? `<p class="notice error" role="alert">${esc(auth.error)}</p>` : ''}`;
+}
+
+function ageSelect(id, age) {
+  return `<select id="${id}" name="age" aria-label="Age">${AGES.map((a) => `<option value="${a}" ${a === age ? 'selected' : ''}>${ageLabel(a)}</option>`).join('')}</select>`;
+}
+
+function signedOutScreen() {
+  const m = auth.mode;
+  const title = { signin: 'Sign in', signup: 'Create account', reset: 'Forgot password' }[m];
+  return `
+    <div class="topbar"><h1 style="font-size:36px">${title}</h1><button class="link-btn" data-action="cancel">Back</button></div>
+    <p class="muted">An account lets you host games on everyone's phones and keep scores. You don't need one to play pass-the-phone.</p>
+    ${authNotes()}
+    <form id="auth" class="stack" style="gap:14px">
+      ${m === 'signup' ? `<div class="stack" style="gap:6px"><label for="auth-name">Your name</label>
+        <input id="auth-name" name="name" maxlength="30" autocomplete="name" required></div>` : ''}
+      <div class="stack" style="gap:6px"><label for="auth-email">Email</label>
+        <input id="auth-email" name="email" type="email" inputmode="email" autocomplete="email" required></div>
+      ${m !== 'reset' ? `<div class="stack" style="gap:6px"><label for="auth-password">Password</label>
+        <input id="auth-password" name="password" type="password" minlength="6"
+          autocomplete="${m === 'signup' ? 'new-password' : 'current-password'}" required></div>` : ''}
+      <button class="btn" type="submit" ${auth.busy ? 'disabled' : ''}>${auth.busy ? 'One moment…' : { signin: 'Sign in', signup: 'Create account', reset: 'Send reset link' }[m]}</button>
+    </form>
+    <div class="stack" style="gap:8px;align-items:center">
+      ${m !== 'signup' ? '<button class="link-btn" data-action="authMode" data-mode="signup">New here? Create an account</button>' : ''}
+      ${m !== 'signin' ? '<button class="link-btn" data-action="authMode" data-mode="signin">Already have an account? Sign in</button>' : ''}
+      ${m === 'signin' ? '<button class="link-btn" data-action="authMode" data-mode="reset">Forgot your password?</button>' : ''}
+    </div>
+  `;
+}
+
+function accountScreen() {
+  if (!auth.user || auth.user.is_anonymous) return signedOutScreen();
+  const p = auth.profile;
+  return `
+    <div class="topbar"><h1 style="font-size:36px">My account</h1><button class="link-btn" data-action="cancel">Back</button></div>
+    <p class="muted" style="margin-top:-12px">${esc(auth.user.email || '')}</p>
+    ${authNotes()}
+    ${p ? `<form id="profile" class="stack" style="gap:6px">
+      <label for="profile-name">Your name</label>
+      <div class="field-row">
+        <input id="profile-name" name="name" value="${esc(p.display_name)}" maxlength="30" required>
+        ${ageSelect('profile-age', p.age)}
+      </div>
+      <button class="btn secondary" type="submit" ${auth.busy ? 'disabled' : ''}>Save</button>
+    </form>` : ''}
+    <section class="stack" aria-labelledby="kids-h">
+      <h2 id="kids-h" class="eyebrow" style="font-family:var(--body)">Kids' profiles</h2>
+      <p class="muted" style="font-size:15px">Kids don't need an email. On their own device they type the game code, tap their name, and you approve them.</p>
+      ${auth.kids.map((k) => `
+        <div class="card row">
+          <div class="player-main">
+            <div class="player-name">${esc(k.display_name)}</div>
+            <div class="muted player-age">${esc(ageLabel(k.age))}</div>
+          </div>
+          <button class="link-btn" data-action="removeKid" data-id="${esc(k.id)}" ${auth.busy ? 'disabled' : ''}>Remove</button>
+        </div>`).join('')}
+      <form id="kid" class="field-row">
+        <input id="kid-name" name="name" placeholder="Child's name" maxlength="30" aria-label="Child's name" required>
+        ${ageSelect('kid-age', '10')}
+        <button class="btn secondary" type="submit" style="width:auto;padding:0 16px" ${auth.busy ? 'disabled' : ''}>Add</button>
+      </form>
+    </section>
+    <div class="spacer"></div>
+    <button class="btn secondary" data-action="signOut" ${auth.busy ? 'disabled' : ''}>Sign out</button>
+    ${auth.confirmDelete ? `
+      <div class="card stack">
+        <p style="font-weight:700">Delete your account, your kids' profiles and your games? This can't be undone.</p>
+        <div class="row">
+          <button class="btn bad" data-action="deleteYes" ${auth.busy ? 'disabled' : ''}>Delete</button>
+          <button class="btn secondary" data-action="deleteNo">Keep it</button>
+        </div>
+      </div>` : '<button class="link-btn" data-action="deleteAsk" style="align-self:center">Delete my account</button>'}
+  `;
+}
+
+function newPasswordScreen() {
+  return `
+    <h1 style="font-size:36px">New password</h1>
+    ${authNotes()}
+    <form id="newPassword" class="stack" style="gap:14px">
+      <div class="stack" style="gap:6px"><label for="new-password">Choose a new password</label>
+        <input id="new-password" name="password" type="password" minlength="6" autocomplete="new-password" required></div>
+      <button class="btn" type="submit" ${auth.busy ? 'disabled' : ''}>Save password</button>
+    </form>
+  `;
+}
+
 function render() {
-  const screens = { home: homeScreen, settings: settingsScreen, pass: passScreen, question: questionScreen, scores: scoresScreen };
+  const screens = {
+    home: homeScreen, settings: settingsScreen, pass: passScreen, question: questionScreen, scores: scoresScreen,
+    account: accountScreen, newPassword: newPasswordScreen,
+  };
   app.innerHTML = screens[state.screen]();
 }
 
@@ -501,6 +608,13 @@ app.addEventListener('click', (e) => {
   const actions = {
     settings: () => { state.screen = 'settings'; render(); },
     cancel: () => { state.screen = 'home'; render(); },
+    account: () => { auth.message = ''; auth.error = ''; state.screen = 'account'; render(); },
+    authMode: () => { auth.mode = el.dataset.mode; auth.message = ''; auth.error = ''; render(); },
+    signOut,
+    removeKid: () => { if (confirm('Remove this child\'s profile?')) removeKid(el.dataset.id); },
+    deleteAsk: () => { auth.confirmDelete = true; render(); },
+    deleteNo: () => { auth.confirmDelete = false; render(); },
+    deleteYes: deleteAccount,
     forget: () => { save(SEEN_KEY, null); el.textContent = 'Done: everyone starts fresh'; el.disabled = true; },
     start: startRound,
     resume: () => { state.screen = state.game.mode === 'open' && state.game.verdict === null ? 'pass' : 'question'; render(); },
@@ -530,9 +644,26 @@ app.addEventListener('change', (e) => {
   render();
 });
 
+const forms = {
+  auth: (f) => {
+    const email = String(f.get('email') || '').trim();
+    const password = String(f.get('password') || '');
+    if (auth.mode === 'signup') return signUp(String(f.get('name') || '').trim(), email, password);
+    if (auth.mode === 'reset') return sendReset(email);
+    return signIn(email, password);
+  },
+  profile: (f) => saveProfile(String(f.get('name') || '').trim(), String(f.get('age'))),
+  kid: (f) => addKid(String(f.get('name') || '').trim(), String(f.get('age'))),
+  newPassword: (f) => setNewPassword(String(f.get('password') || '')),
+  settings: saveSettings,
+};
+
 app.addEventListener('submit', (e) => {
   e.preventDefault();
-  const f = new FormData(e.target);
+  forms[e.target.id]?.(new FormData(e.target));
+});
+
+function saveSettings(f) {
   const s = state.settings;
   const oldUrl = s.sheetUrl;
   s.players = s.players.map((p, i) => ({
@@ -548,7 +679,8 @@ app.addEventListener('submit', (e) => {
   state.screen = 'home';
   if (s.sheetUrl !== oldUrl) refreshQuestions();
   else render();
-});
+}
 
 render();
 refreshQuestions();
+startAuth();
