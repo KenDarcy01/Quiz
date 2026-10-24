@@ -11,6 +11,7 @@ const auth = {
   message: '',    // a note for the person, such as "Check your email"
   error: '',
   confirmDelete: false,
+  form: { name: '', email: '' }, // kept so a failed attempt doesn't wipe what was typed
 };
 
 function friendlyAuthError(e) {
@@ -19,7 +20,7 @@ function friendlyAuthError(e) {
   if (/email not confirmed/i.test(m)) return 'Tap the link in your confirmation email first.';
   if (/already registered/i.test(m)) return 'There\'s already an account with that email. Sign in instead.';
   if (/password should be at least/i.test(m)) return 'Use at least 6 characters for the password.';
-  if (/failed to fetch|network/i.test(m)) return 'No connection. Try again when you have signal.';
+  if (/load failed|failed to fetch|network/i.test(m)) return 'Couldn\'t reach the sign-in service. Check your connection and try again.';
   return m;
 }
 
@@ -38,14 +39,23 @@ async function loadAccount() {
   auth.kids = data.filter((p) => !p.user_id);
 }
 
+const isNetworkError = (e) => /load failed|failed to fetch|network/i.test((e && e.message) || String(e));
+
 // Runs an auth action with the busy flag and error handling, then redraws.
+// A dropped connection gets one quiet retry before the person sees an error.
 async function authStep(fn) {
   auth.busy = true;
   auth.error = '';
   auth.message = '';
   render();
   try {
-    await fn();
+    try {
+      await fn();
+    } catch (e) {
+      if (!isNetworkError(e)) throw e;
+      await new Promise((r) => setTimeout(r, 1500));
+      await fn();
+    }
   } catch (e) {
     auth.error = friendlyAuthError(e);
   }

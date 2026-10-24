@@ -519,12 +519,14 @@ function signedOutScreen() {
     ${authNotes()}
     <form id="auth" class="stack" style="gap:14px">
       ${m === 'signup' ? `<div class="stack" style="gap:6px"><label for="auth-name">Your name</label>
-        <input id="auth-name" name="name" maxlength="30" autocomplete="name" required></div>` : ''}
+        <input id="auth-name" name="name" value="${esc(auth.form.name)}" maxlength="30" autocomplete="name" required></div>` : ''}
       <div class="stack" style="gap:6px"><label for="auth-email">Email</label>
-        <input id="auth-email" name="email" type="email" inputmode="email" autocomplete="email" required></div>
+        <input id="auth-email" name="email" type="email" inputmode="email" autocomplete="email" value="${esc(auth.form.email)}" required></div>
       ${m !== 'reset' ? `<div class="stack" style="gap:6px"><label for="auth-password">Password</label>
         <input id="auth-password" name="password" type="password" minlength="6"
           autocomplete="${m === 'signup' ? 'new-password' : 'current-password'}" required></div>` : ''}
+      ${m === 'signup' ? `<div class="stack" style="gap:6px"><label for="auth-password2">Type the password again</label>
+        <input id="auth-password2" name="password2" type="password" minlength="6" autocomplete="new-password" required></div>` : ''}
       <button class="btn" type="submit" ${auth.busy ? 'disabled' : ''}>${auth.busy ? 'One moment…' : { signin: 'Sign in', signup: 'Create account', reset: 'Send reset link' }[m]}</button>
     </form>
     <div class="stack" style="gap:8px;align-items:center">
@@ -648,7 +650,16 @@ const forms = {
   auth: (f) => {
     const email = String(f.get('email') || '').trim();
     const password = String(f.get('password') || '');
-    if (auth.mode === 'signup') return signUp(String(f.get('name') || '').trim(), email, password);
+    auth.form = { name: String(f.get('name') || '').trim(), email };
+    if (auth.mode === 'signup') {
+      if (password !== String(f.get('password2') || '')) {
+        auth.error = 'The two passwords don\'t match. Try again.';
+        auth.message = '';
+        render();
+        return null;
+      }
+      return signUp(auth.form.name, email, password);
+    }
     if (auth.mode === 'reset') return sendReset(email);
     return signIn(email, password);
   },
