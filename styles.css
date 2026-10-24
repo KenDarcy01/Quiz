@@ -219,6 +219,8 @@ input, select {
 .duel-vs .kick-tally { font-size: 22px; gap: 6px; }
 .duel-x { font-family: var(--display); font-size: 28px; color: var(--pink); }
 .duel-chip { background: var(--pink); color: #fff; }
+.zap-chip { background: var(--orange); }
+.zap-card { background: #FFF4D6; }
 .challenge-chip { background: var(--card); cursor: pointer; font: inherit; font-weight: 800; }
 
 /* Basketball */

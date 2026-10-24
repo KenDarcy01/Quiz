@@ -403,6 +403,12 @@ function hostSetupScreen() {
         <label for="host-seconds">Seconds per question (0 for no timer)</label>
         <input id="host-seconds" name="seconds" type="number" min="0" max="120" step="1" value="${esc(s.seconds)}">
       </div>
+      <div class="stack" style="gap:6px">
+        <label for="host-cards">Challenge cards per player (0 for none)</label>
+        <input id="host-cards" name="challengeCards" type="number" min="0" max="5" step="1" value="${esc(s.challengeCards ?? 1)}">
+      </div>
+      <label class="check-row"><input type="checkbox" name="lightning" ${s.lightning !== false ? 'checked' : ''}>
+        <span>⚡ Lightning round<br><span class="muted" style="font-size:14px;font-weight:600">Halfway through, everyone races on their own phone</span></span></label>
       ${SONG_CLIPS_ALLOWED ? `<label class="check-row"><input type="checkbox" name="songClips" ${s.songClips !== false ? 'checked' : ''}>
         <span>Song clips<br><span class="muted" style="font-size:14px;font-weight:600">Name-that-song rounds, played on your phone</span></span></label>` : ''}
       ${mpNotes()}
@@ -740,6 +746,8 @@ app.addEventListener('click', (e) => {
     pickOpponent: () => pickOpponent(el.dataset.id),
     issueChallenge: () => issueChallenge(el.dataset.mode),
     buzz: () => buzz(el.dataset.id, el.dataset.value),
+    zapTap: () => zapTap(el.dataset.id, el.dataset.value),
+    stopLightning,
     acceptChallenge: () => answerChallenge(true),
     refuseChallenge: () => answerChallenge(false),
     cancelChallenge,
@@ -800,6 +808,8 @@ const forms = {
     s.perPlayer = Math.max(1, Math.min(50, Number(f.get('perPlayer')) || 10));
     s.seconds = Math.max(0, Math.min(120, Number(f.get('seconds')) || 0));
     s.songClips = SONG_CLIPS_ALLOWED && f.get('songClips') === 'on';
+    s.challengeCards = Math.max(0, Math.min(5, Math.round(Number(f.get('challengeCards')) || 0)));
+    s.lightning = f.get('lightning') === 'on';
     save(SETTINGS_KEY, s);
     hostGame();
   },

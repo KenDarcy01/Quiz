@@ -73,7 +73,7 @@ function followGame(id) {
   save(MP_KEY, id);
   const filter = `game_id=eq.${id}`;
   mp.channel = sb.channel(`game:${id}`);
-  ['game_players', 'game_questions', 'answers', 'game_events', 'device_requests', 'challenges', 'challenge_questions', 'challenge_scores'].forEach((table) => {
+  ['game_players', 'game_questions', 'answers', 'game_events', 'device_requests', 'challenges', 'challenge_questions', 'challenge_scores', 'lightning_rounds', 'lightning_questions'].forEach((table) => {
     mp.channel.on('postgres_changes', { event: '*', schema: 'public', table, filter }, queueRefresh);
   });
   mp.channel.on('postgres_changes', { event: '*', schema: 'public', table: 'games', filter: `id=eq.${id}` }, queueRefresh);
@@ -115,6 +115,8 @@ function hostGame() {
         per_player: Number(s.perPlayer) || 10,
         seconds: Number(s.seconds) || 0,
         song_clips: SONG_CLIPS_ALLOWED && s.songClips !== false,
+        challenge_cards: Math.max(0, Math.min(5, Number(s.challengeCards ?? 1))),
+        lightning: s.lightning !== false,
       },
     });
     await followGame(g.id);
@@ -680,10 +682,17 @@ function challengePanel(g) {
 }
 
 // The Challenge card: each player can play it once a game, when no other challenge is on.
+function cardsPerPlayer(g) {
+  const n = Number((g.settings || {}).challenge_cards);
+  return Number.isFinite(n) && (g.settings || {}).challenge_cards != null ? n : 1;
+}
+
 function challengeCards(g) {
   if (g.challenge && ['pending', 'playing'].includes(g.challenge.status)) return '';
-  const used = new Set(g.cards_used || []);
-  const mine = g.players.filter((p) => p.mine && !used.has(p.id));
+  if (g.lightning && g.lightning.status === 'playing') return '';
+  const cards = cardsPerPlayer(g);
+  const left = (p) => cards - (g.cards_used || []).filter((id) => id === p.id).length;
+  const mine = g.players.filter((p) => p.mine && left(p) > 0);
   if (!mine.length || g.players.length < 2) return '';
   const from = mpPlayer(mp.challengeFrom);
   const small = 'style="width:auto;padding:0 14px;min-height:44px;font-size:18px"';
@@ -703,7 +712,7 @@ function challengeCards(g) {
     </div>`;
   }
   return `<div class="row" style="flex-wrap:wrap;gap:8px">
-    ${mine.map((p) => `<button class="chip challenge-chip" data-action="openChallenge" data-id="${esc(p.id)}">⚔️ ${mine.length > 1 || g.is_host ? `${esc(p.name)}'s ` : ''}Challenge card</button>`).join('')}
+    ${mine.map((p) => `<button class="chip challenge-chip" data-action="openChallenge" data-id="${esc(p.id)}">⚔️ ${mine.length > 1 || g.is_host ? `${esc(p.name)}'s ` : ''}Challenge card${cards > 1 ? ` (${left(p)} left)` : ''}</button>`).join('')}
   </div>`;
 }
 
@@ -754,6 +763,120 @@ function duelGameBody(ch) {
 }
 
 // While a duel is on, it takes over every phone: the two players play, everyone else watches.
+// ---------- Lightning round ----------
+// Halfway through, everyone races on their own phone: 5 rounds, own question each, first right
+// answer wins the round and a point. A wrong tap locks you out of that round.
+const ZAP_SECONDS = 10;
+
+function zapRound(lg) {
+  const r = (lg.rounds || []).find((x) => !x.resolved);
+  return r ? r.idx : null;
+}
+
+function zapSecondsLeft(lg) {
+  const key = `${lg.id}:${zapRound(lg)}`;
+  if (!mp.zapShown || mp.zapShown.key !== key) mp.zapShown = { key, at: Date.now() };
+  return Math.max(0, Math.ceil(ZAP_SECONDS - (Date.now() - mp.zapShown.at) / 1000));
+}
+
+function zapTap(playerId, choice) {
+  const lg = mp.game.lightning;
+  const idx = lg && zapRound(lg);
+  if (!idx || mp.busy) return;
+  mpStep(async () => {
+    await rpc('lightning_answer', { p_round_id: lg.id, p_player_id: playerId, p_idx: idx, p_response: choice || '' });
+    await refreshGame();
+  });
+}
+
+// Out of time: this phone's players miss the round, and the round is closed for everyone.
+function zapTimeout(lg) {
+  const idx = zapRound(lg);
+  const key = `${lg.id}:${idx}`;
+  if (mp.zapTimedOut === key) return;
+  mp.zapTimedOut = key;
+  const mine = g => g.players.filter((p) => p.mine).map((p) => p.id);
+  mpStep(async () => {
+    for (const id of mine(mp.game)) {
+      const q = lg.questions.find((x) => x.player_id === id && x.idx === idx);
+      if (q && !q.answered) await rpc('lightning_answer', { p_round_id: lg.id, p_player_id: id, p_idx: idx, p_response: '' });
+    }
+    await rpc('lightning_timeout', { p_round_id: lg.id, p_idx: idx });
+    await refreshGame();
+  });
+}
+
+function stopLightning() {
+  const lg = mp.game && mp.game.lightning;
+  if (!lg || !confirm('Stop the lightning round? Points won so far stay.')) return;
+  mpStep(async () => {
+    await rpc('stop_lightning', { p_round_id: lg.id });
+    await refreshGame();
+  });
+}
+
+function zapWins(lg, playerId) {
+  return (lg.rounds || []).filter((r) => r.winner === playerId).length;
+}
+
+function zapTally(g, lg) {
+  return `<div class="row" style="flex-wrap:wrap;gap:8px;justify-content:center">
+    ${g.players.map((p) => `<span class="chip">${esc(p.name)} <b>⚡${zapWins(lg, p.id)}</b></span>`).join('')}
+  </div>`;
+}
+
+function lightningScreen(g) {
+  const lg = g.lightning;
+  const idx = zapRound(lg);
+  const mine = g.players.filter((p) => p.mine);
+  const last = (lg.rounds || []).filter((r) => r.resolved).pop();
+  const lastLine = last ? `<p class="notice">Round ${last.idx}: ${last.winner ? `${esc(mpPlayer(last.winner).name)} was quickest! ⚡ +1` : 'nobody got it.'}</p>` : '';
+  const left = idx ? zapSecondsLeft(lg) : 0;
+  const blocks = idx ? mine.map((p) => {
+    const q = lg.questions.find((x) => x.player_id === p.id && x.idx === idx);
+    if (!q) return '';
+    if (q.answered) {
+      return `<p class="sticker" style="align-self:flex-start;background:var(--wrong);font-size:22px;transform:rotate(-2deg)">${mine.length > 1 ? `${esc(p.name)}: ` : ''}Wrong! Locked out this round</p>`;
+    }
+    return `
+      ${mine.length > 1 ? `<span class="eyebrow">${esc(p.name)}'s question</span>` : ''}
+      <p class="muted" style="font-weight:700;margin:0">${esc(q.topic)}</p>
+      <h1 class="question">${esc(q.text)}</h1>
+      <div class="choices" role="group" aria-label="Answers">
+        ${q.choices.map((c) => `<button class="choice" data-action="zapTap" data-id="${esc(p.id)}" data-value="${esc(c)}" ${mp.busy ? 'disabled' : ''}>${esc(c)}</button>`).join('')}
+      </div>`;
+  }).join('') : '';
+  return `
+    <div class="topbar"><span class="chip zap-chip">⚡ Lightning round</span>${myScores(g)}</div>
+    <p style="font-weight:700;margin:0">Everyone gets their own question. First right answer wins the round and a point. Wrong answer? You're out for that round.</p>
+    ${zapTally(g, lg)}
+    ${lastLine}
+    ${idx ? `<div class="row" style="justify-content:space-between">
+      <p style="font-family:var(--display);font-size:22px">Round ${idx} of 5</p>
+      <div id="zap-timer" class="timer ${left <= 3 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>
+    </div>` : ''}
+    ${blocks || `<p class="muted" style="font-weight:700;text-align:center">Everyone is racing…</p>`}
+    ${mpNotes()}
+    ${g.is_host ? '<button class="link-btn" data-action="stopLightning" style="align-self:center">Stop the lightning round</button>' : ''}
+    <div class="spacer"></div>
+    <details><summary class="eyebrow" style="cursor:pointer">Scores</summary>${scoreboard(g.players)}</details>
+    ${endLink(g)}
+  `;
+}
+
+// Shown on the question it came after, once it's done.
+function lightningResult(g) {
+  const lg = g.lightning;
+  if (!lg || lg.status !== 'finished') return '';
+  const best = Math.max(0, ...g.players.map((p) => zapWins(lg, p.id)));
+  const top = g.players.filter((p) => best > 0 && zapWins(lg, p.id) === best);
+  return `<div class="card stack zap-card" style="gap:8px">
+    <span class="eyebrow">⚡ Lightning round result</span>
+    ${zapTally(g, lg)}
+    <p style="font-weight:800;margin:0">${top.length ? `${top.map((p) => esc(p.name)).join(' and ')} ${top.length > 1 ? 'were' : 'was'} the quickest!` : 'Nobody got one. Tough round!'}</p>
+  </div>`;
+}
+
 // A challenge has been thrown down: the question waits (and its clock restarts) until the duel is done.
 function challengeWaitScreen(g) {
   return `
@@ -894,6 +1017,14 @@ function tickMp() {
     buzzEl.classList.toggle('low', left <= 5);
     if (left === 0 && !mp.busy) buzzTimeout(ch);
   }
+  const lg = mp.game && mp.game.lightning;
+  const zapEl = document.getElementById('zap-timer');
+  if (zapEl && lg && lg.status === 'playing' && zapRound(lg)) {
+    const zl = zapSecondsLeft(lg);
+    zapEl.textContent = zl;
+    zapEl.classList.toggle('low', zl <= 3);
+    if (zl === 0 && !mp.busy) zapTimeout(lg);
+  }
   const el = document.getElementById('mp-timer');
   const left = mpSecondsLeft();
   if (!el || left === null) return;
@@ -998,6 +1129,7 @@ function playScreen(g) {
   if (mp.clip && mp.clip.qid !== q.id) stopClip();
   if (g.challenge && g.challenge.status === 'playing') return duelScreen(g);
   if (g.challenge && g.challenge.status === 'pending') return challengeWaitScreen(g);
+  if (g.lightning && g.lightning.status === 'playing') return lightningScreen(g);
   const player = mpPlayer(q.player_id) || { name: 'Everyone' };
   const answer = q.answers.find((a) => a.player_id === q.player_id);
   const myTurn = player.mine;
@@ -1083,6 +1215,7 @@ function playScreen(g) {
       ${gradeDots(q.grade)}
     </div>
     ${challengePanel(g)}
+    ${lightningResult(g)}
     <h1 class="question">${esc(q.text)}</h1>
     ${q.media_url ? picture(q, Boolean(answer || q.revealed)) : ''}
     ${(q.media || {}).mode === 'clip' ? clipPanel(g, q, Boolean(answer || q.revealed)) : ''}

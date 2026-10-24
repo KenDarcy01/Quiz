@@ -865,9 +865,20 @@ begin
   if exists (select 1 from public.challenges where game_id = g.id and status = 'playing') then
     raise exception 'Finish or call off the duel first';
   end if;
+  if exists (select 1 from public.lightning_rounds where game_id = g.id and status = 'playing') then
+    raise exception 'Finish the lightning round first';
+  end if;
   -- Make sure the question just played counts as seen, even if nobody answered it.
   perform public.mark_heard(g.id, gq.question_id, gq.player_id)
   from public.game_questions gq where gq.game_id = g.id and gq.seq = g.current_seq;
+  -- Halfway through: lightning round, before moving on.
+  if coalesce((g.settings->>'lightning')::boolean, true)
+     and g.current_seq * 2 >= (select count(*) from public.game_questions where game_id = g.id)
+     and exists (select 1 from public.game_questions where game_id = g.id and seq = g.current_seq + 1)
+     and not exists (select 1 from public.lightning_rounds where game_id = g.id)
+     and public.start_lightning(g.id) then
+    return g;
+  end if;
   select * into nxt from public.game_questions where game_id = g.id and seq = g.current_seq + 1;
   if nxt.id is null then
     update public.challenges set status = 'cancelled', finished_at = now() where game_id = g.id and status = 'pending';
@@ -941,6 +952,7 @@ begin
       where r.game_id = g.id and r.status = 'pending'), '[]') else '[]' end,
     'bonus', public.current_bonus(g.id),
     'challenge', public.current_challenge(g.id),
+    'lightning', public.current_lightning(g.id),
     'cards_used', coalesce((select jsonb_agg(challenger_id) from public.challenges
                             where game_id = g.id and status <> 'cancelled'), '[]')
   ) into result;
@@ -1226,8 +1238,13 @@ begin
       where id = p_opponent_id and game_id = g.id and left_at is null) then
     raise exception 'Pick someone else in the game';
   end if;
-  if exists (select 1 from public.challenges where challenger_id = me.id and status <> 'cancelled') then
-    raise exception 'You have already used your Challenge card';
+  -- settings.challenge_cards: how many each player gets (default 1, 0 turns them off).
+  if (select count(*) from public.challenges where challenger_id = me.id and status <> 'cancelled')
+     >= coalesce((g.settings->>'challenge_cards')::int, 1) then
+    raise exception 'You have no Challenge cards left';
+  end if;
+  if exists (select 1 from public.lightning_rounds where game_id = g.id and status = 'playing') then
+    raise exception 'Wait for the lightning round to finish';
   end if;
   if exists (select 1 from public.challenges where game_id = g.id and status in ('pending', 'playing')) then
     raise exception 'Another challenge is already on';
@@ -1472,3 +1489,214 @@ revoke execute on function public.restart_question_after_challenge() from public
 drop trigger if exists challenges_restart_question on public.challenges;
 create trigger challenges_restart_question after update of status on public.challenges
   for each row execute function public.restart_question_after_challenge();
+
+-- ---------- Lightning round ----------
+-- Halfway through the game (settings.lightning, on unless false), everyone races on their own phone:
+-- 5 rounds, each player gets their own multiple choice question at their own level, and the first
+-- right answer in each round wins a point. A wrong tap locks you out of that round.
+create table if not exists public.lightning_rounds (
+  id               uuid primary key default gen_random_uuid(),
+  game_id          uuid not null references public.games on delete cascade,
+  status           text not null default 'playing' check (status in ('playing', 'finished')),
+  round_started_at timestamptz not null default now(),
+  created_at       timestamptz not null default now(),
+  finished_at      timestamptz
+);
+create unique index if not exists lightning_rounds_game on public.lightning_rounds (game_id);
+
+create table if not exists public.lightning_questions (
+  round_id     uuid not null references public.lightning_rounds on delete cascade,
+  game_id      uuid not null references public.games on delete cascade,
+  player_id    uuid not null references public.game_players on delete cascade,
+  idx          smallint not null,
+  question_id  bigint not null references public.questions on delete cascade,
+  response     text,
+  is_correct   boolean,
+  answered_at  timestamptz,
+  primary key (round_id, player_id, idx)
+);
+
+alter table public.lightning_rounds enable row level security;
+alter table public.lightning_questions enable row level security;
+drop policy if exists "read lightning rounds" on public.lightning_rounds;
+create policy "read lightning rounds" on public.lightning_rounds for select to authenticated
+  using (public.is_game_member(game_id));
+drop policy if exists "read lightning questions" on public.lightning_questions;
+create policy "read lightning questions" on public.lightning_questions for select to authenticated
+  using (public.is_game_member(game_id));
+
+do $$
+declare t text;
+begin
+  foreach t in array array['lightning_rounds', 'lightning_questions'] loop
+    if not exists (select 1 from pg_publication_tables
+                   where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
+      execute format('alter publication supabase_realtime add table public.%I', t);
+    end if;
+  end loop;
+end $$;
+
+-- Rounds so far: who won each (the first right answer) and whether it's over.
+create or replace function public.lightning_round_state(p_round_id uuid)
+returns table (idx smallint, winner uuid, resolved boolean)
+language sql stable security definer set search_path = public as $$
+  select lq.idx,
+         (array_agg(lq.player_id order by lq.answered_at) filter (where lq.is_correct))[1],
+         bool_or(coalesce(lq.is_correct, false)) or count(lq.answered_at) = count(*)
+  from public.lightning_questions lq where lq.round_id = p_round_id
+  group by lq.idx order by lq.idx
+$$;
+
+-- Deals the lightning round: 5 multiple choice questions each, not already in this game.
+create or replace function public.start_lightning(p_game_id uuid) returns boolean
+language plpgsql security definer set search_path = public as $$
+declare
+  g public.games;
+  r public.lightning_rounds;
+  game_grades smallint[];
+  n constant int := 5;
+begin
+  select * into g from public.games where id = p_game_id;
+  -- Needs at least two phones to race on.
+  if (select count(distinct coalesce(joined_by, g.host_id)) from public.game_players
+      where game_id = g.id and left_at is null) < 2 then return false; end if;
+  game_grades := coalesce(
+    (select array_agg(x::smallint) from jsonb_array_elements_text(g.settings->'grades') x), '{1,2,3,4,5}');
+  insert into public.lightning_rounds (game_id) values (g.id) on conflict do nothing returning * into r;
+  if r.id is null then return false; end if;
+  insert into public.lightning_questions (round_id, game_id, player_id, idx, question_id)
+  select r.id, g.id, pl.id, row_number() over (partition by pl.id order by q.grade, random()), q.id
+  from (select gp.id, gp.profile_id, public.age_years(p.age) as years, coalesce(gp.grades, game_grades) as grades
+        from public.game_players gp join public.profiles p on p.id = gp.profile_id
+        where gp.game_id = g.id and gp.left_at is null) pl
+  cross join lateral (
+    select q.id, q.grade from public.questions q
+    where q.active and q.kind = 'text' and cardinality(q.wrong) > 0
+      and pl.years between q.age_min and q.age_max and q.grade = any (pl.grades)
+      and not exists (select 1 from public.game_questions gq where gq.game_id = g.id and gq.question_id = q.id)
+    order by (select s.seen_at from public.seen_questions s where s.profile_id = pl.profile_id and s.question_id = q.id) nulls first,
+             random()
+    limit n
+  ) q;
+  -- Everyone needs a full set, or there's no round.
+  if exists (select 1 from public.lightning_questions where round_id = r.id
+             group by player_id having count(*) < n) then
+    delete from public.lightning_rounds where id = r.id;
+    return false;
+  end if;
+  return true;
+end $$;
+
+create or replace function public.finish_lightning_round_if_done(p_round_id uuid) returns void
+language plpgsql security definer set search_path = public as $$
+declare
+  r public.lightning_rounds;
+  won uuid;
+  last_idx smallint;
+begin
+  select * into r from public.lightning_rounds where id = p_round_id;
+  -- Award the round just resolved, once.
+  for last_idx, won in
+    select s.idx, s.winner from public.lightning_round_state(r.id) s
+    where s.resolved and s.winner is not null
+      and not exists (select 1 from public.game_events e where e.game_id = r.game_id and e.type = 'lightning'
+                      and (e.payload->>'round_id')::uuid = r.id and (e.payload->>'idx')::int = s.idx)
+  loop
+    insert into public.game_events (game_id, player_id, type, points, payload)
+    values (r.game_id, won, 'lightning', 1, jsonb_build_object('round_id', r.id, 'idx', last_idx));
+  end loop;
+  if not exists (select 1 from public.lightning_round_state(r.id) s where not s.resolved) then
+    update public.lightning_rounds set status = 'finished', finished_at = now() where id = r.id and status = 'playing';
+  end if;
+end $$;
+
+-- A tap in the lightning round. An empty response means this phone ran out of time.
+create or replace function public.lightning_answer(p_round_id uuid, p_player_id uuid, p_idx int, p_response text)
+returns boolean
+language plpgsql security definer set search_path = public as $$
+declare
+  r public.lightning_rounds;
+  lq public.lightning_questions;
+  correct boolean;
+  current_idx int;
+begin
+  select * into r from public.lightning_rounds where id = p_round_id for update;
+  if r.id is null or r.status <> 'playing' then return null; end if;
+  if not public.controls_player(p_player_id) then raise exception 'Not your player'; end if;
+  select min(s.idx) into current_idx from public.lightning_round_state(r.id) s where not s.resolved;
+  if current_idx is null or p_idx <> current_idx then return null; end if;
+  select * into lq from public.lightning_questions where round_id = r.id and player_id = p_player_id and idx = p_idx;
+  if lq.question_id is null then raise exception 'No such question'; end if;
+  if lq.answered_at is not null then return lq.is_correct; end if;
+  select coalesce(p_response, '') <> '' and lower(trim(p_response)) = lower(trim(q.answer)) into correct
+  from public.questions q where q.id = lq.question_id;
+  update public.lightning_questions set response = nullif(p_response, ''), is_correct = correct, answered_at = now()
+  where round_id = r.id and player_id = p_player_id and idx = p_idx;
+  insert into public.seen_questions (profile_id, question_id)
+  select profile_id, lq.question_id from public.game_players where id = p_player_id
+  on conflict (profile_id, question_id) do update set seen_at = now();
+  if exists (select 1 from public.lightning_round_state(r.id) s where s.idx = p_idx and s.resolved) then
+    update public.lightning_rounds set round_started_at = now() where id = r.id;
+    perform public.finish_lightning_round_if_done(r.id);
+  end if;
+  return correct;
+end $$;
+
+-- Time's up for a round: anyone in the game can close it once the time has passed (allowing for
+-- clocks being a little out), so one quiet phone can't hold everyone up.
+create or replace function public.lightning_timeout(p_round_id uuid, p_idx int) returns void
+language plpgsql security definer set search_path = public as $$
+declare
+  r public.lightning_rounds;
+  current_idx int;
+begin
+  select * into r from public.lightning_rounds where id = p_round_id for update;
+  if r.id is null or r.status <> 'playing' or not public.is_game_member(r.game_id) then return; end if;
+  select min(s.idx) into current_idx from public.lightning_round_state(r.id) s where not s.resolved;
+  if current_idx is null or p_idx <> current_idx then return; end if;
+  if now() < r.round_started_at + interval '7 seconds' then return; end if;
+  update public.lightning_questions set is_correct = false, answered_at = now()
+  where round_id = r.id and idx = p_idx and answered_at is null;
+  update public.lightning_rounds set round_started_at = now() where id = r.id;
+  perform public.finish_lightning_round_if_done(r.id);
+end $$;
+
+-- The creator can stop it early; points already won stay.
+create or replace function public.stop_lightning(p_round_id uuid) returns void
+language plpgsql security definer set search_path = public as $$
+begin
+  update public.lightning_rounds lr set status = 'finished', finished_at = now()
+  from public.games g
+  where lr.id = p_round_id and g.id = lr.game_id and lr.status = 'playing'
+    and (g.host_id = auth.uid() or (public.is_game_member(g.id) and public.is_full_account()));
+end $$;
+
+-- What phones need to show it, while it's on and on the question it happened after.
+create or replace function public.current_lightning(p_game_id uuid) returns jsonb
+language sql stable security definer set search_path = public as $$
+  select jsonb_build_object(
+    'id', r.id, 'status', r.status,
+    'rounds', coalesce((select jsonb_agg(jsonb_build_object('idx', s.idx, 'winner', s.winner, 'resolved', s.resolved))
+                        from public.lightning_round_state(r.id) s), '[]'),
+    'questions', coalesce((
+      select jsonb_agg(jsonb_build_object(
+        'player_id', lq.player_id, 'idx', lq.idx, 'topic', q.topic, 'text', q.question,
+        'choices', (select jsonb_agg(x order by md5(r.id::text || x)) from unnest(array_append(q.wrong, q.answer)) x),
+        'answered', lq.answered_at is not null, 'response', lq.response, 'is_correct', lq.is_correct,
+        'answer', case when lq.answered_at is not null or r.status <> 'playing'
+                         or exists (select 1 from public.lightning_round_state(r.id) s where s.idx = lq.idx and s.resolved)
+                       then q.answer end) order by lq.idx, lq.player_id)
+      from public.lightning_questions lq join public.questions q on q.id = lq.question_id
+      where lq.round_id = r.id), '[]'))
+  from public.lightning_rounds r
+  join public.games g on g.id = r.game_id
+  left join public.game_questions gq on gq.game_id = g.id and gq.seq = g.current_seq
+  where r.game_id = p_game_id and (r.status = 'playing' or r.finished_at >= gq.asked_at)
+$$;
+
+revoke execute on function public.lightning_round_state(uuid), public.start_lightning(uuid),
+  public.finish_lightning_round_if_done(uuid), public.lightning_answer(uuid, uuid, int, text),
+  public.lightning_timeout(uuid, int), public.stop_lightning(uuid), public.current_lightning(uuid)
+  from public, anon;
+grant execute on function public.lightning_answer(uuid, uuid, int, text), public.lightning_timeout(uuid, int),
+  public.stop_lightning(uuid) to authenticated;
