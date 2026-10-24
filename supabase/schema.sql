@@ -919,11 +919,13 @@ begin
 end $$;
 
 -- ---------------------------------------------------------------------------
--- 1v1 challenges: each player has one Challenge card per game. Playing it starts a rapid-fire
--- duel against a player they pick: both answer the same number of multiple choice questions on
--- their own phone, at their own level. Most right wins (fastest breaks a tie) and steals 2 points.
--- settings.challenge_refuse: 'costs' (default: refusing costs the challenged player 1 point),
--- 'never' (must accept) or 'free'.
+-- 1v1 challenges: each player has one Challenge card per game and picks who to challenge and how:
+--   'buzzer': 3 rounds. Each round both players get their own multiple choice question (at their own
+--             level) at the same moment. First to tap the right answer wins the round; a wrong tap
+--             locks you out of that round. Best of 3.
+--   'game':   both play the same silly mini-game (picked at random); the higher score wins.
+-- The winner steals 2 points. settings.challenge_refuse: 'costs' (default: refusing costs the
+-- challenged player 1 point), 'never' (must accept) or 'free'.
 -- ---------------------------------------------------------------------------
 
 create table if not exists public.challenges (
@@ -939,12 +941,14 @@ create table if not exists public.challenges (
   finished_at    timestamptz
 );
 create index if not exists challenges_game on public.challenges (game_id, created_at);
+alter table public.challenges add column if not exists mode text not null default 'buzzer';
+alter table public.challenges add column if not exists minigame text;
 
 create table if not exists public.challenge_questions (
   challenge_id  uuid not null references public.challenges on delete cascade,
   game_id       uuid not null references public.games on delete cascade,
   player_id     uuid not null references public.game_players on delete cascade,
-  idx           smallint not null,
+  idx           smallint not null,     -- the round
   question_id   bigint not null references public.questions on delete cascade,
   response      text,
   is_correct    boolean,
@@ -952,13 +956,27 @@ create table if not exists public.challenge_questions (
   primary key (challenge_id, player_id, idx)
 );
 
+-- Silly game scores.
+create table if not exists public.challenge_scores (
+  challenge_id  uuid not null references public.challenges on delete cascade,
+  game_id       uuid not null references public.games on delete cascade,
+  player_id     uuid not null references public.game_players on delete cascade,
+  score         int not null,
+  created_at    timestamptz not null default now(),
+  primary key (challenge_id, player_id)
+);
+
 alter table public.challenges enable row level security;
 alter table public.challenge_questions enable row level security;
+alter table public.challenge_scores enable row level security;
 -- Players read the duel through game_state(); all changes go through the functions below.
 drop policy if exists "read challenges" on public.challenges;
 create policy "read challenges" on public.challenges for select to authenticated using (public.is_game_member(game_id));
 drop policy if exists "read challenge questions" on public.challenge_questions;
 create policy "read challenge questions" on public.challenge_questions for select to authenticated
+  using (public.is_game_member(game_id));
+drop policy if exists "read challenge scores" on public.challenge_scores;
+create policy "read challenge scores" on public.challenge_scores for select to authenticated
   using (public.is_game_member(game_id));
 
 -- True when this phone plays as that game player.
@@ -968,7 +986,7 @@ language sql stable security definer set search_path = public as $$
                  where id = p_player_id and profile_id in (select public.my_profile_ids()))
 $$;
 
-create or replace function public.issue_challenge(p_challenger_id uuid, p_opponent_id uuid)
+create or replace function public.start_challenge(p_challenger_id uuid, p_opponent_id uuid, p_mode text)
 returns public.challenges
 language plpgsql security definer set search_path = public as $$
 declare
@@ -976,6 +994,7 @@ declare
   g public.games;
   c public.challenges;
 begin
+  if p_mode not in ('buzzer', 'game') then raise exception 'Pick questions or a silly game'; end if;
   select * into me from public.game_players where id = p_challenger_id;
   if me.id is null or not public.controls_player(me.id) then raise exception 'Not your player'; end if;
   select * into g from public.games where id = me.game_id for update;
@@ -990,12 +1009,21 @@ begin
   if exists (select 1 from public.challenges where game_id = g.id and status in ('pending', 'playing')) then
     raise exception 'Another challenge is already on';
   end if;
-  insert into public.challenges (game_id, challenger_id, opponent_id)
-  values (g.id, me.id, p_opponent_id) returning * into c;
+  insert into public.challenges (game_id, challenger_id, opponent_id, mode, minigame)
+  values (g.id, me.id, p_opponent_id, p_mode,
+          case when p_mode = 'game' then (array['penalties', 'hoops', 'moles', 'wheel'])[1 + floor(random() * 4)::int] end)
+  returning * into c;
   return c;
 end $$;
 
--- The challenged player (or the host) accepts or refuses. Accepting deals the duel questions.
+-- Older app versions.
+create or replace function public.issue_challenge(p_challenger_id uuid, p_opponent_id uuid)
+returns public.challenges
+language sql security definer set search_path = public as $$
+  select * from public.start_challenge(p_challenger_id, p_opponent_id, 'buzzer')
+$$;
+
+-- The challenged player (or the host) accepts or refuses. Accepting a buzzer race deals the questions.
 create or replace function public.answer_challenge(p_challenge_id uuid, p_accept boolean)
 returns public.challenges
 language plpgsql security definer set search_path = public as $$
@@ -1023,30 +1051,61 @@ begin
     return c;
   end if;
 
-  game_grades := coalesce(
-    (select array_agg(x::smallint) from jsonb_array_elements_text(g.settings->'grades') x), '{1,2,3,4,5}');
-  insert into public.challenge_questions (challenge_id, game_id, player_id, idx, question_id)
-  select c.id, c.game_id, pl.id, row_number() over (partition by pl.id order by q.grade, random()), q.id
-  from (select gp.id, gp.profile_id, public.age_years(p.age) as years, coalesce(gp.grades, game_grades) as grades
-        from public.game_players gp join public.profiles p on p.id = gp.profile_id
-        where gp.id in (c.challenger_id, c.opponent_id)) pl
-  cross join lateral (
-    select q.id, q.grade from public.questions q
-    where q.active and q.kind = 'text' and cardinality(q.wrong) > 0
-      and pl.years between q.age_min and q.age_max and q.grade = any (pl.grades)
-      and not exists (select 1 from public.game_questions gq where gq.game_id = c.game_id and gq.question_id = q.id)
-    order by exists (select 1 from public.seen_questions s where s.profile_id = pl.profile_id and s.question_id = q.id),
-             random()
-    limit n
-  ) q;
-  if (select count(distinct player_id) from public.challenge_questions where challenge_id = c.id) < 2 then
-    raise exception 'Not enough questions for this duel';
+  if c.mode = 'buzzer' then
+    game_grades := coalesce(
+      (select array_agg(x::smallint) from jsonb_array_elements_text(g.settings->'grades') x), '{1,2,3,4,5}');
+    insert into public.challenge_questions (challenge_id, game_id, player_id, idx, question_id)
+    select c.id, c.game_id, pl.id, row_number() over (partition by pl.id order by q.grade, random()), q.id
+    from (select gp.id, gp.profile_id, public.age_years(p.age) as years, coalesce(gp.grades, game_grades) as grades
+          from public.game_players gp join public.profiles p on p.id = gp.profile_id
+          where gp.id in (c.challenger_id, c.opponent_id)) pl
+    cross join lateral (
+      select q.id, q.grade from public.questions q
+      where q.active and q.kind = 'text' and cardinality(q.wrong) > 0
+        and pl.years between q.age_min and q.age_max and q.grade = any (pl.grades)
+        and not exists (select 1 from public.game_questions gq where gq.game_id = c.game_id and gq.question_id = q.id)
+      order by exists (select 1 from public.seen_questions s where s.profile_id = pl.profile_id and s.question_id = q.id),
+               random()
+      limit n
+    ) q;
+    if (select count(*) from public.challenge_questions where challenge_id = c.id) < 2 * n then
+      raise exception 'Not enough questions for this duel';
+    end if;
   end if;
   update public.challenges set status = 'playing', started_at = now() where id = c.id returning * into c;
   return c;
 end $$;
 
--- One duel answer. An empty response means time ran out. When both players are done, the winner steals 2.
+-- Ends a duel; the winner (if any) steals 2 points.
+create or replace function public.end_challenge(p_challenge_id uuid, p_winner uuid) returns void
+language plpgsql security definer set search_path = public as $$
+declare
+  c public.challenges;
+  loser uuid;
+  loser_score int;
+begin
+  update public.challenges set status = 'finished', finished_at = now(), winner_id = p_winner
+  where id = p_challenge_id and status = 'playing' returning * into c;
+  if c.id is null or p_winner is null then return; end if;
+  loser := case when p_winner = c.challenger_id then c.opponent_id else c.challenger_id end;
+  select score into loser_score from public.game_players where id = loser;
+  insert into public.game_events (game_id, player_id, type, points, payload) values
+    (c.game_id, p_winner, 'challenge_won', 2, jsonb_build_object('challenge_id', c.id, 'from', loser)),
+    (c.game_id, loser, 'challenge_lost', -least(2, loser_score), jsonb_build_object('challenge_id', c.id, 'to', p_winner));
+end $$;
+
+-- Rounds of a buzzer race: who won each, and whether it's over.
+create or replace function public.buzzer_rounds(p_challenge_id uuid)
+returns table (idx smallint, winner uuid, resolved boolean)
+language sql stable security definer set search_path = public as $$
+  select cq.idx,
+         (array_agg(cq.player_id) filter (where cq.is_correct))[1],
+         bool_or(coalesce(cq.is_correct, false)) or count(cq.answered_at) = 2
+  from public.challenge_questions cq where cq.challenge_id = p_challenge_id
+  group by cq.idx order by cq.idx
+$$;
+
+-- A buzz in a buzzer race. An empty response means time ran out. Returns whether it was right.
 create or replace function public.challenge_answer(p_challenge_id uuid, p_player_id uuid, p_idx int, p_response text)
 returns boolean
 language plpgsql security definer set search_path = public as $$
@@ -1054,15 +1113,16 @@ declare
   c public.challenges;
   cq public.challenge_questions;
   correct boolean;
-  a_right int; b_right int; a_time interval; b_time interval;
-  winner uuid; loser uuid;
-  loser_score int;
+  round int;
+  a_wins int; b_wins int; open_rounds int;
 begin
   select * into c from public.challenges where id = p_challenge_id for update;
-  if c.id is null or c.status <> 'playing' then raise exception 'That duel is over'; end if;
+  if c.id is null or c.status <> 'playing' or c.mode <> 'buzzer' then raise exception 'That duel is over'; end if;
   if p_player_id not in (c.challenger_id, c.opponent_id) or not public.controls_player(p_player_id) then
     raise exception 'Not your duel';
   end if;
+  select min(r.idx) into round from public.buzzer_rounds(c.id) r where not r.resolved;
+  if round is null or p_idx <> round then return null; end if;  -- that round is already decided
   select * into cq from public.challenge_questions
   where challenge_id = c.id and player_id = p_player_id and idx = p_idx;
   if cq.question_id is null then raise exception 'No such duel question'; end if;
@@ -1075,26 +1135,37 @@ begin
   select profile_id, cq.question_id from public.game_players where id = p_player_id
   on conflict do nothing;
 
-  if exists (select 1 from public.challenge_questions where challenge_id = c.id and answered_at is null) then
-    return correct;
-  end if;
-  select count(*) filter (where is_correct), max(answered_at) - c.started_at into a_right, a_time
-  from public.challenge_questions where challenge_id = c.id and player_id = c.challenger_id;
-  select count(*) filter (where is_correct), max(answered_at) - c.started_at into b_right, b_time
-  from public.challenge_questions where challenge_id = c.id and player_id = c.opponent_id;
-  if a_right > b_right or (a_right = b_right and a_right > 0 and a_time < b_time) then
-    winner := c.challenger_id; loser := c.opponent_id;
-  elsif b_right > a_right or (a_right = b_right and b_right > 0 and b_time < a_time) then
-    winner := c.opponent_id; loser := c.challenger_id;
-  end if;
-  update public.challenges set status = 'finished', finished_at = now(), winner_id = winner where id = c.id;
-  if winner is not null then
-    select score into loser_score from public.game_players where id = loser;
-    insert into public.game_events (game_id, player_id, type, points, payload) values
-      (c.game_id, winner, 'challenge_won', 2, jsonb_build_object('challenge_id', c.id, 'from', loser)),
-      (c.game_id, loser, 'challenge_lost', -least(2, loser_score), jsonb_build_object('challenge_id', c.id, 'to', winner));
+  select count(*) filter (where r.winner = c.challenger_id), count(*) filter (where r.winner = c.opponent_id),
+         count(*) filter (where not r.resolved)
+  into a_wins, b_wins, open_rounds from public.buzzer_rounds(c.id) r;
+  if a_wins >= 2 or b_wins >= 2 or open_rounds = 0 then
+    perform public.end_challenge(c.id, case when a_wins > b_wins then c.challenger_id
+                                            when b_wins > a_wins then c.opponent_id end);
   end if;
   return correct;
+end $$;
+
+-- A player's score in a silly game face-off. When both are in, the higher score wins.
+create or replace function public.challenge_game_score(p_challenge_id uuid, p_player_id uuid, p_score int)
+returns void
+language plpgsql security definer set search_path = public as $$
+declare
+  c public.challenges;
+  a int; b int;
+begin
+  select * into c from public.challenges where id = p_challenge_id for update;
+  if c.id is null or c.status <> 'playing' or c.mode <> 'game' then raise exception 'That duel is over'; end if;
+  if p_player_id not in (c.challenger_id, c.opponent_id) or not public.controls_player(p_player_id) then
+    raise exception 'Not your duel';
+  end if;
+  insert into public.challenge_scores (challenge_id, game_id, player_id, score)
+  values (c.id, c.game_id, p_player_id, greatest(0, least(p_score, 100)))
+  on conflict do nothing;
+  select score into a from public.challenge_scores where challenge_id = c.id and player_id = c.challenger_id;
+  select score into b from public.challenge_scores where challenge_id = c.id and player_id = c.opponent_id;
+  if a is not null and b is not null then
+    perform public.end_challenge(c.id, case when a > b then c.challenger_id when b > a then c.opponent_id end);
+  end if;
 end $$;
 
 -- The host can call off a duel (say a phone went quiet). The card isn't used up.
@@ -1113,17 +1184,24 @@ begin
 end $$;
 
 -- The challenge to show now: one that's on, or one that ended since this question came up.
+-- A buzzer question's answer shows once its round is decided.
 create or replace function public.current_challenge(p_game_id uuid) returns jsonb
 language sql stable security definer set search_path = public as $$
   select jsonb_build_object(
     'id', c.id, 'challenger_id', c.challenger_id, 'opponent_id', c.opponent_id, 'status', c.status,
-    'winner_id', c.winner_id, 'started_at', c.started_at,
+    'mode', c.mode, 'minigame', c.minigame, 'winner_id', c.winner_id, 'started_at', c.started_at,
+    'rounds', coalesce((select jsonb_agg(jsonb_build_object('idx', r.idx, 'winner', r.winner, 'resolved', r.resolved))
+                        from public.buzzer_rounds(c.id) r), '[]'),
+    'scores', coalesce((select jsonb_object_agg(s.player_id, s.score) from public.challenge_scores s
+                        where s.challenge_id = c.id), '{}'),
     'questions', coalesce((
       select jsonb_agg(jsonb_build_object(
         'player_id', cq.player_id, 'idx', cq.idx, 'topic', q.topic, 'text', q.question,
         'choices', (select jsonb_agg(x order by md5(c.id::text || x)) from unnest(array_append(q.wrong, q.answer)) x),
         'answered', cq.answered_at is not null, 'response', cq.response, 'is_correct', cq.is_correct,
-        'answer', case when cq.answered_at is not null then q.answer end) order by cq.player_id, cq.idx)
+        'answer', case when cq.answered_at is not null or c.status <> 'playing'
+                         or exists (select 1 from public.buzzer_rounds(c.id) r where r.idx = cq.idx and r.resolved)
+                       then q.answer end) order by cq.idx, cq.player_id)
       from public.challenge_questions cq join public.questions q on q.id = cq.question_id
       where cq.challenge_id = c.id), '[]'))
   from public.challenges c
@@ -1134,16 +1212,19 @@ language sql stable security definer set search_path = public as $$
   order by c.created_at desc limit 1
 $$;
 
-revoke execute on function public.controls_player(uuid), public.issue_challenge(uuid, uuid),
+revoke execute on function public.controls_player(uuid), public.start_challenge(uuid, uuid, text),
+  public.issue_challenge(uuid, uuid), public.answer_challenge(uuid, boolean), public.end_challenge(uuid, uuid),
+  public.buzzer_rounds(uuid), public.challenge_answer(uuid, uuid, int, text),
+  public.challenge_game_score(uuid, uuid, int), public.cancel_challenge(uuid), public.current_challenge(uuid)
+  from public, anon;
+grant execute on function public.start_challenge(uuid, uuid, text), public.issue_challenge(uuid, uuid),
   public.answer_challenge(uuid, boolean), public.challenge_answer(uuid, uuid, int, text),
-  public.cancel_challenge(uuid), public.current_challenge(uuid) from public, anon;
-grant execute on function public.issue_challenge(uuid, uuid), public.answer_challenge(uuid, boolean),
-  public.challenge_answer(uuid, uuid, int, text), public.cancel_challenge(uuid) to authenticated;
+  public.challenge_game_score(uuid, uuid, int), public.cancel_challenge(uuid) to authenticated;
 
 do $$
 declare t text;
 begin
-  foreach t in array array['challenges', 'challenge_questions'] loop
+  foreach t in array array['challenges', 'challenge_questions', 'challenge_scores'] loop
     if not exists (select 1 from pg_publication_tables
                    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
       execute format('alter publication supabase_realtime add table public.%I', t);

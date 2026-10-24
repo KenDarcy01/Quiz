@@ -39,7 +39,8 @@ Called from the app with `supabase.rpc(...)`:
 ## Streak bonuses and challenges
 
 - Every 3 correct answers in a row (3, 6, 9 …) a player earns a bonus mini-game, a 3-kick penalty shootout worth a point a goal. `finish_bonus(streak_event_id)` scores it once.
-- Each player has one Challenge card per game. `issue_challenge(challenger, opponent)` dares another player. The challenged player accepts or refuses with `answer_challenge(id, accept)`; refusing costs them 1 point (`settings.challenge_refuse` can be `never` or `free` instead). Accepting deals 3 multiple choice questions each, at each player's own level. They answer on their own phones with `challenge_answer(id, player, idx, response)`, 10 seconds a question. Most right wins (fastest breaks a tie) and steals 2 points. The host can call it off with `cancel_challenge(id)`, which gives the card back. The game can't move on mid-duel.
+- Every streak bonus is a random silly game: penalties, basketball, whack-a-mole or prize wheel.
+- Each player has one Challenge card per game. `start_challenge(challenger, opponent, mode)` dares another player, and the challenger picks how: `buzzer` (3 rounds; each round both players get their own multiple choice question at their own level at the same moment, first to tap the right answer wins the round, a wrong tap locks you out of it, best of 3) or `game` (both play the same random silly game; higher score wins). The challenged player accepts or refuses with `answer_challenge(id, accept)`; refusing costs them 1 point (`settings.challenge_refuse` can be `never` or `free` instead). Buzzes go through `challenge_answer(id, player, round, response)`, game scores through `challenge_game_score(id, player, score)`. The winner steals 2 points. The host can call it off with `cancel_challenge(id)`, which gives the card back. The game can't move on mid-duel.
 
 ## Kids on their own devices
 

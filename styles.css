@@ -246,3 +246,4 @@ input, select {
   font-family: var(--display); font-size: 26px;
 }
 .wheel-pointer { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 30px; z-index: 1; }
+.duel-score { font-family: var(--display); font-size: 30px; }

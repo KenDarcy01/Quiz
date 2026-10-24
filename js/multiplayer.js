@@ -73,7 +73,7 @@ function followGame(id) {
   save(MP_KEY, id);
   const filter = `game_id=eq.${id}`;
   mp.channel = sb.channel(`game:${id}`);
-  ['game_players', 'game_questions', 'answers', 'game_events', 'device_requests', 'challenges', 'challenge_questions'].forEach((table) => {
+  ['game_players', 'game_questions', 'answers', 'game_events', 'device_requests', 'challenges', 'challenge_questions', 'challenge_scores'].forEach((table) => {
     mp.channel.on('postgres_changes', { event: '*', schema: 'public', table, filter }, queueRefresh);
   });
   mp.channel.on('postgres_changes', { event: '*', schema: 'public', table: 'games', filter: `id=eq.${id}` }, queueRefresh);
@@ -175,9 +175,10 @@ function pickMp(choice) {
   });
 }
 
-// ---------- Streak bonus mini-games ----------
-// Each game is up to 3 tries, a bonus point for each hit. The database picks the game at random.
-// Every try is a 'bonus_kick' event with goal true/false, so everyone's phone can follow along.
+// ---------- Silly mini-games ----------
+// Used for streak bonuses and for silly game challenges. Each game is up to 3 tries; a hit is worth
+// a point (whack-a-mole counts every mole in a challenge). The game being played is mp.mini:
+// { key, game, tries, record(results, extra) }, set when its panel is drawn.
 
 const KICKS = 3;
 const ZONES = ['left', 'middle', 'right'];
@@ -192,11 +193,26 @@ const MOLE_SECONDS = 10;
 const MOLES_PER_POINT = 4;
 const WHEEL = [0, 1, 2, 1, 3, 0, 2, 1];  // points on each slice
 
-function bonusGame(b) {
-  return BONUS_GAMES[b.game] || BONUS_GAMES.penalties;
+function bonusGame(name) {
+  return BONUS_GAMES[name] || BONUS_GAMES.penalties;
 }
 
-// Records tries (true = hit) for the bonus on screen, then scores it once all are in.
+// Points at the mini-game about to be drawn, and forgets the last one's local state when it changes.
+function useMini(key, game, tries, record) {
+  if (!mp.mini || mp.mini.key !== key) {
+    mp.lastKick = mp.lastShot = mp.moles = mp.wheel = null;
+    mp.hoopStart = 0;
+  }
+  mp.mini = { key, game, tries, record };
+  return mp.mini;
+}
+
+function miniOpen() {
+  const m = mp.mini;
+  return m && !mp.busy && m.tries.length < KICKS ? m : null;
+}
+
+// Streak bonus: every try is a 'bonus_kick' event so everyone's phone can follow, then it's scored once.
 function recordTries(results, extra = () => ({})) {
   const b = mp.game.bonus;
   if (!b || b.points != null) return Promise.resolve();
@@ -217,11 +233,11 @@ function recordTries(results, extra = () => ({})) {
 
 // Penalties: the keeper dives a random way, and it's a goal unless they guess the same side.
 function kick(zone) {
-  const b = mp.game.bonus;
-  if (!b || mp.busy || b.kicks.length >= KICKS) return;
+  const m = miniOpen();
+  if (!m) return;
   const dive = ZONES[Math.floor(Math.random() * ZONES.length)];
   mp.lastKick = { zone, dive, goal: dive !== zone };
-  recordTries([dive !== zone], () => ({ zone, dive }));
+  m.record([dive !== zone], () => ({ zone, dive }));
 }
 
 // Basketball: the aim sweeps back and forth; shoot while it's in the green middle.
@@ -231,24 +247,24 @@ function hoopAim() {
 }
 
 function shoot() {
-  const b = mp.game.bonus;
-  if (!b || mp.busy || b.kicks.length >= KICKS) return;
+  const m = miniOpen();
+  if (!m) return;
   const aim = hoopAim();
   const goal = Math.abs(aim - 0.5) <= 0.14;
   mp.lastShot = { aim, goal };
-  recordTries([goal], () => ({ aim: Math.round(aim * 100) }));
+  m.record([goal], () => ({ aim: Math.round(aim * 100) }));
 }
 
 // Whack-a-mole: moles pop up for a few seconds; every few whacked is a bonus point.
 function startMoles() {
-  if (mp.moles) return;
+  if (mp.moles || !miniOpen()) return;
   mp.moles = { hits: 0, cell: -1, endsAt: Date.now() + MOLE_SECONDS * 1000, next: 0 };
   render();
 }
 
 function whack(cell) {
   const m = mp.moles;
-  if (!m || Number(cell) !== m.cell) return;
+  if (!m || m.done || Number(cell) !== m.cell) return;
   m.hits += 1;
   m.cell = -1;
   m.next = Date.now() + 250;
@@ -263,7 +279,7 @@ function tickMoles() {
     m.done = true;
     m.cell = -1;
     const points = Math.min(KICKS, Math.floor(m.hits / MOLES_PER_POINT));
-    recordTries(Array.from({ length: KICKS }, (_, i) => i < points), () => ({ hits: m.hits }));
+    if (mp.mini) mp.mini.record(Array.from({ length: KICKS }, (_, i) => i < points), () => ({ hits: m.hits }));
     return;
   }
   if (now >= m.next) {
@@ -284,10 +300,10 @@ function drawMoles() {
   if (left && m) left.textContent = Math.max(0, Math.ceil((m.endsAt - Date.now()) / 1000));
 }
 
-// Prize wheel: one spin lands on 0 to 3 bonus points.
+// Prize wheel: one spin lands on 0 to 3 points.
 function spinWheel() {
-  const b = mp.game.bonus;
-  if (!b || mp.busy || mp.wheel) return;
+  const m = miniOpen();
+  if (!m || mp.wheel) return;
   const slice = Math.floor(Math.random() * WHEEL.length);
   mp.wheel = { slice, turn: 5 * 360 + 360 - (slice + 0.5) * (360 / WHEEL.length), shown: false };
   render();
@@ -299,7 +315,7 @@ function spinWheel() {
   }));
   setTimeout(() => {
     const points = WHEEL[slice];
-    recordTries(Array.from({ length: KICKS }, (_, i) => i < points), () => ({ slice }));
+    m.record(Array.from({ length: KICKS }, (_, i) => i < points), () => ({ slice }));
   }, 3200);
 }
 
@@ -314,11 +330,11 @@ function kickTally(kicks, game = BONUS_GAMES.penalties) {
   }).join('')}</p>`;
 }
 
-function penaltiesPlay(b) {
-  const last = b.kicks[b.kicks.length - 1];
-  const k = mp.lastKick && last && last.zone === mp.lastKick.zone ? last : null;
+function penaltiesPlay(m) {
+  const last = m.tries[m.tries.length - 1];
+  const k = mp.lastKick && last ? mp.lastKick : null;
   return `
-    <p style="font-weight:700">Tap where to shoot. Beat the keeper for a bonus point each time.</p>
+    <p style="font-weight:700">Tap where to shoot. Beat the keeper to score.</p>
     <div class="goal" role="group" aria-label="Pick where to shoot">
       ${ZONES.map((z) => `<button class="goal-zone ${k && k.dive === z ? 'keeper' : ''} ${k && k.zone === z ? (k.goal ? 'scored' : 'saved') : ''}"
         data-action="kick" data-zone="${z}" ${mp.busy ? 'disabled' : ''} aria-label="Shoot ${z}">
@@ -335,32 +351,31 @@ function animateHoop() {
   mp.hoopFrame = requestAnimationFrame(animateHoop);
 }
 
-function hoopsPlay(b) {
+function hoopsPlay(m) {
   if (!mp.hoopStart) mp.hoopStart = Date.now();
   if (!mp.hoopFrame) mp.hoopFrame = requestAnimationFrame(animateHoop);
-  const last = b.kicks[b.kicks.length - 1];
-  const s = mp.lastShot && last ? mp.lastShot : null;
+  const s = mp.lastShot && m.tries.length ? mp.lastShot : null;
   return `
-    <p style="font-weight:700">Tap Shoot when the ball is in the green. Each basket is a bonus point.</p>
+    <p style="font-weight:700">Tap Shoot when the ball is in the green.</p>
     <div class="hoop-bar" aria-hidden="true"><span class="hoop-zone"></span><span id="hoop-ball" class="hoop-ball" style="left:${hoopAim() * 100}%">🏀</span></div>
     <button class="btn" data-action="shoot" ${mp.busy ? 'disabled' : ''}>Shoot!</button>
     ${s ? `<p style="font-family:var(--display);font-size:26px">${s.goal ? 'SWISH!' : 'Missed!'}</p>` : ''}`;
 }
 
-function molesPlay() {
-  const m = mp.moles;
-  if (!m) {
-    return `<p style="font-weight:700">Whack as many moles as you can in ${MOLE_SECONDS} seconds. Every ${MOLES_PER_POINT} is a bonus point (up to ${KICKS}).</p>
+function molesPlay(m, duel) {
+  const mo = mp.moles;
+  if (!mo) {
+    return `<p style="font-weight:700">Whack as many moles as you can in ${MOLE_SECONDS} seconds.${duel ? ' Most moles wins.' : ` Every ${MOLES_PER_POINT} is a bonus point (up to ${KICKS}).`}</p>
       <button class="btn" data-action="startMoles">Start!</button>`;
   }
   return `
     <div class="row" style="justify-content:space-between;font-weight:800">
-      <span>Whacked: <span id="mole-hits">${m.hits}</span></span><span><span id="mole-left">${Math.max(0, Math.ceil((m.endsAt - Date.now()) / 1000))}</span>s</span>
+      <span>Whacked: <span id="mole-hits">${mo.hits}</span></span><span><span id="mole-left">${Math.max(0, Math.ceil((mo.endsAt - Date.now()) / 1000))}</span>s</span>
     </div>
     <div class="moles" role="group" aria-label="Moles">
-      ${Array.from({ length: 9 }, (_, i) => `<button class="mole-hole ${i === m.cell ? 'up' : ''}" data-action="whack" data-cell="${i}" aria-label="Hole ${i + 1}"><span>🐹</span></button>`).join('')}
+      ${Array.from({ length: 9 }, (_, i) => `<button class="mole-hole ${i === mo.cell ? 'up' : ''}" data-action="whack" data-cell="${i}" aria-label="Hole ${i + 1}"><span>🐹</span></button>`).join('')}
     </div>
-    ${m.done ? `<p style="font-family:var(--display);font-size:24px">${m.hits} moles!</p>` : ''}`;
+    ${mo.done ? `<p style="font-family:var(--display);font-size:24px">${mo.hits} moles!</p>` : ''}`;
 }
 
 function wheelPlay() {
@@ -369,7 +384,7 @@ function wheelPlay() {
   const colours = ['var(--cyan)', 'var(--pink)', 'var(--lime)', 'var(--orange)'];
   const bg = WHEEL.map((_, i) => `${colours[i % 4]} ${i * slice}deg ${(i + 1) * slice}deg`).join(',');
   return `
-    <p style="font-weight:700">Spin the wheel for up to ${KICKS} bonus points.</p>
+    <p style="font-weight:700">Spin the wheel for up to ${KICKS} points.</p>
     <div class="wheel-wrap">
       <span class="wheel-pointer" aria-hidden="true">▼</span>
       <div class="wheel" style="background:conic-gradient(${bg});transform:rotate(${w && w.shown ? w.turn : 0}deg)">
@@ -379,19 +394,22 @@ function wheelPlay() {
     <button class="btn" data-action="spinWheel" ${w || mp.busy ? 'disabled' : ''}>${w ? 'Spinning…' : 'Spin!'}</button>`;
 }
 
+// The playable part of a mini-game, with its tries so far.
+function miniPlay(m, duel = false) {
+  const game = bonusGame(m.game);
+  const play = { penalties: penaltiesPlay, hoops: hoopsPlay, moles: molesPlay, wheel: wheelPlay }[m.game] || penaltiesPlay;
+  const left = KICKS - m.tries.length;
+  return `
+    <span class="eyebrow">${game.icon} ${game.name}${['penalties', 'hoops'].includes(m.game) ? ` · ${left} ${left === 1 ? 'go' : 'goes'} left` : ''}</span>
+    ${play(m, duel)}
+    ${kickTally(m.tries, game)}`;
+}
+
 function bonusPanel(g, player) {
   const b = g.bonus;
-  const game = bonusGame(b);
-  const done = b.points != null;
-  const last = b.kicks[b.kicks.length - 1];
+  const game = bonusGame(b.game);
   const head = `<p class="sticker" style="align-self:flex-start;background:var(--orange);font-size:24px;transform:rotate(-2deg)">🔥 ${b.streak} in a row!</p>`;
-  // Forget the last mini-game's local state when a new bonus comes up.
-  if (mp.bonusId !== b.id) {
-    mp.bonusId = b.id;
-    mp.lastKick = mp.lastShot = mp.moles = mp.wheel = null;
-    mp.hoopStart = 0;
-  }
-  if (done) {
+  if (b.points != null) {
     return `${head}<div class="card stack" style="gap:6px">
       <span class="eyebrow">${game.icon} ${game.name}</span>
       ${kickTally(b.kicks, game)}
@@ -399,6 +417,7 @@ function bonusPanel(g, player) {
     </div>`;
   }
   if (!player.mine) {
+    const last = b.kicks[b.kicks.length - 1];
     return `${head}<div class="card stack" style="gap:6px">
       <span class="eyebrow">${game.icon} ${game.name}</span>
       <p style="font-weight:800">${esc(player.name)} ${game.watching}</p>
@@ -406,30 +425,33 @@ function bonusPanel(g, player) {
       ${last && b.game === 'penalties' ? `<p class="muted" style="font-weight:700">${last.goal ? 'GOAL!' : 'Saved!'}</p>` : ''}
     </div>`;
   }
-  const play = { penalties: penaltiesPlay, hoops: hoopsPlay, moles: molesPlay, wheel: wheelPlay }[b.game] || penaltiesPlay;
-  const triesLeft = KICKS - b.kicks.length;
-  return `${head}
-    <div class="card stack" style="gap:10px">
-      <span class="eyebrow">${game.icon} ${game.name}${['penalties', 'hoops'].includes(b.game || 'penalties') ? ` · ${triesLeft} ${triesLeft === 1 ? 'go' : 'goes'} left` : ''}</span>
-      ${play(b)}
-      ${kickTally(b.kicks, game)}
-    </div>`;
+  const m = useMini(`bonus:${b.id}`, b.game || 'penalties', b.kicks, recordTries);
+  return `${head}<div class="card stack" style="gap:10px">${miniPlay(m)}</div>`;
 }
 
 // ---------- 1v1 challenges ----------
+// The challenger picks an opponent and how: a buzzer race (each round both get their own multiple
+// choice question at once; first right answer wins the round, best of 3) or a silly game face-off.
 
-const DUEL_SECONDS = 10;
+const BUZZ_SECONDS = 15;
 
 function openChallenge(playerId) {
   mp.challengeFrom = mp.challengeFrom === playerId ? null : playerId;
+  mp.challengeTo = null;
   render();
 }
 
-function issueChallenge(opponentId) {
+function pickOpponent(opponentId) {
+  mp.challengeTo = opponentId;
+  render();
+}
+
+function issueChallenge(mode) {
   const from = mp.challengeFrom;
-  mp.challengeFrom = null;
+  const to = mp.challengeTo;
+  mp.challengeFrom = mp.challengeTo = null;
   mpStep(async () => {
-    await rpc('issue_challenge', { p_challenger_id: from, p_opponent_id: opponentId });
+    await rpc('start_challenge', { p_challenger_id: from, p_opponent_id: to, p_mode: mode });
     await refreshGame();
   });
 }
@@ -445,49 +467,93 @@ function cancelChallenge() {
   mpStep(async () => { await rpc('cancel_challenge', { p_challenge_id: mp.game.challenge.id }); await refreshGame(); });
 }
 
-// The next duel question this phone has to answer: the challenger's first if both are on this phone.
-function myDuelQuestion(ch) {
-  const order = [ch.challenger_id, ch.opponent_id].filter((id) => (mpPlayer(id) || {}).mine);
-  for (const id of order) {
-    const q = ch.questions.find((x) => x.player_id === id && !x.answered);
-    if (q) return q;
-  }
-  return null;
+function duelists(ch) {
+  return [ch.challenger_id, ch.opponent_id];
 }
 
-function duelKey(q) {
-  return `${mp.game.challenge.id}:${q.player_id}:${q.idx}`;
+// The buzzer round being played: the first one nobody has won and not everyone has missed.
+function buzzRound(ch) {
+  const r = (ch.rounds || []).find((x) => !x.resolved);
+  return r ? r.idx : null;
 }
 
-function duelSecondsLeft(q) {
-  const key = duelKey(q);
-  if (!mp.duelShown || mp.duelShown.key !== key) mp.duelShown = { key, at: Date.now() };
-  return Math.max(0, Math.ceil(DUEL_SECONDS - (Date.now() - mp.duelShown.at) / 1000));
+function buzzQuestion(ch, playerId, idx) {
+  return ch.questions.find((q) => q.player_id === playerId && q.idx === idx);
 }
 
-function duelPick(choice) {
+function buzzSecondsLeft(ch) {
+  const key = `${ch.id}:${buzzRound(ch)}`;
+  if (!mp.buzzShown || mp.buzzShown.key !== key) mp.buzzShown = { key, at: Date.now() };
+  return Math.max(0, Math.ceil(BUZZ_SECONDS - (Date.now() - mp.buzzShown.at) / 1000));
+}
+
+function buzz(playerId, choice) {
   const ch = mp.game.challenge;
-  const q = ch && myDuelQuestion(ch);
-  if (!q || mp.busy) return;
+  const idx = ch && buzzRound(ch);
+  if (!idx || mp.busy) return;
   mpStep(async () => {
-    await rpc('challenge_answer', { p_challenge_id: ch.id, p_player_id: q.player_id, p_idx: q.idx, p_response: choice || '' });
+    await rpc('challenge_answer', { p_challenge_id: ch.id, p_player_id: playerId, p_idx: idx, p_response: choice || '' });
     await refreshGame();
   });
 }
 
-function duelTally(ch, playerId) {
-  return ch.questions.filter((q) => q.player_id === playerId)
-    .map((q) => `<span>${!q.answered ? '○' : q.is_correct ? '✅' : '❌'}</span>`).join('');
+// Out of time: anyone on this phone who hasn't buzzed this round misses it.
+function buzzTimeout(ch) {
+  const idx = buzzRound(ch);
+  const key = `${ch.id}:${idx}`;
+  if (mp.buzzTimedOut === key) return;
+  mp.buzzTimedOut = key;
+  const mine = duelists(ch).filter((id) => (mpPlayer(id) || {}).mine && !buzzQuestion(ch, id, idx).answered);
+  mpStep(async () => {
+    for (const id of mine) {
+      await rpc('challenge_answer', { p_challenge_id: ch.id, p_player_id: id, p_idx: idx, p_response: '' });
+    }
+    await refreshGame();
+  });
+}
+
+function roundWins(ch, playerId) {
+  return (ch.rounds || []).filter((r) => r.winner === playerId).length;
+}
+
+// Silly game face-off: tries stay on this phone, then the score goes in.
+function duelGamePlayer(ch) {
+  return duelists(ch).find((id) => (mpPlayer(id) || {}).mine && ch.scores[id] == null);
+}
+
+function duelRecord(results, extra = () => ({})) {
+  const ch = mp.game.challenge;
+  const m = mp.mini;
+  results.forEach((goal, i) => m.tries.push({ goal, ...extra(i) }));
+  if (m.tries.length < KICKS) { render(); return Promise.resolve(); }
+  const hits = m.tries.reduce((n, t) => Math.max(n, t.hits || 0), 0);
+  const score = m.game === 'moles' ? hits : m.tries.filter((t) => t.goal).length;
+  return mpStep(async () => {
+    await rpc('challenge_game_score', { p_challenge_id: ch.id, p_player_id: m.player, p_score: score });
+    await refreshGame();
+  });
+}
+
+function duelScore(ch, id) {
+  if (ch.mode === 'game') {
+    const s = ch.scores[id];
+    return s == null ? '<span class="muted">playing…</span>' : `<span class="duel-score">${s}</span>`;
+  }
+  return `<span class="kick-tally">${(ch.rounds || []).map((r) => `<span>${r.winner === id ? '🏆' : r.resolved ? '✗' : '○'}</span>`).join('')}</span>`;
 }
 
 function duelScores(ch) {
   const a = mpPlayer(ch.challenger_id) || {};
   const b = mpPlayer(ch.opponent_id) || {};
   return `<div class="duel-vs">
-    <div><span class="player-name">${esc(a.name)}</span><p class="kick-tally">${duelTally(ch, ch.challenger_id)}</p></div>
+    <div><span class="player-name">${esc(a.name)}</span>${duelScore(ch, ch.challenger_id)}</div>
     <span class="duel-x" aria-hidden="true">VS</span>
-    <div><span class="player-name">${esc(b.name)}</span><p class="kick-tally">${duelTally(ch, ch.opponent_id)}</p></div>
+    <div><span class="player-name">${esc(b.name)}</span>${duelScore(ch, ch.opponent_id)}</div>
   </div>`;
+}
+
+function duelKind(ch) {
+  return ch.mode === 'game' ? `${bonusGame(ch.minigame).icon} ${bonusGame(ch.minigame).name} face-off` : '🔔 Buzzer race';
 }
 
 // What everyone sees about a challenge above the question: the dare, or how it ended.
@@ -497,12 +563,14 @@ function challengePanel(g) {
   const a = mpPlayer(ch.challenger_id) || {};
   const b = mpPlayer(ch.opponent_id) || {};
   if (ch.status === 'pending') {
-    const canAnswer = b.mine;
+    const how = ch.mode === 'game'
+      ? `A ${bonusGame(ch.minigame).name.toLowerCase()} face-off. Higher score wins and steals 2 points.`
+      : 'First to the buzzer on 3 multiple choice questions. Best of 3 steals 2 points.';
     return `<div class="card stack duel-card" style="gap:10px">
-      <span class="eyebrow">⚔️ Challenge</span>
+      <span class="eyebrow">⚔️ Challenge · ${duelKind(ch)}</span>
       <p style="font-family:var(--display);font-size:24px">${esc(a.name)} challenges ${esc(b.name)}!</p>
-      <p style="font-weight:700">${DUEL_SECONDS}-second rapid fire, 3 questions each. The winner steals 2 points.</p>
-      ${canAnswer ? `<div class="row">
+      <p style="font-weight:700">${how}</p>
+      ${b.mine ? `<div class="row">
           <button class="btn good" style="flex:1" data-action="acceptChallenge" ${mp.busy ? 'disabled' : ''}>Bring it on</button>
           <button class="btn secondary" style="flex:1" data-action="refuseChallenge" ${mp.busy ? 'disabled' : ''}>Chicken out</button>
         </div>
@@ -516,7 +584,7 @@ function challengePanel(g) {
   }
   const w = mpPlayer(ch.winner_id);
   return `<div class="card stack duel-card" style="gap:6px">
-    <span class="eyebrow">⚔️ Duel result</span>
+    <span class="eyebrow">⚔️ ${duelKind(ch)} result</span>
     ${duelScores(ch)}
     <p style="font-weight:800">${w ? `${esc(w.name)} wins and steals 2 points from ${esc(w.id === a.id ? b.name : a.name)}!` : "It's a draw. Nobody steals anything."}</p>
   </div>`;
@@ -529,12 +597,19 @@ function challengeCards(g) {
   const mine = g.players.filter((p) => p.mine && !used.has(p.id));
   if (!mine.length || g.players.length < 2) return '';
   const from = mpPlayer(mp.challengeFrom);
+  const small = 'style="width:auto;padding:0 14px;min-height:44px;font-size:18px"';
   if (from && mine.some((p) => p.id === from.id)) {
+    const to = mpPlayer(mp.challengeTo);
     return `<div class="card stack" style="gap:8px">
-      <span class="eyebrow">⚔️ Who does ${esc(from.name)} challenge?</span>
-      <div class="row" style="flex-wrap:wrap">
-        ${g.players.filter((p) => p.id !== from.id).map((p) => `<button class="btn secondary" style="width:auto;padding:0 14px;min-height:44px;font-size:18px" data-action="issueChallenge" data-id="${esc(p.id)}">${esc(p.name)}</button>`).join('')}
-      </div>
+      ${to ? `
+        <span class="eyebrow">⚔️ How does ${esc(from.name)} take on ${esc(to.name)}?</span>
+        <button class="btn" data-action="issueChallenge" data-mode="buzzer">🔔 Questions: first to the buzzer</button>
+        <button class="btn secondary" data-action="issueChallenge" data-mode="game">🎲 Silly game</button>
+      ` : `
+        <span class="eyebrow">⚔️ Who does ${esc(from.name)} challenge?</span>
+        <div class="row" style="flex-wrap:wrap">
+          ${g.players.filter((p) => p.id !== from.id).map((p) => `<button class="btn secondary" ${small} data-action="pickOpponent" data-id="${esc(p.id)}">${esc(p.name)}</button>`).join('')}
+        </div>`}
       <button class="link-btn" data-action="openChallenge" data-id="${esc(from.id)}" style="align-self:center">Not now</button>
     </div>`;
   }
@@ -543,35 +618,59 @@ function challengeCards(g) {
   </div>`;
 }
 
-// While a duel is on, it takes over every phone: the two players answer, everyone else watches.
-function duelScreen(g) {
-  const ch = g.challenge;
-  const a = mpPlayer(ch.challenger_id) || {};
-  const b = mpPlayer(ch.opponent_id) || {};
-  const q = myDuelQuestion(ch);
-  const who = q && mpPlayer(q.player_id);
-  const both = a.mine && b.mine;
-  let body;
-  if (q) {
-    const left = duelSecondsLeft(q);
-    body = `
-      <div class="row" style="justify-content:space-between">
-        <p style="font-family:var(--display);font-size:22px">${both ? `${esc(who.name)} · ` : ''}Question ${q.idx} of 3</p>
-        <div id="duel-timer" class="timer ${left <= 3 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>
-      </div>
+function buzzerBody(ch) {
+  const idx = buzzRound(ch);
+  const mine = duelists(ch).filter((id) => (mpPlayer(id) || {}).mine);
+  const last = (ch.rounds || []).filter((r) => r.resolved).pop();
+  const lastLine = last ? `<p class="notice">Round ${last.idx}: ${last.winner ? `${esc(mpPlayer(last.winner).name)} buzzed in first! 🔔` : 'nobody got it.'}</p>` : '';
+  if (!idx) return lastLine;
+  const left = buzzSecondsLeft(ch);
+  const blocks = mine.map((id) => {
+    const q = buzzQuestion(ch, id, idx);
+    const p = mpPlayer(id);
+    if (q.answered) {
+      return `<p class="sticker" style="align-self:flex-start;background:var(--wrong);font-size:22px;transform:rotate(-2deg)">${mine.length > 1 ? `${esc(p.name)}: ` : ''}Wrong! Locked out this round</p>`;
+    }
+    return `
+      ${mine.length > 1 ? `<span class="eyebrow">${esc(p.name)}'s question</span>` : ''}
       <p class="muted" style="font-weight:700;margin:0">${esc(q.topic)}</p>
       <h1 class="question">${esc(q.text)}</h1>
       <div class="choices" role="group" aria-label="Answers">
-        ${q.choices.map((c) => `<button class="choice" data-action="duelPick" data-value="${esc(c)}" ${mp.busy ? 'disabled' : ''}>${esc(c)}</button>`).join('')}
+        ${q.choices.map((c) => `<button class="choice" data-action="buzz" data-id="${esc(id)}" data-value="${esc(c)}" ${mp.busy ? 'disabled' : ''}>${esc(c)}</button>`).join('')}
       </div>`;
-  } else {
-    const mineDone = a.mine || b.mine;
-    body = `<p class="muted" style="font-weight:700;text-align:center">${mineDone ? 'Done! Waiting for the other player…' : `${esc(a.name)} and ${esc(b.name)} are battling it out…`}</p>`;
-  }
+  }).join('');
   return `
-    <div class="topbar"><span class="chip duel-chip">⚔️ Duel</span></div>
+    ${lastLine}
+    <div class="row" style="justify-content:space-between">
+      <p style="font-family:var(--display);font-size:22px">Round ${idx} of 3</p>
+      <div id="buzz-timer" class="timer ${left <= 5 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>
+    </div>
+    ${blocks || `<p class="muted" style="font-weight:700;text-align:center">Both are racing to answer…</p>`}`;
+}
+
+function duelGameBody(ch) {
+  const id = duelGamePlayer(ch);
+  if (!id) {
+    const playing = duelists(ch).some((x) => (mpPlayer(x) || {}).mine);
+    return `<p class="muted" style="font-weight:700;text-align:center">${playing ? 'Done! Waiting for the other player…' : 'Both are playing…'}</p>`;
+  }
+  const p = mpPlayer(id);
+  const key = `duel:${ch.id}:${id}`;
+  const m = useMini(key, ch.minigame, mp.mini && mp.mini.key === key ? mp.mini.tries : [], duelRecord);
+  m.player = id;
+  return `<div class="card stack" style="gap:10px">
+    ${duelists(ch).every((x) => (mpPlayer(x) || {}).mine) ? `<span class="eyebrow">${esc(p.name)}'s turn</span>` : ''}
+    ${miniPlay(m, true)}
+  </div>`;
+}
+
+// While a duel is on, it takes over every phone: the two players play, everyone else watches.
+function duelScreen(g) {
+  const ch = g.challenge;
+  return `
+    <div class="topbar"><span class="chip duel-chip">⚔️ ${duelKind(ch)}</span></div>
     ${duelScores(ch)}
-    ${body}
+    ${ch.mode === 'game' ? duelGameBody(ch) : buzzerBody(ch)}
     ${mpNotes()}
     ${g.is_host ? '<button class="link-btn" data-action="cancelChallenge" style="align-self:center">Call off the duel</button>' : ''}
     <div class="spacer"></div>
@@ -666,17 +765,13 @@ function mpSecondsLeft() {
 
 function tickMp() {
   tickMoles();
-  const duel = document.getElementById('duel-timer');
   const ch = mp.game && mp.game.challenge;
-  const dq = duel && ch && ch.status === 'playing' && myDuelQuestion(ch);
-  if (dq) {
-    const left = duelSecondsLeft(dq);
-    duel.textContent = left;
-    duel.classList.toggle('low', left <= 3);
-    if (left === 0 && !mp.busy && mp.duelTimedOut !== duelKey(dq)) {
-      mp.duelTimedOut = duelKey(dq);
-      duelPick('');
-    }
+  const buzzEl = document.getElementById('buzz-timer');
+  if (buzzEl && ch && ch.status === 'playing' && ch.mode === 'buzzer' && buzzRound(ch)) {
+    const left = buzzSecondsLeft(ch);
+    buzzEl.textContent = left;
+    buzzEl.classList.toggle('low', left <= 5);
+    if (left === 0 && !mp.busy) buzzTimeout(ch);
   }
   const el = document.getElementById('mp-timer');
   const left = mpSecondsLeft();
