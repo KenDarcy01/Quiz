@@ -32,6 +32,10 @@ Called from the app with `supabase.rpc(...)`:
 - `join_game(code, profile_id)` adds a player. A parent can join their child's profile.
 - `submit_answer(game_question_id, player_id, is_correct, used_choices, response, steal_from)` records an answer: 2 points straight, 1 with choices, 2 for a steal (taken from the other player). The host marks spoken answers. A player can only answer their own question by sending the choice they picked, and the database checks it.
 
+## Watching without playing
+
+Anyone with a game's watch link can follow it live in a browser, without the app or a login. The link uses the game's `watch_key`, which is separate from the join code, so it can't be used to join as a player. `watch_game(watch_key)` returns the scoreboard, the question on screen (the answer only after the host reveals it) and recent events like streaks and steals. The watch page will load that, then listen on a Realtime broadcast channel for the host's updates. The host can switch watching off with `settings.watchers = false`.
+
 ## Security
 
 Row level security is on for every table. Anyone can read questions, so the pass-the-phone game still works without signing in. Games, players and answers are visible only to people in that game. Only the host changes a game, and answers go through `submit_answer` so nobody can give themselves points. The app uses the public anon key only; the service_role key must never go in the app.
@@ -42,3 +46,4 @@ Row level security is on for every table. Anyone can read questions, so the pass
 2. Move the family's Google Sheet questions into `questions` as `family` questions, and add an "Add a question" screen.
 3. Sign-in (Google and email), profiles and child profiles.
 4. Multiplayer: create/join with a code, lobby, live questions, scoreboard, then streaks, challenges, picture and music rounds.
+5. Watch page: a browser link for people who want to follow along without playing.

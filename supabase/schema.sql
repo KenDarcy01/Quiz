@@ -13,6 +13,8 @@
 --   answers        each player's answer to a dealt question, and the points it earned
 --   game_events    streaks, bonus rounds, challenges, steals and mini-game results
 --   seen_questions which questions a profile has already had, so they don't repeat
+--
+-- Watchers follow a game through watch_game(watch_key) without signing in.
 
 create extension if not exists pgcrypto with schema extensions;
 
@@ -354,6 +356,47 @@ revoke execute on function public.my_profile_ids(), public.is_game_host(uuid),
   public.is_game_member(uuid) from public, anon;
 grant execute on function public.my_profile_ids(), public.is_game_host(uuid),
   public.is_game_member(uuid) to authenticated;
+
+-- Watchers: anyone with a game's watch link can follow it live in a browser, without signing in.
+-- The watch key is separate from the join code, so a watch link can't be used to join as a player.
+alter table public.games add column if not exists watch_key text not null
+  default replace(replace(encode(extensions.gen_random_bytes(9), 'base64'), '/', '_'), '+', '-');
+create unique index if not exists games_watch_key on public.games (watch_key);
+
+-- Everything a watcher's screen needs, in one call. The answer stays hidden until the host reveals it.
+-- The host can turn watching off with settings.watchers = false.
+create or replace function public.watch_game(p_key text) returns jsonb
+language sql stable security definer set search_path = public as $$
+  select jsonb_build_object(
+    'code', g.code,
+    'status', g.status,
+    'topic', g.settings->'topic',
+    'current_seq', g.current_seq,
+    'active_player_id', g.active_player_id,
+    'players', coalesce((
+      select jsonb_agg(jsonb_build_object('id', gp.id, 'name', p.display_name, 'colour', p.colour,
+                                          'avatar', p.avatar, 'score', gp.score, 'streak', gp.streak,
+                                          'seat', gp.seat) order by gp.seat)
+      from public.game_players gp join public.profiles p on p.id = gp.profile_id
+      where gp.game_id = g.id and gp.left_at is null), '[]'),
+    'question', (
+      select jsonb_build_object('seq', gq.seq, 'round', gq.round_no, 'kind', gq.kind,
+                                'player_id', gq.player_id, 'opponent_id', gq.opponent_id,
+                                'topic', q.topic, 'text', q.question, 'media_url', q.media_url,
+                                'media', q.media, 'asked_at', gq.asked_at,
+                                'revealed', gq.revealed_at is not null,
+                                'answer', case when gq.revealed_at is not null then q.answer end)
+      from public.game_questions gq join public.questions q on q.id = gq.question_id
+      where gq.game_id = g.id and gq.seq = g.current_seq),
+    'events', coalesce((
+      select jsonb_agg(e order by e.id) from (
+        select id, player_id, type, points, payload, created_at from public.game_events
+        where game_id = g.id and type <> 'join' order by id desc limit 10) e), '[]'))
+  from public.games g
+  where g.watch_key = p_key and coalesce((g.settings->>'watchers')::boolean, true)
+$$;
+
+grant execute on function public.watch_game(text) to anon, authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Security rules (row level security)
