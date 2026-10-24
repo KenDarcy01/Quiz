@@ -324,6 +324,15 @@ function homeScreen() {
   `;
 }
 
+const MAX_LOCAL_PLAYERS = 8;
+
+// Each one-phone game starts with you and the kids on your account (or one player if signed out).
+function freshPlayers() {
+  const mine = [auth.profile, ...(auth.kids || [])].filter(Boolean)
+    .map((p) => ({ name: p.display_name, age: p.age || 'adult', difficulty: '' }));
+  return mine.length ? mine : [{ name: 'Player 1', age: 'adult', difficulty: '' }];
+}
+
 // Setting up a one-phone round: topic, difficulty and who's playing.
 function localScreen() {
   const { players } = state.settings;
@@ -336,7 +345,7 @@ function localScreen() {
     <section class="stack" aria-labelledby="players-h">
       <div class="row" style="justify-content:space-between">
         <h2 id="players-h" class="eyebrow" style="font-family:var(--body)">Who's in?</h2>
-        <button class="link-btn" data-action="settings">Edit players</button>
+        <button class="link-btn" data-action="settings">Rename</button>
       </div>
       ${players.map((p, i) => `
         <div class="card row">
@@ -349,10 +358,17 @@ function localScreen() {
             <option value="">Game level</option>
             ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === p.difficulty ? 'selected' : ''}>${d.label.split(' ')[0]}</option>`).join('')}
           </select>
+          ${players.length > 1 ? `<button class="remove-btn" data-action="removePlayer" data-player="${i}" aria-label="Remove ${esc(p.name)}">✕</button>` : ''}
         </div>
         ${state.bank && !state.loading && counts[i] < state.settings.perPlayer
           ? `<p class="muted" style="font-size:14px;margin-top:-4px">${counts[i] ? `Only ${counts[i]} questions` : 'No questions'} for ${esc(ageLabel(p.age).toLowerCase())} with this topic and difficulty.</p>` : ''}
       `).join('')}
+      ${players.length < MAX_LOCAL_PLAYERS ? `<form id="addPlayer" class="player-add">
+        ${badge(players.length)}
+        <input name="name" placeholder="Name" aria-label="New player's name" maxlength="20" required>
+        <select name="age" aria-label="New player's age">${AGES.map((a) => `<option value="${a}" ${a === 'adult' ? 'selected' : ''}>${ageLabel(a)}</option>`).join('')}</select>
+        <button class="btn secondary" type="submit" style="width:auto;padding:0 14px;min-height:44px;font-size:18px">Add</button>
+      </form>` : ''}
     </section>
     <div class="spacer"></div>
     <button class="btn" data-action="start" ${canStart ? '' : 'disabled'}>${state.loading ? 'Loading…' : "Let's go"}</button>
@@ -716,7 +732,8 @@ app.addEventListener('click', (e) => {
     deleteAsk: () => { auth.confirmDelete = true; render(); },
     deleteNo: () => { auth.confirmDelete = false; render(); },
     deleteYes: deleteAccount,
-    local: () => { state.screen = 'local'; render(); },
+    local: () => { state.settings.players = freshPlayers(); save(SETTINGS_KEY, state.settings); state.screen = 'local'; render(); },
+    removePlayer: () => { state.settings.players.splice(Number(el.dataset.player), 1); save(SETTINGS_KEY, state.settings); render(); },
     hostSetup: () => { mp.error = ''; state.screen = 'hostSetup'; render(); },
     toLocal: () => { state.screen = 'local'; render(); },
     joinMp: openJoin,
@@ -803,6 +820,13 @@ const forms = {
   newPassword: (f) => setNewPassword(String(f.get('password') || '')),
   settings: saveSettings,
   join: (f) => findGame(String(f.get('code') || '')),
+  addPlayer: (f) => {
+    const name = String(f.get('name') || '').trim().slice(0, 20);
+    if (!name || state.settings.players.length >= MAX_LOCAL_PLAYERS) return;
+    state.settings.players.push({ name, age: String(f.get('age') || 'adult'), difficulty: '' });
+    save(SETTINGS_KEY, state.settings);
+    render();
+  },
   hostSetup: (f) => {
     const s = state.settings;
     s.perPlayer = Math.max(1, Math.min(50, Number(f.get('perPlayer')) || 10));
