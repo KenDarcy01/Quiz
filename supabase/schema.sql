@@ -386,8 +386,10 @@ language sql stable security definer set search_path = public as $$
                                 'player_id', gq.player_id, 'opponent_id', gq.opponent_id,
                                 'topic', q.topic, 'text', q.question, 'media_url', q.media_url,
                                 'media', q.media, 'asked_at', gq.asked_at,
-                                'revealed', gq.revealed_at is not null,
-                                'answer', case when gq.revealed_at is not null then q.answer end)
+                                'revealed', gq.revealed_at is not null
+                                  or exists (select 1 from public.answers a where a.game_question_id = gq.id),
+                                'answer', case when gq.revealed_at is not null
+                                  or exists (select 1 from public.answers a where a.game_question_id = gq.id) then q.answer end)
       from public.game_questions gq join public.questions q on q.id = gq.question_id
       where gq.game_id = g.id and gq.seq = g.current_seq),
     'events', coalesce((
@@ -639,6 +641,193 @@ begin
   on conflict (user_id) do nothing;
   return new;
 end $$;
+
+-- Multiplayer game flow. The host's phone drives the game through these functions, and every
+-- phone in the game reads game_state() whenever something changes.
+
+-- A player's own difficulty as a list of grades; null = the game's difficulty.
+alter table public.game_players add column if not exists grades smallint[];
+
+-- Years for an age setting ('6'..'17' or 'adult').
+create or replace function public.age_years(age text) returns smallint
+language sql immutable set search_path = '' as $$
+  select case when lower(coalesce(age, '')) like 'adult%' or coalesce(age, '') !~ '^\d+$' then 18
+              else age::smallint end
+$$;
+
+-- Deals questions for everyone and starts the game. Each player gets questions for their own age
+-- and difficulty they haven't had before (repeats only when the pool runs dry), easiest first, and
+-- turns go round the table: everyone's question 1, then everyone's question 2, and so on.
+-- settings: {"topic": "", "grades": [1,2,3,4,5], "per_player": 10, "seconds": 20}
+create or replace function public.start_game(p_game_id uuid)
+returns public.games
+language plpgsql security definer set search_path = public as $$
+declare
+  g public.games;
+  n int;
+  v_topic text;
+  game_grades smallint[];
+begin
+  select * into g from public.games where id = p_game_id for update;
+  if g.id is null or g.host_id <> auth.uid() then raise exception 'Only the host can start the game'; end if;
+  if g.status <> 'lobby' then raise exception 'This game has already started'; end if;
+  if not exists (select 1 from public.game_players where game_id = g.id and left_at is null) then
+    raise exception 'Nobody has joined yet';
+  end if;
+  n := least(50, greatest(1, coalesce((g.settings->>'per_player')::int, 10)));
+  v_topic := nullif(g.settings->>'topic', '');
+  game_grades := coalesce(
+    (select array_agg(x::smallint) from jsonb_array_elements_text(g.settings->'grades') x), '{1,2,3,4,5}');
+
+  with players as (
+    select gp.id, gp.seat, gp.profile_id, public.age_years(p.age) as years,
+           coalesce(gp.grades, game_grades) as grades,
+           row_number() over (order by gp.seat, gp.joined_at) - 1 as turn
+    from public.game_players gp join public.profiles p on p.id = gp.profile_id
+    where gp.game_id = g.id and gp.left_at is null
+  ),
+  picked as (
+    select pl.id as player_id, pl.turn, q.id as question_id, q.grade
+    from players pl
+    cross join lateral (
+      select q.id, q.grade from public.questions q
+      where q.active and q.kind = 'text'
+        and pl.years between q.age_min and q.age_max
+        and q.grade = any (pl.grades)
+        and (v_topic is null or q.topic = v_topic)
+      order by exists (select 1 from public.seen_questions s
+                       where s.profile_id = pl.profile_id and s.question_id = q.id),
+               random()
+      limit n
+    ) q
+  ),
+  ordered as (
+    select *, row_number() over (partition by player_id order by grade, random()) as k from picked
+  )
+  insert into public.game_questions (game_id, seq, question_id, player_id)
+  select g.id, row_number() over (order by k, turn), question_id, player_id from ordered;
+
+  if not exists (select 1 from public.game_questions where game_id = g.id) then
+    raise exception 'No questions match these players, topic and difficulty';
+  end if;
+
+  update public.game_questions set asked_at = now() where game_id = g.id and seq = 1;
+  update public.games set status = 'playing', current_seq = 1, started_at = now(),
+    active_player_id = (select player_id from public.game_questions where game_id = g.id and seq = 1)
+  where id = g.id returning * into g;
+  return g;
+end $$;
+
+-- Host shows the answer to everyone.
+create or replace function public.reveal_answer(p_game_id uuid) returns void
+language plpgsql security definer set search_path = public as $$
+begin
+  if not public.is_game_host(p_game_id) then raise exception 'Only the host can do that'; end if;
+  update public.game_questions gq set revealed_at = coalesce(gq.revealed_at, now())
+  from public.games g where g.id = p_game_id and gq.game_id = g.id and gq.seq = g.current_seq;
+end $$;
+
+-- Host moves on to the next question, or finishes the game after the last one.
+create or replace function public.next_question(p_game_id uuid)
+returns public.games
+language plpgsql security definer set search_path = public as $$
+declare
+  g public.games;
+  nxt public.game_questions;
+begin
+  select * into g from public.games where id = p_game_id for update;
+  if g.id is null or g.host_id <> auth.uid() then raise exception 'Only the host can do that'; end if;
+  if g.status <> 'playing' then return g; end if;
+  -- Make sure the question just played counts as seen, even if nobody answered it.
+  insert into public.seen_questions (profile_id, question_id)
+  select gp.profile_id, gq.question_id from public.game_questions gq
+  join public.game_players gp on gp.id = gq.player_id
+  where gq.game_id = g.id and gq.seq = g.current_seq
+  on conflict do nothing;
+  select * into nxt from public.game_questions where game_id = g.id and seq = g.current_seq + 1;
+  if nxt.id is null then
+    update public.games set status = 'finished', finished_at = now(), active_player_id = null
+    where id = g.id returning * into g;
+  else
+    update public.game_questions set asked_at = now() where id = nxt.id;
+    update public.games set current_seq = nxt.seq, active_player_id = nxt.player_id
+    where id = g.id returning * into g;
+  end if;
+  return g;
+end $$;
+
+-- Everything a player's or host's phone needs, in one call. Only for people in the game.
+create or replace function public.game_state(p_game_id uuid) returns jsonb
+language plpgsql stable security definer set search_path = public as $$
+declare
+  g public.games;
+  is_host boolean;
+  result jsonb;
+begin
+  select * into g from public.games where id = p_game_id;
+  if g.id is null or not public.is_game_member(g.id) then raise exception 'You are not in this game'; end if;
+  is_host := g.host_id = auth.uid();
+  select jsonb_build_object(
+    'id', g.id, 'code', g.code, 'watch_key', case when is_host then g.watch_key end,
+    'status', g.status, 'settings', g.settings, 'current_seq', g.current_seq,
+    'total', (select count(*) from public.game_questions where game_id = g.id),
+    'is_host', is_host,
+    'host_name', (select display_name from public.profiles where user_id = g.host_id),
+    'players', coalesce((
+      select jsonb_agg(jsonb_build_object(
+        'id', gp.id, 'profile_id', gp.profile_id, 'name', p.display_name, 'age', p.age,
+        'score', gp.score, 'streak', gp.streak, 'seat', gp.seat,
+        'mine', gp.profile_id in (select public.my_profile_ids())) order by gp.seat, gp.joined_at)
+      from public.game_players gp join public.profiles p on p.id = gp.profile_id
+      where gp.game_id = g.id and gp.left_at is null), '[]'),
+    'question', (
+      select jsonb_build_object(
+        'id', gq.id, 'seq', gq.seq, 'player_id', gq.player_id, 'kind', gq.kind,
+        'topic', q.topic, 'grade', q.grade, 'text', q.question,
+        'asked_at', gq.asked_at, 'revealed', gq.revealed_at is not null,
+        'answer', case when is_host or gq.revealed_at is not null
+                       or exists (select 1 from public.answers a where a.game_question_id = gq.id) then q.answer end,
+        -- The same shuffled order on every phone.
+        'choices', case when cardinality(q.wrong) > 0 then (
+          select jsonb_agg(c order by md5(gq.id::text || c))
+          from unnest(array_append(q.wrong, q.answer)) c) end,
+        'choices_shown', exists (select 1 from public.game_events e
+                                 where e.game_id = g.id and e.type = 'choices'
+                                   and (e.payload->>'game_question_id')::uuid = gq.id),
+        'answers', coalesce((
+          select jsonb_agg(jsonb_build_object('player_id', a.player_id, 'response', a.response,
+                                              'used_choices', a.used_choices, 'is_correct', a.is_correct,
+                                              'points', a.points))
+          from public.answers a where a.game_question_id = gq.id), '[]'))
+      from public.game_questions gq join public.questions q on q.id = gq.question_id
+      where gq.game_id = g.id and gq.seq = g.current_seq),
+    'requests', case when is_host then coalesce((
+      select jsonb_agg(jsonb_build_object('id', r.id, 'name', p.display_name, 'age', p.age) order by r.created_at)
+      from public.device_requests r join public.profiles p on p.id = r.profile_id
+      where r.game_id = g.id and r.status = 'pending'), '[]') else '[]' end
+  ) into result;
+  return result;
+end $$;
+
+-- The active player tells everyone they've opened the multiple choice (worth 1 point instead of 2).
+create or replace function public.show_choices(p_game_question_id uuid) returns void
+language plpgsql security definer set search_path = public as $$
+declare
+  gq public.game_questions;
+begin
+  select * into gq from public.game_questions where id = p_game_question_id;
+  if gq.id is null or not public.is_game_member(gq.game_id) then raise exception 'Not in this game'; end if;
+  if not exists (select 1 from public.game_events where game_id = gq.game_id and type = 'choices'
+                 and (payload->>'game_question_id')::uuid = gq.id) then
+    insert into public.game_events (game_id, player_id, type, payload)
+    values (gq.game_id, gq.player_id, 'choices', jsonb_build_object('game_question_id', gq.id));
+  end if;
+end $$;
+
+revoke execute on function public.start_game(uuid), public.reveal_answer(uuid), public.next_question(uuid),
+  public.game_state(uuid), public.show_choices(uuid) from public, anon;
+grant execute on function public.start_game(uuid), public.reveal_answer(uuid), public.next_question(uuid),
+  public.game_state(uuid), public.show_choices(uuid) to authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Live updates: phones in a game subscribe to these tables

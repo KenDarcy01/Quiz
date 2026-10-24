@@ -303,6 +303,7 @@ function homeScreen() {
     <div class="spacer"></div>
     ${resume ? `<button class="btn good" data-action="resume">Carry on this round</button>` : ''}
     <button class="btn" data-action="start" ${canStart ? '' : 'disabled'}>${state.loading ? 'Loading…' : "Let's go"}</button>
+    ${mpHomeButtons()}
     <p class="muted" style="text-align:center;font-size:14px;font-weight:700">Quiz master: ${esc(quizMaster)}</p>
   `;
 }
@@ -598,6 +599,7 @@ function render() {
   const screens = {
     home: homeScreen, settings: settingsScreen, pass: passScreen, question: questionScreen, scores: scoresScreen,
     account: accountScreen, newPassword: newPasswordScreen,
+    join: joinScreen, waiting: waitingScreen, mp: mpScreen,
   };
   app.innerHTML = screens[state.screen]();
 }
@@ -617,6 +619,19 @@ app.addEventListener('click', (e) => {
     deleteAsk: () => { auth.confirmDelete = true; render(); },
     deleteNo: () => { auth.confirmDelete = false; render(); },
     deleteYes: deleteAccount,
+    hostMp: hostGame,
+    joinMp: openJoin,
+    joinAs: () => joinAs(el.dataset.id),
+    leaveMp: leaveGame,
+    addHere: () => addFromThisPhone(el.dataset.id),
+    approve: () => decideRequest(el.dataset.id, true),
+    decline: () => decideRequest(el.dataset.id, false),
+    startMp: startMpGame,
+    markRight: () => hostMark(true),
+    markWrong: () => hostMark(false),
+    choicesMp: showChoicesMp,
+    pickMp: () => pickMp(el.dataset.value),
+    nextMp,
     forget: () => { save(SEEN_KEY, null); el.textContent = 'Done: everyone starts fresh'; el.disabled = true; },
     start: startRound,
     resume: () => { state.screen = state.game.mode === 'open' && state.game.verdict === null ? 'pass' : 'question'; render(); },
@@ -667,6 +682,7 @@ const forms = {
   kid: (f) => addKid(String(f.get('name') || '').trim(), String(f.get('age'))),
   newPassword: (f) => setNewPassword(String(f.get('password') || '')),
   settings: saveSettings,
+  join: (f) => findGame(String(f.get('code') || '')),
 };
 
 app.addEventListener('submit', (e) => {
@@ -695,3 +711,4 @@ function saveSettings(f) {
 render();
 refreshQuestions();
 startAuth();
+resumeMp();

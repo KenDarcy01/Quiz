@@ -10,6 +10,7 @@ const SHELL = [
   'js/supabase.js',
   'js/vendor/supabase.js',
   'js/account.js',
+  'js/multiplayer.js',
   'js/app.js',
   'questions/questions.csv',
   'manifest.webmanifest',

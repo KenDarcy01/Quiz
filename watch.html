@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Watch · Family Quiz</title>
+  <meta name="description" content="Follow a Family Quiz game live.">
+  <meta name="theme-color" content="#EEE7FF">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Rubik:wght@500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" aria-live="polite"><div class="pass"><h1>Loading…</h1></div></main>
+  <script src="js/supabase.js"></script>
+  <script>
+    // Watch a game without the app or an account: polls watch_game() with the game's watch key.
+    const WATCH_POLL_MS = 2000;
+    const COLOURS = ['var(--cyan)', 'var(--pink)', 'var(--lime)', 'var(--orange)'];
+    const app = document.getElementById('app');
+    const key = new URLSearchParams(location.search).get('k') || '';
+
+    function esc(s) {
+      return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    async function watchGame() {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/watch_game`, {
+        method: 'POST',
+        headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ p_key: key }),
+        cache: 'no-store',
+      });
+      if (!res.ok) throw new Error(`error ${res.status}`);
+      return res.json();
+    }
+
+    function scoreboard(players, highlight) {
+      const sorted = players.slice().sort((a, b) => b.score - a.score);
+      return `<ol class="stack" style="list-style:none;margin:0;padding:0;gap:8px">
+        ${sorted.map((p, i) => `
+          <li class="card leader ${i === 0 && p.score > 0 ? 'first' : ''}" style="padding:8px 12px${p.id === highlight ? ';outline:4px solid var(--orange)' : ''}">
+            <span class="rank">${i + 1}</span>
+            <div class="badge" style="background:${COLOURS[players.indexOf(p) % 4]}" aria-hidden="true">${players.indexOf(p) + 1}</div>
+            <span class="player-name">${esc(p.name)}${p.streak >= 3 ? ` <span class="muted" style="font-size:13px">🔥 ${p.streak}</span>` : ''}</span>
+            <span class="score">${p.score}</span>
+          </li>`).join('')}
+      </ol>`;
+    }
+
+    function view(g) {
+      if (!g) return '<div class="pass"><h1>This game can\'t be watched</h1><p style="font-weight:700">The link may be wrong, or the quiz master has turned watching off.</p></div>';
+      const head = `<div class="topbar"><span class="eyebrow">Watching game ${esc(g.code)}</span><span class="chip" style="background:var(--card)">Live</span></div>`;
+      if (g.status === 'lobby') {
+        return `${head}<div class="pass"><h1>Starting soon</h1><p style="font-weight:700">${g.players.length} player${g.players.length === 1 ? '' : 's'} in the lobby.</p></div>${scoreboard(g.players)}`;
+      }
+      if (g.status === 'finished') {
+        return `${head}<h1 class="sticker" style="background:var(--cyan);font-size:36px;transform:rotate(-2deg);align-self:flex-start">FINAL SCORES</h1>${scoreboard(g.players)}`;
+      }
+      const q = g.question;
+      const who = q && g.players.find((p) => p.id === q.player_id);
+      return `${head}
+        ${q ? `
+          <p style="font-family:var(--display);font-size:22px">Q${q.seq} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">· ${esc(q.topic)}${who ? ` · for ${esc(who.name)}` : ''}</span></p>
+          <h1 class="question">${esc(q.text)}</h1>
+          ${q.revealed ? `<div class="card stack" style="gap:4px"><span class="eyebrow">Answer</span><span class="answer-reveal">${esc(q.answer)}</span></div>` : ''}
+        ` : ''}
+        <h2 class="eyebrow" style="font-family:var(--body)">Scores</h2>
+        ${scoreboard(g.players, q && q.player_id)}`;
+    }
+
+    let last = '';
+    async function update() {
+      try {
+        const html = view(await watchGame());
+        if (html !== last) { app.innerHTML = html; last = html; }
+      } catch {
+        if (!last) app.innerHTML = '<div class="pass"><h1>Can\'t reach the game</h1><p style="font-weight:700">Trying again…</p></div>';
+      }
+    }
+
+    update();
+    setInterval(update, WATCH_POLL_MS);
+  </script>
+</body>
+</html>
