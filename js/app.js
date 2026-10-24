@@ -70,9 +70,9 @@ function difficulty() {
   return DIFFICULTIES.find((d) => d.id === state.settings.difficulty) || DIFFICULTIES[0];
 }
 
-// A player's own level, or the game's difficulty when they haven't been given one.
+// A player's own difficulty (mixed until they pick one).
 function difficultyFor(p) {
-  return DIFFICULTIES.find((d) => d.id === p.difficulty) || difficulty();
+  return DIFFICULTIES.find((d) => d.id === p.difficulty) || DIFFICULTIES[0];
 }
 
 function sheetUrl() {
@@ -101,7 +101,7 @@ async function refreshQuestions() {
 }
 
 function poolForPlayer(p) {
-  return state.bank ? poolFor(state.bank.questions, p.age, state.settings.topic, difficultyFor(p).grades) : [];
+  return state.bank ? poolFor(state.bank.questions, p.age, p.topic || '', difficultyFor(p).grades) : [];
 }
 
 // Deals round the topics in turn so one game doesn't bunch up on a single topic.
@@ -161,8 +161,6 @@ function startRound() {
   markHeard(players, sets, seen);
   save(SEEN_KEY, seen);
   state.game = {
-    topic: state.settings.topic || 'Mixed topics',
-    difficulty: difficulty().label,
     turns,
     at: 0,
     scores: players.map(() => 0),
@@ -329,39 +327,45 @@ const MAX_LOCAL_PLAYERS = 8;
 // Each one-phone game starts with you and the kids on your account (or one player if signed out).
 function freshPlayers() {
   const mine = [auth.profile, ...(auth.kids || [])].filter(Boolean)
-    .map((p) => ({ name: p.display_name, age: p.age || 'adult', difficulty: '' }));
-  return mine.length ? mine : [{ name: 'Player 1', age: 'adult', difficulty: '' }];
+    .map((p) => ({ name: p.display_name, age: p.age || 'adult', topic: '', difficulty: '' }));
+  return mine.length ? mine : [{ name: 'Player 1', age: 'adult', topic: '', difficulty: '' }];
 }
 
 // Setting up a one-phone round: topic, difficulty and who's playing.
 function localScreen() {
   const { players } = state.settings;
+  const topics = state.bank ? topicsIn(state.bank.questions) : [];
   const counts = players.map((p) => poolForPlayer(p).length);
   const canStart = !state.loading && counts.some((c) => c > 0);
 
   return `
     <div class="topbar"><h1 style="font-size:36px">One phone</h1><button class="link-btn" data-action="cancel">Back</button></div>
-    ${roundSetup()}
+    <p class="muted" style="margin-top:-8px">Each player picks their own age, topic and difficulty.</p>
     <section class="stack" aria-labelledby="players-h">
       <div class="row" style="justify-content:space-between">
         <h2 id="players-h" class="eyebrow" style="font-family:var(--body)">Who's in?</h2>
         <button class="link-btn" data-action="settings">Rename</button>
       </div>
       ${players.map((p, i) => `
-        <div class="card row">
-          ${badge(i)}
-          <div class="player-main">
+        <div class="card stack player-card" style="gap:10px">
+          <div class="row">
+            ${badge(i)}
             <div class="player-name">${esc(p.name)}</div>
-            <div class="muted player-age">${esc(ageLabel(p.age))}</div>
+            ${players.length > 1 ? `<button class="remove-btn" data-action="removePlayer" data-player="${i}" aria-label="Remove ${esc(p.name)}">✕</button>` : ''}
           </div>
-          <select class="level-select" data-change="level" data-player="${i}" aria-label="${esc(p.name)}'s level">
-            <option value="">Game level</option>
-            ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === p.difficulty ? 'selected' : ''}>${d.label.split(' ')[0]}</option>`).join('')}
-          </select>
-          ${players.length > 1 ? `<button class="remove-btn" data-action="removePlayer" data-player="${i}" aria-label="Remove ${esc(p.name)}">✕</button>` : ''}
+          <div class="player-picks">
+            <select data-change="playerAge" data-player="${i}" aria-label="${esc(p.name)}'s age">${AGES.map((a) => `<option value="${a}" ${a === p.age ? 'selected' : ''}>${ageLabel(a)}</option>`).join('')}</select>
+            <select data-change="playerTopic" data-player="${i}" aria-label="${esc(p.name)}'s topic">
+              <option value="">Mixed topics</option>
+              ${topics.map((t) => `<option value="${esc(t)}" ${t === p.topic ? 'selected' : ''}>${esc(t)}</option>`).join('')}
+            </select>
+            <select data-change="level" data-player="${i}" aria-label="${esc(p.name)}'s difficulty">
+              ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === difficultyFor(p).id ? 'selected' : ''}>${d.label}</option>`).join('')}
+            </select>
+          </div>
+          ${state.bank && !state.loading && counts[i] < state.settings.perPlayer
+            ? `<p class="muted" style="font-size:14px;margin:0">${counts[i] ? `Only ${counts[i]} questions` : 'No questions'} for ${esc(p.name)} with this topic and difficulty.</p>` : ''}
         </div>
-        ${state.bank && !state.loading && counts[i] < state.settings.perPlayer
-          ? `<p class="muted" style="font-size:14px;margin-top:-4px">${counts[i] ? `Only ${counts[i]} questions` : 'No questions'} for ${esc(ageLabel(p.age).toLowerCase())} with this topic and difficulty.</p>` : ''}
       `).join('')}
       ${players.length < MAX_LOCAL_PLAYERS ? `<form id="addPlayer" class="player-add">
         ${badge(players.length)}
@@ -446,7 +450,7 @@ function passScreen() {
   const p = state.settings.players[turn.player];
   return `
     <div class="topbar">
-      <span class="eyebrow">${esc(state.game.topic)}</span>
+      <span class="eyebrow">${esc(turn.question.topic)}</span>
       <button class="link-btn" data-action="quit">End round</button>
     </div>
     <div class="pass">
@@ -549,7 +553,6 @@ function scoresScreen() {
 
   return `
     <div class="stack" style="align-items:flex-start;gap:8px">
-      <span class="eyebrow">${esc(g.topic)} · ${esc(g.difficulty)}</span>
       <h1 class="sticker" style="background:var(--cyan);font-size:36px;transform:rotate(-2deg)">LEADERBOARD</h1>
     </div>
     <ol class="stack" style="list-style:none;margin:6px 0 0;padding:0">
@@ -791,6 +794,10 @@ app.addEventListener('change', (e) => {
     state.settings[field] = e.target.value;
   } else if (field === 'level') {
     state.settings.players[Number(e.target.dataset.player)].difficulty = e.target.value;
+  } else if (field === 'playerTopic') {
+    state.settings.players[Number(e.target.dataset.player)].topic = e.target.value;
+  } else if (field === 'playerAge') {
+    state.settings.players[Number(e.target.dataset.player)].age = e.target.value;
   } else {
     return;
   }
@@ -823,7 +830,7 @@ const forms = {
   addPlayer: (f) => {
     const name = String(f.get('name') || '').trim().slice(0, 20);
     if (!name || state.settings.players.length >= MAX_LOCAL_PLAYERS) return;
-    state.settings.players.push({ name, age: String(f.get('age') || 'adult'), difficulty: '' });
+    state.settings.players.push({ name, age: String(f.get('age') || 'adult'), topic: '', difficulty: '' });
     save(SETTINGS_KEY, state.settings);
     render();
   },

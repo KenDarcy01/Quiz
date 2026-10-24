@@ -261,3 +261,7 @@ input, select {
 
 .remove-btn { flex: none; width: 36px; height: 36px; border: var(--line); border-radius: 50%; background: var(--card); font-weight: 800; cursor: pointer; }
 .player-add { display: grid; grid-template-columns: 40px minmax(0, 1fr) 92px auto; gap: 8px; align-items: center; }
+.player-picks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.player-picks select { min-height: 44px; padding: 4px 8px; font-size: 15px; font-weight: 700; }
+.player-picks select:nth-child(2) { grid-column: 2; }
+.player-picks select:last-child { grid-column: 1 / -1; }
