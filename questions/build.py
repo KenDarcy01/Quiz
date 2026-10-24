@@ -81,7 +81,15 @@ for n, (code, grade) in enumerate(tier_of.items()):
                      'answer': name_of[code], 'wrong': [name_of[c] for c in rng.sample(near, 3)],
                      'kind': 'picture', 'media_url': f'media/flags/{code}.svg',
                      'media': {'reveal': 'zoom' if n % 2 else 'blur', 'prompt': flags.PROMPT}})
-print(f'pictures: {len(pictures)}')
+spec = importlib.util.spec_from_file_location('hum', SRC / 'hum.py')
+hum = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(hum)
+for grade, songs in hum.SONGS.items():
+    for title, by in songs:
+        pictures.append({'topic': hum.TOPIC, 'age': '', 'grade': grade, 'question': f'Hum: {title}',
+                         'answer': title, 'wrong': [], 'kind': 'music', 'media_url': None,
+                         'media': {'mode': 'hum', 'prompt': hum.PROMPT, 'by': by}})
+print(f'pictures and hum-it: {len(pictures)}')
 if problems:
     print('\n'.join(problems))
     sys.exit(1)

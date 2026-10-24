@@ -698,6 +698,7 @@ app.addEventListener('click', (e) => {
     revealMp,
     kick: () => kick(el.dataset.zone),
     skipBonus,
+    humGuess: () => humGuess(el.dataset.id),
     shoot,
     startMoles,
     whack: () => whack(el.dataset.cell),

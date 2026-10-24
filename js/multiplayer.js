@@ -150,6 +150,13 @@ function hostMark(right) {
   });
 }
 
+function humGuess(guesserId) {
+  mpStep(async () => {
+    await rpc('judge_hum', { p_game_question_id: mp.game.question.id, p_guesser_id: guesserId || null });
+    await refreshGame();
+  });
+}
+
 function revealMp() {
   mpStep(async () => { await rpc('reveal_answer', { p_game_id: mp.gameId }); await refreshGame(); });
 }
@@ -899,8 +906,22 @@ function playScreen(g) {
   const left = mpSecondsLeft();
   const isLast = q.seq >= g.total;
 
+  const hum = (q.media || {}).mode === 'hum';
+  const song = hum && q.answer ? `${esc(q.answer)}${q.media.by ? ` <span class="muted" style="font-size:18px">· ${esc(q.media.by)}</span>` : ''}` : '';
   let body = '';
-  if (answer) {
+  if (hum && answer) {
+    const guesser = mpPlayer((q.answers.find((a) => a.player_id !== q.player_id && a.is_correct) || {}).player_id);
+    body = `
+      <div class="card stack" style="gap:4px"><span class="eyebrow">The song was</span><span class="answer-reveal">${song}</span></div>
+      <p class="sticker" style="align-self:flex-start;background:${guesser ? 'var(--lime)' : 'var(--wrong)'};font-size:24px;transform:rotate(-2deg)">${guesser ? `${esc(guesser.name)} got it! +2, and ${esc(player.name)} +1` : 'Nobody got it'}</p>`;
+  } else if (hum) {
+    body = myTurn
+      ? `<div class="card stack hum-card" style="gap:6px"><span class="eyebrow">🎵 Hum this song (only you can see it)</span>
+          <span class="answer-reveal">${song}</span>
+          <p style="font-weight:700;margin:0">No words! Everyone else shouts their guess.</p></div>`
+      : `${q.answer ? `<div class="card stack" style="gap:4px"><span class="eyebrow">Song (only you can see this)</span><span class="answer-reveal">${song}</span></div>` : ''}
+        <p style="font-family:var(--display);font-size:24px">🎵 ${esc(player.name)} is humming… shout your guess!</p>`;
+  } else if (answer) {
     const msg = answer.is_correct ? `Correct! +${answer.points}` : 'Not this time';
     body = `
       <div class="card stack" style="gap:4px"><span class="eyebrow">Answer</span><span class="answer-reveal">${esc(q.answer || '')}</span></div>
@@ -923,7 +944,15 @@ function playScreen(g) {
   if (bonus) body += bonusPanel(g, player);
 
   let footer = '';
-  if (answer) {
+  if (hum && !answer) {
+    if (g.is_host) {
+      footer = `<p class="judge-q">Who guessed it?</p>
+        <div class="row" style="flex-wrap:wrap;gap:8px">
+          ${g.players.filter((p) => p.id !== q.player_id).map((p) => `<button class="btn good" style="width:auto;padding:0 16px;min-height:48px;font-size:20px" data-action="humGuess" data-id="${esc(p.id)}" ${mp.busy ? 'disabled' : ''}>${esc(p.name)}</button>`).join('')}
+        </div>
+        <button class="btn secondary" data-action="humGuess" data-id="" ${mp.busy ? 'disabled' : ''}>Nobody got it</button>`;
+    }
+  } else if (answer) {
     if (g.is_host && bonus && bonus.points == null) {
       footer = `<p class="muted" style="font-weight:700;text-align:center">Waiting for ${esc(player.name)}'s bonus game…</p>
         <button class="link-btn" data-action="skipBonus" style="align-self:center">Skip the bonus</button>`;

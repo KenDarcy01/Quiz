@@ -696,7 +696,8 @@ begin
   game_grades := coalesce(
     (select array_agg(x::smallint) from jsonb_array_elements_text(g.settings->'grades') x), '{1,2,3,4,5}');
 
-  -- Every picture_every-th question of each player's is a picture (flags …); 0 turns them off.
+  -- Every picture_every-th question of each player's is a special one (a flag, then a hum-it, …);
+  -- 0 turns them off.
   every := coalesce((g.settings->>'picture_every')::int, 4);
   every := case when every < 2 then 0 else every end;
   with players as (
@@ -721,6 +722,7 @@ begin
       limit n - case when every > 0 then n / every else 0 end
     ) q
     union all
+    -- Special slots alternate: picture, hum-it, picture …
     select pl.id, pl.turn, q.id, q.grade, q.kind
     from players pl
     cross join lateral (
@@ -732,19 +734,35 @@ begin
       order by exists (select 1 from public.seen_questions s
                        where s.profile_id = pl.profile_id and s.question_id = q.id),
                random()
-      limit case when every > 0 then n / every else 0 end
+      limit case when every > 0 then (n / every + 1) / 2 else 0 end
+    ) q
+    union all
+    select pl.id, pl.turn, q.id, q.grade, q.kind
+    from players pl
+    cross join lateral (
+      select q.id, q.grade, q.kind from public.questions q
+      where every > 0 and q.active and q.kind = 'music' and q.media->>'mode' = 'hum'
+        and pl.years between q.age_min and q.age_max
+        and q.grade = any (pl.grades)
+        and (v_topic is null or q.topic = v_topic)
+      order by exists (select 1 from public.seen_questions s
+                       where s.profile_id = pl.profile_id and s.question_id = q.id),
+               random()
+      limit case when every > 0 then n / every / 2 else 0 end
     ) q
   ),
   ranked as (
     select *, row_number() over (partition by player_id, kind order by grade, random()) as r from picked
   ),
   ordered as (
-    select *, case when kind = 'picture' then r * every else r + (r - 1) / greatest(every - 1, 1) * (every > 0)::int end as k
+    select *, case when kind = 'picture' then (2 * r - 1) * every
+                   when kind = 'music' then 2 * r * every
+                   else r + (r - 1) / greatest(every - 1, 1) * (every > 0)::int end as k
     from ranked
   )
   insert into public.game_questions (game_id, seq, question_id, player_id, kind)
   select g.id, row_number() over (order by k, turn), question_id, player_id,
-         case when kind = 'picture' then 'picture' else 'normal' end from ordered;
+         case when kind in ('picture', 'music') then kind else 'normal' end from ordered;
 
   if not exists (select 1 from public.game_questions where game_id = g.id) then
     raise exception 'No questions match these players, topic and difficulty';
@@ -834,6 +852,7 @@ begin
                               select id from public.game_players
                               where game_id = g.id and profile_id in (select public.my_profile_ids())))
                        or gq.revealed_at is not null
+                       or (q.media->>'mode' = 'hum' and public.controls_player(gq.player_id))
                        or exists (select 1 from public.answers a where a.game_question_id = gq.id) then q.answer end,
         -- The same shuffled order on every phone.
         'choices', case when cardinality(q.wrong) > 0 then (
@@ -880,6 +899,34 @@ revoke execute on function public.start_game(uuid), public.reveal_answer(uuid), 
   public.game_state(uuid), public.show_choices(uuid) from public, anon;
 grant execute on function public.start_game(uuid), public.reveal_answer(uuid), public.next_question(uuid),
   public.game_state(uuid), public.show_choices(uuid) to authenticated;
+
+-- Hum-it: the host says who guessed the song. The guesser gets 2 points and the hummer 1;
+-- if nobody got it, nobody scores.
+create or replace function public.judge_hum(p_game_question_id uuid, p_guesser_id uuid)
+returns void
+language plpgsql security definer set search_path = public as $$
+declare
+  gq public.game_questions;
+begin
+  select * into gq from public.game_questions where id = p_game_question_id;
+  if gq.id is null or not public.is_game_host(gq.game_id) then raise exception 'Only the host can do that'; end if;
+  if exists (select 1 from public.answers where game_question_id = gq.id) then return; end if;
+  if p_guesser_id = gq.player_id or (p_guesser_id is not null and not exists (
+      select 1 from public.game_players where id = p_guesser_id and game_id = gq.game_id)) then
+    raise exception 'Pick someone else in the game';
+  end if;
+  insert into public.answers (game_id, game_question_id, player_id, is_correct, points)
+  values (gq.game_id, gq.id, gq.player_id, p_guesser_id is not null, case when p_guesser_id is null then 0 else 1 end);
+  if p_guesser_id is not null then
+    insert into public.answers (game_id, game_question_id, player_id, is_correct, points)
+    values (gq.game_id, gq.id, p_guesser_id, true, 2);
+  end if;
+  insert into public.seen_questions (profile_id, question_id)
+  select profile_id, gq.question_id from public.game_players where id = gq.player_id
+  on conflict do nothing;
+end $$;
+revoke execute on function public.judge_hum(uuid, uuid) from public, anon;
+grant execute on function public.judge_hum(uuid, uuid) to authenticated;
 
 -- Ends a bonus mini-game. Points are the goals scored in the kicks recorded for it (at most 3),
 -- awarded once, by the player's own phone or the host.
