@@ -198,16 +198,30 @@ create table if not exists public.seen_questions (
 );
 
 -- Keep each player's score and streak in step with their answers and event points.
+-- Streaks: every 3 correct answers in a row (3, 6, 9 …) the player earns a bonus mini-game.
+-- settings.streak_every can change the 3.
 create or replace function public.apply_answer() returns trigger
 language plpgsql security definer set search_path = public as $$
+declare
+  new_streak int;
+  every int;
 begin
   update public.game_players gp set
     score       = gp.score + new.points,
     streak      = case when new.is_correct then gp.streak + 1 else 0 end,
     best_streak = greatest(gp.best_streak, case when new.is_correct then gp.streak + 1 else 0 end)
-  where gp.id = new.player_id;
+  where gp.id = new.player_id
+  returning streak into new_streak;
   if new.stolen_from is not null and new.points > 0 then
     update public.game_players set score = greatest(0, score - new.points) where id = new.stolen_from;
+  end if;
+  select greatest(2, coalesce((settings->>'streak_every')::int, 3)) into every
+  from public.games where id = new.game_id;
+  if new.is_correct and new_streak > 0 and new_streak % every = 0 then
+    insert into public.game_events (game_id, player_id, type, payload)
+    values (new.game_id, new.player_id, 'streak', jsonb_build_object(
+      'streak', new_streak, 'game_question_id', new.game_question_id,
+      'game', (array['penalties'])[1]));
   end if;
   return new;
 end $$;
@@ -808,7 +822,8 @@ begin
     'requests', case when is_host then coalesce((
       select jsonb_agg(jsonb_build_object('id', r.id, 'name', p.display_name, 'age', p.age) order by r.created_at)
       from public.device_requests r join public.profiles p on p.id = r.profile_id
-      where r.game_id = g.id and r.status = 'pending'), '[]') else '[]' end
+      where r.game_id = g.id and r.status = 'pending'), '[]') else '[]' end,
+    'bonus', public.current_bonus(g.id)
   ) into result;
   return result;
 end $$;
@@ -832,6 +847,54 @@ revoke execute on function public.start_game(uuid), public.reveal_answer(uuid), 
   public.game_state(uuid), public.show_choices(uuid) from public, anon;
 grant execute on function public.start_game(uuid), public.reveal_answer(uuid), public.next_question(uuid),
   public.game_state(uuid), public.show_choices(uuid) to authenticated;
+
+-- Ends a bonus mini-game. Points are the goals scored in the kicks recorded for it (at most 3),
+-- awarded once, by the player's own phone or the host.
+create or replace function public.finish_bonus(p_streak_event_id bigint)
+returns int
+language plpgsql security definer set search_path = public as $$
+declare
+  ev public.game_events;
+  pts int;
+begin
+  select * into ev from public.game_events where id = p_streak_event_id and type = 'streak';
+  if ev.id is null then raise exception 'No such bonus'; end if;
+  if not (public.is_game_host(ev.game_id) or exists (
+      select 1 from public.game_players where id = ev.player_id and profile_id in (select public.my_profile_ids()))) then
+    raise exception 'Not your bonus';
+  end if;
+  if exists (select 1 from public.game_events where type = 'bonus' and (payload->>'streak_event_id')::bigint = ev.id) then
+    return 0;
+  end if;
+  select least(3, count(*)) into pts from public.game_events
+  where game_id = ev.game_id and type = 'bonus_kick'
+    and (payload->>'streak_event_id')::bigint = ev.id and (payload->>'goal')::boolean;
+  insert into public.game_events (game_id, player_id, type, points, payload)
+  values (ev.game_id, ev.player_id, 'bonus', pts, jsonb_build_object('streak_event_id', ev.id, 'game', ev.payload->>'game'));
+  return pts;
+end $$;
+
+revoke execute on function public.finish_bonus(bigint) from public, anon;
+grant execute on function public.finish_bonus(bigint) to authenticated;
+
+-- The bonus for the question on screen, if the last answer earned one.
+create or replace function public.current_bonus(p_game_id uuid) returns jsonb
+language sql stable security definer set search_path = public as $$
+  select jsonb_build_object(
+    'id', ev.id, 'player_id', ev.player_id, 'streak', (ev.payload->>'streak')::int, 'game', ev.payload->>'game',
+    'kicks', coalesce((select jsonb_agg(k.payload order by k.id) from public.game_events k
+                       where k.game_id = ev.game_id and k.type = 'bonus_kick'
+                         and (k.payload->>'streak_event_id')::bigint = ev.id), '[]'),
+    'points', (select b.points from public.game_events b
+               where b.game_id = ev.game_id and b.type = 'bonus' and (b.payload->>'streak_event_id')::bigint = ev.id))
+  from public.games g
+  join public.game_questions gq on gq.game_id = g.id and gq.seq = g.current_seq
+  join public.game_events ev on ev.game_id = g.id and ev.type = 'streak'
+   and (ev.payload->>'game_question_id')::uuid = gq.id
+  where g.id = p_game_id
+  order by ev.id desc limit 1
+$$;
+revoke execute on function public.current_bonus(uuid) from public, anon;
 
 -- ---------------------------------------------------------------------------
 -- Live updates: phones in a game subscribe to these tables

@@ -195,3 +195,19 @@ input, select {
 .judge-btn.no { background: #FF5C5C; }
 .judge-btn:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--ink); }
 .judge-btn:disabled { opacity: 0.5; }
+
+/* Penalty shootout */
+.goal {
+  display: grid; grid-template-columns: repeat(3, 1fr); height: 140px;
+  border: 6px solid var(--ink); border-bottom: none; border-radius: 10px 10px 0 0;
+  background: repeating-linear-gradient(45deg, #fff 0 8px, #e9e3f7 8px 16px);
+}
+.goal-zone {
+  border: none; border-right: 2px dashed rgba(20, 18, 24, 0.25); background: transparent;
+  font-size: 44px; cursor: pointer; color: var(--ink);
+}
+.goal-zone:last-child { border-right: none; }
+.goal-zone:active { background: rgba(76, 201, 240, 0.35); }
+.goal-zone.scored { background: rgba(61, 220, 132, 0.45); }
+.goal-zone.saved { background: rgba(255, 92, 92, 0.45); }
+.kick-tally { display: flex; gap: 10px; font-size: 28px; margin: 0; }

@@ -696,6 +696,8 @@ app.addEventListener('click', (e) => {
     pickMp: () => pickMp(el.dataset.value),
     nextMp,
     revealMp,
+    kick: () => kick(el.dataset.zone),
+    skipBonus,
     shareWatch: () => shareWatch(el.dataset.url, el),
     forget: () => { save(SEEN_KEY, null); el.textContent = 'Done: everyone starts fresh'; el.disabled = true; },
     start: startRound,

@@ -175,6 +175,78 @@ function pickMp(choice) {
   });
 }
 
+// ---------- Streak bonus: penalty shootout ----------
+
+const KICKS = 3;
+const ZONES = ['left', 'middle', 'right'];
+
+// One penalty: the keeper dives a random way, and it's a goal unless they guess the same side.
+function kick(zone) {
+  const b = mp.game.bonus;
+  if (!b || mp.busy || b.kicks.length >= KICKS) return;
+  const dive = ZONES[Math.floor(Math.random() * ZONES.length)];
+  const goal = dive !== zone;
+  mp.lastKick = { zone, dive, goal };
+  mpStep(async () => {
+    const { error } = await sb.from('game_events').insert({
+      game_id: mp.gameId, player_id: b.player_id, type: 'bonus_kick',
+      payload: { streak_event_id: b.id, n: b.kicks.length + 1, zone, dive, goal },
+    });
+    if (error) throw error;
+    await refreshGame();
+    if (mp.game.bonus && mp.game.bonus.kicks.length >= KICKS && mp.game.bonus.points == null) {
+      await rpc('finish_bonus', { p_streak_event_id: b.id });
+      await refreshGame();
+    }
+  });
+}
+
+function skipBonus() {
+  mpStep(async () => { await rpc('finish_bonus', { p_streak_event_id: mp.game.bonus.id }); await refreshGame(); });
+}
+
+function kickTally(kicks) {
+  return `<p class="kick-tally" aria-label="Kicks">${Array.from({ length: KICKS }, (_, i) => {
+    const k = kicks[i];
+    return `<span>${k ? (k.goal ? '⚽' : '🧤') : '○'}</span>`;
+  }).join('')}</p>`;
+}
+
+function bonusPanel(g, player) {
+  const b = g.bonus;
+  const done = b.points != null;
+  const last = b.kicks[b.kicks.length - 1];
+  const head = `<p class="sticker" style="align-self:flex-start;background:var(--orange);font-size:24px;transform:rotate(-2deg)">🔥 ${b.streak} in a row!</p>`;
+  if (done) {
+    return `${head}<div class="card stack" style="gap:6px">
+      <span class="eyebrow">Penalty shootout</span>
+      ${kickTally(b.kicks)}
+      <p style="font-weight:800">${esc(player.name)} scored ${b.points} of ${KICKS}: +${b.points} bonus point${b.points === 1 ? '' : 's'}</p>
+    </div>`;
+  }
+  if (!player.mine) {
+    return `${head}<div class="card stack" style="gap:6px">
+      <span class="eyebrow">Penalty shootout</span>
+      <p style="font-weight:800">${esc(player.name)} is taking penalties…</p>
+      ${kickTally(b.kicks)}
+      ${last ? `<p class="muted" style="font-weight:700">${last.goal ? 'GOAL!' : 'Saved!'}</p>` : ''}
+    </div>`;
+  }
+  const k = mp.lastKick && last && last.zone === mp.lastKick.zone ? last : null;
+  return `${head}
+    <div class="card stack" style="gap:10px">
+      <span class="eyebrow">Penalty shootout · ${KICKS - b.kicks.length} kick${KICKS - b.kicks.length === 1 ? '' : 's'} left</span>
+      <p style="font-weight:700">Tap where to shoot. Beat the keeper for a bonus point each time.</p>
+      <div class="goal" role="group" aria-label="Pick where to shoot">
+        ${ZONES.map((z) => `<button class="goal-zone ${k && k.dive === z ? 'keeper' : ''} ${k && k.zone === z ? (k.goal ? 'scored' : 'saved') : ''}"
+          data-action="kick" data-zone="${z}" ${mp.busy ? 'disabled' : ''} aria-label="Shoot ${z}">
+          ${k && k.dive === z ? '🧤' : ''}${k && k.zone === z && k.goal ? '⚽' : ''}</button>`).join('')}
+      </div>
+      ${k ? `<p style="font-family:var(--display);font-size:26px">${k.goal ? 'GOAL!' : 'Saved!'}</p>` : ''}
+      ${kickTally(b.kicks)}
+    </div>`;
+}
+
 // ---------- Joining ----------
 
 function openJoin() {
@@ -388,9 +460,17 @@ function playScreen(g) {
     body = `<p class="muted" style="font-weight:700">${myTurn ? `Say your answer out loud for ${POINTS_STRAIGHT} points.` : `${esc(player.name)} is answering out loud.`}</p>`;
   }
 
+  const bonus = answer && g.bonus && g.bonus.player_id === q.player_id ? g.bonus : null;
+  if (bonus) body += bonusPanel(g, player);
+
   let footer = '';
   if (answer) {
-    if (g.is_host) footer = `<button class="btn" data-action="nextMp" ${mp.busy ? 'disabled' : ''}>${isLast ? 'See final scores' : 'Next question'}</button>`;
+    if (g.is_host && bonus && bonus.points == null) {
+      footer = `<p class="muted" style="font-weight:700;text-align:center">Waiting for ${esc(player.name)}'s penalties…</p>
+        <button class="link-btn" data-action="skipBonus" style="align-self:center">Skip the bonus</button>`;
+    } else if (g.is_host) {
+      footer = `<button class="btn" data-action="nextMp" ${mp.busy ? 'disabled' : ''}>${isLast ? 'See final scores' : 'Next question'}</button>`;
+    }
   } else {
     if (myTurn && !q.choices_shown && q.choices) {
       footer += `<button class="btn secondary" data-action="choicesMp" ${mp.busy ? 'disabled' : ''}>Show choices (${POINTS_CHOICES} point)</button>`;
