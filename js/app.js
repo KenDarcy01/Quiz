@@ -375,7 +375,7 @@ function hostSetupScreen() {
         <label for="host-seconds">Seconds per question (0 for no timer)</label>
         <input id="host-seconds" name="seconds" type="number" min="0" max="120" step="1" value="${esc(s.seconds)}">
       </div>
-      ${SONG_CLIPS_ALLOWED ? `<label class="check-row"><input type="checkbox" name="songClips" ${s.songClips ? 'checked' : ''}>
+      ${SONG_CLIPS_ALLOWED ? `<label class="check-row"><input type="checkbox" name="songClips" ${s.songClips !== false ? 'checked' : ''}>
         <span>Song clips<br><span class="muted" style="font-size:14px;font-weight:600">Name-that-song rounds, played on your phone</span></span></label>` : ''}
       ${mpNotes()}
       <div class="spacer"></div>

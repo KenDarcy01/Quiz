@@ -114,7 +114,7 @@ function hostGame() {
         grades: difficulty().grades,
         per_player: Number(s.perPlayer) || 10,
         seconds: Number(s.seconds) || 0,
-        song_clips: SONG_CLIPS_ALLOWED && Boolean(s.songClips),
+        song_clips: SONG_CLIPS_ALLOWED && s.songClips !== false,
       },
     });
     await followGame(g.id);
