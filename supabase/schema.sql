@@ -1451,3 +1451,21 @@ begin
     end if;
   end loop;
 end $$;
+
+-- While a challenge is on, the question waits. When it's over (played, refused or called off) the
+-- question's clock starts again, so the player gets their full time.
+create or replace function public.restart_question_after_challenge() returns trigger
+language plpgsql security definer set search_path = public as $$
+begin
+  if old.status in ('pending', 'playing') and new.status in ('refused', 'finished', 'cancelled') then
+    update public.game_questions gq set asked_at = now()
+    from public.games g
+    where g.id = new.game_id and g.status = 'playing' and gq.game_id = g.id and gq.seq = g.current_seq
+      and not exists (select 1 from public.answers a where a.game_question_id = gq.id);
+  end if;
+  return new;
+end $$;
+revoke execute on function public.restart_question_after_challenge() from public, anon, authenticated;
+drop trigger if exists challenges_restart_question on public.challenges;
+create trigger challenges_restart_question after update of status on public.challenges
+  for each row execute function public.restart_question_after_challenge();

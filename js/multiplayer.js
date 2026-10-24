@@ -273,7 +273,9 @@ const BONUS_GAMES = {
   moles: { name: 'Whack-a-mole', icon: '🔨', hit: '🐹', miss: '○', watching: 'is whacking moles…' },
   wheel: { name: 'Prize wheel', icon: '🎡', hit: '⭐', miss: '○', watching: 'is spinning the wheel…' },
 };
-const HOOP_MS = 1400;        // one sweep of the basketball aim, left to right
+const HOOP_MS = 850;         // one sweep of the basketball aim, left to right, on the first shot
+const HOOP_SPEEDUP = 0.8;    // each shot after that sweeps this much quicker
+const HOOP_ZONE = 0.1;       // how far either side of the middle still scores
 const MOLE_SECONDS = 10;
 const MOLES_PER_POINT = 4;
 const WHEEL = [0, 1, 2, 1, 3, 0, 2, 1];  // points on each slice
@@ -327,7 +329,8 @@ function kick(zone) {
 
 // Basketball: the aim sweeps back and forth; shoot while it's in the green middle.
 function hoopAim() {
-  const t = ((Date.now() - (mp.hoopStart || 0)) % (HOOP_MS * 2)) / HOOP_MS;
+  const ms = HOOP_MS * HOOP_SPEEDUP ** (mp.mini?.tries.length || 0);
+  const t = ((Date.now() - (mp.hoopStart || 0)) % (ms * 2)) / ms;
   return t <= 1 ? t : 2 - t;  // 0..1..0
 }
 
@@ -335,8 +338,9 @@ function shoot() {
   const m = miniOpen();
   if (!m) return;
   const aim = hoopAim();
-  const goal = Math.abs(aim - 0.5) <= 0.14;
+  const goal = Math.abs(aim - 0.5) <= HOOP_ZONE;
   mp.lastShot = { aim, goal };
+  mp.hoopStart = Date.now();  // next shot starts from the left, a bit quicker
   m.record([goal], () => ({ aim: Math.round(aim * 100) }));
 }
 
@@ -750,10 +754,23 @@ function duelGameBody(ch) {
 }
 
 // While a duel is on, it takes over every phone: the two players play, everyone else watches.
+// A challenge has been thrown down: the question waits (and its clock restarts) until the duel is done.
+function challengeWaitScreen(g) {
+  return `
+    <div class="topbar"><span class="chip duel-chip">⚔️ Challenge!</span>${myScores(g)}</div>
+    ${challengePanel(g)}
+    <p class="muted" style="font-weight:700;text-align:center">The question is on hold until the challenge is over.</p>
+    ${mpNotes()}
+    <div class="spacer"></div>
+    <details><summary class="eyebrow" style="cursor:pointer">Scores</summary>${scoreboard(g.players)}</details>
+    ${endLink(g)}
+  `;
+}
+
 function duelScreen(g) {
   const ch = g.challenge;
   return `
-    <div class="topbar"><span class="chip duel-chip">⚔️ ${duelKind(ch)}</span></div>
+    <div class="topbar"><span class="chip duel-chip">⚔️ ${duelKind(ch)}</span>${myScores(g)}</div>
     ${duelScores(ch)}
     ${ch.mode === 'game' ? duelGameBody(ch) : buzzerBody(ch)}
     ${mpNotes()}
@@ -980,6 +997,7 @@ function playScreen(g) {
   if (!q) return '<p>Loading…</p>';
   if (mp.clip && mp.clip.qid !== q.id) stopClip();
   if (g.challenge && g.challenge.status === 'playing') return duelScreen(g);
+  if (g.challenge && g.challenge.status === 'pending') return challengeWaitScreen(g);
   const player = mpPlayer(q.player_id) || { name: 'Everyone' };
   const answer = q.answers.find((a) => a.player_id === q.player_id);
   const myTurn = player.mine;

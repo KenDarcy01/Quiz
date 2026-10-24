@@ -223,7 +223,7 @@ input, select {
 
 /* Basketball */
 .hoop-bar { position: relative; height: 56px; border: var(--line); border-radius: 28px; background: var(--card); overflow: hidden; }
-.hoop-zone { position: absolute; left: 36%; width: 28%; top: 0; bottom: 0; background: rgba(61, 220, 132, 0.55); }
+.hoop-zone { position: absolute; left: 40%; width: 20%; top: 0; bottom: 0; background: rgba(61, 220, 132, 0.55); }
 .hoop-ball { position: absolute; top: 50%; font-size: 34px; transform: translate(-50%, -50%); }
 
 /* Whack-a-mole */
