@@ -1007,7 +1007,7 @@ function playScreen(g) {
     ${!myTurn ? `<p class="muted" style="font-weight:700">${esc(player.name)} is choosing…</p>` : ''}`;
   } else if (q.answer) {
     // The host judging someone else's question, or anyone once the answer is shown.
-    body = `<div class="card stack" style="gap:4px"><span class="eyebrow">${q.revealed ? 'Answer' : 'Answer (only you can see this)'}</span><span class="answer-reveal">${esc(q.answer)}</span></div>
+    body = `<div class="card stack" style="gap:4px"><span class="eyebrow">${q.revealed ? 'Answer' : `Answer (${esc(player.name)} can't see this)`}</span><span class="answer-reveal">${esc(q.answer)}</span></div>
       ${q.revealed ? '' : `<p class="muted" style="font-weight:700">${esc(player.name)} says their answer out loud.</p>`}`;
   } else {
     body = `<p class="muted" style="font-weight:700">${myTurn ? `Say your answer out loud for ${POINTS_STRAIGHT} points.` : `${esc(player.name)} is answering out loud.`}</p>`;
@@ -1018,7 +1018,7 @@ function playScreen(g) {
 
   let footer = '';
   if (hum && !answer) {
-    if (g.is_host) {
+    if (q.can_judge) {
       footer = `<p class="judge-q">Who guessed it?</p>
         <div class="row" style="flex-wrap:wrap;gap:8px">
           ${g.players.filter((p) => p.id !== q.player_id).map((p) => `<button class="btn good" style="width:auto;padding:0 16px;min-height:48px;font-size:20px" data-action="humGuess" data-id="${esc(p.id)}" ${mp.busy ? 'disabled' : ''}>${esc(p.name)}</button>`).join('')}
@@ -1036,11 +1036,12 @@ function playScreen(g) {
     if (myTurn && !q.choices_shown && q.choices) {
       footer += `<button class="btn secondary" data-action="choicesMp" ${mp.busy ? 'disabled' : ''}>Show choices (${POINTS_CHOICES} point)</button>`;
     }
-    if (g.is_host && !q.choices_shown) {
-      // On a question for someone on the host's own phone, the answer stays hidden until they've said theirs.
-      footer += q.answer
-        ? judgeButtons(player.name, 'markRight', 'markWrong', mp.busy)
-        : `<button class="btn" data-action="revealMp" ${mp.busy ? 'disabled' : ''}>Show answer</button>`;
+    if (!q.choices_shown) {
+      // Anyone on another phone marks a spoken answer. With everyone on one phone, show the answer and
+      // mark it there.
+      if (q.can_judge) footer += judgeButtons(player.name, 'markRight', 'markWrong', mp.busy);
+      else if (g.is_host && !q.others_can_judge) footer += `<button class="btn" data-action="revealMp" ${mp.busy ? 'disabled' : ''}>Show answer</button>`;
+      else if (myTurn) footer += '<p class="muted" style="font-weight:700;text-align:center">Someone else will mark your answer.</p>';
     }
     if (g.is_host) footer += `<button class="link-btn" data-action="nextMp" style="align-self:center">Skip this question</button>`;
   }

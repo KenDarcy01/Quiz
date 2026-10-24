@@ -304,9 +304,9 @@ begin
   where code = upper(trim(p_code)) and status <> 'finished'
   order by created_at desc limit 1;
   if g.id is null then raise exception 'No game with code %', upper(trim(p_code)); end if;
-  insert into public.game_players (game_id, profile_id, seat)
-  values (g.id, p_profile_id, (select count(*) from public.game_players where game_id = g.id))
-  on conflict (game_id, profile_id) do update set left_at = null
+  insert into public.game_players (game_id, profile_id, seat, joined_by)
+  values (g.id, p_profile_id, (select count(*) from public.game_players where game_id = g.id), auth.uid())
+  on conflict (game_id, profile_id) do update set left_at = null, joined_by = excluded.joined_by
   returning * into p;
   insert into public.game_events (game_id, player_id, type) values (g.id, p.id, 'join');
   return p;
@@ -336,7 +336,11 @@ begin
          and p_steal_from is distinct from gq.player_id) then
     raise exception 'Can only steal from the player whose question it is';
   end if;
-  if not public.is_game_host(gq.game_id) then
+  select * into a from public.answers where game_question_id = gq.id and player_id = p_player_id;
+  if a.id is not null then return a; end if;  -- someone already marked it
+  if p_player_id = gq.player_id and not public.controls_player(p_player_id) and public.is_game_member(gq.game_id) then
+    null;  -- another player marking a spoken answer
+  elsif not public.is_game_host(gq.game_id) then
     if not exists (select 1 from public.game_players
                    where id = p_player_id and profile_id in (select public.my_profile_ids())) then
       raise exception 'Not allowed to answer for that player';
@@ -505,9 +509,9 @@ begin
   if p_approve then
     insert into public.profile_devices (profile_id, user_id, approved_by)
     values (r.profile_id, r.user_id, auth.uid()) on conflict do nothing;
-    insert into public.game_players (game_id, profile_id, seat)
-    values (r.game_id, r.profile_id, (select count(*) from public.game_players where game_id = r.game_id))
-    on conflict (game_id, profile_id) do update set left_at = null;
+    insert into public.game_players (game_id, profile_id, seat, joined_by)
+    values (r.game_id, r.profile_id, (select count(*) from public.game_players where game_id = r.game_id), r.user_id)
+    on conflict (game_id, profile_id) do update set left_at = null, joined_by = excluded.joined_by;
   end if;
   return r;
 end $$;
@@ -663,6 +667,27 @@ end $$;
 
 -- A player's own difficulty as a list of grades; null = the game's difficulty.
 alter table public.game_players add column if not exists grades smallint[];
+-- Whose phone the player is on: the account that added them (the game's creator for players on their
+-- phone, a kid's own device after approval). Players on other phones mark spoken answers.
+alter table public.game_players add column if not exists joined_by uuid references auth.users on delete set null;
+
+-- True when someone in the game is on a different phone from that player, so they can mark their answers.
+create or replace function public.other_phone_in_game(p_player_id uuid) returns boolean
+language sql stable security definer set search_path = public as $$
+  select exists (
+    select 1 from public.game_players gp join public.games g on g.id = gp.game_id
+    join public.game_players x on x.game_id = gp.game_id and x.left_at is null
+    where gp.id = p_player_id and coalesce(x.joined_by, g.host_id) <> coalesce(gp.joined_by, g.host_id))
+$$;
+revoke execute on function public.other_phone_in_game(uuid) from public, anon;
+
+-- True when that player plays on the game creator's phone.
+create or replace function public.on_creator_phone(p_player_id uuid) returns boolean
+language sql stable security definer set search_path = public as $$
+  select coalesce(gp.joined_by = g.host_id, true)
+  from public.game_players gp join public.games g on g.id = gp.game_id where gp.id = p_player_id
+$$;
+revoke execute on function public.on_creator_phone(uuid) from public, anon;
 
 -- Years for an age setting ('6'..'17' or 'adult').
 create or replace function public.age_years(age text) returns smallint
@@ -841,10 +866,9 @@ begin
         'topic', q.topic, 'grade', q.grade, 'text', coalesce(q.media->>'prompt', q.question),
         'media_url', q.media_url, 'media', q.media,
         'asked_at', gq.asked_at, 'revealed', gq.revealed_at is not null,
-        -- The host sees the answer to judge it, except on questions for players on their own phone.
-        'answer', case when (is_host and gq.player_id not in (
-                              select id from public.game_players
-                              where game_id = g.id and profile_id in (select public.my_profile_ids())))
+        -- Anyone except the player answering sees the answer, so they can mark it (not a hum-it song,
+        -- which only the hummer sees). The first mark counts.
+        'answer', case when (not public.controls_player(gq.player_id) and coalesce(q.media->>'mode', '') <> 'hum')
                        or gq.revealed_at is not null
                        or (q.media->>'mode' = 'hum' and public.controls_player(gq.player_id))
                        or exists (select 1 from public.answers a where a.game_question_id = gq.id) then q.answer end,
@@ -852,6 +876,10 @@ begin
         'choices', case when cardinality(q.wrong) > 0 then (
           select jsonb_agg(c order by md5(gq.id::text || c))
           from unnest(array_append(q.wrong, q.answer)) c) end,
+        'can_judge', not public.controls_player(gq.player_id)
+                     -- everyone on one phone: they mark it themselves after showing the answer
+                     or ((gq.revealed_at is not null or q.media->>'mode' = 'hum') and not public.other_phone_in_game(gq.player_id)),
+        'others_can_judge', public.other_phone_in_game(gq.player_id),
         'choices_shown', exists (select 1 from public.game_events e
                                  where e.game_id = g.id and e.type = 'choices'
                                    and (e.payload->>'game_question_id')::uuid = gq.id),
@@ -915,7 +943,7 @@ end $$;
 revoke execute on function public.end_game(uuid) from public, anon;
 grant execute on function public.end_game(uuid) to authenticated;
 
--- Hum-it: the host says who guessed the song. The guesser gets 2 points and the hummer 1;
+-- Hum-it: anyone on another phone from the hummer says who guessed the song. The guesser gets 2 points and the hummer 1;
 -- if nobody got it, nobody scores.
 create or replace function public.judge_hum(p_game_question_id uuid, p_guesser_id uuid)
 returns void
@@ -924,7 +952,10 @@ declare
   gq public.game_questions;
 begin
   select * into gq from public.game_questions where id = p_game_question_id;
-  if gq.id is null or not public.is_game_host(gq.game_id) then raise exception 'Only the host can do that'; end if;
+  if gq.id is null or not public.is_game_member(gq.game_id)
+     or (public.controls_player(gq.player_id) and public.other_phone_in_game(gq.player_id)) then
+    raise exception 'Someone else marks this one';
+  end if;
   if exists (select 1 from public.answers where game_question_id = gq.id) then return; end if;
   if p_guesser_id = gq.player_id or (p_guesser_id is not null and not exists (
       select 1 from public.game_players where id = p_guesser_id and game_id = gq.game_id)) then
