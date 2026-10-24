@@ -228,6 +228,13 @@ function endMp() {
   mpStep(async () => { await rpc('end_game', { p_game_id: mp.gameId }); await refreshGame(); });
 }
 
+function changeMark(right) {
+  mpStep(async () => {
+    await rpc('change_mark', { p_game_question_id: mp.game.question.id, p_is_correct: right });
+    await refreshGame();
+  });
+}
+
 function revealMp() {
   mpStep(async () => { await rpc('reveal_answer', { p_game_id: mp.gameId }); await refreshGame(); });
 }
@@ -999,7 +1006,8 @@ function playScreen(g) {
     body = `
       <div class="card stack" style="gap:4px"><span class="eyebrow">Answer</span><span class="answer-reveal">${esc(q.answer || '')}</span></div>
       ${answer.response ? `<p class="muted" style="font-weight:700">${esc(player.name)} picked ${esc(answer.response)}</p>` : ''}
-      <p class="sticker" style="align-self:flex-start;background:${answer.is_correct ? 'var(--lime)' : 'var(--wrong)'};font-size:26px;transform:rotate(-2deg)">${msg}</p>`;
+      <p class="sticker" style="align-self:flex-start;background:${answer.is_correct ? 'var(--lime)' : 'var(--wrong)'};font-size:26px;transform:rotate(-2deg)">${msg}</p>
+      ${answer.response ? '' : markNote(q, answer, player, myTurn)}`;
   } else if (q.choices_shown && q.choices) {
     body = `<div class="choices" role="group" aria-label="Answers">
       ${q.choices.map((c) => `<button class="choice" data-action="pickMp" data-value="${esc(c)}" ${myTurn && !mp.busy ? '' : 'disabled'}>${esc(c)}</button>`).join('')}
@@ -1049,6 +1057,7 @@ function playScreen(g) {
   return `
     <div class="topbar">
       <span class="chip" style="background:${COLOURS[g.players.indexOf(player) % 4] || 'var(--card)'}">${myTurn ? 'Your turn' : esc(player.name)}</span>
+      ${myScores(g)}
       ${left !== null && !answer ? `<div id="mp-timer" class="timer ${left <= 5 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>` : ''}
     </div>
     <div class="row" style="justify-content:space-between">
@@ -1074,6 +1083,28 @@ function endLink(g) {
   return g.is_host || isFullAccount()
     ? '<button class="link-btn" data-action="endMp" style="align-self:center">End game</button>'
     : '<button class="link-btn" data-action="leaveMp" style="align-self:center">Leave game</button>';
+}
+
+// Who marked a spoken answer, whether it was changed, and a way to fix a wrong tap.
+function markNote(q, answer, player, myTurn) {
+  const result = answer.is_correct ? `Correct (+${answer.points})` : 'Wrong';
+  let note = '';
+  if (answer.changed) {
+    note = `<p class="notice" role="status">✏️ ${myTurn ? 'Your answer was' : `${esc(player.name)}'s answer was`} changed to <b>${result}</b>${answer.marked_by ? ` by ${esc(answer.marked_by)}` : ''}.</p>`;
+  } else if (answer.marked_by) {
+    note = `<p class="muted" style="font-weight:700">Marked by ${esc(answer.marked_by)}</p>`;
+  }
+  const fix = q.can_judge
+    ? `<button class="link-btn" data-action="changeMark" data-right="${answer.is_correct ? '' : '1'}" style="align-self:flex-start">Oops, change to ${answer.is_correct ? 'Wrong' : 'Correct'}</button>`
+    : '';
+  return note + fix;
+}
+
+// This phone's players and their scores, always in view.
+function myScores(g) {
+  const mine = g.players.filter((p) => p.mine);
+  if (!mine.length) return '';
+  return `<span class="chip my-score" aria-label="Your score">${mine.map((p) => `${mine.length > 1 ? `${esc(p.name)} ` : 'You: '}<b>${p.score}</b>`).join(' · ')}</span>`;
 }
 
 function finishedScreen(g) {

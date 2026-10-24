@@ -703,6 +703,7 @@ app.addEventListener('click', (e) => {
     humGuess: () => humGuess(el.dataset.id),
     playClip,
     endMp,
+    changeMark: () => changeMark(Boolean(el.dataset.right)),
     shoot,
     startMoles,
     whack: () => whack(el.dataset.cell),

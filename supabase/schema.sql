@@ -356,8 +356,9 @@ begin
               when p_steal_from is not null then 2
               when p_used_choices then 1 else 2 end;
   insert into public.answers (game_id, game_question_id, player_id, response, used_choices,
-                              is_correct, points, stolen_from)
-  values (gq.game_id, gq.id, p_player_id, p_response, p_used_choices, correct, pts, p_steal_from)
+                              is_correct, points, stolen_from, marked_by)
+  values (gq.game_id, gq.id, p_player_id, p_response, p_used_choices, correct, pts, p_steal_from,
+          case when p_response is null then public.marker_name() end)
   returning * into a;
   insert into public.seen_questions (profile_id, question_id)
   select profile_id, gq.question_id from public.game_players where id = p_player_id
@@ -671,6 +672,20 @@ alter table public.game_players add column if not exists grades smallint[];
 -- phone, a kid's own device after approval). Players on other phones mark spoken answers.
 alter table public.game_players add column if not exists joined_by uuid references auth.users on delete set null;
 
+-- Who marked an answer, shown to the player; and whether the mark was changed afterwards.
+alter table public.answers add column if not exists marked_by text;
+alter table public.answers add column if not exists changed boolean not null default false;
+
+-- The name of whoever is using this phone: their own profile, or the child a kid's device is linked to.
+create or replace function public.marker_name() returns text
+language sql stable security definer set search_path = public as $$
+  select coalesce(
+    (select display_name from public.profiles where user_id = auth.uid()),
+    (select p.display_name from public.profile_devices d join public.profiles p on p.id = d.profile_id
+     where d.user_id = auth.uid() order by d.created_at limit 1))
+$$;
+revoke execute on function public.marker_name() from public, anon;
+
 -- True when someone in the game is on a different phone from that player, so they can mark their answers.
 create or replace function public.other_phone_in_game(p_player_id uuid) returns boolean
 language sql stable security definer set search_path = public as $$
@@ -886,7 +901,7 @@ begin
         'answers', coalesce((
           select jsonb_agg(jsonb_build_object('player_id', a.player_id, 'response', a.response,
                                               'used_choices', a.used_choices, 'is_correct', a.is_correct,
-                                              'points', a.points))
+                                              'points', a.points, 'marked_by', a.marked_by, 'changed', a.changed))
           from public.answers a where a.game_question_id = gq.id), '[]'))
       from public.game_questions gq join public.questions q on q.id = gq.question_id
       where gq.game_id = g.id and gq.seq = g.current_seq),
@@ -942,6 +957,67 @@ begin
 end $$;
 revoke execute on function public.end_game(uuid) from public, anon;
 grant execute on function public.end_game(uuid) to authenticated;
+
+-- Changes the mark on a spoken answer (someone hit the wrong button), while the question is on screen.
+-- Anyone who could mark it can change it. Score, streak and any unplayed streak bonus follow.
+create or replace function public.change_mark(p_game_question_id uuid, p_is_correct boolean) returns void
+language plpgsql security definer set search_path = public as $$
+declare
+  gq public.game_questions;
+  g public.games;
+  a public.answers;
+  pts smallint;
+  new_streak int;
+  every int;
+begin
+  select * into gq from public.game_questions where id = p_game_question_id;
+  select * into g from public.games where id = gq.game_id;
+  if gq.id is null or not public.is_game_member(g.id) then raise exception 'Not in this game'; end if;
+  if g.current_seq <> gq.seq then raise exception 'That question has finished'; end if;
+  if public.controls_player(gq.player_id) and public.other_phone_in_game(gq.player_id) then
+    raise exception 'Someone else marks your answer';
+  end if;
+  select * into a from public.answers where game_question_id = gq.id and player_id = gq.player_id for update;
+  if a.id is null or a.response is not null then raise exception 'Only spoken answers can be changed'; end if;
+  if a.is_correct = p_is_correct then return; end if;
+  pts := case when p_is_correct then 2 else 0 end;
+  update public.answers set is_correct = p_is_correct, points = pts, marked_by = public.marker_name(), changed = true
+  where id = a.id;
+
+  -- Streak: correct answers since the last wrong one.
+  select count(*) into new_streak from public.answers x
+  where x.game_id = g.id and x.player_id = gq.player_id
+    and x.answered_at > coalesce((select max(y.answered_at) from public.answers y
+                                  where y.game_id = g.id and y.player_id = gq.player_id and not y.is_correct), '-infinity');
+  update public.game_players set score = greatest(0, score + pts - a.points), streak = new_streak,
+    best_streak = greatest(best_streak, new_streak)
+  where id = gq.player_id;
+
+  every := greatest(2, coalesce((g.settings->>'streak_every')::int, 3));
+  if not p_is_correct then
+    -- Take back a streak bonus this answer earned, unless it's already been played.
+    delete from public.game_events e
+    where e.game_id = g.id and e.type in ('streak', 'bonus_kick')
+      and coalesce((e.payload->>'game_question_id')::uuid, (select (s2.payload->>'game_question_id')::uuid
+          from public.game_events s2 where s2.id = (e.payload->>'streak_event_id')::bigint)) = gq.id
+      and not exists (select 1 from public.game_events b where b.type = 'bonus' and b.game_id = g.id
+                      and (b.payload->>'streak_event_id')::bigint in (
+                        select s3.id from public.game_events s3 where s3.type = 'streak'
+                          and (s3.payload->>'game_question_id')::uuid = gq.id));
+  elsif new_streak > 0 and new_streak % every = 0 and not exists (
+      select 1 from public.game_events e where e.game_id = g.id and e.type = 'streak'
+        and (e.payload->>'game_question_id')::uuid = gq.id) then
+    insert into public.game_events (game_id, player_id, type, payload)
+    values (g.id, gq.player_id, 'streak', jsonb_build_object(
+      'streak', new_streak, 'game_question_id', gq.id,
+      'game', (array['penalties', 'hoops', 'moles', 'wheel'])[1 + floor(random() * 4)::int]));
+  end if;
+  insert into public.game_events (game_id, player_id, type, payload)
+  values (g.id, gq.player_id, 'mark_changed',
+          jsonb_build_object('game_question_id', gq.id, 'is_correct', p_is_correct, 'by', public.marker_name()));
+end $$;
+revoke execute on function public.change_mark(uuid, boolean) from public, anon;
+grant execute on function public.change_mark(uuid, boolean) to authenticated;
 
 -- Hum-it: anyone on another phone from the hummer says who guessed the song. The guesser gets 2 points and the hummer 1;
 -- if nobody got it, nobody scores.
