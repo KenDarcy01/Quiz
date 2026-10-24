@@ -15,6 +15,8 @@
 --   seen_questions which questions a profile has already had, so they don't repeat
 --
 -- Watchers follow a game through watch_game(watch_key) without signing in.
+--   profile_devices  kids' own devices linked to their child profile
+--   device_requests  a device asking to play as a child, waiting for the parent or host
 
 create extension if not exists pgcrypto with schema extensions;
 
@@ -398,6 +400,105 @@ $$;
 
 grant execute on function public.watch_game(text) to anon, authenticated;
 
+-- Kids on their own devices: the device signs in anonymously, the child taps their name from the
+-- host's family list, and the parent (or host) approves once. The device then acts as that child
+-- in every game until the parent removes it.
+create table if not exists public.profile_devices (
+  profile_id  uuid not null references public.profiles on delete cascade,
+  user_id     uuid not null references auth.users on delete cascade,
+  approved_by uuid references auth.users on delete set null,
+  created_at  timestamptz not null default now(),
+  primary key (profile_id, user_id)
+);
+create index if not exists profile_devices_user on public.profile_devices (user_id);
+
+create table if not exists public.device_requests (
+  id          uuid primary key default gen_random_uuid(),
+  game_id     uuid not null references public.games on delete cascade,
+  profile_id  uuid not null references public.profiles on delete cascade,
+  user_id     uuid not null default auth.uid() references auth.users on delete cascade,
+  status      text not null default 'pending' check (status in ('pending', 'approved', 'declined')),
+  created_at  timestamptz not null default now(),
+  decided_at  timestamptz
+);
+create unique index if not exists device_requests_pending
+  on public.device_requests (game_id, profile_id, user_id) where status = 'pending';
+
+alter table public.profile_devices enable row level security;
+alter table public.device_requests enable row level security;
+
+-- A linked device counts as one of the child's own profiles.
+create or replace function public.my_profile_ids() returns setof uuid
+language sql stable security definer set search_path = public as $$
+  select id from public.profiles where owner_id = auth.uid() or user_id = auth.uid()
+  union
+  select profile_id from public.profile_devices where user_id = auth.uid()
+$$;
+
+-- The child profiles a device can pick from: those managed by the host or anyone already in the game.
+create or replace function public.family_profiles(p_code text)
+returns table (id uuid, display_name text, age text, colour text, avatar text)
+language sql stable security definer set search_path = public as $$
+  select distinct p.id, p.display_name, p.age, p.colour, p.avatar
+  from public.games g
+  join public.profiles p on p.user_id is null
+   and (p.owner_id = g.host_id or p.owner_id in (
+        select o.owner_id from public.game_players gp join public.profiles o on o.id = gp.profile_id
+        where gp.game_id = g.id))
+  where g.code = upper(trim(p_code)) and g.status <> 'finished' and auth.uid() is not null
+$$;
+
+-- A device asks to play as a child. Returns the request, which the parent or host then approves.
+create or replace function public.request_device(p_code text, p_profile_id uuid)
+returns public.device_requests
+language plpgsql security definer set search_path = public as $$
+declare
+  g public.games;
+  r public.device_requests;
+begin
+  if auth.uid() is null then raise exception 'Not signed in'; end if;
+  select * into g from public.games
+  where code = upper(trim(p_code)) and status <> 'finished' order by created_at desc limit 1;
+  if g.id is null then raise exception 'No game with code %', upper(trim(p_code)); end if;
+  if not exists (select 1 from public.family_profiles(p_code) f where f.id = p_profile_id) then
+    raise exception 'That name is not in this game''s family';
+  end if;
+  insert into public.device_requests (game_id, profile_id, user_id) values (g.id, p_profile_id, auth.uid())
+  on conflict (game_id, profile_id, user_id) where status = 'pending' do update set created_at = now()
+  returning * into r;
+  return r;
+end $$;
+
+-- The child's parent or the host says yes or no. Yes links the device and puts the child in the game.
+create or replace function public.decide_device(p_request_id uuid, p_approve boolean)
+returns public.device_requests
+language plpgsql security definer set search_path = public as $$
+declare
+  r public.device_requests;
+begin
+  select * into r from public.device_requests where id = p_request_id and status = 'pending';
+  if r.id is null then raise exception 'No pending request'; end if;
+  if not (public.is_game_host(r.game_id)
+          or exists (select 1 from public.profiles where id = r.profile_id and owner_id = auth.uid())) then
+    raise exception 'Only the parent or host can approve';
+  end if;
+  update public.device_requests set status = case when p_approve then 'approved' else 'declined' end,
+    decided_at = now() where id = r.id returning * into r;
+  if p_approve then
+    insert into public.profile_devices (profile_id, user_id, approved_by)
+    values (r.profile_id, r.user_id, auth.uid()) on conflict do nothing;
+    insert into public.game_players (game_id, profile_id, seat)
+    values (r.game_id, r.profile_id, (select count(*) from public.game_players where game_id = r.game_id))
+    on conflict (game_id, profile_id) do update set left_at = null;
+  end if;
+  return r;
+end $$;
+
+revoke execute on function public.family_profiles(text), public.request_device(text, uuid),
+  public.decide_device(uuid, boolean) from public, anon;
+grant execute on function public.family_profiles(text), public.request_device(text, uuid),
+  public.decide_device(uuid, boolean) to authenticated;
+
 -- ---------------------------------------------------------------------------
 -- Security rules (row level security)
 -- ---------------------------------------------------------------------------
@@ -482,6 +583,18 @@ create policy "my seen questions" on public.seen_questions for all to authentica
   using (profile_id in (select public.my_profile_ids()))
   with check (profile_id in (select public.my_profile_ids()));
 
+drop policy if exists "read device requests" on public.device_requests;
+create policy "read device requests" on public.device_requests for select to authenticated using (
+  user_id = auth.uid() or public.is_game_host(game_id)
+  or exists (select 1 from public.profiles p where p.id = profile_id and p.owner_id = auth.uid()));
+
+drop policy if exists "parents see linked devices" on public.profile_devices;
+create policy "parents see linked devices" on public.profile_devices for select to authenticated using (
+  user_id = auth.uid() or exists (select 1 from public.profiles p where p.id = profile_id and p.owner_id = auth.uid()));
+drop policy if exists "parents remove devices" on public.profile_devices;
+create policy "parents remove devices" on public.profile_devices for delete to authenticated using (
+  exists (select 1 from public.profiles p where p.id = profile_id and p.owner_id = auth.uid()));
+
 -- ---------------------------------------------------------------------------
 -- Live updates: phones in a game subscribe to these tables
 -- ---------------------------------------------------------------------------
@@ -489,7 +602,7 @@ create policy "my seen questions" on public.seen_questions for all to authentica
 do $$
 declare t text;
 begin
-  foreach t in array array['games', 'game_players', 'game_questions', 'answers', 'game_events'] loop
+  foreach t in array array['games', 'game_players', 'game_questions', 'answers', 'game_events', 'device_requests'] loop
     if not exists (select 1 from pg_publication_tables
                    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
       execute format('alter publication supabase_realtime add table public.%I', t);

@@ -32,6 +32,10 @@ Called from the app with `supabase.rpc(...)`:
 - `join_game(code, profile_id)` adds a player. A parent can join their child's profile.
 - `submit_answer(game_question_id, player_id, is_correct, used_choices, response, steal_from)` records an answer: 2 points straight, 1 with choices, 2 for a steal (taken from the other player). The host marks spoken answers. A player can only answer their own question by sending the choice they picked, and the database checks it.
 
+## Kids on their own devices
+
+A child's phone or tablet signs in anonymously (Supabase **Allow anonymous sign-ins** must be on), types the game code and taps their name from `family_profiles(code)`, which lists the child profiles of the host and the families already in the game. `request_device(code, profile_id)` sends the request, and the parent or host approves it with `decide_device(request_id, true)`. That links the device in `profile_devices` and puts the child in the game. The device then counts as the child in every later game, until the parent removes it. Older kids can sign up with their own email instead.
+
 ## Watching without playing
 
 Anyone with a game's watch link can follow it live in a browser, without the app or a login. The link uses the game's `watch_key`, which is separate from the join code, so it can't be used to join as a player. `watch_game(watch_key)` returns the scoreboard, the question on screen (the answer only after the host reveals it) and recent events like streaks and steals. The watch page will load that, then listen on a Realtime broadcast channel for the host's updates. The host can switch watching off with `settings.watchers = false`.
