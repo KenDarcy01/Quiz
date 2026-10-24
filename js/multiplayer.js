@@ -9,7 +9,7 @@ const mp = {
   game: null,      // the latest game_state()
   code: '',        // join screen: the code typed in
   family: null,    // join screen: names to pick from
-  requestId: null, // waiting for a parent or host to approve this device
+  requestId: null, // waiting for a parent or the game's creator to approve this device
   busy: false,
   error: '',
   channel: null,
@@ -105,7 +105,7 @@ function leaveGame() {
 // ---------- Hosting ----------
 
 function hostGame() {
-  if (!isFullAccount()) { auth.message = 'Sign in to host a game.'; state.screen = 'account'; render(); return; }
+  if (!isFullAccount()) { auth.message = 'Sign in to set up a game.'; state.screen = 'account'; render(); return; }
   mpStep(async () => {
     const s = state.settings;
     const g = await rpc('create_game', {
@@ -205,7 +205,7 @@ function stopClip() {
 }
 
 function clipPanel(g, q, done) {
-  if (!g.is_host) return '<p class="muted" style="font-weight:700">🎧 Listen to the clip on the quiz master\'s phone.</p>';
+  if (!g.is_host) return `<p class="muted" style="font-weight:700">🎧 Listen to the clip on ${esc(g.host_name || 'the main')}'s phone.</p>`;
   prepareClip(q);
   const c = mp.clip;
   if (c.status === 'loading') return '<p class="muted" style="font-weight:700">Loading the clip…</p>';
@@ -221,6 +221,11 @@ function humGuess(guesserId) {
     await rpc('judge_hum', { p_game_question_id: mp.game.question.id, p_guesser_id: guesserId || null });
     await refreshGame();
   });
+}
+
+function endMp() {
+  if (!confirm('End the game for everyone and show the final scores?')) return;
+  mpStep(async () => { await rpc('end_game', { p_game_id: mp.gameId }); await refreshGame(); });
 }
 
 function revealMp() {
@@ -748,6 +753,7 @@ function duelScreen(g) {
     ${g.is_host ? '<button class="link-btn" data-action="cancelChallenge" style="align-self:center">Call off the duel</button>' : ''}
     <div class="spacer"></div>
     <details><summary class="eyebrow" style="cursor:pointer">Scores</summary>${scoreboard(g.players)}</details>
+    ${endLink(g)}
   `;
 }
 
@@ -815,7 +821,7 @@ function waitForApproval(request) {
     if (data.status === 'declined') {
       clearInterval(timer);
       mp.requestId = null;
-      mp.error = 'The quiz master said no this time.';
+      mp.error = 'Not this time. Ask a grown-up to try again.';
       state.screen = 'join';
       render();
     }
@@ -902,7 +908,7 @@ function joinScreen() {
             <span class="muted player-age">${esc(ageLabel(p.age))}</span></span>
           </button>`).join('')}
       </div>
-      ${!isFullAccount() ? '<p class="muted" style="font-size:15px">The quiz master will be asked to say it\'s you.</p>' : ''}
+      ${!isFullAccount() ? '<p class="muted" style="font-size:15px">A grown-up in the game will be asked to say it\'s you.</p>' : ''}
     ` : `
       <form id="join" class="stack" style="gap:14px">
         <label for="join-code">Game code</label>
@@ -917,7 +923,7 @@ function waitingScreen() {
   return `
     <div class="pass">
       <p class="eyebrow">Game ${esc(mp.code)}</p>
-      <h1>Waiting for the quiz master</h1>
+      <h1>Waiting for a grown-up to let you in</h1>
       <p style="font-weight:700">They'll get a message to say it's you.</p>
     </div>
     <button class="btn secondary" data-action="leaveMp">Cancel</button>
@@ -933,7 +939,7 @@ function lobbyScreen(g) {
     <div class="pass" style="gap:6px">
       <p class="eyebrow">Game code</p>
       <h1 class="sticker" style="background:var(--orange);font-size:56px;letter-spacing:6px;transform:rotate(-2deg)">${esc(g.code)}</h1>
-      <p style="font-weight:700">${g.is_host ? 'Everyone opens the app, taps Join a game and types this code.' : `Waiting for ${esc(g.host_name || 'the quiz master')} to start.`}</p>
+      <p style="font-weight:700">${g.is_host ? 'Everyone opens the app, taps Join a game and types this code.' : `Waiting for ${esc(g.host_name || 'the game')} to start.`}</p>
     </div>
     ${mpNotes()}
     ${g.requests.length ? `<section class="stack">
@@ -1058,7 +1064,15 @@ function playScreen(g) {
     ${challengeCards(g)}
     <div class="spacer"></div>
     <details><summary class="eyebrow" style="cursor:pointer">Scores</summary>${scoreboard(g.players, q.player_id)}</details>
+    ${endLink(g)}
   `;
+}
+
+// Anyone playing on their own account can end the game for everyone; kids' devices can leave.
+function endLink(g) {
+  return g.is_host || isFullAccount()
+    ? '<button class="link-btn" data-action="endMp" style="align-self:center">End game</button>'
+    : '<button class="link-btn" data-action="leaveMp" style="align-self:center">Leave game</button>';
 }
 
 function finishedScreen(g) {

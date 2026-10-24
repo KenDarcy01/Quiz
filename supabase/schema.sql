@@ -894,6 +894,27 @@ revoke execute on function public.start_game(uuid), public.reveal_answer(uuid), 
 grant execute on function public.start_game(uuid), public.reveal_answer(uuid), public.next_question(uuid),
   public.game_state(uuid), public.show_choices(uuid) to authenticated;
 
+-- Ends the game early; everyone goes to the final scores.
+create or replace function public.end_game(p_game_id uuid) returns public.games
+language plpgsql security definer set search_path = public as $$
+declare
+  g public.games;
+begin
+  select * into g from public.games where id = p_game_id for update;
+  -- Anyone playing with their own account can end it (not kids' linked devices).
+  if g.id is null or not (g.host_id = auth.uid() or (public.is_game_member(g.id) and public.is_full_account())) then
+    raise exception 'Ask a grown-up in the game to end it';
+  end if;
+  if g.status = 'finished' then return g; end if;
+  update public.challenges set status = 'cancelled', finished_at = now()
+  where game_id = g.id and status in ('pending', 'playing');
+  update public.games set status = 'finished', finished_at = now(), active_player_id = null
+  where id = g.id returning * into g;
+  return g;
+end $$;
+revoke execute on function public.end_game(uuid) from public, anon;
+grant execute on function public.end_game(uuid) to authenticated;
+
 -- Hum-it: the host says who guessed the song. The guesser gets 2 points and the hummer 1;
 -- if nobody got it, nobody scores.
 create or replace function public.judge_hum(p_game_question_id uuid, p_guesser_id uuid)

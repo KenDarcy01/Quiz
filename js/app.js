@@ -290,7 +290,7 @@ function homeScreen() {
       <h2 class="eyebrow" style="font-family:var(--body)">How do you want to play?</h2>
       ${mode('local', 'var(--cyan)', 'One phone', 'Pass the phone round the table. No sign-in needed.')}
       ${sb ? mode('hostSetup', 'var(--orange)', 'Everyone on their own phone', 'You run the quiz, everyone joins with a code.') : ''}
-      ${sb ? mode('joinMp', 'var(--lime)', 'Join a game', 'Got a code from the quiz master? Type it in.') : ''}
+      ${sb ? mode('joinMp', 'var(--lime)', 'Join a game', 'Got a game code? Type it in.') : ''}
     </section>
     ${sourceNotice()}
   `;
@@ -578,7 +578,7 @@ function signedOutScreen() {
   const title = { signin: 'Sign in', signup: 'Create account', reset: 'Forgot password' }[m];
   return `
     <div class="topbar"><h1 style="font-size:36px">${title}</h1><button class="link-btn" data-action="cancel">Back</button></div>
-    <p class="muted">An account lets you host games on everyone's phones and keep scores. You don't need one to play pass-the-phone.</p>
+    <p class="muted">An account lets you set up games on everyone's phones and keep scores. You don't need one to play pass-the-phone.</p>
     ${authNotes()}
     <form id="auth" class="stack" style="gap:14px">
       ${m === 'signup' ? `<div class="stack" style="gap:6px"><label for="auth-name">Your name</label>
@@ -702,6 +702,7 @@ app.addEventListener('click', (e) => {
     skipBonus,
     humGuess: () => humGuess(el.dataset.id),
     playClip,
+    endMp,
     shoot,
     startMoles,
     whack: () => whack(el.dataset.cell),

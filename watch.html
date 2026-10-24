@@ -97,7 +97,7 @@
     }
 
     function view(g) {
-      if (!g) return '<div class="pass"><h1>This game can\'t be watched</h1><p style="font-weight:700">The link may be wrong, or the quiz master has turned watching off.</p></div>';
+      if (!g) return '<div class="pass"><h1>This game can\'t be watched</h1><p style="font-weight:700">The link may be wrong, or watching has been turned off for this game.</p></div>';
       const head = `<div class="topbar"><span class="eyebrow">Watching game ${esc(g.code)}</span><span class="chip" style="background:var(--card)">Live</span></div>`;
       if (g.status === 'lobby') {
         return `${head}<div class="pass"><h1>Starting soon</h1><p style="font-weight:700">${g.players.length} player${g.players.length === 1 ? '' : 's'} in the lobby.</p></div>${scoreboard(g.players)}`;
