@@ -46,7 +46,7 @@ create index if not exists questions_topic on public.questions (topic) where act
 
 -- Turns an age setting into a range of years, the same way the app does.
 create or replace function public.age_range(band text, out age_min smallint, out age_max smallint)
-language plpgsql immutable as $$
+language plpgsql immutable set search_path = '' as $$
 declare
   v text := lower(trim(coalesce(band, '')));
   m text[];
@@ -63,7 +63,7 @@ begin
 end $$;
 
 create or replace function public.questions_set_age() returns trigger
-language plpgsql as $$
+language plpgsql set search_path = '' as $$
 begin
   select r.age_min, r.age_max into new.age_min, new.age_max from public.age_range(new.age_band) r;
   return new;
@@ -345,6 +345,14 @@ begin
   on conflict do nothing;
   return a;
 end $$;
+
+-- Only signed-in people can call the game actions; trigger functions aren't callable at all.
+revoke execute on function public.create_game(jsonb), public.join_game(text, uuid),
+  public.submit_answer(uuid, uuid, boolean, boolean, text, uuid) from public, anon;
+grant execute on function public.create_game(jsonb), public.join_game(text, uuid),
+  public.submit_answer(uuid, uuid, boolean, boolean, text, uuid) to authenticated;
+revoke execute on function public.handle_new_user(), public.apply_answer(),
+  public.apply_event_points() from public, anon, authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Security rules (row level security)
