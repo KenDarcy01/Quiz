@@ -349,6 +349,9 @@ begin
       raise exception 'It is not your question';
     end if;
     if p_response is null then raise exception 'Pick an answer'; end if;
+  end if;
+  -- A picked answer is always checked here, whoever's phone sent it.
+  if p_response is not null then
     select lower(trim(p_response)) = lower(trim(q.answer)) into correct
     from public.questions q where q.id = gq.question_id;
   end if;
