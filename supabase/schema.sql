@@ -409,7 +409,9 @@ language sql stable security definer set search_path = public as $$
     'events', coalesce((
       select jsonb_agg(e order by e.id) from (
         select id, player_id, type, points, payload, created_at from public.game_events
-        where game_id = g.id and type <> 'join' order by id desc limit 10) e), '[]'))
+        where game_id = g.id and type <> 'join' order by id desc limit 10) e), '[]'),
+    'bonus', public.current_bonus(g.id),
+    'challenge', public.current_challenge(g.id))
   from public.games g
   where g.watch_key = p_key and coalesce((g.settings->>'watchers')::boolean, true)
 $$;

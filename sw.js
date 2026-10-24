@@ -1,6 +1,6 @@
 // Offline support: the app shell is cached on install; question sheets and the database are always fetched fresh
 // (the app keeps its own copy of the last sheet in localStorage).
-const CACHE = 'fq-shell-v18';
+const CACHE = 'fq-shell-v19';
 const SHELL = [
   './',
   'index.html',

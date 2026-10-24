@@ -50,6 +50,52 @@
       </ol>`;
     }
 
+    const GAMES = {
+      penalties: { name: 'Penalty shootout', icon: '⚽', hit: '⚽', miss: '🧤' },
+      hoops: { name: 'Basketball', icon: '🏀', hit: '🏀', miss: '❌' },
+      moles: { name: 'Whack-a-mole', icon: '🔨', hit: '🐹', miss: '○' },
+      wheel: { name: 'Prize wheel', icon: '🎡', hit: '⭐', miss: '○' },
+    };
+    const gameOf = (name) => GAMES[name] || GAMES.penalties;
+    const nameOf = (g, id) => esc((g.players.find((p) => p.id === id) || {}).name || '');
+
+    // A streak bonus being played, or how it went.
+    function bonusView(g) {
+      const b = g.bonus;
+      if (!b) return '';
+      const game = gameOf(b.game);
+      const tally = [0, 1, 2].map((i) => b.kicks[i] ? (b.kicks[i].goal ? game.hit : game.miss) : '○').join(' ');
+      return `<div class="card stack" style="gap:6px">
+        <span class="eyebrow">🔥 ${nameOf(g, b.player_id)}: ${b.streak} in a row · ${game.icon} ${game.name}</span>
+        <p class="kick-tally">${tally}</p>
+        <p style="font-weight:800">${b.points == null ? 'Playing for bonus points…' : `+${b.points} bonus point${b.points === 1 ? '' : 's'}`}</p>
+      </div>`;
+    }
+
+    // A 1v1 challenge: the dare, the duel as it happens, or the result.
+    function challengeView(g) {
+      const c = g.challenge;
+      if (!c) return '';
+      const a = nameOf(g, c.challenger_id);
+      const b = nameOf(g, c.opponent_id);
+      const kind = c.mode === 'game' ? `${gameOf(c.minigame).icon} ${gameOf(c.minigame).name} face-off` : '🔔 Buzzer race';
+      if (c.status === 'pending') return `<p class="notice">⚔️ ${a} challenges ${b} to a ${kind.toLowerCase()}!</p>`;
+      if (c.status === 'refused') return `<p class="notice">🐔 ${b} chickened out of ${a}'s challenge and loses 1 point.</p>`;
+      const score = (id) => c.mode === 'game'
+        ? (c.scores[id] == null ? '<span class="muted">playing…</span>' : `<span class="duel-score">${c.scores[id]}</span>`)
+        : `<span class="kick-tally">${c.rounds.map((r) => r.winner === id ? '🏆' : r.resolved ? '✗' : '○').join(' ')}</span>`;
+      const w = c.winner_id && nameOf(g, c.winner_id);
+      return `<div class="card stack duel-card" style="gap:6px">
+        <span class="eyebrow">⚔️ ${kind}</span>
+        <div class="duel-vs">
+          <div><span class="player-name">${a}</span>${score(c.challenger_id)}</div>
+          <span class="duel-x" aria-hidden="true">VS</span>
+          <div><span class="player-name">${b}</span>${score(c.opponent_id)}</div>
+        </div>
+        ${c.status === 'finished' ? `<p style="font-weight:800">${w ? `${w} wins and steals 2 points!` : "It's a draw."}</p>` : ''}
+      </div>`;
+    }
+
     function view(g) {
       if (!g) return '<div class="pass"><h1>This game can\'t be watched</h1><p style="font-weight:700">The link may be wrong, or the quiz master has turned watching off.</p></div>';
       const head = `<div class="topbar"><span class="eyebrow">Watching game ${esc(g.code)}</span><span class="chip" style="background:var(--card)">Live</span></div>`;
@@ -67,6 +113,8 @@
           <h1 class="question">${esc(q.text)}</h1>
           ${q.revealed ? `<div class="card stack" style="gap:4px"><span class="eyebrow">Answer</span><span class="answer-reveal">${esc(q.answer)}</span></div>` : ''}
         ` : ''}
+        ${challengeView(g)}
+        ${bonusView(g)}
         <h2 class="eyebrow" style="font-family:var(--body)">Scores</h2>
         ${scoreboard(g.players, q && q.player_id)}`;
     }
