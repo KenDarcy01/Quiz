@@ -23,7 +23,7 @@ Then open http://localhost:8000. A service worker needs `localhost` or HTTPS, so
 
 The app combines two sources:
 
-1. **The question bank** in Supabase. When the database can't be reached, the app uses the bundled copy, [`questions/questions.csv`](questions/questions.csv). Both come from `python3 questions/build.py` from `questions/src/`. New batches go into `questions/src/band_*.py`. The build checks every question has four different options and makes sense without the choices, and it prints how many questions each age band has at each grade.
+1. **The question bank** in Supabase. When the database can't be reached, the app uses the bundled copy, [`questions/questions.csv`](questions/questions.csv). Both are built by `python3 questions/build.py` from `questions/src/`, and the database is refreshed with `select * from public.import_bank_questions();` after each push. New batches go into `questions/src/band_*.py`. The build checks every question has four different options and makes sense without the choices, and it prints how many questions each age band has at each grade.
 2. **The family's own questions** from a Google Sheet (`DEFAULT_SHEET_URL` in `js/questions.js`, or a link pasted into **Edit players → Google Sheet link**). The sheet must be shared as **Anyone with the link → Viewer**. The app keeps a copy of the last sheet it loaded, so a quiz still runs without signal.
 
 Both use the same columns:
