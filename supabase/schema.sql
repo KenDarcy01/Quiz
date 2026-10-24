@@ -1,6 +1,7 @@
 -- Family Quiz: database schema for Supabase.
 --
--- Run once in the Supabase dashboard: SQL Editor → New query → paste this whole file → Run.
+-- Applied to the Family Quiz project (fpgrghfzlpfxoshlamjo) on 2026-10-24 through the Supabase connector.
+-- To rebuild elsewhere: SQL Editor → New query → paste this whole file → Run.
 -- It is safe to run again: it only creates what is missing and replaces functions and policies.
 --
 -- Tables
@@ -69,8 +70,7 @@ begin
   return new;
 end $$;
 
-drop trigger if exists questions_set_age on public.questions;
-create trigger questions_set_age before insert or update of age_band on public.questions
+create or replace trigger questions_set_age before insert or update of age_band on public.questions
   for each row execute function public.questions_set_age();
 
 -- ---------------------------------------------------------------------------
@@ -105,8 +105,7 @@ begin
   return new;
 end $$;
 
-drop trigger if exists on_auth_user_created on auth.users;
-create trigger on_auth_user_created after insert on auth.users
+create or replace trigger on_auth_user_created after insert on auth.users
   for each row execute function public.handle_new_user();
 
 -- ---------------------------------------------------------------------------
@@ -209,8 +208,7 @@ begin
   return new;
 end $$;
 
-drop trigger if exists answers_apply on public.answers;
-create trigger answers_apply after insert on public.answers
+create or replace trigger answers_apply after insert on public.answers
   for each row execute function public.apply_answer();
 
 create or replace function public.apply_event_points() returns trigger
@@ -222,8 +220,7 @@ begin
   return new;
 end $$;
 
-drop trigger if exists game_events_apply on public.game_events;
-create trigger game_events_apply after insert on public.game_events
+create or replace trigger game_events_apply after insert on public.game_events
   for each row execute function public.apply_event_points();
 
 -- ---------------------------------------------------------------------------
@@ -353,6 +350,10 @@ grant execute on function public.create_game(jsonb), public.join_game(text, uuid
   public.submit_answer(uuid, uuid, boolean, boolean, text, uuid) to authenticated;
 revoke execute on function public.handle_new_user(), public.apply_answer(),
   public.apply_event_points() from public, anon, authenticated;
+revoke execute on function public.my_profile_ids(), public.is_game_host(uuid),
+  public.is_game_member(uuid) from public, anon;
+grant execute on function public.my_profile_ids(), public.is_game_host(uuid),
+  public.is_game_member(uuid) to authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Security rules (row level security)

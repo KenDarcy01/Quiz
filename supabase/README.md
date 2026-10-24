@@ -6,7 +6,7 @@ Project: `https://fpgrghfzlpfxoshlamjo.supabase.co`
 
 ## Set up the database
 
-In the Supabase dashboard, open **SQL Editor → New query**, then:
+Done on 2026-10-24: the schema is applied and all 2,258 bank questions are loaded. Claude makes database changes through the Supabase connector. To set up a fresh project by hand, open **SQL Editor → New query**, then:
 
 1. Paste all of [`schema.sql`](schema.sql) and press **Run**. It creates the tables, security rules and game functions. It is safe to run again after it changes.
 2. Paste all of [`import_questions.sql`](import_questions.sql) and press **Run**. It fetches `questions/questions.json` from GitHub and loads it. The result shows how many questions were added, updated and hidden. Rerun just the last line, `select * from public.import_bank_questions();`, after each new batch of questions.
