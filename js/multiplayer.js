@@ -175,23 +175,37 @@ function pickMp(choice) {
   });
 }
 
-// ---------- Streak bonus: penalty shootout ----------
+// ---------- Streak bonus mini-games ----------
+// Each game is up to 3 tries, a bonus point for each hit. The database picks the game at random.
+// Every try is a 'bonus_kick' event with goal true/false, so everyone's phone can follow along.
 
 const KICKS = 3;
 const ZONES = ['left', 'middle', 'right'];
+const BONUS_GAMES = {
+  penalties: { name: 'Penalty shootout', icon: '⚽', hit: '⚽', miss: '🧤', watching: 'is taking penalties…' },
+  hoops: { name: 'Basketball', icon: '🏀', hit: '🏀', miss: '❌', watching: 'is shooting hoops…' },
+  moles: { name: 'Whack-a-mole', icon: '🔨', hit: '🐹', miss: '○', watching: 'is whacking moles…' },
+  wheel: { name: 'Prize wheel', icon: '🎡', hit: '⭐', miss: '○', watching: 'is spinning the wheel…' },
+};
+const HOOP_MS = 1400;        // one sweep of the basketball aim, left to right
+const MOLE_SECONDS = 10;
+const MOLES_PER_POINT = 4;
+const WHEEL = [0, 1, 2, 1, 3, 0, 2, 1];  // points on each slice
 
-// One penalty: the keeper dives a random way, and it's a goal unless they guess the same side.
-function kick(zone) {
+function bonusGame(b) {
+  return BONUS_GAMES[b.game] || BONUS_GAMES.penalties;
+}
+
+// Records tries (true = hit) for the bonus on screen, then scores it once all are in.
+function recordTries(results, extra = () => ({})) {
   const b = mp.game.bonus;
-  if (!b || mp.busy || b.kicks.length >= KICKS) return;
-  const dive = ZONES[Math.floor(Math.random() * ZONES.length)];
-  const goal = dive !== zone;
-  mp.lastKick = { zone, dive, goal };
-  mpStep(async () => {
-    const { error } = await sb.from('game_events').insert({
+  if (!b || b.points != null) return Promise.resolve();
+  return mpStep(async () => {
+    const rows = results.map((goal, i) => ({
       game_id: mp.gameId, player_id: b.player_id, type: 'bonus_kick',
-      payload: { streak_event_id: b.id, n: b.kicks.length + 1, zone, dive, goal },
-    });
+      payload: { streak_event_id: b.id, n: b.kicks.length + i + 1, goal, ...extra(i) },
+    }));
+    const { error } = await sb.from('game_events').insert(rows);
     if (error) throw error;
     await refreshGame();
     if (mp.game.bonus && mp.game.bonus.kicks.length >= KICKS && mp.game.bonus.points == null) {
@@ -201,49 +215,204 @@ function kick(zone) {
   });
 }
 
+// Penalties: the keeper dives a random way, and it's a goal unless they guess the same side.
+function kick(zone) {
+  const b = mp.game.bonus;
+  if (!b || mp.busy || b.kicks.length >= KICKS) return;
+  const dive = ZONES[Math.floor(Math.random() * ZONES.length)];
+  mp.lastKick = { zone, dive, goal: dive !== zone };
+  recordTries([dive !== zone], () => ({ zone, dive }));
+}
+
+// Basketball: the aim sweeps back and forth; shoot while it's in the green middle.
+function hoopAim() {
+  const t = ((Date.now() - (mp.hoopStart || 0)) % (HOOP_MS * 2)) / HOOP_MS;
+  return t <= 1 ? t : 2 - t;  // 0..1..0
+}
+
+function shoot() {
+  const b = mp.game.bonus;
+  if (!b || mp.busy || b.kicks.length >= KICKS) return;
+  const aim = hoopAim();
+  const goal = Math.abs(aim - 0.5) <= 0.14;
+  mp.lastShot = { aim, goal };
+  recordTries([goal], () => ({ aim: Math.round(aim * 100) }));
+}
+
+// Whack-a-mole: moles pop up for a few seconds; every few whacked is a bonus point.
+function startMoles() {
+  if (mp.moles) return;
+  mp.moles = { hits: 0, cell: -1, endsAt: Date.now() + MOLE_SECONDS * 1000, next: 0 };
+  render();
+}
+
+function whack(cell) {
+  const m = mp.moles;
+  if (!m || Number(cell) !== m.cell) return;
+  m.hits += 1;
+  m.cell = -1;
+  m.next = Date.now() + 250;
+  drawMoles();
+}
+
+function tickMoles() {
+  const m = mp.moles;
+  if (!m || m.done) return;
+  const now = Date.now();
+  if (now >= m.endsAt) {
+    m.done = true;
+    m.cell = -1;
+    const points = Math.min(KICKS, Math.floor(m.hits / MOLES_PER_POINT));
+    recordTries(Array.from({ length: KICKS }, (_, i) => i < points), () => ({ hits: m.hits }));
+    return;
+  }
+  if (now >= m.next) {
+    let cell;
+    do { cell = Math.floor(Math.random() * 9); } while (cell === m.cell);
+    m.cell = cell;
+    m.next = now + 650 + Math.random() * 300;
+  }
+  drawMoles();
+}
+
+function drawMoles() {
+  const m = mp.moles;
+  document.querySelectorAll('.mole-hole').forEach((el) => el.classList.toggle('up', m && Number(el.dataset.cell) === m.cell));
+  const hits = document.getElementById('mole-hits');
+  if (hits && m) hits.textContent = m.hits;
+  const left = document.getElementById('mole-left');
+  if (left && m) left.textContent = Math.max(0, Math.ceil((m.endsAt - Date.now()) / 1000));
+}
+
+// Prize wheel: one spin lands on 0 to 3 bonus points.
+function spinWheel() {
+  const b = mp.game.bonus;
+  if (!b || mp.busy || mp.wheel) return;
+  const slice = Math.floor(Math.random() * WHEEL.length);
+  mp.wheel = { slice, turn: 5 * 360 + 360 - (slice + 0.5) * (360 / WHEEL.length), shown: false };
+  render();
+  // Turn the wheel on the next frame so the browser animates it.
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    mp.wheel.shown = true;
+    const el = document.querySelector('.wheel');
+    if (el) el.style.transform = `rotate(${mp.wheel.turn}deg)`;
+  }));
+  setTimeout(() => {
+    const points = WHEEL[slice];
+    recordTries(Array.from({ length: KICKS }, (_, i) => i < points), () => ({ slice }));
+  }, 3200);
+}
+
 function skipBonus() {
   mpStep(async () => { await rpc('finish_bonus', { p_streak_event_id: mp.game.bonus.id }); await refreshGame(); });
 }
 
-function kickTally(kicks) {
-  return `<p class="kick-tally" aria-label="Kicks">${Array.from({ length: KICKS }, (_, i) => {
+function kickTally(kicks, game = BONUS_GAMES.penalties) {
+  return `<p class="kick-tally" aria-label="Tries">${Array.from({ length: KICKS }, (_, i) => {
     const k = kicks[i];
-    return `<span>${k ? (k.goal ? '⚽' : '🧤') : '○'}</span>`;
+    return `<span>${k ? (k.goal ? game.hit : game.miss) : '○'}</span>`;
   }).join('')}</p>`;
+}
+
+function penaltiesPlay(b) {
+  const last = b.kicks[b.kicks.length - 1];
+  const k = mp.lastKick && last && last.zone === mp.lastKick.zone ? last : null;
+  return `
+    <p style="font-weight:700">Tap where to shoot. Beat the keeper for a bonus point each time.</p>
+    <div class="goal" role="group" aria-label="Pick where to shoot">
+      ${ZONES.map((z) => `<button class="goal-zone ${k && k.dive === z ? 'keeper' : ''} ${k && k.zone === z ? (k.goal ? 'scored' : 'saved') : ''}"
+        data-action="kick" data-zone="${z}" ${mp.busy ? 'disabled' : ''} aria-label="Shoot ${z}">
+        ${k && k.dive === z ? '🧤' : ''}${k && k.zone === z && k.goal ? '⚽' : ''}</button>`).join('')}
+    </div>
+    ${k ? `<p style="font-family:var(--display);font-size:26px">${k.goal ? 'GOAL!' : 'Saved!'}</p>` : ''}`;
+}
+
+// Moves the basketball smoothly while it's on screen.
+function animateHoop() {
+  const ball = document.getElementById('hoop-ball');
+  if (!ball) { mp.hoopFrame = null; return; }
+  ball.style.left = `${hoopAim() * 100}%`;
+  mp.hoopFrame = requestAnimationFrame(animateHoop);
+}
+
+function hoopsPlay(b) {
+  if (!mp.hoopStart) mp.hoopStart = Date.now();
+  if (!mp.hoopFrame) mp.hoopFrame = requestAnimationFrame(animateHoop);
+  const last = b.kicks[b.kicks.length - 1];
+  const s = mp.lastShot && last ? mp.lastShot : null;
+  return `
+    <p style="font-weight:700">Tap Shoot when the ball is in the green. Each basket is a bonus point.</p>
+    <div class="hoop-bar" aria-hidden="true"><span class="hoop-zone"></span><span id="hoop-ball" class="hoop-ball" style="left:${hoopAim() * 100}%">🏀</span></div>
+    <button class="btn" data-action="shoot" ${mp.busy ? 'disabled' : ''}>Shoot!</button>
+    ${s ? `<p style="font-family:var(--display);font-size:26px">${s.goal ? 'SWISH!' : 'Missed!'}</p>` : ''}`;
+}
+
+function molesPlay() {
+  const m = mp.moles;
+  if (!m) {
+    return `<p style="font-weight:700">Whack as many moles as you can in ${MOLE_SECONDS} seconds. Every ${MOLES_PER_POINT} is a bonus point (up to ${KICKS}).</p>
+      <button class="btn" data-action="startMoles">Start!</button>`;
+  }
+  return `
+    <div class="row" style="justify-content:space-between;font-weight:800">
+      <span>Whacked: <span id="mole-hits">${m.hits}</span></span><span><span id="mole-left">${Math.max(0, Math.ceil((m.endsAt - Date.now()) / 1000))}</span>s</span>
+    </div>
+    <div class="moles" role="group" aria-label="Moles">
+      ${Array.from({ length: 9 }, (_, i) => `<button class="mole-hole ${i === m.cell ? 'up' : ''}" data-action="whack" data-cell="${i}" aria-label="Hole ${i + 1}"><span>🐹</span></button>`).join('')}
+    </div>
+    ${m.done ? `<p style="font-family:var(--display);font-size:24px">${m.hits} moles!</p>` : ''}`;
+}
+
+function wheelPlay() {
+  const w = mp.wheel;
+  const slice = 360 / WHEEL.length;
+  const colours = ['var(--cyan)', 'var(--pink)', 'var(--lime)', 'var(--orange)'];
+  const bg = WHEEL.map((_, i) => `${colours[i % 4]} ${i * slice}deg ${(i + 1) * slice}deg`).join(',');
+  return `
+    <p style="font-weight:700">Spin the wheel for up to ${KICKS} bonus points.</p>
+    <div class="wheel-wrap">
+      <span class="wheel-pointer" aria-hidden="true">▼</span>
+      <div class="wheel" style="background:conic-gradient(${bg});transform:rotate(${w && w.shown ? w.turn : 0}deg)">
+        ${WHEEL.map((p, i) => `<span style="transform:rotate(${(i + 0.5) * slice}deg) translateY(-92px)">${p}</span>`).join('')}
+      </div>
+    </div>
+    <button class="btn" data-action="spinWheel" ${w || mp.busy ? 'disabled' : ''}>${w ? 'Spinning…' : 'Spin!'}</button>`;
 }
 
 function bonusPanel(g, player) {
   const b = g.bonus;
+  const game = bonusGame(b);
   const done = b.points != null;
   const last = b.kicks[b.kicks.length - 1];
   const head = `<p class="sticker" style="align-self:flex-start;background:var(--orange);font-size:24px;transform:rotate(-2deg)">🔥 ${b.streak} in a row!</p>`;
+  // Forget the last mini-game's local state when a new bonus comes up.
+  if (mp.bonusId !== b.id) {
+    mp.bonusId = b.id;
+    mp.lastKick = mp.lastShot = mp.moles = mp.wheel = null;
+    mp.hoopStart = 0;
+  }
   if (done) {
     return `${head}<div class="card stack" style="gap:6px">
-      <span class="eyebrow">Penalty shootout</span>
-      ${kickTally(b.kicks)}
-      <p style="font-weight:800">${esc(player.name)} scored ${b.points} of ${KICKS}: +${b.points} bonus point${b.points === 1 ? '' : 's'}</p>
+      <span class="eyebrow">${game.icon} ${game.name}</span>
+      ${kickTally(b.kicks, game)}
+      <p style="font-weight:800">${esc(player.name)} got ${b.points} of ${KICKS}: +${b.points} bonus point${b.points === 1 ? '' : 's'}</p>
     </div>`;
   }
   if (!player.mine) {
     return `${head}<div class="card stack" style="gap:6px">
-      <span class="eyebrow">Penalty shootout</span>
-      <p style="font-weight:800">${esc(player.name)} is taking penalties…</p>
-      ${kickTally(b.kicks)}
-      ${last ? `<p class="muted" style="font-weight:700">${last.goal ? 'GOAL!' : 'Saved!'}</p>` : ''}
+      <span class="eyebrow">${game.icon} ${game.name}</span>
+      <p style="font-weight:800">${esc(player.name)} ${game.watching}</p>
+      ${kickTally(b.kicks, game)}
+      ${last && b.game === 'penalties' ? `<p class="muted" style="font-weight:700">${last.goal ? 'GOAL!' : 'Saved!'}</p>` : ''}
     </div>`;
   }
-  const k = mp.lastKick && last && last.zone === mp.lastKick.zone ? last : null;
+  const play = { penalties: penaltiesPlay, hoops: hoopsPlay, moles: molesPlay, wheel: wheelPlay }[b.game] || penaltiesPlay;
+  const triesLeft = KICKS - b.kicks.length;
   return `${head}
     <div class="card stack" style="gap:10px">
-      <span class="eyebrow">Penalty shootout · ${KICKS - b.kicks.length} kick${KICKS - b.kicks.length === 1 ? '' : 's'} left</span>
-      <p style="font-weight:700">Tap where to shoot. Beat the keeper for a bonus point each time.</p>
-      <div class="goal" role="group" aria-label="Pick where to shoot">
-        ${ZONES.map((z) => `<button class="goal-zone ${k && k.dive === z ? 'keeper' : ''} ${k && k.zone === z ? (k.goal ? 'scored' : 'saved') : ''}"
-          data-action="kick" data-zone="${z}" ${mp.busy ? 'disabled' : ''} aria-label="Shoot ${z}">
-          ${k && k.dive === z ? '🧤' : ''}${k && k.zone === z && k.goal ? '⚽' : ''}</button>`).join('')}
-      </div>
-      ${k ? `<p style="font-family:var(--display);font-size:26px">${k.goal ? 'GOAL!' : 'Saved!'}</p>` : ''}
-      ${kickTally(b.kicks)}
+      <span class="eyebrow">${game.icon} ${game.name}${['penalties', 'hoops'].includes(b.game || 'penalties') ? ` · ${triesLeft} ${triesLeft === 1 ? 'go' : 'goes'} left` : ''}</span>
+      ${play(b)}
+      ${kickTally(b.kicks, game)}
     </div>`;
 }
 
@@ -496,6 +665,7 @@ function mpSecondsLeft() {
 }
 
 function tickMp() {
+  tickMoles();
   const duel = document.getElementById('duel-timer');
   const ch = mp.game && mp.game.challenge;
   const dq = duel && ch && ch.status === 'playing' && myDuelQuestion(ch);
@@ -642,7 +812,7 @@ function playScreen(g) {
   let footer = '';
   if (answer) {
     if (g.is_host && bonus && bonus.points == null) {
-      footer = `<p class="muted" style="font-weight:700;text-align:center">Waiting for ${esc(player.name)}'s penalties…</p>
+      footer = `<p class="muted" style="font-weight:700;text-align:center">Waiting for ${esc(player.name)}'s bonus game…</p>
         <button class="link-btn" data-action="skipBonus" style="align-self:center">Skip the bonus</button>`;
     } else if (g.is_host) {
       footer = `<button class="btn" data-action="nextMp" ${mp.busy ? 'disabled' : ''}>${isLast ? 'See final scores' : 'Next question'}</button>`;

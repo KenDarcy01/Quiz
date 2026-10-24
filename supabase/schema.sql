@@ -198,7 +198,7 @@ create table if not exists public.seen_questions (
 );
 
 -- Keep each player's score and streak in step with their answers and event points.
--- Streaks: every 3 correct answers in a row (3, 6, 9 …) the player earns a bonus mini-game.
+-- Streaks: every 3 correct answers in a row (3, 6, 9 …) the player earns a bonus mini-game, picked at random.
 -- settings.streak_every can change the 3.
 create or replace function public.apply_answer() returns trigger
 language plpgsql security definer set search_path = public as $$
@@ -221,7 +221,7 @@ begin
     insert into public.game_events (game_id, player_id, type, payload)
     values (new.game_id, new.player_id, 'streak', jsonb_build_object(
       'streak', new_streak, 'game_question_id', new.game_question_id,
-      'game', (array['penalties'])[1]));
+      'game', (array['penalties', 'hoops', 'moles', 'wheel'])[1 + floor(random() * 4)::int]));
   end if;
   return new;
 end $$;
