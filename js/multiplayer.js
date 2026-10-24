@@ -110,8 +110,8 @@ function hostGame() {
     const s = state.settings;
     const g = await rpc('create_game', {
       p_settings: {
-        topic: s.topic || '',
-        grades: difficulty().grades,
+        topic: '',
+        grades: [1, 2, 3, 4, 5],
         per_player: Number(s.perPlayer) || 10,
         seconds: Number(s.seconds) || 0,
         song_clips: SONG_CLIPS_ALLOWED && s.songClips !== false,
@@ -1085,6 +1085,53 @@ function waitingScreen() {
   `;
 }
 
+// Each phone picks the age, topic and difficulty for its own players in the lobby.
+const MP_TOPICS = ['General knowledge', 'Geography', 'History', 'Science & nature', 'Sport, music & film', 'Maths & numbers'];
+
+function prefTopic(p, g) {
+  return p.topic ?? (g.settings.topic || '');
+}
+
+function prefLevel(p, g) {
+  const grades = (p.grades || g.settings.grades || [1, 2, 3, 4, 5]).join();
+  return DIFFICULTIES.find((d) => d.grades.join() === grades) || DIFFICULTIES[0];
+}
+
+function prefSummary(p, g) {
+  return [ageLabel(p.age), prefTopic(p, g) || 'Mixed topics', prefLevel(p, g).label].join(' · ');
+}
+
+function prefPickers(p, g) {
+  const topics = state.bank ? topicsIn(state.bank.questions).filter((t) => MP_TOPICS.includes(t)) : MP_TOPICS;
+  const topic = prefTopic(p, g);
+  const id = esc(p.id);
+  return `<div class="player-picks">
+    <select data-change="mpPref" data-field="age" data-id="${id}" aria-label="${esc(p.name)}'s age">${AGES.map((a) => `<option value="${a}" ${a === p.age ? 'selected' : ''}>${ageLabel(a)}</option>`).join('')}</select>
+    <select data-change="mpPref" data-field="topic" data-id="${id}" aria-label="${esc(p.name)}'s topic">
+      <option value="">Mixed topics</option>
+      ${(topics.length ? topics : MP_TOPICS).map((t) => `<option value="${esc(t)}" ${t === topic ? 'selected' : ''}>${esc(t)}</option>`).join('')}
+    </select>
+    <select data-change="mpPref" data-field="level" data-id="${id}" aria-label="${esc(p.name)}'s difficulty">
+      ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === prefLevel(p, g).id ? 'selected' : ''}>${d.label}</option>`).join('')}
+    </select>
+  </div>`;
+}
+
+function setMpPref(el) {
+  const g = mp.game;
+  const p = g && g.players.find((x) => x.id === el.dataset.id);
+  if (!p) return;
+  if (el.dataset.field === 'age') p.age = el.value;
+  if (el.dataset.field === 'topic') p.topic = el.value;
+  if (el.dataset.field === 'level') p.grades = (DIFFICULTIES.find((d) => d.id === el.value) || DIFFICULTIES[0]).grades;
+  mpStep(async () => {
+    await rpc('set_player_prefs', {
+      p_player_id: p.id, p_age: p.age, p_topic: prefTopic(p, g), p_grades: prefLevel(p, g).grades,
+    });
+    await refreshGame();
+  });
+}
+
 function lobbyScreen(g) {
   const inGame = new Set(g.players.map((p) => p.profile_id));
   const mine = isFullAccount() ? [auth.profile, ...auth.kids].filter((p) => p && !inGame.has(p.id)) : [];
@@ -1108,7 +1155,12 @@ function lobbyScreen(g) {
     </section>` : ''}
     <section class="stack">
       <h2 class="eyebrow" style="font-family:var(--body)">Players (${g.players.length})</h2>
-      ${g.players.map((p, i) => `<div class="card row">${badge(i)}<span class="player-main"><span class="player-name">${esc(p.name)}</span><br><span class="muted player-age">${esc(ageLabel(p.age))}</span></span></div>`).join('') || '<p class="muted">Nobody yet.</p>'}
+      ${g.players.some((p) => p.mine) ? '<p class="muted" style="margin:0">Pick the age, topic and difficulty for the players on this phone.</p>' : ''}
+      ${g.players.map((p, i) => p.mine ? `
+        <div class="card stack player-card" style="gap:10px">
+          <div class="row">${badge(i)}<span class="player-name">${esc(p.name)}</span></div>
+          ${prefPickers(p, g)}
+        </div>` : `<div class="card row">${badge(i)}<span class="player-main"><span class="player-name">${esc(p.name)}</span><br><span class="muted player-age">${esc(prefSummary(p, g))}</span></span></div>`).join('') || '<p class="muted">Nobody yet.</p>'}
     </section>
     ${mine.length ? `<section class="stack" style="gap:8px">
       <h2 class="eyebrow" style="font-family:var(--body)">Playing on this phone</h2>

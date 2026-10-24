@@ -669,6 +669,10 @@ end $$;
 
 -- A player's own difficulty as a list of grades; null = the game's difficulty.
 alter table public.game_players add column if not exists grades smallint[];
+-- A player's own topic and age for this game: topic null = the game's topic, '' = mixed topics;
+-- age null = their profile's age.
+alter table public.game_players add column if not exists topic text;
+alter table public.game_players add column if not exists age text;
 -- Whose phone the player is on: the account that added them (the game's creator for players on their
 -- phone, a kid's own device after approval). Players on other phones mark spoken answers.
 alter table public.game_players add column if not exists joined_by uuid references auth.users on delete set null;
@@ -722,7 +726,7 @@ language sql security definer set search_path = public as $$
   from public.game_players gp join public.profiles p on p.id = gp.profile_id
   join public.questions q on q.id = p_question_id
   where gp.game_id = p_game_id
-    and (gp.id = p_player_id or public.age_years(p.age) between q.age_min and q.age_max)
+    and (gp.id = p_player_id or public.age_years(coalesce(gp.age, p.age)) between q.age_min and q.age_max)
   on conflict (profile_id, question_id) do update set seen_at = excluded.seen_at
 $$;
 revoke execute on function public.mark_heard(uuid, bigint, uuid) from public, anon;
@@ -761,8 +765,9 @@ begin
                    when coalesce((g.settings->>'song_clips')::boolean, false) then '{picture,hum,clip}'
                    else '{picture,hum}' end;
   with players as (
-    select gp.id, gp.seat, gp.profile_id, public.age_years(p.age) as years,
+    select gp.id, gp.seat, gp.profile_id, public.age_years(coalesce(gp.age, p.age)) as years,
            coalesce(gp.grades, game_grades) as grades,
+           case when gp.topic is null then v_topic else nullif(gp.topic, '') end as topic,
            row_number() over (order by gp.seat, gp.joined_at) - 1 as turn
     from public.game_players gp join public.profiles p on p.id = gp.profile_id
     where gp.game_id = g.id and gp.left_at is null
@@ -795,11 +800,12 @@ begin
         where q.active and q.kind = 'text'
           and pl.years between q.age_min and q.age_max
           and q.grade = any (pl.grades)
-          and (v_topic is null or q.topic = v_topic)
+          and (pl.topic is null or q.topic = pl.topic)
       ) c
       order by c.seen_at is not null, case when c.seen_at is null then not c.own_slice end,
                case when c.seen_at is null then c.turn_in_topic end, c.seen_at, random()
-      limit n - case when every > 0 then n / every else 0 end
+      -- A player with their own topic gets all text questions; specials are for mixed topics.
+      limit n - case when every > 0 and pl.topic is null then n / every else 0 end
     ) q
     union all
     select pl.id, pl.turn, q.id, q.grade, sl.sp, sl.i
@@ -811,7 +817,7 @@ begin
                        else q.kind = 'music' and q.media->>'mode' = sl.sp end
         and pl.years between q.age_min and q.age_max
         and q.grade = any (pl.grades)
-        and (v_topic is null or q.topic = v_topic)
+        and pl.topic is null
       order by (select s.seen_at from public.seen_questions s
                 where s.profile_id = pl.profile_id and s.question_id = q.id) nulls first,
                abs(hashtext(g.id::text || q.id::text)) % pl.share_n <> pl.share_idx,
@@ -911,7 +917,8 @@ begin
     'host_name', (select display_name from public.profiles where user_id = g.host_id),
     'players', coalesce((
       select jsonb_agg(jsonb_build_object(
-        'id', gp.id, 'profile_id', gp.profile_id, 'name', p.display_name, 'age', p.age,
+        'id', gp.id, 'profile_id', gp.profile_id, 'name', p.display_name, 'age', coalesce(gp.age, p.age),
+        'topic', gp.topic, 'grades', gp.grades,
         'score', gp.score, 'streak', gp.streak, 'seat', gp.seat,
         'mine', gp.profile_id in (select public.my_profile_ids())) order by gp.seat, gp.joined_at)
       from public.game_players gp join public.profiles p on p.id = gp.profile_id
@@ -1221,6 +1228,22 @@ language sql stable security definer set search_path = public as $$
                  where id = p_player_id and profile_id in (select public.my_profile_ids()))
 $$;
 
+-- Each phone picks the age, topic and difficulty for its own players before the game starts.
+create or replace function public.set_player_prefs(p_player_id uuid, p_age text, p_topic text, p_grades smallint[])
+returns void language plpgsql security definer set search_path = public as $$
+begin
+  if not public.controls_player(p_player_id) then raise exception 'Not your player'; end if;
+  if (select g.status from public.games g join public.game_players gp on gp.game_id = g.id
+      where gp.id = p_player_id) <> 'lobby' then raise exception 'The game has already started'; end if;
+  if p_age is not null and p_age !~ '^([0-9]{1,2}|adult)$' then raise exception 'Pick an age'; end if;
+  if p_grades is not null and (cardinality(p_grades) = 0 or not p_grades <@ '{1,2,3,4,5}') then
+    raise exception 'Pick a difficulty';
+  end if;
+  update public.game_players set age = p_age, topic = left(p_topic, 60), grades = p_grades where id = p_player_id;
+end $$;
+revoke execute on function public.set_player_prefs(uuid, text, text, smallint[]) from public, anon;
+grant execute on function public.set_player_prefs(uuid, text, text, smallint[]) to authenticated;
+
 create or replace function public.start_challenge(p_challenger_id uuid, p_opponent_id uuid, p_mode text)
 returns public.challenges
 language plpgsql security definer set search_path = public as $$
@@ -1296,7 +1319,7 @@ begin
       (select array_agg(x::smallint) from jsonb_array_elements_text(g.settings->'grades') x), '{1,2,3,4,5}');
     insert into public.challenge_questions (challenge_id, game_id, player_id, idx, question_id)
     select c.id, c.game_id, pl.id, row_number() over (partition by pl.id order by q.grade, random()), q.id
-    from (select gp.id, gp.profile_id, public.age_years(p.age) as years, coalesce(gp.grades, game_grades) as grades
+    from (select gp.id, gp.profile_id, public.age_years(coalesce(gp.age, p.age)) as years, coalesce(gp.grades, game_grades) as grades
           from public.game_players gp join public.profiles p on p.id = gp.profile_id
           where gp.id in (c.challenger_id, c.opponent_id)) pl
     cross join lateral (
@@ -1566,7 +1589,7 @@ begin
   if r.id is null then return false; end if;
   insert into public.lightning_questions (round_id, game_id, player_id, idx, question_id)
   select r.id, g.id, pl.id, row_number() over (partition by pl.id order by q.grade, random()), q.id
-  from (select gp.id, gp.profile_id, public.age_years(p.age) as years, coalesce(gp.grades, game_grades) as grades
+  from (select gp.id, gp.profile_id, public.age_years(coalesce(gp.age, p.age)) as years, coalesce(gp.grades, game_grades) as grades
         from public.game_players gp join public.profiles p on p.id = gp.profile_id
         where gp.game_id = g.id and gp.left_at is null) pl
   cross join lateral (

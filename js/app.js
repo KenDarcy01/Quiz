@@ -66,10 +66,6 @@ function ageLabel(age) {
   return age === 'adult' ? 'Adult' : `Age ${age}`;
 }
 
-function difficulty() {
-  return DIFFICULTIES.find((d) => d.id === state.settings.difficulty) || DIFFICULTIES[0];
-}
-
 // A player's own difficulty (mixed until they pick one).
 function difficultyFor(p) {
   return DIFFICULTIES.find((d) => d.id === p.difficulty) || DIFFICULTIES[0];
@@ -331,7 +327,7 @@ function freshPlayers() {
   return mine.length ? mine : [{ name: 'Player 1', age: 'adult', topic: '', difficulty: '' }];
 }
 
-// Setting up a one-phone round: topic, difficulty and who's playing.
+// Setting up a one-phone round: who's playing, and each player's age, topic and difficulty.
 function localScreen() {
   const { players } = state.settings;
   const topics = state.bank ? topicsIn(state.bank.questions) : [];
@@ -379,26 +375,6 @@ function localScreen() {
   `;
 }
 
-function roundSetup() {
-  const topics = state.bank ? topicsIn(state.bank.questions) : [];
-  return `
-    <div class="setup">
-      <div class="stack" style="gap:6px">
-        <label for="topic">Topic</label>
-        <select id="topic" data-change="topic">
-          <option value="">Mixed topics</option>
-          ${topics.map((t) => `<option value="${esc(t)}" ${t === state.settings.topic ? 'selected' : ''}>${esc(t)}</option>`).join('')}
-        </select>
-      </div>
-      <div class="stack" style="gap:6px">
-        <label for="difficulty">Difficulty</label>
-        <select id="difficulty" data-change="difficulty">
-          ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === difficulty().id ? 'selected' : ''}>${d.label}</option>`).join('')}
-        </select>
-      </div>
-    </div>`;
-}
-
 // Setting up a game on everyone's phones. Players join in the lobby, so there's no player list here.
 function hostSetupScreen() {
   const s = state.settings;
@@ -412,8 +388,7 @@ function hostSetupScreen() {
   }
   return `
     <div class="topbar"><h1 style="font-size:36px">Everyone's phones</h1><button class="link-btn" data-action="cancel">Back</button></div>
-    <p class="muted" style="margin-top:-8px">Pick the questions, then everyone joins with a code. Each player gets questions for their own age.</p>
-    ${roundSetup()}
+    <p class="muted" style="margin-top:-8px">Everyone joins with a code, then each phone picks the age, topic and difficulty for its own players.</p>
     <form id="hostSetup" class="stack" style="gap:18px">
       <div class="stack" style="gap:6px">
         <label for="host-perPlayer">Questions per player</label>
@@ -798,6 +773,9 @@ app.addEventListener('change', (e) => {
     state.settings.players[Number(e.target.dataset.player)].topic = e.target.value;
   } else if (field === 'playerAge') {
     state.settings.players[Number(e.target.dataset.player)].age = e.target.value;
+  } else if (field === 'mpPref') {
+    setMpPref(e.target);
+    return;
   } else {
     return;
   }
