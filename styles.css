@@ -211,3 +211,12 @@ input, select {
 .goal-zone.scored { background: rgba(61, 220, 132, 0.45); }
 .goal-zone.saved { background: rgba(255, 92, 92, 0.45); }
 .kick-tally { display: flex; gap: 10px; font-size: 28px; margin: 0; }
+
+/* 1v1 challenges */
+.duel-card { border-color: var(--ink); background: #FFF4D6; }
+.duel-vs { display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: center; }
+.duel-vs > div { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.duel-vs .kick-tally { font-size: 22px; gap: 6px; }
+.duel-x { font-family: var(--display); font-size: 28px; color: var(--pink); }
+.duel-chip { background: var(--pink); color: #fff; }
+.challenge-chip { background: var(--card); cursor: pointer; font: inherit; font-weight: 800; }

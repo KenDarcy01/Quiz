@@ -73,7 +73,7 @@ function followGame(id) {
   save(MP_KEY, id);
   const filter = `game_id=eq.${id}`;
   mp.channel = sb.channel(`game:${id}`);
-  ['game_players', 'game_questions', 'answers', 'game_events', 'device_requests'].forEach((table) => {
+  ['game_players', 'game_questions', 'answers', 'game_events', 'device_requests', 'challenges', 'challenge_questions'].forEach((table) => {
     mp.channel.on('postgres_changes', { event: '*', schema: 'public', table, filter }, queueRefresh);
   });
   mp.channel.on('postgres_changes', { event: '*', schema: 'public', table: 'games', filter: `id=eq.${id}` }, queueRefresh);
@@ -247,6 +247,169 @@ function bonusPanel(g, player) {
     </div>`;
 }
 
+// ---------- 1v1 challenges ----------
+
+const DUEL_SECONDS = 10;
+
+function openChallenge(playerId) {
+  mp.challengeFrom = mp.challengeFrom === playerId ? null : playerId;
+  render();
+}
+
+function issueChallenge(opponentId) {
+  const from = mp.challengeFrom;
+  mp.challengeFrom = null;
+  mpStep(async () => {
+    await rpc('issue_challenge', { p_challenger_id: from, p_opponent_id: opponentId });
+    await refreshGame();
+  });
+}
+
+function answerChallenge(accept) {
+  mpStep(async () => {
+    await rpc('answer_challenge', { p_challenge_id: mp.game.challenge.id, p_accept: accept });
+    await refreshGame();
+  });
+}
+
+function cancelChallenge() {
+  mpStep(async () => { await rpc('cancel_challenge', { p_challenge_id: mp.game.challenge.id }); await refreshGame(); });
+}
+
+// The next duel question this phone has to answer: the challenger's first if both are on this phone.
+function myDuelQuestion(ch) {
+  const order = [ch.challenger_id, ch.opponent_id].filter((id) => (mpPlayer(id) || {}).mine);
+  for (const id of order) {
+    const q = ch.questions.find((x) => x.player_id === id && !x.answered);
+    if (q) return q;
+  }
+  return null;
+}
+
+function duelKey(q) {
+  return `${mp.game.challenge.id}:${q.player_id}:${q.idx}`;
+}
+
+function duelSecondsLeft(q) {
+  const key = duelKey(q);
+  if (!mp.duelShown || mp.duelShown.key !== key) mp.duelShown = { key, at: Date.now() };
+  return Math.max(0, Math.ceil(DUEL_SECONDS - (Date.now() - mp.duelShown.at) / 1000));
+}
+
+function duelPick(choice) {
+  const ch = mp.game.challenge;
+  const q = ch && myDuelQuestion(ch);
+  if (!q || mp.busy) return;
+  mpStep(async () => {
+    await rpc('challenge_answer', { p_challenge_id: ch.id, p_player_id: q.player_id, p_idx: q.idx, p_response: choice || '' });
+    await refreshGame();
+  });
+}
+
+function duelTally(ch, playerId) {
+  return ch.questions.filter((q) => q.player_id === playerId)
+    .map((q) => `<span>${!q.answered ? '○' : q.is_correct ? '✅' : '❌'}</span>`).join('');
+}
+
+function duelScores(ch) {
+  const a = mpPlayer(ch.challenger_id) || {};
+  const b = mpPlayer(ch.opponent_id) || {};
+  return `<div class="duel-vs">
+    <div><span class="player-name">${esc(a.name)}</span><p class="kick-tally">${duelTally(ch, ch.challenger_id)}</p></div>
+    <span class="duel-x" aria-hidden="true">VS</span>
+    <div><span class="player-name">${esc(b.name)}</span><p class="kick-tally">${duelTally(ch, ch.opponent_id)}</p></div>
+  </div>`;
+}
+
+// What everyone sees about a challenge above the question: the dare, or how it ended.
+function challengePanel(g) {
+  const ch = g.challenge;
+  if (!ch || ch.status === 'playing') return '';
+  const a = mpPlayer(ch.challenger_id) || {};
+  const b = mpPlayer(ch.opponent_id) || {};
+  if (ch.status === 'pending') {
+    const canAnswer = b.mine;
+    return `<div class="card stack duel-card" style="gap:10px">
+      <span class="eyebrow">⚔️ Challenge</span>
+      <p style="font-family:var(--display);font-size:24px">${esc(a.name)} challenges ${esc(b.name)}!</p>
+      <p style="font-weight:700">${DUEL_SECONDS}-second rapid fire, 3 questions each. The winner steals 2 points.</p>
+      ${canAnswer ? `<div class="row">
+          <button class="btn good" style="flex:1" data-action="acceptChallenge" ${mp.busy ? 'disabled' : ''}>Bring it on</button>
+          <button class="btn secondary" style="flex:1" data-action="refuseChallenge" ${mp.busy ? 'disabled' : ''}>Chicken out</button>
+        </div>
+        <p class="muted" style="font-size:14px;margin:0">Chickening out costs ${esc(b.name)} 1 point.</p>`
+        : `<p class="muted" style="font-weight:700">Waiting for ${esc(b.name)} to answer…</p>`}
+      ${a.mine || g.is_host ? '<button class="link-btn" data-action="cancelChallenge" style="align-self:center">Call it off</button>' : ''}
+    </div>`;
+  }
+  if (ch.status === 'refused') {
+    return `<p class="notice">🐔 ${esc(b.name)} chickened out of ${esc(a.name)}'s challenge and loses 1 point.</p>`;
+  }
+  const w = mpPlayer(ch.winner_id);
+  return `<div class="card stack duel-card" style="gap:6px">
+    <span class="eyebrow">⚔️ Duel result</span>
+    ${duelScores(ch)}
+    <p style="font-weight:800">${w ? `${esc(w.name)} wins and steals 2 points from ${esc(w.id === a.id ? b.name : a.name)}!` : "It's a draw. Nobody steals anything."}</p>
+  </div>`;
+}
+
+// The Challenge card: each player can play it once a game, when no other challenge is on.
+function challengeCards(g) {
+  if (g.challenge && ['pending', 'playing'].includes(g.challenge.status)) return '';
+  const used = new Set(g.cards_used || []);
+  const mine = g.players.filter((p) => p.mine && !used.has(p.id));
+  if (!mine.length || g.players.length < 2) return '';
+  const from = mpPlayer(mp.challengeFrom);
+  if (from && mine.some((p) => p.id === from.id)) {
+    return `<div class="card stack" style="gap:8px">
+      <span class="eyebrow">⚔️ Who does ${esc(from.name)} challenge?</span>
+      <div class="row" style="flex-wrap:wrap">
+        ${g.players.filter((p) => p.id !== from.id).map((p) => `<button class="btn secondary" style="width:auto;padding:0 14px;min-height:44px;font-size:18px" data-action="issueChallenge" data-id="${esc(p.id)}">${esc(p.name)}</button>`).join('')}
+      </div>
+      <button class="link-btn" data-action="openChallenge" data-id="${esc(from.id)}" style="align-self:center">Not now</button>
+    </div>`;
+  }
+  return `<div class="row" style="flex-wrap:wrap;gap:8px">
+    ${mine.map((p) => `<button class="chip challenge-chip" data-action="openChallenge" data-id="${esc(p.id)}">⚔️ ${mine.length > 1 || g.is_host ? `${esc(p.name)}'s ` : ''}Challenge card</button>`).join('')}
+  </div>`;
+}
+
+// While a duel is on, it takes over every phone: the two players answer, everyone else watches.
+function duelScreen(g) {
+  const ch = g.challenge;
+  const a = mpPlayer(ch.challenger_id) || {};
+  const b = mpPlayer(ch.opponent_id) || {};
+  const q = myDuelQuestion(ch);
+  const who = q && mpPlayer(q.player_id);
+  const both = a.mine && b.mine;
+  let body;
+  if (q) {
+    const left = duelSecondsLeft(q);
+    body = `
+      <div class="row" style="justify-content:space-between">
+        <p style="font-family:var(--display);font-size:22px">${both ? `${esc(who.name)} · ` : ''}Question ${q.idx} of 3</p>
+        <div id="duel-timer" class="timer ${left <= 3 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>
+      </div>
+      <p class="muted" style="font-weight:700;margin:0">${esc(q.topic)}</p>
+      <h1 class="question">${esc(q.text)}</h1>
+      <div class="choices" role="group" aria-label="Answers">
+        ${q.choices.map((c) => `<button class="choice" data-action="duelPick" data-value="${esc(c)}" ${mp.busy ? 'disabled' : ''}>${esc(c)}</button>`).join('')}
+      </div>`;
+  } else {
+    const mineDone = a.mine || b.mine;
+    body = `<p class="muted" style="font-weight:700;text-align:center">${mineDone ? 'Done! Waiting for the other player…' : `${esc(a.name)} and ${esc(b.name)} are battling it out…`}</p>`;
+  }
+  return `
+    <div class="topbar"><span class="chip duel-chip">⚔️ Duel</span></div>
+    ${duelScores(ch)}
+    ${body}
+    ${mpNotes()}
+    ${g.is_host ? '<button class="link-btn" data-action="cancelChallenge" style="align-self:center">Call off the duel</button>' : ''}
+    <div class="spacer"></div>
+    <details><summary class="eyebrow" style="cursor:pointer">Scores</summary>${scoreboard(g.players)}</details>
+  `;
+}
+
 // ---------- Joining ----------
 
 function openJoin() {
@@ -333,6 +496,18 @@ function mpSecondsLeft() {
 }
 
 function tickMp() {
+  const duel = document.getElementById('duel-timer');
+  const ch = mp.game && mp.game.challenge;
+  const dq = duel && ch && ch.status === 'playing' && myDuelQuestion(ch);
+  if (dq) {
+    const left = duelSecondsLeft(dq);
+    duel.textContent = left;
+    duel.classList.toggle('low', left <= 3);
+    if (left === 0 && !mp.busy && mp.duelTimedOut !== duelKey(dq)) {
+      mp.duelTimedOut = duelKey(dq);
+      duelPick('');
+    }
+  }
   const el = document.getElementById('mp-timer');
   const left = mpSecondsLeft();
   if (!el || left === null) return;
@@ -434,6 +609,7 @@ function lobbyScreen(g) {
 function playScreen(g) {
   const q = g.question;
   if (!q) return '<p>Loading…</p>';
+  if (g.challenge && g.challenge.status === 'playing') return duelScreen(g);
   const player = mpPlayer(q.player_id) || { name: 'Everyone' };
   const answer = q.answers.find((a) => a.player_id === q.player_id);
   const myTurn = player.mine;
@@ -493,10 +669,12 @@ function playScreen(g) {
       <p style="font-family:var(--display);font-size:22px">Q${q.seq} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">of ${g.total} · ${esc(q.topic)}</span></p>
       ${gradeDots(q.grade)}
     </div>
+    ${challengePanel(g)}
     <h1 class="question">${esc(q.text)}</h1>
     ${body}
     ${mpNotes()}
     ${footer}
+    ${challengeCards(g)}
     <div class="spacer"></div>
     <details><summary class="eyebrow" style="cursor:pointer">Scores</summary>${scoreboard(g.players, q.player_id)}</details>
   `;

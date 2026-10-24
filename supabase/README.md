@@ -36,6 +36,11 @@ Called from the app with `supabase.rpc(...)`:
 - `reveal_answer(game_id)` and `next_question(game_id)` let the host move the game on; after the last question the game is finished.
 - `game_state(game_id)` returns everything a phone in the game needs. Phones call it whenever Realtime reports a change, and every few seconds as a safety net.
 
+## Streak bonuses and challenges
+
+- Every 3 correct answers in a row (3, 6, 9 …) a player earns a bonus mini-game, a 3-kick penalty shootout worth a point a goal. `finish_bonus(streak_event_id)` scores it once.
+- Each player has one Challenge card per game. `issue_challenge(challenger, opponent)` dares another player. The challenged player accepts or refuses with `answer_challenge(id, accept)`; refusing costs them 1 point (`settings.challenge_refuse` can be `never` or `free` instead). Accepting deals 3 multiple choice questions each, at each player's own level. They answer on their own phones with `challenge_answer(id, player, idx, response)`, 10 seconds a question. Most right wins (fastest breaks a tie) and steals 2 points. The host can call it off with `cancel_challenge(id)`, which gives the card back. The game can't move on mid-duel.
+
 ## Kids on their own devices
 
 A child's phone or tablet signs in anonymously (Supabase **Allow anonymous sign-ins** must be on), types the game code and taps their name from `family_profiles(code)`, which lists the child profiles of the host and the families already in the game. `request_device(code, profile_id)` sends the request, and the parent or host approves it with `decide_device(request_id, true)`. That links the device in `profile_devices` and puts the child in the game. The device then counts as the child in every later game, until the parent removes it. Older kids can sign up with their own email instead.
@@ -56,8 +61,8 @@ Row level security is on for every table. Anyone can read questions, so the pass
 
 ## Next steps
 
-Done: questions from the database, email sign-in with kids' profiles, account deletion, multiplayer (host, join with a code, lobby, live questions, scores) and the watch page.
+Done: questions from the database, email sign-in with kids' profiles, account deletion, multiplayer (host, join with a code, lobby, live questions, scores), the watch page, streak bonuses and 1v1 challenges.
 
 1. An "Add a question" screen for the family's own questions (to replace the Google Sheet).
 2. Google sign-in, with Sign in with Apple alongside it for the App Store.
-3. Streak notifications and bonus rounds, 1v1 challenges and steals, picture and music rounds, streak mini-games.
+3. More streak mini-games, picture and music rounds.
