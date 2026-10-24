@@ -58,4 +58,4 @@ Pick a topic (or mixed) and a difficulty, then each player is dealt questions th
 
 ## Later
 
-Scores live only on the device for now. The plan is to move questions and results to Supabase, then build native apps once the look and feel is settled.
+Scores live only on the device for now. Questions and results are moving to Supabase (see [`supabase/`](supabase/README.md)), then native apps once the look and feel is settled.

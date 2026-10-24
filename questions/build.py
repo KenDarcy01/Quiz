@@ -1,10 +1,13 @@
 """Builds questions.csv from src/base.csv and the src/band_*.py batches.
 
+Also writes questions.json, the same questions for the Supabase import (supabase/import_questions.sql).
+
 Run: python3 questions/build.py
 """
 import collections
 import csv
 import importlib.util
+import json
 import pathlib
 import sys
 
@@ -55,3 +58,10 @@ with open(HERE / 'questions.csv', 'w', encoding='utf-8', newline='') as f:
     w = csv.writer(f, lineterminator='\n')
     w.writerow(HEADER)
     w.writerows(rows)
+
+# One question per line, so diffs stay readable.
+with open(HERE / 'questions.json', 'w', encoding='utf-8') as f:
+    f.write('[\n' + ',\n'.join(
+        json.dumps({'topic': t, 'age': a, 'grade': int(g), 'question': q, 'answer': ans, 'wrong': w},
+                   ensure_ascii=False)
+        for t, a, g, q, ans, *w in rows) + '\n]\n')
