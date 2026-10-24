@@ -173,3 +173,10 @@ input, select {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* Home: how to play */
+.mode { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; padding: 16px; }
+.mode:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.mode-dot { width: 22px; height: 22px; flex: none; border: var(--line); border-radius: 50%; }
+.mode-title { font-family: var(--display); font-size: 24px; }
+.mode-text { font-size: 15px; font-weight: 600; }

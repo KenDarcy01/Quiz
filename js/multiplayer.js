@@ -441,13 +441,6 @@ function mpScreen() {
   return playScreen(g);
 }
 
-function mpHomeButtons() {
-  if (!sb) return '';
-  return `<div class="row">
-    <button class="btn secondary" data-action="hostMp" ${mp.busy ? 'disabled' : ''}>Host on phones</button>
-    <button class="btn secondary" data-action="joinMp">Join a game</button>
-  </div>`;
-}
 
 // Picks up a game this phone was in before the app was closed.
 function resumeMp() {

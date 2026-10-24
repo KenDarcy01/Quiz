@@ -265,18 +265,46 @@ function endGame() {
 
 // ---------- Screens ----------
 
+function wordmark() {
+  return `<div class="wordmark" role="img" aria-label="Family Quiz">
+      <span class="sticker a">FAMILY</span>
+      <span class="sticker b">QUIZ!</span>
+    </div>`;
+}
+
+function roundInProgress() {
+  return Boolean(state.game && state.game.at < state.game.turns.length);
+}
+
+// The first screen: pick how to play. A round already under way opens straight back up.
 function homeScreen() {
+  const mode = (action, colour, title, text, disabled = false) => `
+    <button class="card mode" data-action="${action}" ${disabled ? 'disabled' : ''}>
+      <span class="mode-dot" style="background:${colour}" aria-hidden="true"></span>
+      <span><span class="mode-title">${title}</span><br><span class="muted mode-text">${text}</span></span>
+    </button>`;
+  return `
+    ${accountLink()}
+    ${wordmark()}
+    ${roundInProgress() ? `<button class="btn good" data-action="resume">Carry on this round</button>` : ''}
+    <section class="stack" aria-label="How do you want to play?">
+      <h2 class="eyebrow" style="font-family:var(--body)">How do you want to play?</h2>
+      ${mode('local', 'var(--cyan)', 'One phone', 'Pass the phone round the table. No sign-in needed.')}
+      ${sb ? mode('hostSetup', 'var(--orange)', 'Everyone on their own phone', 'You run the quiz, everyone joins with a code.') : ''}
+      ${sb ? mode('joinMp', 'var(--lime)', 'Join a game', 'Got a code from the quiz master? Type it in.') : ''}
+    </section>
+    ${sourceNotice()}
+  `;
+}
+
+// Setting up a one-phone round: topic, difficulty and who's playing.
+function localScreen() {
   const { players, quizMaster } = state.settings;
   const counts = players.map((p) => poolForPlayer(p).length);
   const canStart = !state.loading && counts.some((c) => c > 0);
-  const resume = state.game && state.game.at < state.game.turns.length;
 
   return `
-    ${accountLink()}
-    <div class="wordmark" role="img" aria-label="Family Quiz">
-      <span class="sticker a">FAMILY</span>
-      <span class="sticker b">QUIZ!</span>
-    </div>
+    <div class="topbar"><h1 style="font-size:36px">One phone</h1><button class="link-btn" data-action="cancel">Back</button></div>
     ${roundSetup()}
     <section class="stack" aria-labelledby="players-h">
       <div class="row" style="justify-content:space-between">
@@ -299,11 +327,8 @@ function homeScreen() {
           ? `<p class="muted" style="font-size:14px;margin-top:-4px">${counts[i] ? `Only ${counts[i]} questions` : 'No questions'} for ${esc(ageLabel(p.age).toLowerCase())} with this topic and difficulty.</p>` : ''}
       `).join('')}
     </section>
-    ${sourceNotice()}
     <div class="spacer"></div>
-    ${resume ? `<button class="btn good" data-action="resume">Carry on this round</button>` : ''}
     <button class="btn" data-action="start" ${canStart ? '' : 'disabled'}>${state.loading ? 'Loading…' : "Let's go"}</button>
-    ${mpHomeButtons()}
     <p class="muted" style="text-align:center;font-size:14px;font-weight:700">Quiz master: ${esc(quizMaster)}</p>
   `;
 }
@@ -326,6 +351,36 @@ function roundSetup() {
         </select>
       </div>
     </div>`;
+}
+
+// Setting up a game on everyone's phones. Players join in the lobby, so there's no player list here.
+function hostSetupScreen() {
+  const s = state.settings;
+  if (!isFullAccount()) {
+    return `
+      <div class="topbar"><h1 style="font-size:36px">Everyone's phones</h1><button class="link-btn" data-action="cancel">Back</button></div>
+      <p>To run a quiz on everyone's phones, sign in first. It keeps the game and scores together.</p>
+      <p class="muted">Players joining with a code don't need to sign in.</p>
+      <div class="spacer"></div>
+      <button class="btn" data-action="account">Sign in or create an account</button>`;
+  }
+  return `
+    <div class="topbar"><h1 style="font-size:36px">Everyone's phones</h1><button class="link-btn" data-action="cancel">Back</button></div>
+    <p class="muted" style="margin-top:-8px">Pick the questions, then everyone joins with a code. Each player gets questions for their own age.</p>
+    ${roundSetup()}
+    <form id="hostSetup" class="stack" style="gap:18px">
+      <div class="stack" style="gap:6px">
+        <label for="host-perPlayer">Questions per player</label>
+        <input id="host-perPlayer" name="perPlayer" type="number" min="1" max="50" step="1" value="${esc(s.perPlayer)}">
+      </div>
+      <div class="stack" style="gap:6px">
+        <label for="host-seconds">Seconds per question (0 for no timer)</label>
+        <input id="host-seconds" name="seconds" type="number" min="0" max="120" step="1" value="${esc(s.seconds)}">
+      </div>
+      ${mpNotes()}
+      <div class="spacer"></div>
+      <button class="btn" type="submit" ${mp.busy ? 'disabled' : ''}>${mp.busy ? 'Setting up…' : 'Create game'}</button>
+    </form>`;
 }
 
 function sourceNotice() {
@@ -485,7 +540,7 @@ function settingsScreen() {
       </div>
       <button class="btn" type="submit">Save</button>
       <button class="btn secondary" type="button" data-action="forget">Forget questions already asked</button>
-      <button class="btn secondary" type="button" data-action="cancel">Cancel</button>
+      <button class="btn secondary" type="button" data-action="toLocal">Cancel</button>
     </form>
   `;
 }
@@ -598,6 +653,7 @@ function newPasswordScreen() {
 function render() {
   const screens = {
     home: homeScreen, settings: settingsScreen, pass: passScreen, question: questionScreen, scores: scoresScreen,
+    local: localScreen, hostSetup: hostSetupScreen,
     account: accountScreen, newPassword: newPasswordScreen,
     join: joinScreen, waiting: waitingScreen, mp: mpScreen,
   };
@@ -619,7 +675,9 @@ app.addEventListener('click', (e) => {
     deleteAsk: () => { auth.confirmDelete = true; render(); },
     deleteNo: () => { auth.confirmDelete = false; render(); },
     deleteYes: deleteAccount,
-    hostMp: hostGame,
+    local: () => { state.screen = 'local'; render(); },
+    hostSetup: () => { mp.error = ''; state.screen = 'hostSetup'; render(); },
+    toLocal: () => { state.screen = 'local'; render(); },
     joinMp: openJoin,
     joinAs: () => joinAs(el.dataset.id),
     leaveMp: leaveGame,
@@ -684,6 +742,13 @@ const forms = {
   newPassword: (f) => setNewPassword(String(f.get('password') || '')),
   settings: saveSettings,
   join: (f) => findGame(String(f.get('code') || '')),
+  hostSetup: (f) => {
+    const s = state.settings;
+    s.perPlayer = Math.max(1, Math.min(50, Number(f.get('perPlayer')) || 10));
+    s.seconds = Math.max(0, Math.min(120, Number(f.get('seconds')) || 0));
+    save(SETTINGS_KEY, s);
+    hostGame();
+  },
 };
 
 app.addEventListener('submit', (e) => {
@@ -704,7 +769,7 @@ function saveSettings(f) {
   s.seconds = Math.max(0, Math.min(120, Number(f.get('seconds')) || 0));
   s.sheetUrl = String(f.get('sheetUrl') || '').trim();
   save(SETTINGS_KEY, s);
-  state.screen = 'home';
+  state.screen = 'local';
   if (s.sheetUrl !== oldUrl) refreshQuestions();
   else render();
 }
