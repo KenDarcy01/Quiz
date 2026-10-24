@@ -1,4 +1,4 @@
-// Loads questions from a Google Sheet (or the bundled copy) and picks them by age, grade and topic.
+// Loads questions from Supabase (or the bundled copy when offline) plus a Google Sheet, and picks them by age, grade and topic.
 
 // The family question sheet, used when no other link is set in Settings.
 const DEFAULT_SHEET_URL = 'https://docs.google.com/spreadsheets/d/1Q-vsC1R0agSt0r20phZ5n2Lfsm-e5x_Qtfa-WhVc-HI/edit';
@@ -95,12 +95,22 @@ function writeCache(entry) {
   try { localStorage.setItem(CACHE_KEY, JSON.stringify(entry)); } catch { /* storage full or blocked */ }
 }
 
-// The built-in question bank plus the family's own questions from the sheet.
-// Returns { questions, source: 'sheet' | 'cache' | 'bundled', error }.
+// The question bank from Supabase, falling back to the bundled copy when there's no signal.
+// Returns { questions, db: true | false }.
+async function loadBank() {
+  try {
+    return { questions: await fetchDbQuestions(), db: true };
+  } catch {
+    return { questions: await fetchCsv(BUNDLED_URL), db: false };
+  }
+}
+
+// The question bank plus the family's own questions from the sheet.
+// Returns { questions, db, source: 'sheet' | 'cache' | 'bundled', error }.
 async function loadQuestions(sheetUrl) {
-  const bundled = await fetchCsv(BUNDLED_URL);
+  const { questions: bundled, db } = await loadBank();
   const url = sheetCsvUrl(sheetUrl);
-  if (!url) return { questions: bundled, source: 'bundled', error: null };
+  if (!url) return { questions: bundled, db, source: 'bundled', error: null };
   let own = [];
   let source = 'sheet';
   let error = null;
@@ -113,7 +123,7 @@ async function loadQuestions(sheetUrl) {
     if (cached && cached.url === url) { own = cached.questions; source = 'cache'; } else source = 'bundled';
   }
   const ids = new Set(bundled.map((q) => q.id));
-  return { questions: bundled.concat(own.filter((q) => !ids.has(q.id))), source, error };
+  return { questions: bundled.concat(own.filter((q) => !ids.has(q.id))), db, source, error };
 }
 
 function topicsIn(questions) {

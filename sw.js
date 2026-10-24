@@ -1,12 +1,13 @@
-// Offline support: the app shell is cached on install; question sheets are always fetched fresh
+// Offline support: the app shell is cached on install; question sheets and the database are always fetched fresh
 // (the app keeps its own copy of the last sheet in localStorage).
-const CACHE = 'fq-shell-v7';
+const CACHE = 'fq-shell-v8';
 const SHELL = [
   './',
   'index.html',
   'styles.css',
   'js/csv.js',
   'js/questions.js',
+  'js/supabase.js',
   'js/app.js',
   'questions/questions.csv',
   'manifest.webmanifest',
