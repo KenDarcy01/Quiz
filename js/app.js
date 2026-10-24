@@ -632,6 +632,7 @@ app.addEventListener('click', (e) => {
     choicesMp: showChoicesMp,
     pickMp: () => pickMp(el.dataset.value),
     nextMp,
+    shareWatch: () => shareWatch(el.dataset.url, el),
     forget: () => { save(SEEN_KEY, null); el.textContent = 'Done: everyone starts fresh'; el.disabled = true; },
     start: startRound,
     resume: () => { state.screen = state.game.mode === 'open' && state.game.verdict === null ? 'pass' : 'question'; render(); },

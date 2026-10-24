@@ -31,6 +31,10 @@ Called from the app with `supabase.rpc(...)`:
 - `create_game(settings)` makes a game and a four-letter share code (no 0/O or 1/I).
 - `join_game(code, profile_id)` adds a player. A parent can join their child's profile.
 - `submit_answer(game_question_id, player_id, is_correct, used_choices, response, steal_from)` records an answer: 2 points straight, 1 with choices, 2 for a steal (taken from the other player). The host marks spoken answers. A player can only answer their own question by sending the choice they picked, and the database checks it.
+- `start_game(game_id)` deals each player questions for their own age and difficulty that they haven't had before, easiest first, taking turns round the table.
+- `show_choices(game_question_id)` tells everyone the player opened the multiple choice (1 point instead of 2).
+- `reveal_answer(game_id)` and `next_question(game_id)` let the host move the game on; after the last question the game is finished.
+- `game_state(game_id)` returns everything a phone in the game needs. Phones call it whenever Realtime reports a change, and every few seconds as a safety net.
 
 ## Kids on their own devices
 
@@ -44,7 +48,7 @@ Both app stores require in-app account deletion. The app calls the `delete-accou
 
 ## Watching without playing
 
-Anyone with a game's watch link can follow it live in a browser, without the app or a login. The link uses the game's `watch_key`, which is separate from the join code, so it can't be used to join as a player. `watch_game(watch_key)` returns the scoreboard, the question on screen (the answer only after the host reveals it) and recent events like streaks and steals. The watch page will load that, then listen on a Realtime broadcast channel for the host's updates. The host can switch watching off with `settings.watchers = false`.
+Anyone with a game's watch link can follow it live in a browser, without the app or a login. The link uses the game's `watch_key`, which is separate from the join code, so it can't be used to join as a player. `watch_game(watch_key)` returns the scoreboard, the question on screen (the answer only after the host reveals it) and recent events like streaks and steals. The watch page ([`watch.html`](../watch.html)) checks it every two seconds. The host can switch watching off with `settings.watchers = false`.
 
 ## Security
 
@@ -52,8 +56,8 @@ Row level security is on for every table. Anyone can read questions, so the pass
 
 ## Next steps
 
-1. Load the Supabase client in the app and read questions from the database, keeping the bundled CSV as the offline copy.
-2. Move the family's Google Sheet questions into `questions` as `family` questions, and add an "Add a question" screen.
-3. Sign-in (Google and email), profiles and child profiles.
-4. Multiplayer: create/join with a code, lobby, live questions, scoreboard, then streaks, challenges, picture and music rounds.
-5. Watch page: a browser link for people who want to follow along without playing.
+Done: questions from the database, email sign-in with kids' profiles, account deletion, multiplayer (host, join with a code, lobby, live questions, scores) and the watch page.
+
+1. An "Add a question" screen for the family's own questions (to replace the Google Sheet).
+2. Google sign-in, with Sign in with Apple alongside it for the App Store.
+3. Streak notifications and bonus rounds, 1v1 challenges and steals, picture and music rounds, streak mini-games.

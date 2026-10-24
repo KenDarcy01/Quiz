@@ -352,7 +352,8 @@ function lobbyScreen(g) {
         ${mine.map((p) => `<button class="btn secondary" style="width:auto;padding:0 14px;min-height:44px;font-size:18px" data-action="addHere" data-id="${esc(p.id)}">+ ${esc(p.display_name)}</button>`).join('')}
       </div>
     </section>` : ''}
-    ${watchUrl ? `<p class="muted" style="font-size:14px;word-break:break-all">Watch link for anyone not playing: <a href="${esc(watchUrl)}" target="_blank" rel="noopener">${esc(watchUrl)}</a></p>` : ''}
+    ${watchUrl ? `<button class="btn secondary" data-action="shareWatch" data-url="${esc(watchUrl)}">Share watch link</button>
+      <p class="muted" style="font-size:14px;margin-top:-10px">For anyone who wants to follow along without playing. No app needed.</p>` : ''}
     <div class="spacer"></div>
     ${g.is_host ? `<button class="btn" data-action="startMp" ${mp.busy || !g.players.length ? 'disabled' : ''}>Start the quiz</button>` : ''}
   `;
@@ -455,4 +456,12 @@ function resumeMp() {
     followGame(mp.gameId);
     render();
   }
+}
+
+// Shares the watch link with the phone's share sheet, or copies it where sharing isn't available.
+async function shareWatch(url, el) {
+  try {
+    if (navigator.share) await navigator.share({ title: 'Watch our Family Quiz', url });
+    else { await navigator.clipboard.writeText(url); el.textContent = 'Link copied'; }
+  } catch { /* share sheet closed */ }
 }

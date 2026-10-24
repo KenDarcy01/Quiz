@@ -52,6 +52,8 @@ Pick a topic (or mixed) and a difficulty, then each player is dealt questions th
 | `js/app.js` | Screens and game flow |
 | `js/questions.js` | Loads questions and picks them by age, grade and topic |
 | `js/supabase.js` | Supabase address, public key and question loading |
+| `js/multiplayer.js` | Hosting and joining games on everyone's phones |
+| `watch.html` | Follow a game live in any browser, no app or account |
 | `js/account.js` | Sign-in, profiles, kids' profiles and account deletion (Supabase Auth) |
 | `js/vendor/supabase.js` | Supabase client library 2.45.4, kept in the repo so it works offline |
 | `js/csv.js` | CSV parser |
