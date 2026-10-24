@@ -22,17 +22,20 @@ begin
   create temp table incoming on commit drop as
   select r->>'topic' as topic, coalesce(r->>'age', '') as age_band, (r->>'grade')::smallint as grade,
          r->>'question' as question, r->>'answer' as answer,
-         array(select jsonb_array_elements_text(r->'wrong')) as wrong
+         array(select jsonb_array_elements_text(r->'wrong')) as wrong,
+         coalesce(r->>'kind', 'text') as kind, r->>'media_url' as media_url, coalesce(r->'media', '{}') as media
   from jsonb_array_elements(rows) r;
 
   with up as (
-    insert into public.questions as q (source, topic, age_band, grade, question, answer, wrong)
-    select 'bank', topic, age_band, grade, question, answer, wrong from incoming
+    insert into public.questions as q (source, topic, age_band, grade, question, answer, wrong, kind, media_url, media)
+    select 'bank', topic, age_band, grade, question, answer, wrong, kind, media_url, media from incoming
     on conflict (source, age_band, lower(question)) do update
       set topic = excluded.topic, grade = excluded.grade, answer = excluded.answer,
-          wrong = excluded.wrong, active = true
-      where (q.topic, q.grade, q.answer, q.wrong, q.active)
-            is distinct from (excluded.topic, excluded.grade, excluded.answer, excluded.wrong, true)
+          wrong = excluded.wrong, kind = excluded.kind, media_url = excluded.media_url,
+          media = excluded.media, active = true
+      where (q.topic, q.grade, q.answer, q.wrong, q.kind, q.media_url, q.media, q.active)
+            is distinct from (excluded.topic, excluded.grade, excluded.answer, excluded.wrong,
+                              excluded.kind, excluded.media_url, excluded.media, true)
     returning (xmax = 0) as inserted
   )
   select count(*) filter (where inserted), count(*) filter (where not inserted) into added, updated from up;

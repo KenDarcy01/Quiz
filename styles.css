@@ -247,3 +247,7 @@ input, select {
 }
 .wheel-pointer { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 30px; z-index: 1; }
 .duel-score { font-family: var(--display); font-size: 30px; }
+
+/* Picture questions */
+.pic { border: var(--line); border-radius: 16px; overflow: hidden; background: var(--card); aspect-ratio: 4 / 3; box-shadow: 4px 4px 0 var(--ink); }
+.pic img { width: 100%; height: 100%; object-fit: cover; display: block; }

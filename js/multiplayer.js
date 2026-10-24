@@ -763,8 +763,26 @@ function mpSecondsLeft() {
   return Math.max(0, Math.ceil(seconds - (Date.now() - new Date(g.question.asked_at).getTime()) / 1000));
 }
 
+// Picture questions start zoomed in or blurred and come clear over PIC_REVEAL_MS, the same on every
+// phone because it runs from when the question was asked.
+const PIC_REVEAL_MS = 20000;
+
+function picStyle(q, done) {
+  const p = done ? 1 : Math.min(1, Math.max(0, (Date.now() - new Date(q.asked_at).getTime()) / PIC_REVEAL_MS));
+  if ((q.media || {}).reveal === 'blur') return `filter:blur(${(18 * (1 - p)).toFixed(1)}px)`;
+  const n = parseInt(String(q.id).replace(/[^0-9a-f]/gi, '').slice(0, 4), 16) || 0;
+  return `transform:scale(${(4 - 3 * p).toFixed(3)});transform-origin:${30 + (n % 41)}% ${30 + ((n >> 6) % 41)}%`;
+}
+
+function picture(q, done) {
+  return `<div class="pic"><img id="mp-pic" src="${esc(q.media_url)}" alt="" style="${picStyle(q, done)}"></div>`;
+}
+
 function tickMp() {
   tickMoles();
+  const pic = document.getElementById('mp-pic');
+  const pq = mp.game && mp.game.question;
+  if (pic && pq && !pq.revealed && !pq.answers.length) pic.setAttribute('style', picStyle(pq, false));
   const ch = mp.game && mp.game.challenge;
   const buzzEl = document.getElementById('buzz-timer');
   if (buzzEl && ch && ch.status === 'playing' && ch.mode === 'buzzer' && buzzRound(ch)) {
@@ -936,6 +954,7 @@ function playScreen(g) {
     </div>
     ${challengePanel(g)}
     <h1 class="question">${esc(q.text)}</h1>
+    ${q.media_url ? picture(q, Boolean(answer || q.revealed)) : ''}
     ${body}
     ${mpNotes()}
     ${footer}

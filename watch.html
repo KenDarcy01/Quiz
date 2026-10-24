@@ -111,6 +111,7 @@
         ${q ? `
           <p style="font-family:var(--display);font-size:22px">Q${q.seq} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">· ${esc(q.topic)}${who ? ` · for ${esc(who.name)}` : ''}</span></p>
           <h1 class="question">${esc(q.text)}</h1>
+          ${q.media_url ? `<div class="pic"><img src="${esc(q.media_url)}" alt="" style="${q.revealed ? '' : 'filter:blur(14px)'}"></div>` : ''}
           ${q.revealed ? `<div class="card stack" style="gap:4px"><span class="eyebrow">Answer</span><span class="answer-reveal">${esc(q.answer)}</span></div>` : ''}
         ` : ''}
         ${challengeView(g)}

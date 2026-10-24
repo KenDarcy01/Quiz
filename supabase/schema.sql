@@ -398,7 +398,7 @@ language sql stable security definer set search_path = public as $$
     'question', (
       select jsonb_build_object('seq', gq.seq, 'round', gq.round_no, 'kind', gq.kind,
                                 'player_id', gq.player_id, 'opponent_id', gq.opponent_id,
-                                'topic', q.topic, 'text', q.question, 'media_url', q.media_url,
+                                'topic', q.topic, 'text', coalesce(q.media->>'prompt', q.question), 'media_url', q.media_url,
                                 'media', q.media, 'asked_at', gq.asked_at,
                                 'revealed', gq.revealed_at is not null
                                   or exists (select 1 from public.answers a where a.game_question_id = gq.id),
@@ -683,6 +683,7 @@ declare
   n int;
   v_topic text;
   game_grades smallint[];
+  every int;
 begin
   select * into g from public.games where id = p_game_id for update;
   if g.id is null or g.host_id <> auth.uid() then raise exception 'Only the host can start the game'; end if;
@@ -695,6 +696,9 @@ begin
   game_grades := coalesce(
     (select array_agg(x::smallint) from jsonb_array_elements_text(g.settings->'grades') x), '{1,2,3,4,5}');
 
+  -- Every picture_every-th question of each player's is a picture (flags …); 0 turns them off.
+  every := coalesce((g.settings->>'picture_every')::int, 4);
+  every := case when every < 2 then 0 else every end;
   with players as (
     select gp.id, gp.seat, gp.profile_id, public.age_years(p.age) as years,
            coalesce(gp.grades, game_grades) as grades,
@@ -703,10 +707,10 @@ begin
     where gp.game_id = g.id and gp.left_at is null
   ),
   picked as (
-    select pl.id as player_id, pl.turn, q.id as question_id, q.grade
+    select pl.id as player_id, pl.turn, q.id as question_id, q.grade, q.kind
     from players pl
     cross join lateral (
-      select q.id, q.grade from public.questions q
+      select q.id, q.grade, q.kind from public.questions q
       where q.active and q.kind = 'text'
         and pl.years between q.age_min and q.age_max
         and q.grade = any (pl.grades)
@@ -714,14 +718,32 @@ begin
       order by exists (select 1 from public.seen_questions s
                        where s.profile_id = pl.profile_id and s.question_id = q.id),
                random()
-      limit n
+      limit n - case when every > 0 then n / every else 0 end
+    ) q
+    union all
+    select pl.id, pl.turn, q.id, q.grade, q.kind
+    from players pl
+    cross join lateral (
+      select q.id, q.grade, q.kind from public.questions q
+      where every > 0 and q.active and q.kind = 'picture'
+        and pl.years between q.age_min and q.age_max
+        and q.grade = any (pl.grades)
+      order by exists (select 1 from public.seen_questions s
+                       where s.profile_id = pl.profile_id and s.question_id = q.id),
+               random()
+      limit case when every > 0 then n / every else 0 end
     ) q
   ),
+  ranked as (
+    select *, row_number() over (partition by player_id, kind order by grade, random()) as r from picked
+  ),
   ordered as (
-    select *, row_number() over (partition by player_id order by grade, random()) as k from picked
+    select *, case when kind = 'picture' then r * every else r + (r - 1) / greatest(every - 1, 1) * (every > 0)::int end as k
+    from ranked
   )
-  insert into public.game_questions (game_id, seq, question_id, player_id)
-  select g.id, row_number() over (order by k, turn), question_id, player_id from ordered;
+  insert into public.game_questions (game_id, seq, question_id, player_id, kind)
+  select g.id, row_number() over (order by k, turn), question_id, player_id,
+         case when kind = 'picture' then 'picture' else 'normal' end from ordered;
 
   if not exists (select 1 from public.game_questions where game_id = g.id) then
     raise exception 'No questions match these players, topic and difficulty';
@@ -803,7 +825,8 @@ begin
     'question', (
       select jsonb_build_object(
         'id', gq.id, 'seq', gq.seq, 'player_id', gq.player_id, 'kind', gq.kind,
-        'topic', q.topic, 'grade', q.grade, 'text', q.question,
+        'topic', q.topic, 'grade', q.grade, 'text', coalesce(q.media->>'prompt', q.question),
+        'media_url', q.media_url, 'media', q.media,
         'asked_at', gq.asked_at, 'revealed', gq.revealed_at is not null,
         -- The host sees the answer to judge it, except on questions for players on their own phone.
         'answer', case when (is_host and gq.player_id not in (

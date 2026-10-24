@@ -9,6 +9,7 @@ import csv
 import importlib.util
 import json
 import pathlib
+import random
 import sys
 
 HERE = pathlib.Path(__file__).parent
@@ -59,9 +60,36 @@ with open(HERE / 'questions.csv', 'w', encoding='utf-8', newline='') as f:
     w.writerow(HEADER)
     w.writerows(rows)
 
+# Picture questions (database only; the one-phone game sticks to text). The stored question is a
+# unique label; players see the prompt from media.
+pictures = []
+spec = importlib.util.spec_from_file_location('flags', SRC / 'flags.py')
+flags = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(flags)
+countries = {c['code']: c for c in json.load(open(HERE / 'flag_countries.json', encoding='utf-8'))}
+tier_of = {code: g for g, codes in flags.TIERS.items() for code in codes.split()}
+name_of = {code: flags.NAMES.get(code, countries[code]['name']) for code in tier_of}
+rng = random.Random(7)  # the same wrong choices on every build
+for n, (code, grade) in enumerate(tier_of.items()):
+    if not (HERE.parent / 'media' / 'flags' / f'{code}.svg').exists():
+        problems.append(f'missing flag image: {code}')
+    near = [c for c in tier_of if c != code and countries[c]['continent'] == countries[code]['continent']
+            and abs(tier_of[c] - grade) <= 1]
+    if len(near) < 3:
+        near = [c for c in tier_of if c != code and abs(tier_of[c] - grade) <= 1]
+    pictures.append({'topic': flags.TOPIC, 'age': '', 'grade': grade, 'question': f'Flag: {code}',
+                     'answer': name_of[code], 'wrong': [name_of[c] for c in rng.sample(near, 3)],
+                     'kind': 'picture', 'media_url': f'media/flags/{code}.svg',
+                     'media': {'reveal': 'zoom' if n % 2 else 'blur', 'prompt': flags.PROMPT}})
+print(f'pictures: {len(pictures)}')
+if problems:
+    print('\n'.join(problems))
+    sys.exit(1)
+
 # One question per line, so diffs stay readable.
 with open(HERE / 'questions.json', 'w', encoding='utf-8') as f:
     f.write('[\n' + ',\n'.join(
-        json.dumps({'topic': t, 'age': a, 'grade': int(g), 'question': q, 'answer': ans, 'wrong': w},
-                   ensure_ascii=False)
-        for t, a, g, q, ans, *w in rows) + '\n]\n')
+        [json.dumps({'topic': t, 'age': a, 'grade': int(g), 'question': q, 'answer': ans, 'wrong': w},
+                    ensure_ascii=False)
+         for t, a, g, q, ans, *w in rows]
+        + [json.dumps(p, ensure_ascii=False) for p in pictures]) + '\n]\n')

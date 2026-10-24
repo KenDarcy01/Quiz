@@ -22,7 +22,7 @@ async function dbGet(path, from, to) {
 
 // Every active question in the database, as the same rows the CSV loader produces.
 async function fetchDbQuestions() {
-  const path = 'questions?select=topic,age_band,grade,question,answer,wrong&active=eq.true&order=id';
+  const path = 'questions?select=topic,age_band,grade,question,answer,wrong&active=eq.true&kind=eq.text&order=id';
   const rows = [];
   for (let from = 0; ; from += DB_PAGE) {
     const page = await dbGet(path, from, from + DB_PAGE - 1);
