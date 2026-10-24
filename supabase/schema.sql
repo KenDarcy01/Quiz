@@ -360,9 +360,7 @@ begin
   values (gq.game_id, gq.id, p_player_id, p_response, p_used_choices, correct, pts, p_steal_from,
           case when p_response is null then public.marker_name() end)
   returning * into a;
-  insert into public.seen_questions (profile_id, question_id)
-  select profile_id, gq.question_id from public.game_players where id = p_player_id
-  on conflict do nothing;
+  perform public.mark_heard(gq.game_id, gq.question_id, p_player_id);
   return a;
 end $$;
 
@@ -711,6 +709,21 @@ language sql immutable set search_path = '' as $$
               else age::smallint end
 $$;
 
+-- A question asked out loud counts as heard by the player it was for and by everyone else in the
+-- game it suits, so they don't get it later. Hearing it again moves it to the back of the queue.
+create or replace function public.mark_heard(p_game_id uuid, p_question_id bigint, p_player_id uuid)
+returns void
+language sql security definer set search_path = public as $$
+  insert into public.seen_questions (profile_id, question_id, seen_at)
+  select distinct gp.profile_id, q.id, now()
+  from public.game_players gp join public.profiles p on p.id = gp.profile_id
+  join public.questions q on q.id = p_question_id
+  where gp.game_id = p_game_id
+    and (gp.id = p_player_id or public.age_years(p.age) between q.age_min and q.age_max)
+  on conflict (profile_id, question_id) do update set seen_at = excluded.seen_at
+$$;
+revoke execute on function public.mark_heard(uuid, bigint, uuid) from public, anon;
+
 -- Deals questions for everyone and starts the game. Each player gets questions for their own age
 -- and difficulty they haven't had before (repeats only when the pool runs dry), easiest first, and
 -- turns go round the table: everyone's question 1, then everyone's question 2, and so on.
@@ -751,27 +764,43 @@ begin
     from public.game_players gp join public.profiles p on p.id = gp.profile_id
     where gp.game_id = g.id and gp.left_at is null
   ),
+  -- Players in the same age band share a pool; each gets their own slice of it first so two of
+  -- them don't get the same question in one game.
+  banded as (
+    select pl.*, row_number() over (partition by band order by turn) - 1 as share_idx,
+           count(*) over (partition by band) as share_n
+    from (select *, least(18, years - years % 2) as band from players) pl
+  ),
   slots as (  -- how many of each special each player gets
     select sp, i, (n / greatest(every, 1) - i + cardinality(specials) - 1) / cardinality(specials) as how_many
     from unnest(specials) with ordinality u(sp, i0), lateral (select (i0 - 1)::int as i) x
   ),
   picked as (
     select pl.id as player_id, pl.turn, q.id as question_id, q.grade, 'text' as sp, 0 as i
-    from players pl
+    from banded pl
     cross join lateral (
-      select q.id, q.grade from public.questions q
-      where q.active and q.kind = 'text'
-        and pl.years between q.age_min and q.age_max
-        and q.grade = any (pl.grades)
-        and (v_topic is null or q.topic = v_topic)
-      order by exists (select 1 from public.seen_questions s
-                       where s.profile_id = pl.profile_id and s.question_id = q.id),
-               random()
+      -- New questions from their own slice first, taking each topic in turn; then the rest of the
+      -- pool; then the ones they had longest ago.
+      select c.id, c.grade from (
+        select q.id, q.grade, s.seen_at,
+               abs(hashtext(g.id::text || q.id::text)) % pl.share_n = pl.share_idx as own_slice,
+               row_number() over (partition by q.topic, s.seen_at is null,
+                                  abs(hashtext(g.id::text || q.id::text)) % pl.share_n = pl.share_idx
+                                  order by random()) as turn_in_topic
+        from public.questions q
+        left join public.seen_questions s on s.profile_id = pl.profile_id and s.question_id = q.id
+        where q.active and q.kind = 'text'
+          and pl.years between q.age_min and q.age_max
+          and q.grade = any (pl.grades)
+          and (v_topic is null or q.topic = v_topic)
+      ) c
+      order by c.seen_at is not null, case when c.seen_at is null then not c.own_slice end,
+               case when c.seen_at is null then c.turn_in_topic end, c.seen_at, random()
       limit n - case when every > 0 then n / every else 0 end
     ) q
     union all
     select pl.id, pl.turn, q.id, q.grade, sl.sp, sl.i
-    from players pl cross join slots sl
+    from banded pl cross join slots sl
     cross join lateral (
       select q.id, q.grade from public.questions q
       where q.active
@@ -780,8 +809,9 @@ begin
         and pl.years between q.age_min and q.age_max
         and q.grade = any (pl.grades)
         and (v_topic is null or q.topic = v_topic)
-      order by exists (select 1 from public.seen_questions s
-                       where s.profile_id = pl.profile_id and s.question_id = q.id),
+      order by (select s.seen_at from public.seen_questions s
+                where s.profile_id = pl.profile_id and s.question_id = q.id) nulls first,
+               abs(hashtext(g.id::text || q.id::text)) % pl.share_n <> pl.share_idx,
                random()
       limit sl.how_many
     ) q
@@ -833,11 +863,8 @@ begin
     raise exception 'Finish or call off the duel first';
   end if;
   -- Make sure the question just played counts as seen, even if nobody answered it.
-  insert into public.seen_questions (profile_id, question_id)
-  select gp.profile_id, gq.question_id from public.game_questions gq
-  join public.game_players gp on gp.id = gq.player_id
-  where gq.game_id = g.id and gq.seq = g.current_seq
-  on conflict do nothing;
+  perform public.mark_heard(g.id, gq.question_id, gq.player_id)
+  from public.game_questions gq where gq.game_id = g.id and gq.seq = g.current_seq;
   select * into nxt from public.game_questions where game_id = g.id and seq = g.current_seq + 1;
   if nxt.id is null then
     update public.challenges set status = 'cancelled', finished_at = now() where game_id = g.id and status = 'pending';
@@ -1043,9 +1070,7 @@ begin
     insert into public.answers (game_id, game_question_id, player_id, is_correct, points)
     values (gq.game_id, gq.id, p_guesser_id, true, 2);
   end if;
-  insert into public.seen_questions (profile_id, question_id)
-  select profile_id, gq.question_id from public.game_players where id = gq.player_id
-  on conflict do nothing;
+  perform public.mark_heard(gq.game_id, gq.question_id, gq.player_id);
 end $$;
 revoke execute on function public.judge_hum(uuid, uuid) from public, anon;
 grant execute on function public.judge_hum(uuid, uuid) to authenticated;
@@ -1259,7 +1284,7 @@ begin
       where q.active and q.kind = 'text' and cardinality(q.wrong) > 0
         and pl.years between q.age_min and q.age_max and q.grade = any (pl.grades)
         and not exists (select 1 from public.game_questions gq where gq.game_id = c.game_id and gq.question_id = q.id)
-      order by exists (select 1 from public.seen_questions s where s.profile_id = pl.profile_id and s.question_id = q.id),
+      order by (select s.seen_at from public.seen_questions s where s.profile_id = pl.profile_id and s.question_id = q.id) nulls first,
                random()
       limit n
     ) q;
@@ -1328,7 +1353,7 @@ begin
   where challenge_id = c.id and player_id = p_player_id and idx = p_idx;
   insert into public.seen_questions (profile_id, question_id)
   select profile_id, cq.question_id from public.game_players where id = p_player_id
-  on conflict do nothing;
+  on conflict (profile_id, question_id) do update set seen_at = now();
 
   select count(*) filter (where r.winner = c.challenger_id), count(*) filter (where r.winner = c.opponent_id),
          count(*) filter (where not r.resolved)

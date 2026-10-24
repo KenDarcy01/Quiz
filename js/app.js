@@ -104,16 +104,42 @@ function poolForPlayer(p) {
   return state.bank ? poolFor(state.bank.questions, p.age, state.settings.topic, difficultyFor(p).grades) : [];
 }
 
-// Picks questions this player hasn't had yet, topping up with repeats only when the pool runs dry.
-function deal(p, seen) {
+// Deals round the topics in turn so one game doesn't bunch up on a single topic.
+function spreadTopics(list) {
+  const byTopic = new Map();
+  shuffle(list).forEach((q) => byTopic.set(q.topic, [...(byTopic.get(q.topic) || []), q]));
+  const piles = shuffle([...byTopic.values()]);
+  const out = [];
+  while (out.length < list.length) piles.forEach((pile) => { if (pile.length) out.push(pile.shift()); });
+  return out;
+}
+
+// Picks questions this player hasn't had yet, spread over the topics. When the pool runs dry it
+// tops up with the ones they had longest ago. Questions already dealt to someone else this game
+// (taken) are left out unless the pool is too small.
+function deal(p, seen, taken = new Set()) {
   const key = p.name.trim().toLowerCase();
-  const had = new Set(seen[key] || []);
-  const pool = poolForPlayer(p);
-  const fresh = shuffle(pool.filter((q) => !had.has(q.id)));
-  const repeats = shuffle(pool.filter((q) => had.has(q.id)));
+  const had = seen[key] || [];
+  const when = new Map(had.map((id, i) => [id, i]));
+  const all = poolForPlayer(p);
+  const free = all.filter((q) => !taken.has(q.id));
+  const pool = free.length >= state.settings.perPlayer ? free : all;
+  const fresh = spreadTopics(pool.filter((q) => !when.has(q.id)));
+  const repeats = pool.filter((q) => when.has(q.id)).sort((a, b) => when.get(a.id) - when.get(b.id));
   const picked = fresh.concat(repeats).slice(0, state.settings.perPlayer);
-  seen[key] = [...had, ...picked.map((q) => q.id)];
+  picked.forEach((q) => taken.add(q.id));
   return picked.sort((a, b) => a.grade - b.grade); // easier questions first
+}
+
+// Everyone at the table hears every question, so it counts as had for anyone it suits.
+function markHeard(players, sets, seen) {
+  const asked = sets.flat();
+  players.forEach((p) => {
+    const key = p.name.trim().toLowerCase();
+    const years = playerAge(p.age);
+    const heard = new Set(asked.filter((q) => years >= q.age.min && years <= q.age.max).map((q) => q.id));
+    seen[key] = [...(seen[key] || []).filter((id) => !heard.has(id)), ...heard];
+  });
 }
 
 // ---------- Game flow ----------
@@ -121,7 +147,8 @@ function deal(p, seen) {
 function startRound() {
   const { players } = state.settings;
   const seen = load(SEEN_KEY) || {};
-  const sets = players.map((p) => deal(p, seen));
+  const taken = new Set();
+  const sets = players.map((p) => deal(p, seen, taken));
   const longest = Math.max(0, ...sets.map((s) => s.length));
   const turns = [];
   // Interleave: everyone answers question 1, then everyone answers question 2, and so on.
@@ -131,6 +158,7 @@ function startRound() {
     });
   }
   if (!turns.length) return;
+  markHeard(players, sets, seen);
   save(SEEN_KEY, seen);
   state.game = {
     topic: state.settings.topic || 'Mixed topics',
