@@ -40,3 +40,6 @@ SONGS = {
         ('Running Up That Hill', 'Kate Bush'), ('Dreams', 'Fleetwood Mac'),
         ("Sweet Child o' Mine", "Guns N' Roses"), ('Ring of Fire', 'Johnny Cash')],
 }
+
+# Films, not artists: these songs are hum-it only.
+NOT_ARTISTS = {'Frozen', 'The Lion King', 'The Little Mermaid', 'Encanto', 'Moana', 'Toy Story', 'Harry Potter'}

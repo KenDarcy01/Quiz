@@ -46,6 +46,13 @@ Called from the app with `supabase.rpc(...)`:
 
 Picture questions have `kind = 'picture'`, an image in `media_url` (a path in this repo, such as `media/flags/ie.svg`) and `media` with how it's revealed (`zoom` or `blur`) and the `prompt` players see. The first set is 195 flags in five difficulty grades, built by `questions/build.py` from `questions/src/flags.py` (images from flag-icons, MIT licence). `start_game` makes every 4th question for each player a picture; `settings.picture_every` changes that, and 0 turns pictures off. The picture starts zoomed in or blurred and comes clear over 20 seconds on every phone.
 
+## Music rounds
+
+- **Hum-it** (`kind = 'music'`, `media.mode = 'hum'`): the player's phone secretly shows a song, they hum it and everyone else guesses. The host says who got it with `judge_hum(game_question_id, guesser)`: guesser +2, hummer +1. 84 songs in `questions/src/hum.py`.
+- **Song clips** (`media.mode = 'clip'`): name the song from a 30-second Apple Music preview, looked up by `media.search` when the question comes up and played on the host's phone (intro first, then the rest). They're dealt only when the host ticks Song clips (`settings.song_clips`). Apple's preview terms are about promoting music, so the app store build sets `SONG_CLIPS_ALLOWED = false` in `js/supabase.js`.
+
+Special questions take turns in each player's every 4th slot: a flag, a hum-it, then a clip when clips are on.
+
 ## Kids on their own devices
 
 A child's phone or tablet signs in anonymously (Supabase **Allow anonymous sign-ins** must be on), types the game code and taps their name from `family_profiles(code)`, which lists the child profiles of the host and the families already in the game. `request_device(code, profile_id)` sends the request, and the parent or host approves it with `decide_device(request_id, true)`. That links the device in `profile_devices` and puts the child in the game. The device then counts as the child in every later game, until the parent removes it. Older kids can sign up with their own email instead.
@@ -70,4 +77,4 @@ Done: questions from the database, email sign-in with kids' profiles, account de
 
 1. An "Add a question" screen for the family's own questions (to replace the Google Sheet).
 2. Google sign-in, with Sign in with Apple alongside it for the App Store.
-3. More picture sets (landmarks, animals, family photos) and music rounds.
+3. More picture sets (landmarks, animals, family photos). Check music licensing before the store launch.

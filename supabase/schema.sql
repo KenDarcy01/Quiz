@@ -684,6 +684,7 @@ declare
   v_topic text;
   game_grades smallint[];
   every int;
+  specials text[];
 begin
   select * into g from public.games where id = p_game_id for update;
   if g.id is null or g.host_id <> auth.uid() then raise exception 'Only the host can start the game'; end if;
@@ -696,10 +697,13 @@ begin
   game_grades := coalesce(
     (select array_agg(x::smallint) from jsonb_array_elements_text(g.settings->'grades') x), '{1,2,3,4,5}');
 
-  -- Every picture_every-th question of each player's is a special one (a flag, then a hum-it, …);
-  -- 0 turns them off.
+  -- Every picture_every-th question of each player's is a special one, taking turns: a picture
+  -- (flag), a hum-it, and a song clip if settings.song_clips is on. picture_every = 0 turns them off.
   every := coalesce((g.settings->>'picture_every')::int, 4);
   every := case when every < 2 then 0 else every end;
+  specials := case when every = 0 then '{}'
+                   when coalesce((g.settings->>'song_clips')::boolean, false) then '{picture,hum,clip}'
+                   else '{picture,hum}' end;
   with players as (
     select gp.id, gp.seat, gp.profile_id, public.age_years(p.age) as years,
            coalesce(gp.grades, game_grades) as grades,
@@ -707,11 +711,15 @@ begin
     from public.game_players gp join public.profiles p on p.id = gp.profile_id
     where gp.game_id = g.id and gp.left_at is null
   ),
+  slots as (  -- how many of each special each player gets
+    select sp, i, (n / greatest(every, 1) - i + cardinality(specials) - 1) / cardinality(specials) as how_many
+    from unnest(specials) with ordinality u(sp, i0), lateral (select (i0 - 1)::int as i) x
+  ),
   picked as (
-    select pl.id as player_id, pl.turn, q.id as question_id, q.grade, q.kind
+    select pl.id as player_id, pl.turn, q.id as question_id, q.grade, 'text' as sp, 0 as i
     from players pl
     cross join lateral (
-      select q.id, q.grade, q.kind from public.questions q
+      select q.id, q.grade from public.questions q
       where q.active and q.kind = 'text'
         and pl.years between q.age_min and q.age_max
         and q.grade = any (pl.grades)
@@ -722,47 +730,33 @@ begin
       limit n - case when every > 0 then n / every else 0 end
     ) q
     union all
-    -- Special slots alternate: picture, hum-it, picture …
-    select pl.id, pl.turn, q.id, q.grade, q.kind
-    from players pl
+    select pl.id, pl.turn, q.id, q.grade, sl.sp, sl.i
+    from players pl cross join slots sl
     cross join lateral (
-      select q.id, q.grade, q.kind from public.questions q
-      where every > 0 and q.active and q.kind = 'picture'
+      select q.id, q.grade from public.questions q
+      where q.active
+        and case sl.sp when 'picture' then q.kind = 'picture'
+                       else q.kind = 'music' and q.media->>'mode' = sl.sp end
         and pl.years between q.age_min and q.age_max
         and q.grade = any (pl.grades)
         and (v_topic is null or q.topic = v_topic)
       order by exists (select 1 from public.seen_questions s
                        where s.profile_id = pl.profile_id and s.question_id = q.id),
                random()
-      limit case when every > 0 then (n / every + 1) / 2 else 0 end
-    ) q
-    union all
-    select pl.id, pl.turn, q.id, q.grade, q.kind
-    from players pl
-    cross join lateral (
-      select q.id, q.grade, q.kind from public.questions q
-      where every > 0 and q.active and q.kind = 'music' and q.media->>'mode' = 'hum'
-        and pl.years between q.age_min and q.age_max
-        and q.grade = any (pl.grades)
-        and (v_topic is null or q.topic = v_topic)
-      order by exists (select 1 from public.seen_questions s
-                       where s.profile_id = pl.profile_id and s.question_id = q.id),
-               random()
-      limit case when every > 0 then n / every / 2 else 0 end
+      limit sl.how_many
     ) q
   ),
   ranked as (
-    select *, row_number() over (partition by player_id, kind order by grade, random()) as r from picked
+    select *, row_number() over (partition by player_id, sp order by grade, random()) as r from picked
   ),
   ordered as (
-    select *, case when kind = 'picture' then (2 * r - 1) * every
-                   when kind = 'music' then 2 * r * every
-                   else r + (r - 1) / greatest(every - 1, 1) * (every > 0)::int end as k
+    select *, case when sp = 'text' then r + (r - 1) / greatest(every - 1, 1) * (every > 0)::int
+                   else ((r - 1) * cardinality(specials) + i + 1) * every end as k
     from ranked
   )
   insert into public.game_questions (game_id, seq, question_id, player_id, kind)
   select g.id, row_number() over (order by k, turn), question_id, player_id,
-         case when kind in ('picture', 'music') then kind else 'normal' end from ordered;
+         case sp when 'text' then 'normal' when 'picture' then 'picture' else 'music' end from ordered;
 
   if not exists (select 1 from public.game_questions where game_id = g.id) then
     raise exception 'No questions match these players, topic and difficulty';

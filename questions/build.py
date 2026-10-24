@@ -89,7 +89,16 @@ for grade, songs in hum.SONGS.items():
         pictures.append({'topic': hum.TOPIC, 'age': '', 'grade': grade, 'question': f'Hum: {title}',
                          'answer': title, 'wrong': [], 'kind': 'music', 'media_url': None,
                          'media': {'mode': 'hum', 'prompt': hum.PROMPT, 'by': by}})
-print(f'pictures and hum-it: {len(pictures)}')
+# Song clips (only when the host turns them on): the same songs, the ones by a real artist, played
+# as a 30-second Apple Music preview the app looks up when the question comes up.
+clips = [(g, t, by) for g, songs in hum.SONGS.items() for t, by in songs
+         if g >= 2 and by and by not in hum.NOT_ARTISTS]
+for g, title, by in clips:
+    near = [t for g2, t, _ in clips if t != title and abs(g2 - g) <= 1]
+    pictures.append({'topic': 'Name that song', 'age': '', 'grade': g, 'question': f'Clip: {title}',
+                     'answer': title, 'wrong': rng.sample(near, 3), 'kind': 'music', 'media_url': None,
+                     'media': {'mode': 'clip', 'prompt': 'Name that song!', 'by': by, 'search': f'{title} {by}'}})
+print(f'pictures, hum-it and clips: {len(pictures)}')
 if problems:
     print('\n'.join(problems))
     sys.exit(1)

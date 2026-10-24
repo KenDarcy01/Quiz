@@ -35,3 +35,7 @@ async function fetchDbQuestions() {
   if (!questions.length) throw new Error('The question database is empty.');
   return questions;
 }
+
+// Song clips play 30-second Apple Music previews. Their terms are about promoting songs, so the app
+// store build turns them off; hum-it rounds don't need them.
+const SONG_CLIPS_ALLOWED = true;

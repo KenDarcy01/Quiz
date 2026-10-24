@@ -375,6 +375,8 @@ function hostSetupScreen() {
         <label for="host-seconds">Seconds per question (0 for no timer)</label>
         <input id="host-seconds" name="seconds" type="number" min="0" max="120" step="1" value="${esc(s.seconds)}">
       </div>
+      ${SONG_CLIPS_ALLOWED ? `<label class="check-row"><input type="checkbox" name="songClips" ${s.songClips ? 'checked' : ''}>
+        <span>Song clips<br><span class="muted" style="font-size:14px;font-weight:600">Name-that-song rounds, played on your phone</span></span></label>` : ''}
       ${mpNotes()}
       <div class="spacer"></div>
       <button class="btn" type="submit" ${mp.busy ? 'disabled' : ''}>${mp.busy ? 'Setting up…' : 'Create game'}</button>
@@ -699,6 +701,7 @@ app.addEventListener('click', (e) => {
     kick: () => kick(el.dataset.zone),
     skipBonus,
     humGuess: () => humGuess(el.dataset.id),
+    playClip,
     shoot,
     startMoles,
     whack: () => whack(el.dataset.cell),
@@ -766,6 +769,7 @@ const forms = {
     const s = state.settings;
     s.perPlayer = Math.max(1, Math.min(50, Number(f.get('perPlayer')) || 10));
     s.seconds = Math.max(0, Math.min(120, Number(f.get('seconds')) || 0));
+    s.songClips = SONG_CLIPS_ALLOWED && f.get('songClips') === 'on';
     save(SETTINGS_KEY, s);
     hostGame();
   },

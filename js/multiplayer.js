@@ -92,6 +92,7 @@ function stopFollowing() {
 }
 
 function leaveGame() {
+  stopClip();
   stopFollowing();
   mp.gameId = null;
   mp.game = null;
@@ -113,6 +114,7 @@ function hostGame() {
         grades: difficulty().grades,
         per_player: Number(s.perPlayer) || 10,
         seconds: Number(s.seconds) || 0,
+        song_clips: SONG_CLIPS_ALLOWED && Boolean(s.songClips),
       },
     });
     await followGame(g.id);
@@ -148,6 +150,70 @@ function hostMark(right) {
     });
     await refreshGame();
   });
+}
+
+// ---------- Song clips ----------
+// The host's phone is the speaker. The preview is looked up as soon as the question comes up, so a
+// tap can start it straight away (phones only play sound straight from a tap). First tap plays the
+// intro, the next carries on.
+
+const CLIP_INTRO_SECONDS = 8;
+
+function itunesSearch(term) {
+  return new Promise((resolve, reject) => {
+    const cb = `itunes${Date.now()}`;
+    const script = document.createElement('script');
+    const done = () => { delete window[cb]; script.remove(); };
+    window[cb] = (data) => { done(); resolve((data.results || [])[0] || null); };
+    script.onerror = () => { done(); reject(new Error("Couldn't load the song clip.")); };
+    script.src = `https://itunes.apple.com/search?entity=song&limit=1&country=ie&term=${encodeURIComponent(term)}&callback=${cb}`;
+    document.head.appendChild(script);
+  });
+}
+
+function prepareClip(q) {
+  if (mp.clip && mp.clip.qid === q.id) return;
+  stopClip();
+  mp.clip = { qid: q.id, status: 'loading' };
+  itunesSearch(q.media.search).then((t) => {
+    if (!mp.clip || mp.clip.qid !== q.id) return;
+    mp.clip = t && t.previewUrl
+      ? { qid: q.id, status: 'ready', url: t.previewUrl, link: t.trackViewUrl, audio: null, played: 0 }
+      : { qid: q.id, status: 'missing' };
+    render();
+  }).catch(() => { if (mp.clip && mp.clip.qid === q.id) { mp.clip.status = 'missing'; render(); } });
+}
+
+function playClip() {
+  const c = mp.clip;
+  if (!c || c.status !== 'ready') return;
+  if (!c.audio) c.audio = new Audio(c.url);
+  const a = c.audio;
+  if (!a.paused) { a.pause(); render(); return; }
+  c.played += 1;
+  a.play().catch(() => {});
+  clearTimeout(c.stopAt);
+  if (c.played === 1) c.stopAt = setTimeout(() => { a.pause(); render(); }, CLIP_INTRO_SECONDS * 1000);
+  a.onended = () => render();
+  render();
+}
+
+function stopClip() {
+  if (mp.clip && mp.clip.audio) mp.clip.audio.pause();
+  if (mp.clip) clearTimeout(mp.clip.stopAt);
+  mp.clip = null;
+}
+
+function clipPanel(g, q, done) {
+  if (!g.is_host) return '<p class="muted" style="font-weight:700">🎧 Listen to the clip on the quiz master\'s phone.</p>';
+  prepareClip(q);
+  const c = mp.clip;
+  if (c.status === 'loading') return '<p class="muted" style="font-weight:700">Loading the clip…</p>';
+  if (c.status === 'missing') return '<p class="notice">This clip isn\'t available. Skip it, or hum it yourself!</p>';
+  const playing = c.audio && !c.audio.paused;
+  const label = playing ? '⏸ Pause' : c.played === 0 ? `▶ Play the intro (${CLIP_INTRO_SECONDS}s)` : done ? '▶ Play the song' : '▶ Keep playing';
+  return `<button class="btn secondary" data-action="playClip">${label}</button>
+    <a class="muted" style="font-size:13px;align-self:center" href="${esc(c.link || 'https://music.apple.com')}" target="_blank" rel="noopener">Preview from Apple Music</a>`;
 }
 
 function humGuess(guesserId) {
@@ -899,6 +965,7 @@ function lobbyScreen(g) {
 function playScreen(g) {
   const q = g.question;
   if (!q) return '<p>Loading…</p>';
+  if (mp.clip && mp.clip.qid !== q.id) stopClip();
   if (g.challenge && g.challenge.status === 'playing') return duelScreen(g);
   const player = mpPlayer(q.player_id) || { name: 'Everyone' };
   const answer = q.answers.find((a) => a.player_id === q.player_id);
@@ -984,6 +1051,7 @@ function playScreen(g) {
     ${challengePanel(g)}
     <h1 class="question">${esc(q.text)}</h1>
     ${q.media_url ? picture(q, Boolean(answer || q.revealed)) : ''}
+    ${(q.media || {}).mode === 'clip' ? clipPanel(g, q, Boolean(answer || q.revealed)) : ''}
     ${body}
     ${mpNotes()}
     ${footer}
