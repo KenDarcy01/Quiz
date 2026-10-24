@@ -395,10 +395,7 @@ function playScreen(g) {
       footer += `<button class="btn secondary" data-action="choicesMp" ${mp.busy ? 'disabled' : ''}>Show choices (${POINTS_CHOICES} point)</button>`;
     }
     if (g.is_host && !q.choices_shown) {
-      footer += `<div class="row">
-        <button class="btn good" data-action="markRight" ${mp.busy ? 'disabled' : ''}>Right +${POINTS_STRAIGHT}</button>
-        <button class="btn bad" data-action="markWrong" ${mp.busy ? 'disabled' : ''}>Wrong</button>
-      </div>`;
+      footer += judgeButtons(player.name, 'markRight', 'markWrong', mp.busy);
     }
     if (g.is_host) footer += `<button class="link-btn" data-action="nextMp" style="align-self:center">Skip this question</button>`;
   }

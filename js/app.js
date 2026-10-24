@@ -15,7 +15,6 @@ const DIFFICULTIES = [
 ];
 
 const DEFAULT_SETTINGS = {
-  quizMaster: 'Ken',
   sheetUrl: '',
   seconds: 20,
   perPlayer: 10,
@@ -198,7 +197,7 @@ function timeUp() {
   const g = state.game;
   if (g.verdict !== null) return;
   if (g.mode === 'choices') settle(false, 0);
-  else { g.mode = 'revealed'; persist(); render(); } // the quiz master still judges a spoken answer
+  else { g.mode = 'revealed'; persist(); render(); } // someone still judges the spoken answer
 }
 
 function settle(right, points) {
@@ -299,7 +298,7 @@ function homeScreen() {
 
 // Setting up a one-phone round: topic, difficulty and who's playing.
 function localScreen() {
-  const { players, quizMaster } = state.settings;
+  const { players } = state.settings;
   const counts = players.map((p) => poolForPlayer(p).length);
   const canStart = !state.loading && counts.some((c) => c > 0);
 
@@ -329,7 +328,6 @@ function localScreen() {
     </section>
     <div class="spacer"></div>
     <button class="btn" data-action="start" ${canStart ? '' : 'disabled'}>${state.loading ? 'Loading…' : "Let's go"}</button>
-    <p class="muted" style="text-align:center;font-size:14px;font-weight:700">Quiz master: ${esc(quizMaster)}</p>
   `;
 }
 
@@ -447,10 +445,7 @@ function questionScreen() {
       <p class="sticker" style="align-self:flex-start;background:${g.verdict ? 'var(--lime)' : 'var(--wrong)'};font-size:26px;transform:rotate(-2deg)">${msg}</p>
       <button class="btn" data-action="next">${next}</button>`;
   } else if (g.mode === 'revealed') {
-    footer = `<div class="row">
-      <button class="btn good" data-action="right">Right +${POINTS_STRAIGHT}</button>
-      <button class="btn bad" data-action="wrong">Wrong</button>
-    </div>`;
+    footer = judgeButtons(p.name, 'right', 'wrong');
   } else if (g.mode === 'open') {
     footer = `
       ${g.choices ? `<button class="btn secondary" data-action="choices">Show choices (${POINTS_CHOICES} point)</button>` : ''}
@@ -473,6 +468,20 @@ function questionScreen() {
     <div class="spacer"></div>
     ${footer}
   `;
+}
+
+// Big, unmistakable Correct / Wrong buttons for judging a spoken answer.
+function judgeButtons(name, yesAction, noAction, disabled = false) {
+  return `
+    <p class="judge-q">Did ${esc(name)} get it right?</p>
+    <div class="judge">
+      <button class="judge-btn yes" data-action="${yesAction}" ${disabled ? 'disabled' : ''}>
+        <span class="judge-icon" aria-hidden="true">✓</span>Correct<small>+${POINTS_STRAIGHT} points</small>
+      </button>
+      <button class="judge-btn no" data-action="${noAction}" ${disabled ? 'disabled' : ''}>
+        <span class="judge-icon" aria-hidden="true">✗</span>Wrong<small>no points</small>
+      </button>
+    </div>`;
 }
 
 function scoresScreen() {
@@ -521,10 +530,6 @@ function settingsScreen() {
             <select id="age-${i}" name="age-${i}" aria-label="Player ${i + 1} age">${ageOptions(p.age)}</select>
           </div>`).join('')}
       </fieldset>
-      <div class="stack" style="gap:6px">
-        <label for="quizMaster">Quiz master</label>
-        <input id="quizMaster" name="quizMaster" value="${esc(s.quizMaster)}" maxlength="20">
-      </div>
       <div class="stack" style="gap:6px">
         <label for="perPlayer">Questions per player each round</label>
         <input id="perPlayer" name="perPlayer" type="number" min="1" max="50" step="1" value="${esc(s.perPlayer)}">
@@ -764,7 +769,6 @@ function saveSettings(f) {
     age: String(f.get(`age-${i}`) || p.age),
     difficulty: p.difficulty || '',
   }));
-  s.quizMaster = String(f.get('quizMaster') || '').trim() || 'Quiz master';
   s.perPlayer = Math.max(1, Math.min(50, Number(f.get('perPlayer')) || 10));
   s.seconds = Math.max(0, Math.min(120, Number(f.get('seconds')) || 0));
   s.sheetUrl = String(f.get('sheetUrl') || '').trim();
