@@ -123,6 +123,7 @@ async function loadQuestions(sheetUrl) {
     if (cached && cached.url === url) { own = cached.questions; source = 'cache'; } else source = 'bundled';
   }
   const ids = new Set(bundled.map((q) => q.id));
+  own.forEach((q) => { q.own = true; });
   return { questions: bundled.concat(own.filter((q) => !ids.has(q.id))), db, source, error };
 }
 
@@ -130,10 +131,32 @@ function topicsIn(questions) {
   return [...new Set(questions.map((q) => q.topic))].sort((a, b) => a.localeCompare(b));
 }
 
+// A topic can sit under a parent, written "Sports / Rugby". Picking the parent ("Sports") plays all
+// of its sub-topics, so a new sub-topic only needs questions with that topic name.
+const TOPIC_SEP = ' / ';
+function topicParent(topic) {
+  return topic.split(TOPIC_SEP)[0];
+}
+function topicMatches(questionTopic, pick) {
+  return !pick || questionTopic === pick || questionTopic.startsWith(pick + TOPIC_SEP);
+}
+
+// The <option>s for a topic picker: plain topics first, then each parent with "All …" and its sub-topics.
+function topicOptions(topics, selected) {
+  const opt = (value, label) => `<option value="${esc(value)}" ${value === selected ? 'selected' : ''}>${esc(label)}</option>`;
+  const plain = topics.filter((t) => !t.includes(TOPIC_SEP));
+  const parents = [...new Set(topics.filter((t) => t.includes(TOPIC_SEP)).map(topicParent))]
+    .filter((t) => !plain.includes(t));
+  return opt('', 'Mixed topics') + plain.map((t) => opt(t, t)).join('')
+    + parents.map((parent) => `<optgroup label="${esc(parent)}">${opt(parent, `All ${parent.toLowerCase()}`)}${
+      topics.filter((t) => t.startsWith(parent + TOPIC_SEP)).map((t) => opt(t, t.slice(parent.length + TOPIC_SEP.length))).join('')
+    }</optgroup>`).join('');
+}
+
 // Questions that suit a player of this age, in the chosen topic and grade range.
 function poolFor(questions, age, topic, grades) {
   const years = playerAge(age);
   return questions.filter((q) => years >= q.age.min && years <= q.age.max
-    && (!topic || q.topic === topic)
+    && topicMatches(q.topic, topic)
     && grades.includes(q.grade));
 }

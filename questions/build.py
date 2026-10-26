@@ -1,4 +1,7 @@
-"""Builds questions.csv from src/base.csv and the src/band_*.py batches.
+"""Builds questions.csv from src/base.csv, the src/band_*.py batches and the src/topic_*.py sub-topics.
+
+A topic_*.py file holds one topic, which can sit under a parent ("Sports / Rugby"); its questions
+carry their own age band: (band, grade, question, answer, wrong1, wrong2, wrong3).
 
 Also writes questions.json, the same questions for the Supabase import (supabase/import_questions.sql).
 
@@ -26,6 +29,12 @@ for path in sorted(SRC.glob('band_*.py')):
     spec.loader.exec_module(mod)
     for topic, grade, *rest in mod.Q:
         rows.append([TOPICS[topic], mod.BAND, str(grade), *rest])
+for path in sorted(SRC.glob('topic_*.py')):
+    spec = importlib.util.spec_from_file_location(path.stem, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    for band, grade, *rest in mod.Q:
+        rows.append([mod.TOPIC, band, str(grade), *rest])
 
 problems = []
 seen = set()

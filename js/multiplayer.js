@@ -1102,15 +1102,14 @@ function prefSummary(p, g) {
 }
 
 function prefPickers(p, g) {
-  const topics = state.bank ? topicsIn(state.bank.questions).filter((t) => MP_TOPICS.includes(t)) : MP_TOPICS;
+  // The family sheet's questions aren't in the database, so their topics can't be picked here.
+  const bankTopics = state.bank ? topicsIn(state.bank.questions.filter((q) => !q.own)) : [];
+  const topics = bankTopics.length ? bankTopics : MP_TOPICS;
   const topic = prefTopic(p, g);
   const id = esc(p.id);
   return `<div class="player-picks">
     <select data-change="mpPref" data-field="age" data-id="${id}" aria-label="${esc(p.name)}'s age">${AGES.map((a) => `<option value="${a}" ${a === p.age ? 'selected' : ''}>${ageLabel(a)}</option>`).join('')}</select>
-    <select data-change="mpPref" data-field="topic" data-id="${id}" aria-label="${esc(p.name)}'s topic">
-      <option value="">Mixed topics</option>
-      ${(topics.length ? topics : MP_TOPICS).map((t) => `<option value="${esc(t)}" ${t === topic ? 'selected' : ''}>${esc(t)}</option>`).join('')}
-    </select>
+    <select data-change="mpPref" data-field="topic" data-id="${id}" aria-label="${esc(p.name)}'s topic">${topicOptions(topics, topic)}</select>
     <select data-change="mpPref" data-field="level" data-id="${id}" aria-label="${esc(p.name)}'s difficulty">
       ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === prefLevel(p, g).id ? 'selected' : ''}>${d.label}</option>`).join('')}
     </select>

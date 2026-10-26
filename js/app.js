@@ -100,10 +100,11 @@ function poolForPlayer(p) {
   return state.bank ? poolFor(state.bank.questions, p.age, p.topic || '', difficultyFor(p).grades) : [];
 }
 
-// Deals round the topics in turn so one game doesn't bunch up on a single topic.
+// Deals round the topics in turn so one game doesn't bunch up on a single topic. Sub-topics share
+// their parent's turn, so Sports gets one share however many sports there are.
 function spreadTopics(list) {
   const byTopic = new Map();
-  shuffle(list).forEach((q) => byTopic.set(q.topic, [...(byTopic.get(q.topic) || []), q]));
+  shuffle(list).forEach((q) => byTopic.set(topicParent(q.topic), [...(byTopic.get(topicParent(q.topic)) || []), q]));
   const piles = shuffle([...byTopic.values()]);
   const out = [];
   while (out.length < list.length) piles.forEach((pile) => { if (pile.length) out.push(pile.shift()); });
@@ -351,10 +352,7 @@ function localScreen() {
           </div>
           <div class="player-picks">
             <select data-change="playerAge" data-player="${i}" aria-label="${esc(p.name)}'s age">${AGES.map((a) => `<option value="${a}" ${a === p.age ? 'selected' : ''}>${ageLabel(a)}</option>`).join('')}</select>
-            <select data-change="playerTopic" data-player="${i}" aria-label="${esc(p.name)}'s topic">
-              <option value="">Mixed topics</option>
-              ${topics.map((t) => `<option value="${esc(t)}" ${t === p.topic ? 'selected' : ''}>${esc(t)}</option>`).join('')}
-            </select>
+            <select data-change="playerTopic" data-player="${i}" aria-label="${esc(p.name)}'s topic">${topicOptions(topics, p.topic)}</select>
             <select data-change="level" data-player="${i}" aria-label="${esc(p.name)}'s difficulty">
               ${DIFFICULTIES.map((d) => `<option value="${d.id}" ${d.id === difficultyFor(p).id ? 'selected' : ''}>${d.label}</option>`).join('')}
             </select>

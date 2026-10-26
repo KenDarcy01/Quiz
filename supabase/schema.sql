@@ -789,10 +789,11 @@ begin
     cross join lateral (
       -- New questions from their own slice first, taking each topic in turn; then the rest of the
       -- pool; then the ones they had longest ago.
+      -- Sub-topics ("Sports / Rugby") share their parent's turn, and picking the parent plays them all.
       select c.id, c.grade from (
         select q.id, q.grade, s.seen_at,
                abs(hashtext(g.id::text || q.id::text)) % pl.share_n = pl.share_idx as own_slice,
-               row_number() over (partition by q.topic, s.seen_at is null,
+               row_number() over (partition by split_part(q.topic, ' / ', 1), s.seen_at is null,
                                   abs(hashtext(g.id::text || q.id::text)) % pl.share_n = pl.share_idx
                                   order by random()) as turn_in_topic
         from public.questions q
@@ -800,7 +801,7 @@ begin
         where q.active and q.kind = 'text'
           and pl.years between q.age_min and q.age_max
           and q.grade = any (pl.grades)
-          and (pl.topic is null or q.topic = pl.topic)
+          and (pl.topic is null or q.topic = pl.topic or left(q.topic, length(pl.topic) + 3) = pl.topic || ' / ')
       ) c
       order by c.seen_at is not null, case when c.seen_at is null then not c.own_slice end,
                case when c.seen_at is null then c.turn_in_topic end, c.seen_at, random()
