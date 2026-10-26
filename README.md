@@ -16,8 +16,9 @@ Then open http://localhost:8000. A service worker needs `localhost` or HTTPS, so
 
 1. In the repository, go to **Settings → Pages**.
 2. Under **Build and deployment**, choose **Deploy from a branch**, pick `main` and `/ (root)`, and save.
-3. After a minute the app is live at `https://kendarcy01.github.io/Quiz/`.
-4. On a phone, open that link and choose **Add to Home Screen** (Safari: Share menu; Chrome: ⋮ menu). It then opens full screen like an app and works offline.
+3. After a minute the app is live at `https://familyquiz.app` (the custom domain is set in **Settings → Pages** and in the `CNAME` file; name.com DNS has the four GitHub Pages A records plus a `www` CNAME to `kendarcy01.github.io`). The old `https://kendarcy01.github.io/Quiz/` address redirects there.
+4. Supabase **Authentication → URL Configuration** must list `https://familyquiz.app` as the Site URL so sign-up and password-reset emails link back to the app.
+5. On a phone, open that link and choose **Add to Home Screen** (Safari: Share menu; Chrome: ⋮ menu). It then opens full screen like an app and works offline.
 
 ## Questions
 
