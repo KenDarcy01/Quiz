@@ -537,7 +537,7 @@ function bonusPanel(g, player) {
     </div>`;
   }
   const m = useMini(`bonus:${b.id}`, b.game || 'penalties', b.kicks, recordTries);
-  return `${head}<div class="card stack" style="gap:10px">${miniPlay(m)}</div>`;
+  return `${head}<div class="card stack" style="gap:10px"><span class="eyebrow">${esc(player.name)}'s bonus game</span>${miniPlay(m)}</div>`;
 }
 
 // ---------- 1v1 challenges ----------
@@ -755,10 +755,10 @@ function buzzerBody(ch) {
     const q = buzzQuestion(ch, id, idx);
     const p = mpPlayer(id);
     if (q.answered) {
-      return `<p class="sticker" style="align-self:flex-start;background:var(--wrong);font-size:22px;transform:rotate(-2deg)">${mine.length > 1 ? `${esc(p.name)}: ` : ''}Wrong! Locked out this round</p>`;
+      return `<p class="sticker" style="align-self:flex-start;background:var(--wrong);font-size:22px;transform:rotate(-2deg)">${esc(p.name)}: Wrong! Locked out this round</p>`;
     }
     return `
-      ${mine.length > 1 ? `<span class="eyebrow">${esc(p.name)}'s question</span>` : ''}
+      <span class="eyebrow">${esc(p.name)}'s question</span>
       <p class="muted" style="font-weight:700;margin:0">${esc(topicLabel(q.topic))}</p>
       <h1 class="question">${esc(q.text)}</h1>
       <div class="choices" role="group" aria-label="Answers">
@@ -785,7 +785,7 @@ function duelGameBody(ch) {
   const m = useMini(key, ch.minigame, mp.mini && mp.mini.key === key ? mp.mini.tries : [], duelRecord);
   m.player = id;
   return `<div class="card stack" style="gap:10px">
-    ${duelists(ch).every((x) => (mpPlayer(x) || {}).mine) ? `<span class="eyebrow">${esc(p.name)}'s turn</span>` : ''}
+    <span class="eyebrow">${esc(p.name)}'s turn</span>
     ${miniPlay(m, true)}
   </div>`;
 }
@@ -864,10 +864,10 @@ function lightningScreen(g) {
     const q = lg.questions.find((x) => x.player_id === p.id && x.idx === idx);
     if (!q) return '';
     if (q.answered) {
-      return `<p class="sticker" style="align-self:flex-start;background:var(--wrong);font-size:22px;transform:rotate(-2deg)">${mine.length > 1 ? `${esc(p.name)}: ` : ''}Wrong! Locked out this round</p>`;
+      return `<p class="sticker" style="align-self:flex-start;background:var(--wrong);font-size:22px;transform:rotate(-2deg)">${esc(p.name)}: Wrong! Locked out this round</p>`;
     }
     return `
-      ${mine.length > 1 ? `<span class="eyebrow">${esc(p.name)}'s question</span>` : ''}
+      <span class="eyebrow">${esc(p.name)}'s question</span>
       <p class="muted" style="font-weight:700;margin:0">${esc(topicLabel(q.topic))}</p>
       <h1 class="question">${esc(q.text)}</h1>
       <div class="choices" role="group" aria-label="Answers">
@@ -1225,7 +1225,7 @@ function playScreen(g) {
       <p class="sticker" style="align-self:flex-start;background:${guesser ? 'var(--lime)' : 'var(--wrong)'};font-size:24px;transform:rotate(-2deg)">${guesser ? `${esc(guesser.name)} got it! +2, and ${esc(player.name)} +1` : 'Nobody got it'}</p>`;
   } else if (hum) {
     body = myTurn
-      ? `<div class="card stack hum-card" style="gap:6px"><span class="eyebrow">🎵 Hum this song (only you can see it)</span>
+      ? `<div class="card stack hum-card" style="gap:6px"><span class="eyebrow">🎵 ${esc(player.name)}, hum this song (only you can see it)</span>
           <span class="answer-reveal">${song}</span>
           <p style="font-weight:700;margin:0">No words! Everyone else shouts their guess.</p></div>`
       : `${q.answer ? `<div class="card stack" style="gap:4px"><span class="eyebrow">Song (only you can see this)</span><span class="answer-reveal">${song}</span></div>` : ''}
@@ -1236,7 +1236,7 @@ function playScreen(g) {
       <div class="card stack" style="gap:4px"><span class="eyebrow">Answer</span><span class="answer-reveal">${esc(q.answer || '')}</span></div>
       ${answer.response ? `<p class="muted" style="font-weight:700">${esc(player.name)} picked ${esc(answer.response)}</p>` : ''}
       <p class="sticker" style="align-self:flex-start;background:${answer.is_correct ? 'var(--lime)' : 'var(--wrong)'};font-size:26px;transform:rotate(-2deg)">${msg}</p>
-      ${answer.response ? '' : markNote(q, answer, player, myTurn)}`;
+      ${answer.response ? '' : markNote(q, answer, player)}`;
   } else if (q.choices_shown && q.choices) {
     body = `<div class="choices" role="group" aria-label="Answers">
       ${q.choices.map((c) => `<button class="choice" data-action="pickMp" data-value="${esc(c)}" ${myTurn && !mp.busy ? '' : 'disabled'}>${esc(c)}</button>`).join('')}
@@ -1247,7 +1247,7 @@ function playScreen(g) {
     body = `<div class="card stack" style="gap:4px"><span class="eyebrow">${q.revealed ? 'Answer' : `Answer (${esc(player.name)} can't see this)`}</span><span class="answer-reveal">${esc(q.answer)}</span></div>
       ${q.revealed ? '' : `<p class="muted" style="font-weight:700">${esc(player.name)} says their answer out loud.</p>`}`;
   } else {
-    body = `<p class="muted" style="font-weight:700">${myTurn ? `Say your answer out loud for ${POINTS_STRAIGHT} points.` : `${esc(player.name)} is answering out loud.`}</p>`;
+    body = `<p class="muted" style="font-weight:700">${myTurn ? `${esc(player.name)}, say your answer out loud for ${POINTS_STRAIGHT} points.` : `${esc(player.name)} is answering out loud.`}</p>`;
   }
 
   const bonus = answer && g.bonus && g.bonus.player_id === q.player_id ? g.bonus : null;
@@ -1278,14 +1278,14 @@ function playScreen(g) {
       // mark it there.
       if (q.can_judge) footer += judgeButtons(player.name, 'markRight', 'markWrong', mp.busy);
       else if (g.is_host && !q.others_can_judge) footer += `<button class="btn" data-action="revealMp" ${mp.busy ? 'disabled' : ''}>Show answer</button>`;
-      else if (myTurn) footer += '<p class="muted" style="font-weight:700;text-align:center">Someone else will mark your answer.</p>';
+      else if (myTurn) footer += `<p class="muted" style="font-weight:700;text-align:center">Someone else will mark ${esc(player.name)}'s answer.</p>`;
     }
     if (g.is_host) footer += `<button class="link-btn" data-action="nextMp" style="align-self:center">Skip this question</button>`;
   }
 
   return `
     <div class="topbar">
-      <span class="chip" style="background:${COLOURS[g.players.indexOf(player) % 4] || 'var(--card)'}">${myTurn ? 'Your turn' : esc(player.name)}</span>
+      <span class="chip" style="background:${COLOURS[g.players.indexOf(player) % 4] || 'var(--card)'}">${q.player_id ? `${esc(player.name)}'s turn` : 'Everyone'}</span>
       ${myScores(g)}
       ${left !== null && !answer ? `<div id="mp-timer" class="timer ${left <= 5 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>` : ''}
     </div>
@@ -1316,11 +1316,11 @@ function endLink(g) {
 }
 
 // Who marked a spoken answer, whether it was changed, and a way to fix a wrong tap.
-function markNote(q, answer, player, myTurn) {
+function markNote(q, answer, player) {
   const result = answer.is_correct ? `Correct (+${answer.points})` : 'Wrong';
   let note = '';
   if (answer.changed) {
-    note = `<p class="notice" role="status">✏️ ${myTurn ? 'Your answer was' : `${esc(player.name)}'s answer was`} changed to <b>${result}</b>${answer.marked_by ? ` by ${esc(answer.marked_by)}` : ''}.</p>`;
+    note = `<p class="notice" role="status">✏️ ${esc(player.name)}'s answer was changed to <b>${result}</b>${answer.marked_by ? ` by ${esc(answer.marked_by)}` : ''}.</p>`;
   } else if (answer.marked_by) {
     note = `<p class="muted" style="font-weight:700">Marked by ${esc(answer.marked_by)}</p>`;
   }
