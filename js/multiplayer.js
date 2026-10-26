@@ -53,12 +53,25 @@ async function refreshGame() {
   if (!mp.gameId) return;
   try {
     mp.game = await rpc('game_state', { p_game_id: mp.gameId });
+    await loadDuelTaken(mp.game.challenge);
     mp.error = '';
   } catch (e) {
     if (/not in this game/i.test(e.message || '')) { leaveGame(); return; }
     mp.error = mpError(e);
   }
   if (state.screen === 'mp') renderUnlessPicking();
+}
+
+// How many points a duel's loser really lost: never more than they had, so it can be under 2.
+async function loadDuelTaken(ch) {
+  if (!ch || ch.status !== 'finished' || !ch.winner_id || ch.taken != null) return;
+  mp.duelTaken = mp.duelTaken || {};
+  if (mp.duelTaken[ch.id] == null) {
+    const { data } = await sb.from('game_events').select('points')
+      .eq('game_id', mp.gameId).eq('type', 'challenge_lost').eq('payload->>challenge_id', ch.id).limit(1);
+    if (data && data.length) mp.duelTaken[ch.id] = -data[0].points;
+  }
+  ch.taken = mp.duelTaken[ch.id];
 }
 
 let refreshQueued = null;
@@ -268,6 +281,7 @@ function pickMp(choice) {
 // { key, game, tries, record(results, extra) }, set when its panel is drawn.
 
 const KICKS = 3;
+const KICK_SHOW_MS = 1500;  // how long a penalty's result stays in the goal before it clears
 const ZONES = ['left', 'middle', 'right'];
 const BONUS_GAMES = {
   penalties: { name: 'Penalty shootout', icon: '⚽', hit: '⚽', miss: '🧤', watching: 'is taking penalties…' },
@@ -325,7 +339,7 @@ function kick(zone) {
   const m = miniOpen();
   if (!m) return;
   const dive = ZONES[Math.floor(Math.random() * ZONES.length)];
-  mp.lastKick = { zone, dive, goal: dive !== zone };
+  mp.lastKick = { zone, dive, goal: dive !== zone, at: Date.now() };
   m.record([dive !== zone], () => ({ zone, dive }));
 }
 
@@ -424,14 +438,20 @@ function kickTally(kicks, game = BONUS_GAMES.penalties) {
 function penaltiesPlay(m) {
   const last = m.tries[m.tries.length - 1];
   const k = mp.lastKick && last ? mp.lastKick : null;
+  // Show where the ball and keeper went for a moment, then clear the goal for the next kick.
+  const done = m.tries.length >= KICKS;
+  const showing = k && (done || Date.now() - k.at < KICK_SHOW_MS);
+  if (showing && !done && !k.timer) k.timer = setTimeout(render, KICK_SHOW_MS - (Date.now() - k.at) + 20);
+  const shown = showing ? k : null;
   return `
-    <p style="font-weight:700">Tap where to shoot. Beat the keeper to score.</p>
-    <div class="goal" role="group" aria-label="Pick where to shoot">
-      ${ZONES.map((z) => `<button class="goal-zone ${k && k.dive === z ? 'keeper' : ''} ${k && k.zone === z ? (k.goal ? 'scored' : 'saved') : ''}"
-        data-action="kick" data-zone="${z}" ${mp.busy ? 'disabled' : ''} aria-label="Shoot ${z}">
-        ${k && k.dive === z ? '🧤' : ''}${k && k.zone === z && k.goal ? '⚽' : ''}</button>`).join('')}
+    ${shown ? `<p style="font-family:var(--display);font-size:26px;margin:0">${shown.goal ? 'GOAL!' : 'Saved!'}</p>`
+      : `<p class="ready-line">Kick ${m.tries.length + 1} of ${KICKS}: ready! Tap where to shoot.</p>`}
+    <div class="goal ${shown ? '' : 'ready'}" role="group" aria-label="Pick where to shoot">
+      ${ZONES.map((z) => `<button class="goal-zone ${shown && shown.dive === z ? 'keeper' : ''} ${shown && shown.zone === z ? (shown.goal ? 'scored' : 'saved') : ''}"
+        data-action="kick" data-zone="${z}" ${mp.busy || shown ? 'disabled' : ''} aria-label="Shoot ${z}">
+        ${shown && shown.dive === z ? '🧤' : ''}${shown && shown.zone === z && shown.goal ? '⚽' : ''}</button>`).join('')}
     </div>
-    ${k ? `<p style="font-family:var(--display);font-size:26px">${k.goal ? 'GOAL!' : 'Saved!'}</p>` : ''}`;
+    <p class="penalty-spot" aria-hidden="true">${shown ? '' : '⚽'}</p>`;
 }
 
 // Moves the basketball smoothly while it's on screen.
@@ -677,8 +697,16 @@ function challengePanel(g) {
   return `<div class="card stack duel-card" style="gap:6px">
     <span class="eyebrow">⚔️ ${duelKind(ch)} result</span>
     ${duelScores(ch)}
-    <p style="font-weight:800">${w ? `${esc(w.name)} wins and steals 2 points from ${esc(w.id === a.id ? b.name : a.name)}!` : "It's a draw. Nobody steals anything."}</p>
+    <p style="font-weight:800">${w ? duelOutcome(w, w.id === a.id ? b : a, ch.taken) : "It's a draw. Nobody steals anything."}</p>
   </div>`;
+}
+
+// The winner always gets 2; the loser loses up to 2 but never drops below 0.
+function duelOutcome(w, l, taken) {
+  if (taken == null) return `${esc(w.name)} wins 2 points!`;
+  if (taken >= 2) return `${esc(w.name)} wins and steals 2 points from ${esc(l.name)}!`;
+  if (taken === 1) return `${esc(w.name)} wins 2 points! ${esc(l.name)} only had 1 point to lose.`;
+  return `${esc(w.name)} wins 2 points! ${esc(l.name)} had no points to lose.`;
 }
 
 // The Challenge card: each player can play it once a game, when no other challenge is on.
@@ -1303,10 +1331,11 @@ function markNote(q, answer, player, myTurn) {
 }
 
 // This phone's players and their scores, always in view.
+// Everyone's score at a glance (players on this phone first), so a steal or bonus is easy to follow.
 function myScores(g) {
-  const mine = g.players.filter((p) => p.mine);
-  if (!mine.length) return '';
-  return `<span class="chip my-score" aria-label="Your score">${mine.map((p) => `${mine.length > 1 ? `${esc(p.name)} ` : 'You: '}<b>${p.score}</b>`).join(' · ')}</span>`;
+  if (!g.players.length) return '';
+  const list = g.players.filter((p) => p.mine).concat(g.players.filter((p) => !p.mine));
+  return `<span class="chip my-score" aria-label="Scores">${list.map((p) => `<span class="${p.mine ? 'me' : ''}">${esc(p.name)} <b>${p.score}</b></span>`).join(' · ')}</span>`;
 }
 
 function finishedScreen(g) {

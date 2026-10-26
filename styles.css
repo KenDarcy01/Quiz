@@ -210,6 +210,10 @@ input, select {
 .goal-zone:active { background: rgba(76, 201, 240, 0.35); }
 .goal-zone.scored { background: rgba(61, 220, 132, 0.45); }
 .goal-zone.saved { background: rgba(255, 92, 92, 0.45); }
+.goal-zone:disabled { cursor: default; }
+.goal.ready { box-shadow: 0 0 0 4px var(--lime); }
+.ready-line { font-weight: 800; margin: 0; }
+.penalty-spot { text-align: center; font-size: 34px; height: 40px; margin: -6px 0 0; }
 .kick-tally { display: flex; gap: 10px; font-size: 28px; margin: 0; }
 
 /* 1v1 challenges */
@@ -258,6 +262,9 @@ input, select {
 .check-row input { width: 26px; height: 26px; accent-color: var(--orange); }
 .my-score { background: var(--card); margin-left: auto; margin-right: 8px; }
 .my-score b { font-family: var(--display); font-size: 17px; }
+.my-score { white-space: normal; text-align: right; max-width: 70%; }
+.my-score span { white-space: nowrap; }
+.my-score .me { text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: var(--lime); }
 
 .remove-btn { flex: none; width: 36px; height: 36px; border: var(--line); border-radius: 50%; background: var(--card); font-weight: 800; cursor: pointer; }
 .player-add { display: grid; grid-template-columns: 40px minmax(0, 1fr) 92px auto; gap: 8px; align-items: center; }
