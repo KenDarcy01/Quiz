@@ -141,15 +141,33 @@ function topicMatches(questionTopic, pick) {
   return !pick || questionTopic === pick || questionTopic.startsWith(pick + TOPIC_SEP);
 }
 
-// The <option>s for a topic picker: plain topics first, then each parent with "All …" and its sub-topics.
+// How a topic is shown during a game: the last two levels, "Sports · GAA".
+function topicLabel(topic) {
+  return topic.split(TOPIC_SEP).slice(-2).join(' · ');
+}
+
+// The <option>s for a topic picker: plain topics first, then a group for each parent with "All …",
+// its sub-topics, and any sub-sub-topics indented under theirs ("Harry Potter – all", then each book).
 function topicOptions(topics, selected) {
   const opt = (value, label) => `<option value="${esc(value)}" ${value === selected ? 'selected' : ''}>${esc(label)}</option>`;
   const plain = topics.filter((t) => !t.includes(TOPIC_SEP));
-  const parents = [...new Set(topics.filter((t) => t.includes(TOPIC_SEP)).map(topicParent))]
-    .filter((t) => !plain.includes(t));
+  const nested = topics.filter((t) => t.includes(TOPIC_SEP));
+  const parents = [...new Set(nested.map(topicParent))].filter((t) => !plain.includes(t));
+  // Every level below a parent, including in-between ones with no questions of their own.
+  const nodes = new Set();
+  nested.forEach((t) => {
+    const parts = t.split(TOPIC_SEP);
+    for (let n = 2; n <= parts.length; n++) nodes.add(parts.slice(0, n).join(TOPIC_SEP));
+  });
+  const sorted = [...nodes].sort((a, b) => a.localeCompare(b));
+  const indent = '\u00a0\u00a0\u00a0';
   return opt('', 'Mixed topics') + plain.map((t) => opt(t, t)).join('')
     + parents.map((parent) => `<optgroup label="${esc(parent)}">${opt(parent, `All ${parent.toLowerCase()}`)}${
-      topics.filter((t) => t.startsWith(parent + TOPIC_SEP)).map((t) => opt(t, t.slice(parent.length + TOPIC_SEP.length))).join('')
+      sorted.filter((t) => t.startsWith(parent + TOPIC_SEP)).map((t) => {
+        const parts = t.split(TOPIC_SEP);
+        const hasKids = sorted.some((x) => x.startsWith(t + TOPIC_SEP));
+        return opt(t, indent.repeat(parts.length - 2) + parts[parts.length - 1] + (hasKids ? ' – all' : ''));
+      }).join('')
     }</optgroup>`).join('');
 }
 

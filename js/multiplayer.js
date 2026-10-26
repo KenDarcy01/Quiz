@@ -731,7 +731,7 @@ function buzzerBody(ch) {
     }
     return `
       ${mine.length > 1 ? `<span class="eyebrow">${esc(p.name)}'s question</span>` : ''}
-      <p class="muted" style="font-weight:700;margin:0">${esc(q.topic)}</p>
+      <p class="muted" style="font-weight:700;margin:0">${esc(topicLabel(q.topic))}</p>
       <h1 class="question">${esc(q.text)}</h1>
       <div class="choices" role="group" aria-label="Answers">
         ${q.choices.map((c) => `<button class="choice" data-action="buzz" data-id="${esc(id)}" data-value="${esc(c)}" ${mp.busy ? 'disabled' : ''}>${esc(c)}</button>`).join('')}
@@ -840,7 +840,7 @@ function lightningScreen(g) {
     }
     return `
       ${mine.length > 1 ? `<span class="eyebrow">${esc(p.name)}'s question</span>` : ''}
-      <p class="muted" style="font-weight:700;margin:0">${esc(q.topic)}</p>
+      <p class="muted" style="font-weight:700;margin:0">${esc(topicLabel(q.topic))}</p>
       <h1 class="question">${esc(q.text)}</h1>
       <div class="choices" role="group" aria-label="Answers">
         ${q.choices.map((c) => `<button class="choice" data-action="zapTap" data-id="${esc(p.id)}" data-value="${esc(c)}" ${mp.busy ? 'disabled' : ''}>${esc(c)}</button>`).join('')}
@@ -1098,7 +1098,7 @@ function prefLevel(p, g) {
 }
 
 function prefSummary(p, g) {
-  return [ageLabel(p.age), prefTopic(p, g) || 'Mixed topics', prefLevel(p, g).label].join(' · ');
+  return [ageLabel(p.age), (prefTopic(p, g) ? topicLabel(prefTopic(p, g)) : 'Mixed topics'), prefLevel(p, g).label].join(' · ');
 }
 
 function prefPickers(p, g) {
@@ -1262,7 +1262,7 @@ function playScreen(g) {
       ${left !== null && !answer ? `<div id="mp-timer" class="timer ${left <= 5 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>` : ''}
     </div>
     <div class="row" style="justify-content:space-between">
-      <p style="font-family:var(--display);font-size:22px">Q${q.seq} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">of ${g.total} · ${esc(q.topic)}</span></p>
+      <p style="font-family:var(--display);font-size:22px">Q${q.seq} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">of ${g.total} · ${esc(topicLabel(q.topic))}</span></p>
       ${gradeDots(q.grade)}
     </div>
     ${challengePanel(g)}

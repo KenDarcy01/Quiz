@@ -423,7 +423,7 @@ function passScreen() {
   const p = state.settings.players[turn.player];
   return `
     <div class="topbar">
-      <span class="eyebrow">${esc(turn.question.topic)}</span>
+      <span class="eyebrow">${esc(topicLabel(turn.question.topic))}</span>
       <button class="link-btn" data-action="quit">End round</button>
     </div>
     <div class="pass">
@@ -489,7 +489,7 @@ function questionScreen() {
       ${timerOn ? `<div id="timer" class="timer ${left <= 5 ? 'low' : ''}" role="timer" aria-label="Seconds left">${left}</div>` : ''}
     </div>
     <div class="row" style="justify-content:space-between">
-      <p style="font-family:var(--display);font-size:22px">Q${turn.n} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">of ${turn.of} · ${esc(q.topic)}</span></p>
+      <p style="font-family:var(--display);font-size:22px">Q${turn.n} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">of ${turn.of} · ${esc(topicLabel(q.topic))}</span></p>
       ${gradeDots(q.grade)}
     </div>
     <h1 class="question">${esc(q.question)}</h1>

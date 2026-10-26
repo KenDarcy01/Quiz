@@ -2957,256 +2957,790 @@ General knowledge,adult,3,What is the name of the oldest university in the Engli
 General knowledge,adult,4,What is the collective noun for a group of flamingos?,A flamboyance,A parliament,A murder,A dazzle
 General knowledge,adult,4,What does the Latin phrase 'caveat emptor' mean?,Let the buyer beware,Seize the day,Beware of the dog,Buyer's remorse
 General knowledge,adult,5,What is the name of the tiny plastic or metal tip on the end of a shoelace?,An aglet,A ferrule,A grommet,A toggle
-Books & films / Harry Potter,6-9,1,What is the name of Harry Potter's owl?,Hedwig,Errol,Hermes,Pigwidgeon
-Books & films / Harry Potter,6-9,1,What is the name of Harry Potter's school?,Hogwarts,Beauxbatons,Durmstrang,St Trinian's
-Books & films / Harry Potter,6-9,1,What shape is the scar on Harry Potter's forehead?,A lightning bolt,A star,A heart,A moon
-Books & films / Harry Potter,6-9,1,Who are Harry Potter's two best friends?,Ron and Hermione,Fred and George,Draco and Neville,Luna and Ginny
-Books & films / Harry Potter,6-9,1,What do witches and wizards ride to play Quidditch?,Broomsticks,Dragons,Flying carpets,Horses
-Books & films / Harry Potter,6-9,2,Which Hogwarts house is Harry in?,Gryffindor,Slytherin,Hufflepuff,Ravenclaw
-Books & films / Harry Potter,6-9,2,What is the name of the friendly giant who looks after the Hogwarts grounds?,Hagrid,Dobby,Filch,Dudley
-Books & films / Harry Potter,6-9,2,What is the wizard sport played on broomsticks called?,Quidditch,Gobstones,Wizard chess,Exploding Snap
-Books & films / Harry Potter,6-9,2,What colour is the Weasley family's hair?,Red,Black,Blond,Brown
-Books & films / Harry Potter,6-9,2,Who is the headmaster of Hogwarts when Harry arrives?,Albus Dumbledore,Severus Snape,Minerva McGonagall,Cornelius Fudge
-Books & films / Harry Potter,6-9,3,From which platform does the Hogwarts Express leave King's Cross?,Platform 9¾,Platform 7½,Platform 10¼,Platform 1
-Books & films / Harry Potter,6-9,3,What is the name of Hermione's cat?,Crookshanks,Mrs Norris,Tom,Whiskers
-Books & films / Harry Potter,6-9,3,Which Hogwarts house has a snake as its symbol?,Slytherin,Gryffindor,Hufflepuff,Ravenclaw
-Books & films / Harry Potter,6-9,3,What does the Sorting Hat do?,Chooses which house each new pupil joins,Keeps your head warm,Grants three wishes,Makes you invisible
-Books & films / Harry Potter,6-9,3,Which magic sweet hops away if you don't eat it quickly?,A Chocolate Frog,A Fizzing Whizzbee,A Sugar Quill,A Pumpkin Pasty
-Books & films / Harry Potter,6-9,4,What is the name of Harry's blond rival from Slytherin?,Draco Malfoy,Neville Longbottom,Cedric Diggory,Dudley Dursley
-Books & films / Harry Potter,6-9,4,What is the name of Hagrid's huge three-headed dog?,Fluffy,Fang,Norbert,Buckbeak
-Books & films / Harry Potter,6-9,4,Which wizard bank is run by goblins?,Gringotts,Ollivanders,Honeydukes,Flourish and Blotts
-Books & films / Harry Potter,6-9,4,"What is the small, fast, golden ball in Quidditch called?",The Golden Snitch,The Quaffle,The Bludger,The Golden Egg
-Books & films / Harry Potter,6-9,4,What position does Harry play in the Quidditch team?,Seeker,Keeper,Beater,Chaser
-Books & films / Harry Potter,6-9,5,What is the hidden shopping street where Harry buys his wand?,Diagon Alley,Privet Drive,Hogsmeade,Knockturn Alley
-Books & films / Harry Potter,6-9,5,Which animal is the symbol of Hufflepuff house?,A badger,A lion,An eagle,A snake
-Books & films / Harry Potter,6-9,5,What do wizards call people who can't do magic?,Muggles,Squibs,Goblins,Elves
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What is the name of Harry Potter's owl?,Hedwig,Errol,Hermes,Pigwidgeon
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What is the name of Harry Potter's school?,Hogwarts,Beauxbatons,Durmstrang,St Trinian's
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What shape is the scar on Harry Potter's forehead?,A lightning bolt,A star,A heart,A moon
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,Who are Harry Potter's two best friends?,Ron and Hermione,Fred and George,Draco and Neville,Luna and Ginny
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What do witches and wizards ride to play Quidditch?,Broomsticks,Dragons,Flying carpets,Horses
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What does Harry Potter wear on his face?,Glasses,A mask,An eye patch,Sunglasses
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What colour is Harry Potter's hair?,Black,Red,Blond,Brown
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What is the name of Harry's spoilt cousin?,Dudley,Draco,Dobby,Dean
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What do witches and wizards use to cast spells?,A wand,A spoon,A pencil,A feather
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,Which train takes pupils to Hogwarts?,The Hogwarts Express,The Wizard Whizzer,The Magic Mail,The Broomstick Line
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,Where does Harry sleep at the Dursleys' house at the start of the first book?,In the cupboard under the stairs,In the attic,In the garden shed,In the bath
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,Which of Harry's friends loves books and studying most?,Hermione,Ron,Hagrid,Dudley
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,Which birds deliver the post in the wizard world?,Owls,Pigeons,Parrots,Penguins
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What does Harry's Invisibility Cloak do?,Makes him invisible,Makes him fly,Keeps him dry,Makes him taller
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,1,What is Ron's surname?,Weasley,Potter,Granger,Longbottom
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,Which Hogwarts house is Harry in?,Gryffindor,Slytherin,Hufflepuff,Ravenclaw
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What is the name of the friendly giant who looks after the Hogwarts grounds?,Hagrid,Dobby,Filch,Dudley
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What is the wizard sport played on broomsticks called?,Quidditch,Gobstones,Wizard chess,Exploding Snap
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What colour is the Weasley family's hair?,Red,Black,Blond,Brown
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,Who is the headmaster of Hogwarts when Harry arrives?,Albus Dumbledore,Severus Snape,Minerva McGonagall,Cornelius Fudge
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What is the name of Hagrid's big dog?,Fang,Fluffy,Buckbeak,Scabbers
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What are Gryffindor's colours?,Red and gold,Green and silver,Blue and bronze,Yellow and black
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What are Slytherin's colours?,Green and silver,Red and gold,Blue and bronze,Yellow and black
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,"What does Hagrid bring Harry for his 11th birthday, as well as his letter?",A birthday cake,A puppy,A bicycle,A football
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,Which ghost belongs to Gryffindor house?,Nearly Headless Nick,The Bloody Baron,The Fat Friar,Peeves
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What is the name of the Hogwarts caretaker's cat?,Mrs Norris,Crookshanks,Tibbles,Mrs Whiskers
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What colour is the Hogwarts Express steam engine?,Red,Green,Black,Blue
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,Which Weasley twins love jokes and pranks?,Fred and George,Bill and Charlie,Percy and Ron,Fred and Percy
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,2,What is the name of Neville Longbottom's pet toad?,Trevor,Toady,Kermit,Hoppy
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,3,From which platform does the Hogwarts Express leave King's Cross?,Platform 9¾,Platform 7½,Platform 10¼,Platform 1
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,3,Which Hogwarts house has a snake as its symbol?,Slytherin,Gryffindor,Hufflepuff,Ravenclaw
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,3,What does the Sorting Hat do?,Chooses which house each new pupil joins,Keeps your head warm,Grants three wishes,Makes you invisible
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,3,Which magic sweet hops away if you don't eat it quickly?,A Chocolate Frog,A Fizzing Whizzbee,A Sugar Quill,A Pumpkin Pasty
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,3,What are Hufflepuff's colours?,Yellow and black,Red and gold,Green and silver,Blue and bronze
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,3,What is the name of Hagrid's baby dragon?,Norbert,Puff,Smaug,Toothless
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,3,In which shop does Harry buy his wand?,Ollivanders,Honeydukes,Gringotts,Zonko's
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,3,What does the spell 'Alohomora' do?,Unlocks doors,Makes things float,Turns on a light,Makes you sneeze
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,What is the name of Harry's blond rival from Slytherin?,Draco Malfoy,Neville Longbottom,Cedric Diggory,Dudley Dursley
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,What is the name of Hagrid's huge three-headed dog?,Fluffy,Fang,Norbert,Buckbeak
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,Which wizard bank is run by goblins?,Gringotts,Ollivanders,Honeydukes,Flourish and Blotts
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,"What is the small, fast, golden ball in Quidditch called?",The Golden Snitch,The Quaffle,The Bludger,The Golden Egg
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,What position does Harry play in the Quidditch team?,Seeker,Keeper,Beater,Chaser
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,Which Quidditch balls fly around trying to knock players off their brooms?,Bludgers,Quaffles,Snitches,Bouncers
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,Which Quidditch ball do the Chasers throw through the hoops?,The Quaffle,The Bludger,The Snitch,The Sliotar
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,How many players are on a Quidditch team?,7,5,11,9
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,What is the name of Harry's first racing broomstick?,Nimbus 2000,Firebolt,Cleansweep Seven,Comet 260
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,Who is the head of Gryffindor house?,Professor McGonagall,Professor Snape,Professor Flitwick,Professor Sprout
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,4,Which animal can Professor McGonagall turn into?,A cat,A dog,A bird,A rat
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,5,What is the hidden shopping street where Harry buys his wand?,Diagon Alley,Privet Drive,Hogsmeade,Knockturn Alley
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,5,Which animal is the symbol of Hufflepuff house?,A badger,A lion,An eagle,A snake
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,5,What do wizards call people who can't do magic?,Muggles,Squibs,Goblins,Elves
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,5,Which animal is the symbol of Gryffindor house?,A lion,A badger,A snake,An eagle
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,5,Who guards the entrance to Gryffindor Tower?,The Fat Lady in a painting,A stone gargoyle,Mrs Norris,A talking door knocker
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,5,Which tiny Hogwarts teacher teaches Charms?,Professor Flitwick,Professor Sprout,Professor Quirrell,Professor Binns
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,5,What kind of owl is Hedwig?,A snowy owl,A barn owl,A tawny owl,An eagle owl
+Books & films / Harry Potter / 1. Philosopher's Stone,6-9,5,"Which wizard sweets come in every flavour, even earwax and vomit?",Bertie Bott's Every Flavour Beans,Chocolate Frogs,Fizzing Whizzbees,Drooble's Gum
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,1,"What is the surname of Harry's aunt, uncle and cousin?",Dursley,Weasley,Granger,Malfoy
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,1,What is the name of Ron's pet rat?,Scabbers,Trevor,Hedwig,Crookshanks
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,1,Which spell makes objects float in the air?,Wingardium Leviosa,Alohomora,Lumos,Accio
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,1,Which Weasley brother works with dragons in Romania?,Charlie,Bill,Percy,Fred
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,2,Who teaches Potions when Harry starts at Hogwarts?,Severus Snape,Remus Lupin,Gilderoy Lockhart,Pomona Sprout
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,2,What is the name of the troublemaking poltergeist at Hogwarts?,Peeves,Dobby,Filch,Kreacher
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,2,What does the Philosopher's Stone make?,The Elixir of Life,Invisibility Cloaks,Unbreakable wands,Polyjuice Potion
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,2,Which wizard made the Philosopher's Stone?,Nicolas Flamel,Albus Dumbledore,Merlin,Godric Gryffindor
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,2,Which teacher has Voldemort hidden on the back of his head in the first book?,Professor Quirrell,Professor Snape,Professor Lockhart,Professor Lupin
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,5,What is the magical core of Harry's wand?,A phoenix feather,A unicorn hair,A dragon heartstring,A troll whisker
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,1,What is Hermione's surname?,Granger,Weasley,Lovegood,Patil
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,2,Who is the grumpy caretaker of Hogwarts?,Argus Filch,Rubeus Hagrid,Horace Slughorn,Kreacher
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,3,What does the Mirror of Erised show you?,Your deepest desire,Your future,Your worst fear,What you looked like as a baby
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,5,Which wood is Harry's wand made from?,Holly,Yew,Elder,Willow
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,5,What is the core of Voldemort's wand?,A phoenix feather,A dragon heartstring,A unicorn hair,A basilisk scale
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,3,What is the main wizarding newspaper called?,The Daily Prophet,The Quibbler,The Wizarding Times,Witch Weekly
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,4,What does Dumbledore tell Harry he sees in the Mirror of Erised?,A pair of thick woollen socks,His family,A lemon drop,The Elder Wand
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,4,Which Gringotts vault held the Philosopher's Stone?,713,687,394,101
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,4,What does 'Erised' spell backwards?,Desire,Riser,Desi,Erase
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,4,On what date is Harry Potter's birthday?,31 July,31 October,1 September,25 December
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,5,What is the Dursleys' address?,"4 Privet Drive, Little Whinging","12 Grimmauld Place, London","7 Spinner's End, Cokeworth","1 Magnolia Crescent, Surrey"
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,5,What is Dumbledore's full name?,Albus Percival Wulfric Brian Dumbledore,Albus Brian Aberforth Percival Dumbledore,Albus Wulfric Gellert Dumbledore,Albus Percival Ignotus Dumbledore
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,5,Which ghost belongs to Slytherin house?,The Bloody Baron,The Grey Lady,The Fat Friar,Nearly Headless Nick
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,5,Which ghost belongs to Hufflepuff house?,The Fat Friar,The Bloody Baron,The Grey Lady,Moaning Myrtle
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,1,"What does Hagrid tell Harry he is, on his 11th birthday?",A wizard,A prince,A giant,A Muggle
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,3,Who does Harry see when he looks into the Mirror of Erised?,His family,Himself as Head Boy,Voldemort,Dumbledore
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,3,Which game do the trio have to play on a giant board to reach the Stone?,Wizard's chess,Gobstones,Snakes and ladders,Exploding Snap
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,3,Which plant tries to strangle the trio under the trapdoor?,Devil's Snare,Mandrake,Venomous Tentacula,Whomping Willow
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,3,Which house wins the House Cup at the end of Harry's first year?,Gryffindor,Slytherin,Ravenclaw,Hufflepuff
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,3,Who teaches flying lessons at Hogwarts?,Madam Hooch,Madam Pomfrey,Madam Pince,Professor Sprout
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,4,Who is drinking unicorn blood in the Forbidden Forest?,Voldemort,Snape,A werewolf,Hagrid
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,4,Which centaur saves Harry in the Forbidden Forest?,Firenze,Bane,Ronan,Magorian
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,4,Why does Dumbledore give Neville points at the end of the year?,For standing up to his friends,For catching the Snitch,For the best exam marks,For finding the Stone
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,4,What does Harry get at Christmas from someone who doesn't sign their name?,His father's Invisibility Cloak,A Firebolt,A Chocolate Frog,A new wand
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,4,Where do Harry and Ron fight the troll on Halloween?,In the girls' bathroom,In the Great Hall,In the dungeons,On the Quidditch pitch
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,5,What does Mrs Weasley knit Harry for Christmas?,A jumper,A scarf,A hat,Socks
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,5,Who was really jinxing Harry's broom in his first Quidditch match?,Professor Quirrell,Professor Snape,Draco Malfoy,Marcus Flint
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,5,Where does Harry first meet Draco Malfoy?,In Madam Malkin's robe shop,On the Hogwarts Express,In the Great Hall,At Gringotts
+Books & films / Harry Potter / 1. Philosopher's Stone,10-13,5,Which animal does Harry accidentally set free at the zoo?,A boa constrictor,A lion,A monkey,A penguin
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,1,Where had Dumbledore hidden the Stone as its final protection?,Inside the Mirror of Erised,In Gringotts,In his office,Under Fluffy
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,1,"Whom does Harry meet, nervously stammering, at the Leaky Cauldron?",Professor Quirrell,Professor Lupin,Mr Ollivander,Professor Flitwick
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,1,How does Harry catch the Snitch in his first match?,In his mouth,With his foot,In his hat,With a spell
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,1,Who tries to stop Harry receiving his Hogwarts letters?,Uncle Vernon,Aunt Marge,Dudley,Mrs Figg
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,2,How did Hagrid get Norbert's egg?,He won it in a card game from a stranger in a pub,He found it in the forest,He bought it in Diagon Alley,Dumbledore gave it to him
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,2,Where does Uncle Vernon take the family to escape the letters?,A hut on a rock in the sea,A caravan in Wales,His sister's house,A hotel in Spain
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,2,Which spell does Hermione use on Neville to get past him?,Petrificus Totalus,Stupefy,Expelliarmus,Silencio
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,2,Who arranges for Harry to have a Nimbus 2000 in his first year?,Professor McGonagall,Professor Dumbledore,Hagrid,Oliver Wood
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,3,"In his first Potions lesson, Snape asks where you'd find a bezoar. Where?",In the stomach of a goat,Under a mandrake,In a dragon's egg,At the bottom of the lake
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,3,How does Harry get the Stone out of the Mirror of Erised?,He wants to find it but not use it,He breaks the mirror,He uses a summoning charm,He says the password
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,3,How do the trio spot the right flying key?,It has a broken wing,It glows gold,It is the biggest,It sings
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,3,Whose obstacle guarding the Stone is a logic puzzle with seven bottles?,Snape's,Flitwick's,McGonagall's,Quirrell's
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,4,Which teacher set the giant chess game guarding the Stone?,Professor McGonagall,Professor Flitwick,Professor Sprout,Professor Snape
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,4,Which teacher set the Devil's Snare guarding the Stone?,Professor Sprout,Professor Snape,Hagrid,Professor Quirrell
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,4,Which teacher charmed the flying keys guarding the Stone?,Professor Flitwick,Professor McGonagall,Madam Hooch,Professor Dumbledore
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,4,Which teacher put the troll among the Stone's defences?,Professor Quirrell,Professor Snape,Hagrid,Professor Lockhart
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,4,How do you get past Fluffy?,Play him some music,Feed him a cake,Tickle his tummy,Say the password
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,5,How many points does Neville win for Gryffindor at the end of first year?,10,50,60,100
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,5,How many points does Ron win for 'the best-played game of chess'?,50,10,60,100
+Books & films / Harry Potter / 1. Philosopher's Stone,14-17,5,How many points does Harry win for 'pure nerve and outstanding courage'?,60,50,100,10
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,1,Which pub is the entrance to Diagon Alley?,The Leaky Cauldron,The Three Broomsticks,The Hog's Head,The Hanged Man
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,1,Who is Gryffindor's Quidditch captain in Harry's first year?,Oliver Wood,Fred Weasley,Angelina Johnson,Percy Weasley
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,1,Which other house does the Sorting Hat consider for Harry?,Slytherin,Ravenclaw,Hufflepuff,None
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,1,Who brings baby Harry to Privet Drive on a flying motorbike?,Hagrid,Dumbledore,Sirius Black,Professor McGonagall
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,1,Which subject does Professor Quirrell teach?,Defence Against the Dark Arts,Potions,Charms,Muggle Studies
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,2,Whose flying motorbike did Hagrid borrow to bring baby Harry?,Sirius Black's,James Potter's,Arthur Weasley's,Dumbledore's
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,2,What does Hagrid give Dudley with a wave of his umbrella?,A pig's tail,Donkey ears,A frog's tongue,Purple spots
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,2,Which goblin takes Harry and Hagrid down to the vaults?,Griphook,Bogrod,Ragnok,Gornuk
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,2,What colour is the jumper Mrs Weasley knits Harry?,Emerald green,Maroon,Navy blue,Gold
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,2,Which teacher's turban hides a secret?,Professor Quirrell,Professor Flitwick,Professor Binns,Professor Kettleburn
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,3,What does the zoo snake say to Harry as it escapes?,"Thanksss, amigo","Goodbye, Harry",Ssssee you later,Free at lassst
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,3,"How many birthday presents does Dudley count, before complaining?",36,21,50,12
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,3,Which Weasleys bewitch snowballs to bounce off Quirrell's turban?,Fred and George,Ron and Ginny,Percy and Charlie,Bill and Charlie
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,3,What are Dumbledore's 'few words' before the first feast?,Nitwit! Blubber! Oddment! Tweak!,"Eat, drink and be merry!","Tuck in, everyone!",Mischief managed!
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,4,"What sandwiches does Ron's mum pack him for the train, which he dislikes?",Corned beef,Cheese and pickle,Egg and cress,Ham
+Books & films / Harry Potter / 1. Philosopher's Stone,adult,5,What is the number of the Potters' vault at Gringotts?,687,713,394,101
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,3,"What is the name of the youngest Weasley child, Ron's sister?",Ginny,Luna,Lavender,Cho
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,3,What is the name of the giant spider in the Forbidden Forest?,Aragog,Shelob,Arachne,Charlotte
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,3,What kind of creature is Dobby?,A house-elf,A goblin,A gnome,A pixie
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,3,What is the name of the Weasley family's old owl?,Errol,Hedwig,Pigwidgeon,Hermes
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,4,What is the name of the tree that bashes the Weasleys' flying car?,The Whomping Willow,The Grumpy Oak,The Slapping Spruce,The Bashing Birch
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,4,"What is the language of snakes, which Harry can speak, called?",Parseltongue,Snakish,Hissese,Gobbledegook
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,5,What make is the Weasleys' flying car?,A Ford Anglia,A Mini,A Volkswagen Beetle,A Rolls-Royce
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,5,"Which Hogwarts teacher teaches Herbology, all about magical plants?",Professor Sprout,Professor Flitwick,Professor McGonagall,Professor Lupin
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,5,What do the hands on the Weasleys' special clock show?,Where each person in the family is,The time in every country,How hungry everyone is,When it will rain
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,1,What does the spell 'Expelliarmus' do?,Knocks the wand out of someone's hand,Lights up your wand,Makes things float,Unlocks doors
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,1,What is the name of Draco Malfoy's father?,Lucius,Lucian,Severus,Barty
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,1,Which ghost teaches History of Magic at Hogwarts?,Professor Binns,Professor Quirrell,Nearly Headless Nick,The Fat Friar
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,What is the name of the house-elf who Harry sets free?,Dobby,Kreacher,Winky,Hokey
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,What was Lord Voldemort's name before he took that name?,Tom Riddle,Peter Pettigrew,Lucius Malfoy,Gellert Grindelwald
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,Which ghost haunts a girls' bathroom at Hogwarts?,Moaning Myrtle,Nearly Headless Nick,The Grey Lady,Peeves
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,What monster lives in the Chamber of Secrets?,A basilisk,A dragon,A troll,A giant squid
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,Whose old diary turns out to be dangerous in 'Chamber of Secrets'?,Tom Riddle's,Hagrid's,Moaning Myrtle's,Lucius Malfoy's
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,What does Harry pull out of the Sorting Hat in the Chamber of Secrets?,The sword of Gryffindor,A wand,A phoenix egg,A golden snitch
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,Which famous but useless teacher turns out to be a fraud?,Gilderoy Lockhart,Remus Lupin,Horace Slughorn,Quirinus Quirrell
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,"Who opens the Chamber of Secrets in the second book, controlled by the diary?",Ginny Weasley,Draco Malfoy,Hagrid,Neville Longbottom
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,2,What happens to people who see the basilisk's eyes only in a reflection?,They are petrified,They turn invisible,They fall asleep for a week,They start speaking Parseltongue
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,4,What is the name of the Weasley family home?,The Burrow,Grimmauld Place,Spinner's End,Shell Cottage
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,5,What is the name of Dumbledore's phoenix?,Fawkes,Hedwig,Norbert,Aragog
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,1,What does Harry use to destroy Tom Riddle's diary?,A basilisk fang,The sword of Gryffindor,A killing curse,Fiendfyre
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,4,Which potion lets you look like someone else for an hour?,Polyjuice Potion,Felix Felicis,Veritaserum,Amortentia
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,4,What does 'Tom Marvolo Riddle' spell when its letters are rearranged?,I am Lord Voldemort,Darkest wizard lord,Moldy old tremor,Mortal lord vow
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,5,Which Quidditch team does Ron support?,The Chudley Cannons,The Holyhead Harpies,The Tutshill Tornados,The Appleby Arrows
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,3,What does the spell 'Lumos' do?,Lights the tip of your wand,Unlocks a door,Mends broken things,Summons an object
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,5,What job do Hermione's parents do?,Dentists,Doctors,Teachers,Lawyers
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,1,What kind of bird is Fawkes?,A phoenix,An owl,A parrot,An eagle
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,1,What do Ron and Harry fly to Hogwarts in?,A flying car,A hot-air balloon,A dragon,A magic carpet
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,1,Which Weasley gets a shouting letter called a Howler from his mum?,Ron,Fred,Ginny,Percy
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,1,What happens to Ron's wand when the car crashes?,It snaps,It turns into a snake,It disappears,It catches fire
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,1,What comes out of Ron's mouth when his spell at Malfoy backfires?,Slugs,Bubbles,Frogs,Butterflies
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,2,"Who is the new, very vain Defence Against the Dark Arts teacher in book 2?",Gilderoy Lockhart,Remus Lupin,Professor Quirrell,Mad-Eye Moody
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,2,What little pests do the boys throw out of the Weasleys' garden?,Gnomes,Pixies,Rats,Toads
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,2,Which naughty blue creatures does Lockhart let loose in class?,Cornish pixies,Gnomes,Fairies,Imps
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,2,What does Lockhart accidentally do to Harry's arm?,Takes all the bones out,Turns it green,Makes it grow longer,Covers it in feathers
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,2,Who is Dobby's master at the start of book 2?,Lucius Malfoy,Sirius Black,Professor Snape,Uncle Vernon
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,3,What potion does Madam Pomfrey give Harry to regrow his bones?,Skele-Gro,Polyjuice,Pepperup,Felix Felicis
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,4,How does Harry set Dobby free?,He tricks Lucius Malfoy into giving Dobby a sock,He gives him a hat,He pays him money,He says a spell
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,4,Where does Harry end up when he says 'Diagon Alley' wrongly by Floo?,Knockturn Alley,Hogsmeade,The Burrow,Privet Drive
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,4,What do wizards throw into the fire to travel through fireplaces?,Floo powder,Glitter,Fairy dust,Salt
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,5,"Whose 500th Deathday Party do Harry, Ron and Hermione go to?",Nearly Headless Nick's,Moaning Myrtle's,Peeves's,The Bloody Baron's
+Books & films / Harry Potter / 2. Chamber of Secrets,6-9,5,"Who is Harry's friend with a camera, who gets petrified?",Colin Creevey,Neville Longbottom,Dean Thomas,Seamus Finnigan
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,1,Who is taken away to Azkaban for a while in book 2?,Hagrid,Dumbledore,Sirius Black,Lockhart
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,1,What does Lockhart lose when his spell backfires in the Chamber?,His memory,His voice,His hair,His wand hand
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,3,What message is written on the wall after Mrs Norris is attacked?,The Chamber of Secrets has been opened,Beware the Heir,Mudbloods beware,The snake is coming
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,3,Who is the first victim found petrified?,Mrs Norris,Colin Creevey,Hermione,Nearly Headless Nick
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,3,How does the basilisk move around the school?,Through the pipes,Through secret doors,Under the lake,Through the chimneys
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,3,What is found clutched in petrified Hermione's hand?,A page about basilisks,A mirror,A wand,A note to Harry
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,3,Which ghost is petrified in book 2?,Nearly Headless Nick,The Fat Friar,The Bloody Baron,Peeves
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,4,What does Hermione accidentally turn into with Polyjuice Potion?,A cat,An owl,Millicent Bulstrode,A dog
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,4,Who do Harry and Ron turn into with Polyjuice Potion?,Crabbe and Goyle,Fred and George,Draco and Lucius,Snape and Filch
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,4,What brooms does Lucius Malfoy buy the Slytherin team?,Nimbus 2001s,Firebolts,Cleansweep Sevens,Nimbus 2000s
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,4,Who turns out to be the Heir of Slytherin?,Tom Riddle,Draco Malfoy,Hagrid,Professor Snape
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,5,What killed Moaning Myrtle fifty years earlier?,The basilisk,A Dementor,A troll,Peeves
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,5,Who was wrongly expelled fifty years earlier for opening the Chamber?,Hagrid,Dumbledore,Filch,Lucius Malfoy
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,5,What creature did Hagrid really keep at school as a boy?,Aragog the spider,A dragon,A three-headed dog,A hippogriff
+Books & films / Harry Potter / 2. Chamber of Secrets,10-13,5,Which creature are spiders most afraid of?,The basilisk,Owls,Dementors,House-elves
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,1,How does Lucius Malfoy get Riddle's diary to Ginny?,He slips it into her cauldron at Flourish and Blotts,He posts it to her,He hides it in her dorm,He gives it to Percy
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,1,How does Dobby stop Harry and Ron getting on the Hogwarts Express?,He seals the barrier to Platform 9¾,He steals their tickets,He hides their trunks,He stops the clock
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,1,What does Dobby smash during the Dursleys' dinner party?,A pudding,A teapot,A vase,A window
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,1,What does Harry use to kill the basilisk?,The sword of Gryffindor,A basilisk fang,The Killing Curse,Fawkes's claws
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,2,Which Minister for Magic takes Hagrid to Azkaban?,Cornelius Fudge,Rufus Scrimgeour,Barty Crouch,Kingsley Shacklebolt
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,2,What was the last thing Moaning Myrtle saw?,A pair of big yellow eyes,A green flash,A giant spider,A hooded figure
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,2,What is used to cure the petrified students?,Mandrake Restorative Draught,Phoenix tears,Unicorn blood,Polyjuice Potion
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,2,Where is the entrance to the Chamber of Secrets?,In Moaning Myrtle's bathroom,Behind the Fat Lady,Under the Whomping Willow,In the Room of Requirement
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,2,How does Harry open the entrance to the Chamber?,By speaking Parseltongue,With a key,By saying 'Alohomora',By tapping a brick
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,3,What does Fawkes do to the basilisk?,Pecks out its eyes,Sets it on fire,Carries it away,Sings it to sleep
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,3,What heals Harry after the basilisk's fang pierces his arm?,Phoenix tears,Skele-Gro,Dittany,A bezoar
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,3,How old is Tom Riddle's diary when Ginny finds it?,About 50 years,About 10 years,About 100 years,About 500 years
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,3,Which club does Lockhart start in book 2?,The Duelling Club,The Slug Club,The Gobstones Club,Dumbledore's Army
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,3,What does Harry do at the Duelling Club that shocks everyone?,Speaks Parseltongue to a snake,Disarms Snape,Turns Malfoy into a ferret,Flies without a broom
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,4,What happens to the Weasleys' car after it crashes into the Whomping Willow?,It drives off into the Forbidden Forest,It is crushed flat,Filch locks it away,It flies back to the Burrow
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,4,Who enchanted the Ford Anglia to fly?,Arthur Weasley,Fred and George,Bill Weasley,Mundungus Fletcher
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,4,Whose crowing is deadly to a basilisk?,A rooster's,An owl's,A phoenix's,A raven's
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,5,Who kills Hagrid's roosters?,Ginny Weasley,Draco Malfoy,Filch,Peeves
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,5,Which Ravenclaw prefect is petrified alongside Hermione?,Penelope Clearwater,Cho Chang,Padma Patil,Luna Lovegood
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,5,Which Hufflepuff is petrified at the same time as Nearly Headless Nick?,Justin Finch-Fletchley,Ernie Macmillan,Hannah Abbott,Cedric Diggory
+Books & films / Harry Potter / 2. Chamber of Secrets,14-17,5,Who received an award for Special Services to the School fifty years earlier?,Tom Riddle,Hagrid,Dumbledore,Lucius Malfoy
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,1,What is the title of Gilderoy Lockhart's autobiography?,Magical Me,"Me, Myself and Magic",The Charming Wizard,Gilderoy's Glory
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,1,At which bookshop does Lockhart hold a book signing?,Flourish and Blotts,Obscurus Books,Whizz Hard Books,Borgin and Burkes
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,1,Which magazine award has Lockhart won five times?,Witch Weekly's Most-Charming-Smile Award,The Daily Prophet Hero Prize,The Order of Merlin,Wizard of the Year
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,1,Which subject does Lockhart teach?,Defence Against the Dark Arts,Charms,Care of Magical Creatures,Transfiguration
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,1,Who does Lockhart send around the school to deliver singing Valentines?,Dwarves dressed as cupids,House-elves,Ghosts,Fairies
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,2,Which Ministry office does Arthur Weasley work in?,Misuse of Muggle Artefacts,Magical Law Enforcement,Magical Games and Sports,The Floo Network
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,2,Which Muggle object does Arthur Weasley ask Harry the purpose of?,A rubber duck,A kettle,A toaster,A football
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,2,Who has Dumbledore suspended as headmaster in book 2?,"The school governors, led by Lucius Malfoy",Cornelius Fudge,Dolores Umbridge,The Wizengamot
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,2,Which restricted library book has the Polyjuice recipe?,Moste Potente Potions,Magical Drafts and Potions,Advanced Potion-Making,Secrets of the Darkest Art
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,2,"Which teacher signs the slip for that restricted book, without reading it?",Gilderoy Lockhart,Professor Snape,Professor Slughorn,Madam Pince
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,3,Which anniversary is Nearly Headless Nick's Deathday Party?,His 500th,His 100th,"His 1,000th",His 250th
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,3,"Which group of ghosts won't let Nearly Headless Nick join, because his head isn't fully off?",The Headless Hunt,The Ghost Guild,The Spectral Society,The Phantom Riders
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,3,Which memory spell does Lockhart try to use on Harry and Ron?,Obliviate,Imperio,Confundo,Legilimens
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,3,Who leads the Headless Hunt?,Sir Patrick Delaney-Podmore,The Bloody Baron,Sir Cadogan,The Fat Friar
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,4,Which Knockturn Alley shop does Harry hide in?,Borgin and Burkes,Dervish and Banges,Gambol and Japes,Twilfitt and Tatting's
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,4,Which dark object does Draco want in Borgin and Burkes?,A Hand of Glory,An opal necklace,A Vanishing Cabinet,A Time-Turner
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,4,What does Ron use to mend his broken wand?,Spellotape,Dragon glue,A Reparo spell,String
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,4,Which Muggle couple are the Dursleys trying to impress when Dobby visits?,The Masons,The Grangers,The Polkisses,The Figgs
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,4,How long must the lacewing flies stew for Polyjuice Potion?,21 days,7 days,A month,A year
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,5,In which decade did Moaning Myrtle die?,The 1940s,The 1960s,The 1920s,The 1980s
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,5,What job does Lockhart give Harry in detention?,Answering his fan mail,Polishing trophies,Cleaning cauldrons,Feeding the pixies
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,5,How is Mrs Norris found after the first attack?,Hanging by her tail from a torch bracket,Floating in the lake,Locked in a cupboard,Frozen in a block of ice
+Books & films / Harry Potter / 2. Chamber of Secrets,adult,5,Which Weasley brother is a prefect and caught with a Ravenclaw girlfriend in book 2?,Percy,Fred,Charlie,Bill
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,3,What is the name of Hermione's cat?,Crookshanks,Mrs Norris,Tom,Whiskers
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,3,What is the sweet shop in Hogsmeade called?,Honeydukes,Sweetie Shoppe,Candy Cauldron,Zonko's
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,4,Which spell puts out the light from your wand?,Nox,Lumos,Accio,Stupefy
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,5,Which super-fast broomstick does Sirius Black send Harry?,A Firebolt,A Nimbus 2001,A Cleansweep,A Shooting Star
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,5,What is the purple bus that rescues stranded witches and wizards called?,The Knight Bus,The Night Coach,The Magic Bus,The Wizard Wagon
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,1,What does the spell 'Riddikulus' do?,Turns a Boggart into something funny,Makes someone laugh until they cry,Mends glasses,Makes an object vanish
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,1,What is a Boggart?,A creature that turns into your worst fear,A type of goblin,A swamp monster,A magic sweet
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,1,Which Weasley brother becomes Head Boy and later works at the Ministry?,Percy,Bill,Charlie,Ron
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,2,What is the name of the wizard prison?,Azkaban,Nurmengard,Gringotts,The Burrow
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What is the name of the wizard village near Hogwarts?,Hogsmeade,Godric's Hollow,Little Whinging,Ottery St Catchpole
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,Which dark creatures guard Azkaban?,Dementors,Trolls,Giants,Werewolves
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What animal is Harry's Patronus?,A stag,A doe,An otter,A dog
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,Which spell is used to drive away Dementors?,Expecto Patronum,Expelliarmus,Stupefy,Riddikulus
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,Who is the prisoner who escapes in 'Prisoner of Azkaban'?,Sirius Black,Peter Pettigrew,Bellatrix Lestrange,Remus Lupin
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What does a Time-Turner let you do?,Go back in time,Stop time,See the future,Speed up time
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,Who gives Hermione a Time-Turner so she can take extra classes?,Professor McGonagall,Professor Dumbledore,Professor Snape,Professor Trelawney
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What was James Potter's nickname among the Marauders?,Prongs,Padfoot,Moony,Wormtail
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What was Sirius Black's Marauder nickname?,Padfoot,Prongs,Moony,Wormtail
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What was Remus Lupin's Marauder nickname?,Moony,Padfoot,Prongs,Wormtail
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What was Peter Pettigrew's Marauder nickname?,Wormtail,Moony,Prongs,Padfoot
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What does a Dementor's Kiss do?,Sucks out a person's soul,Puts you to sleep,Makes you invisible,Turns you to ice
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,What does Lupin give Harry to eat after a Dementor attack?,Chocolate,Toast,Pumpkin juice,A Chocolate Frog card
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,3,Who teaches Divination at Hogwarts?,Professor Trelawney,Professor Sprout,Professor Vector,Professor Sinistra
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,4,What is the magic map that shows everyone in Hogwarts called?,The Marauder's Map,The Hogwarts Atlas,The Map of Secrets,The Prowler's Plan
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,4,Which Hogwarts teacher is secretly a werewolf?,Remus Lupin,Sirius Black,Gilderoy Lockhart,Quirinus Quirrell
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,5,What kind of creature is Buckbeak?,A hippogriff,A thestral,A griffin,A phoenix
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,1,What animal can Sirius Black turn into?,A big black dog,A rat,A stag,A wolf
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,2,Who is Harry's godfather?,Sirius Black,Remus Lupin,Albus Dumbledore,Arthur Weasley
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,3,Who betrayed Harry's parents to Voldemort?,Peter Pettigrew,Sirius Black,Severus Snape,Igor Karkaroff
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,1,Which aunt does Harry accidentally blow up like a balloon?,Aunt Marge,Aunt Petunia,Aunt Muriel,Aunt Molly
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,1,How do you feel when Dementors are close by?,Cold and very unhappy,Warm and sleepy,Happy and giggly,Hungry
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,1,Who is Harry's kind Defence Against the Dark Arts teacher in book 3?,Professor Lupin,Professor Lockhart,Professor Quirrell,Professor Snape
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,1,Which subject does Hagrid start teaching in book 3?,Care of Magical Creatures,Potions,Flying,Charms
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,1,A hippogriff is half eagle and half what?,Horse,Lion,Dog,Snake
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,2,What does Ron's pet rat Scabbers turn out to be?,A man in disguise,A baby dragon,A ghost,A frog
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,2,What must you do before going near a hippogriff?,Bow to it,Feed it carrots,Sing to it,Stroke its beak
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,2,Who gets scratched by Buckbeak after being rude to him?,Draco Malfoy,Neville Longbottom,Harry Potter,Crabbe
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,2,Which pub in Hogsmeade is famous for Butterbeer?,The Three Broomsticks,The Leaky Cauldron,The Hog's Head,Honeydukes
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,2,"What warm, sweet drink do pupils love in Hogsmeade?",Butterbeer,Pumpkin soup,Hot chocolate,Fizzy pop
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,3,Who casts the Patronus that saves Harry by the lake?,"Harry himself, from the future",Professor Lupin,Dumbledore,Sirius Black
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,3,What does Neville's Boggart turn into?,Professor Snape,A giant spider,His grandmother,A snake
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,3,What does Harry's Boggart turn into?,A Dementor,Voldemort,A spider,A troll
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,4,What does Ron's Boggart turn into?,A giant spider,A snake,A clown,Professor McGonagall
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,4,Who runs the Three Broomsticks pub?,Madam Rosmerta,Madam Pomfrey,Madam Hooch,Madam Malkin
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,4,What does Neville make the Snape-Boggart wear?,His grandmother's clothes,A clown costume,A tutu,Pyjamas
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,4,What does Lupin's Boggart turn into?,A full moon,A werewolf,A Dementor,A spider
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,5,What is the name of the Knight Bus conductor?,Stan Shunpike,Ernie Prang,Tom,Mundungus Fletcher
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,5,What is the Knight Bus driver called?,Ernie,Stan,Tom,Fred
+Books & films / Harry Potter / 3. Prisoner of Azkaban,6-9,5,What is a grindylow?,A water demon,A tree spirit,A flying pig,A ghost
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,1,Who refuses to sign Harry's form to visit Hogsmeade?,Uncle Vernon,Aunt Marge,Professor McGonagall,Dumbledore
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,1,Where does the secret passage under the Whomping Willow lead?,The Shrieking Shack,Honeydukes,The Forbidden Forest,Hagrid's hut
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,2,Where does the passage behind the one-eyed witch statue lead?,Honeydukes' cellar,The Three Broomsticks,The Hog's Head,Zonko's
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,2,What do you say to make the Marauder's Map appear?,I solemnly swear that I am up to no good,Mischief managed,Open sesame,Alohomora
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,2,What do you say to wipe the Marauder's Map blank again?,Mischief managed,Nox,Map closed,"Goodbye, Moony"
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,2,How do Harry and Hermione save Buckbeak from execution?,They go back in time with the Time-Turner,They hide him in the castle,They ask Dumbledore,They pay a fine
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,4,What potion does Snape make for Lupin every month?,Wolfsbane Potion,Polyjuice Potion,Felix Felicis,Veritaserum
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,4,Who reveals to everyone that Lupin is a werewolf?,Professor Snape,Draco Malfoy,Peeves,Rita Skeeter
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,4,How did Sirius Black escape from Azkaban?,He turned into a dog and slipped past the Dementors,He dug a tunnel,He used a Portkey,He bribed a guard
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,5,Who is sent to execute Buckbeak?,Walden Macnair,Lucius Malfoy,Argus Filch,Barty Crouch
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,5,What made Sirius realise Peter Pettigrew was still alive?,A newspaper photo of the Weasleys with Scabbers,A letter from Dumbledore,A dream,Hearing Pettigrew's voice
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,5,Why did the Weasleys go to Egypt in the summer before book 3?,Arthur won a Daily Prophet prize draw,To visit Charlie's dragons,To hide from Sirius,Percy had a school trip
+Books & films / Harry Potter / 3. Prisoner of Azkaban,10-13,5,Which team does Gryffindor beat in the book 3 Quidditch final?,Slytherin,Hufflepuff,Ravenclaw,Durmstrang
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,1,Which Hufflepuff Seeker catches the Snitch when Harry falls from his broom?,Cedric Diggory,Cho Chang,Ernie Macmillan,Zacharias Smith
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,1,What happens to Harry's Nimbus 2000 in book 3?,The Whomping Willow smashes it,Malfoy steals it,It's struck by lightning,It's eaten by Buckbeak
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,1,Why does Harry fall from his broom during the storm match?,Dementors come onto the pitch,Malfoy jinxes him,Lightning strikes,A Bludger hits him
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,1,What does Hermione do to Draco Malfoy in book 3 that everyone remembers?,Hits him,Turns him into a ferret,Hexes him with boils,Pushes him in the lake
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,2,Who replaces the Fat Lady after Sirius slashes her portrait?,Sir Cadogan,The Grey Lady,Violet,The Bloody Baron
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,2,Which subject does Hermione walk out of in book 3?,Divination,Arithmancy,Care of Magical Creatures,Muggle Studies
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,2,What is the only part of Peter Pettigrew found after the 'explosion'?,A finger,A shoe,His wand,A tooth
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,2,How did the young Marauders keep Lupin company at full moon?,They became Animagi,They took Wolfsbane,They locked him in a cage,They hid him in the Room of Requirement
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,3,What does Trelawney predict in her real trance in book 3?,The Dark Lord's servant will return to him,Harry will win the Quidditch Cup,Buckbeak will escape,Lupin will leave
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,3,What is 'the Grim' that Trelawney sees in Harry's tea leaves?,A giant black dog that is an omen of death,A storm cloud,A grinning skull,A broken wand
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,3,Which biting textbook is needed for Hagrid's class?,The Monster Book of Monsters,Fantastic Beasts and Where to Find Them,The Invisible Book of Invisibility,Fangs and Feathers
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,3,How do you calm and open the Monster Book of Monsters?,Stroke its spine,Feed it a sausage,Say 'please',Tap it with your wand
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,4,What is Peter Pettigrew's Animagus form?,A rat,A dog,A stag,A cat
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,4,Who places the order for Harry's Firebolt on Sirius's behalf?,Crookshanks,Buckbeak,Pigwidgeon,Dobby
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,4,Who takes Harry's new Firebolt away to check it for curses?,Professor McGonagall,Professor Snape,Professor Lupin,Madam Hooch
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,4,How does Sirius get into Gryffindor Tower the second time?,Using passwords Neville wrote down,Through the Fat Lady's window,Disguised as a teacher,Down the chimney
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,4,What is Sirius trying to do when he slashes Ron's bed curtains?,Get to Scabbers,Steal the map,Find Harry,Take back his wand
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,5,Where does Harry first see the big black dog in book 3?,Magnolia Crescent,Diagon Alley,Hogsmeade,King's Cross
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,5,What is the name of Aunt Marge's favourite bulldog?,Ripper,Fang,Killer,Bruiser
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,5,Where does Harry stay for the rest of the summer after running away from Privet Drive?,The Leaky Cauldron,The Burrow,Hogwarts,The Three Broomsticks
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,5,Who meets Harry at the Leaky Cauldron after his Knight Bus ride?,Cornelius Fudge,Dumbledore,Arthur Weasley,Professor Lupin
+Books & films / Harry Potter / 3. Prisoner of Azkaban,14-17,5,Which two subjects does Hermione drop at the end of book 3?,Divination and Muggle Studies,Arithmancy and Potions,Ancient Runes and Charms,Herbology and Astronomy
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,1,Where did the Weasleys go on holiday in the summer before book 3?,Egypt,Romania,France,Bulgaria
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,1,Who dresses up as Dementors to put Harry off in the Ravenclaw match?,Draco Malfoy and his friends,Fred and George,The Slytherin team captain,Peeves
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,1,In which tower is the Divination classroom?,The North Tower,The Astronomy Tower,Gryffindor Tower,Ravenclaw Tower
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,1,Which magical sweet makes you float off the ground?,Fizzing Whizzbees,Pepper Imps,Acid Pops,Toothflossing Stringmints
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,1,What does Harry hear when Dementors come near him?,His mother screaming,Voldemort laughing,Hedwig hooting,Dudley crying
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,2,Who was really the Potters' Secret-Keeper?,Peter Pettigrew,Sirius Black,Remus Lupin,Albus Dumbledore
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,2,Whom did everyone believe was the Potters' Secret-Keeper?,Sirius Black,Peter Pettigrew,Remus Lupin,Hagrid
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,2,How many Muggles was Sirius Black accused of killing?,12,3,20,1
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,2,"Which teacher retired, letting Hagrid take over Care of Magical Creatures?",Professor Kettleburn,Professor Grubbly-Plank,Professor Binns,Professor Vector
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,2,"Who teaches Arithmancy, Hermione's favourite subject?",Professor Vector,Professor Sinistra,Professor Babbling,Professor Burbage
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,3,How many turns of the Time-Turner take Harry and Hermione back three hours?,3,1,6,12
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,3,What is Sir Cadogan famous for as guardian of Gryffindor Tower?,Changing the password all the time,Falling asleep,Singing loudly,Letting anyone in
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,3,Which Ministry committee sentences Buckbeak to death?,The Committee for the Disposal of Dangerous Creatures,The Wizengamot,The Department of Mysteries,The Beast Division
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,3,Who teaches Harry the Patronus Charm?,Remus Lupin,Albus Dumbledore,Sirius Black,Minerva McGonagall
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,3,What is the first happy memory Harry tries for his Patronus?,His first ride on a broomstick,Being sorted into Gryffindor,Meeting Ron,His last birthday
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,4,Remus Lupin's first name and surname both point to which animal?,The wolf,The bear,The lion,The raven
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,4,Which famous seer was Professor Trelawney's great-great-grandmother?,Cassandra Trelawney,Sybil Vane,Morgana,Mother Shipton
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,4,Which statue hides the secret passage to Honeydukes?,"Gunhilda of Gorsemoor, the one-eyed witch",Boris the Bewildered,Barnabas the Barmy,Wilfred the Wistful
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,4,How many Galleons did Arthur Weasley win in the Daily Prophet draw?,700,100,"1,000",50
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,4,Who runs the Leaky Cauldron?,Tom,Stan,Ernie,Aberforth
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,5,What does Lupin give back to Harry before he leaves Hogwarts?,The Marauder's Map,A bar of chocolate,A letter from Sirius,His father's wand
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,5,What did Harry use to frighten the Dementors at the lake as a stag?,His Patronus,The Invisibility Cloak,The Time-Turner,Buckbeak
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,5,"In book 3, why does Lupin resign from Hogwarts?",Parents won't want a werewolf teaching their children,He's fired by Fudge,He goes after Pettigrew,He joins the Order
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,5,What did James Potter turn into as an Animagus?,A stag,A dog,A rat,A wolf
+Books & films / Harry Potter / 3. Prisoner of Azkaban,adult,5,What does Hermione use to fit in all her extra classes?,A Time-Turner,Polyjuice Potion,An Invisibility Cloak,A Pensieve
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,4,What does the spell 'Accio' do?,Brings an object flying to you,Makes you sneeze,Opens a locked door,Turns you into a frog
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,1,What is the skull-and-snake sign of Voldemort's followers called?,The Dark Mark,The Death Sign,The Snake Seal,The Black Brand
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,1,What are Lord Voldemort's followers called?,Death Eaters,Dementors,Inferi,Snatchers
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,1,Which spell knocks someone out cold?,Stupefy,Lumos,Accio,Reparo
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,1,Which Weasley brother works for Gringotts and has long hair and a fang earring?,Bill,Charlie,Percy,George
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,Which contest between three wizard schools takes place in 'Goblet of Fire'?,The Triwizard Tournament,The Quidditch World Cup,The House Cup,The Duelling Club
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,Which school does Viktor Krum attend?,Durmstrang,Beauxbatons,Hogwarts,Ilvermorny
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,Which school does Fleur Delacour attend?,Beauxbatons,Durmstrang,Hogwarts,Castelobruxo
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,What position does Viktor Krum play for Bulgaria?,Seeker,Keeper,Beater,Chaser
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,Which dragon does Harry face in the first task of the Triwizard Tournament?,A Hungarian Horntail,A Welsh Green,A Chinese Fireball,A Norwegian Ridgeback
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,Who does Harry have to rescue from the lake in the second task?,Ron,Hermione,Ginny,Cho
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,Which plant lets Harry breathe underwater in the second task?,Gillyweed,Mandrake,Devil's Snare,Bubotuber
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,"In the book, who gives Harry the Gillyweed?",Dobby,Neville,Hermione,Moody
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,What is the third task of the Triwizard Tournament?,A maze,A duel,A Quidditch match,A potion test
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,Who was disguised as Mad-Eye Moody for the whole of 'Goblet of Fire'?,Barty Crouch Jr,Peter Pettigrew,Igor Karkaroff,Ludo Bagman
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,4,Who does Hermione go to the Yule Ball with?,Viktor Krum,Ron Weasley,Harry Potter,Cedric Diggory
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,3,Who was the Hufflepuff champion in the Triwizard Tournament?,Cedric Diggory,Ernie Macmillan,Justin Finch-Fletchley,Zacharias Smith
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,3,What does 'Priori Incantatem' reveal?,The last spells a wand cast,Who owns a wand,Where a wand was made,How old a wand is
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,4,Which Unforgivable Curse lets you control another person?,The Imperius Curse,The Cruciatus Curse,The Killing Curse,The Jelly-Legs Jinx
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,5,What wood is Voldemort's wand made from?,Yew,Holly,Elder,Oak
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,1,Which sport's World Cup does Harry go to at the start of book 4?,Quidditch,Football,Gobstones,Wizard chess
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,1,Who is surprisingly picked as a fourth champion for the Triwizard Tournament?,Harry Potter,Ron Weasley,Neville Longbottom,Draco Malfoy
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,1,What does the Goblet of Fire shoot out to choose the champions?,Pieces of paper with names on,Golden eggs,Sweets,Owls
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,1,What kind of creature does Harry have to get past in the first task?,A dragon,A troll,A giant spider,A sea serpent
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,1,What is the big Christmas dance in book 4 called?,The Yule Ball,The Snow Dance,The Winter Party,The Holly Hop
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,2,Which country does Viktor Krum play Quidditch for?,Bulgaria,Ireland,France,Spain
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,2,What does Harry have to grab from the dragon in the first task?,A golden egg,A crown,A wand,A broomstick
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,2,How does Harry get past his dragon?,He flies on his broomstick,He casts a sleeping spell,He hides under his cloak,He feeds it
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,2,Which creatures live in the Hogwarts lake and sing underwater?,Merpeople,Fairies,Goblins,Pixies
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,2,Who does Ron take to the Yule Ball?,Padma Patil,Hermione Granger,Lavender Brown,Ginny Weasley
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,3,Which ghost gives Harry a hint about the golden egg in the prefects' bathroom?,Moaning Myrtle,Nearly Headless Nick,The Bloody Baron,The Fat Friar
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,3,Who is the very tall headmistress of Beauxbatons?,Madame Maxime,Madame Pomfrey,Madame Hooch,Madame Rosmerta
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,3,Who is the headmaster of Durmstrang?,Igor Karkaroff,Ludo Bagman,Cornelius Fudge,Barty Crouch
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,3,What does the golden egg do when Harry opens it in the air?,It screeches loudly,It sings a sweet song,It explodes,It hatches
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,3,Hermione starts a club to help which creatures?,House-elves,Dragons,Giants,Goblins
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,4,Which Hogwarts teacher falls for Madame Maxime?,Hagrid,Professor Snape,Mr Filch,Professor Flitwick
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,4,What special thing can Mad-Eye Moody's magical eye do?,See through things,Shoot out sparks,Talk,Fly around the room
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,4,What is the name of the reporter who writes nasty stories about Harry?,Rita Skeeter,Luna Lovegood,Dolores Umbridge,Lavender Brown
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,4,How many schools take part in the Triwizard Tournament?,Three,Two,Four,Five
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,5,What creature can Rita Skeeter secretly turn into?,A beetle,A cat,A rat,A spider
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,5,What kind of creature is Winky?,A house-elf,A goblin,A pixie,A gnome
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,5,What does Mad-Eye Moody turn Draco Malfoy into as a punishment?,A ferret,A frog,A rat,A toad
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,5,Which Weasley joke sweet makes Dudley's tongue grow enormous?,Ton-Tongue Toffee,Fizzing Whizzbees,Chocolate Frogs,Acid Pops
+Books & films / Harry Potter / 4. Goblet of Fire,6-9,5,Who secretly shows Harry the dragons before the first task?,Hagrid,Dumbledore,Ron,Professor Snape
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,1,Which country wins the Quidditch World Cup final in book 4?,Ireland,Bulgaria,England,France
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,2,"Who catches the Snitch in the World Cup final, even though his team loses?",Viktor Krum,Oliver Wood,Cedric Diggory,Harry Potter
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,2,Why does Ron stop speaking to Harry for a while in book 4?,He thinks Harry entered the tournament himself,Harry broke his wand,Harry told on him to Snape,Harry took Hermione to the ball
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,2,How old must you be to enter your name in the Goblet of Fire?,17,15,16,18
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,2,What happens to Fred and George when they try to trick the Age Line?,They grow long white beards,They turn into frogs,They turn invisible,They fall asleep
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,2,Which Unforgivable Curse kills instantly?,Avada Kedavra,Crucio,Imperio,Expelliarmus
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,3,Which Unforgivable Curse causes terrible pain?,The Cruciatus Curse,The Killing Curse,The Imperius Curse,The Stunning Spell
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,3,Who is head of the Department of Magical Games and Sports?,Ludo Bagman,Barty Crouch,Arthur Weasley,Cornelius Fudge
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,3,What is the name of Barty Crouch's house-elf?,Winky,Dobby,Kreacher,Hokey
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,3,What tip does Cedric give Harry about the golden egg?,Take a bath with it,Shake it hard,Sing to it,Put it in the fire
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,3,"Who does Harry ask to the Yule Ball, only to find she is going with Cedric?",Cho Chang,Ginny Weasley,Hermione Granger,Luna Lovegood
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,5,What do Death Eaters do to a Muggle family at the World Cup campsite?,Float them high in the air,Turn them to stone,Steal their tent,Make them dance all night
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,5,What do Harry and Cedric agree to do at the end of the maze?,Take the cup together,Fight a duel for it,Leave it for Krum,Go back and help Fleur
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,5,What does the Triwizard Cup turn out to be?,A Portkey,A Horcrux,A Pensieve,A Time-Turner
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,5,Where does the cup take Harry and Cedric?,A graveyard,Azkaban,The Ministry of Magic,Hogsmeade
+Books & films / Harry Potter / 4. Goblet of Fire,10-13,5,Who cuts off his own hand to help bring Voldemort back?,Wormtail,Lucius Malfoy,Igor Karkaroff,Barty Crouch Jr
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,1,Which three things are used to give Voldemort a new body?,"Bone of his father, flesh of a servant, blood of an enemy","Hair of a unicorn, tear of a phoenix, fang of a basilisk","Bone of a giant, blood of a dragon, heart of a troll","Ash of a wand, scale of a snake, feather of an owl"
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,1,What does Voldemort give Wormtail to replace his lost hand?,A silver hand,A golden hand,A wooden hand,A new wand
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,1,In which village's graveyard is Voldemort reborn?,Little Hangleton,Godric's Hollow,Ottery St Catchpole,Little Whinging
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,1,Which potion lets Barty Crouch Jr look like Mad-Eye Moody?,Polyjuice Potion,Felix Felicis,Veritaserum,Amortentia
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,1,Where has the real Mad-Eye Moody been kept all year?,Locked inside his own magical trunk,In Azkaban,In the Chamber of Secrets,In the Shrieking Shack
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,2,How did Barty Crouch Jr escape from Azkaban?,He swapped places with his dying mother using Polyjuice,He turned into a dog and swam away,Death Eaters broke him out,He bribed the Dementors
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,2,Which truth potion does Dumbledore use on Barty Crouch Jr?,Veritaserum,Polyjuice Potion,Felix Felicis,Draught of Peace
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,2,Who murders Barty Crouch Sr?,"His son, Barty Crouch Jr",Wormtail,Igor Karkaroff,Ludo Bagman
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,2,What does Harry do with his Triwizard prize money?,Gives it to Fred and George for their joke shop,Gives it to Cedric's parents,Buys a new Firebolt,Puts it in his Gringotts vault
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,2,What job does Barty Crouch Sr hold at the start of book 4?,Head of the Department of International Magical Co-operation,Minister for Magic,Head of the Auror Office,Hogwarts governor
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,3,Whose echo from Voldemort's wand asks Harry to take his body back to his parents?,Cedric Diggory's,James Potter's,Bertha Jorkins's,Frank Bryce's
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,3,Which missing Ministry witch did Voldemort kill after getting information from her?,Bertha Jorkins,Amelia Bones,Mafalda Hopkirk,Hepzibah Smith
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,3,What is the name of the old Muggle gardener killed at the Riddle House?,Frank Bryce,Mr Roberts,Tom the barman,Mundungus Fletcher
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,4,Which creatures does Hagrid breed by crossing manticores with fire crabs?,Blast-Ended Skrewts,Hippogriffs,Thestrals,Nifflers
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,4,What secret about Hagrid does Rita Skeeter reveal in book 4?,He is half-giant,He was expelled for cheating,He is a werewolf,He is a Squib
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,4,Who does Fleur have to rescue from the lake?,Her little sister Gabrielle,Bill Weasley,Viktor Krum,Madame Maxime
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,4,How long do the champions have to find their hostages in the lake?,One hour,Ten minutes,Half a day,Until sunset
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,5,On what does the fake Moody show the Unforgivable Curses in class?,Spiders,Rats,Toads,Beetles
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,5,Which creatures are the Bulgarian team's mascots at the World Cup?,Veela,Leprechauns,Goblins,Pixies
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,5,Which mascots shower the crowd with gold that later vanishes?,Leprechauns,Veela,House-elves,Gnomes
+Books & films / Harry Potter / 4. Goblet of Fire,14-17,5,Why is Ludo Bagman so keen for Harry to win?,He bet on Harry and owes goblins gold,Harry is his godson,He wants Harry to work for him,He hates Durmstrang
+Books & films / Harry Potter / 4. Goblet of Fire,adult,1,What is Hermione's campaign for house-elf rights called?,S.P.E.W.,D.A.,O.W.L.,N.E.W.T.
+Books & films / Harry Potter / 4. Goblet of Fire,adult,1,Which year at Hogwarts is Harry in during 'Goblet of Fire'?,Fourth,Third,Fifth,Sixth
+Books & films / Harry Potter / 4. Goblet of Fire,adult,1,"What is the Weasleys' home called, where Harry stays before the World Cup?",The Burrow,Shell Cottage,Grimmauld Place,The Leaky Cauldron
+Books & films / Harry Potter / 4. Goblet of Fire,adult,1,How do the Beauxbatons students arrive at Hogwarts?,In a huge carriage pulled by winged horses,On a ship from the lake,On the Hogwarts Express,On broomsticks
+Books & films / Harry Potter / 4. Goblet of Fire,adult,1,How do the Durmstrang students arrive at Hogwarts?,In a ship that rises out of the lake,In a flying carriage,By Floo powder,On dragons
+Books & films / Harry Potter / 4. Goblet of Fire,adult,2,"Which Weasley brother, a dragon keeper, helps bring the dragons for the first task?",Charlie,Bill,Percy,Fred
+Books & films / Harry Potter / 4. Goblet of Fire,adult,2,Which Weasley brother works as Barty Crouch's assistant?,Percy,Bill,Charlie,George
+Books & films / Harry Potter / 4. Goblet of Fire,adult,2,What does Harry summon to beat his dragon?,His Firebolt,The Sword of Gryffindor,Fawkes,His Invisibility Cloak
+Books & films / Harry Potter / 4. Goblet of Fire,adult,2,Where does Harry finally hear the egg's song clearly?,Underwater in the prefects' bathroom,In the Great Hall,In Hagrid's hut,In the Owlery
+Books & films / Harry Potter / 4. Goblet of Fire,adult,2,Who does Viktor Krum rescue from the lake?,Hermione Granger,Cho Chang,Ron Weasley,Gabrielle Delacour
+Books & films / Harry Potter / 4. Goblet of Fire,adult,3,Who does Cedric rescue from the lake?,Cho Chang,Hermione Granger,Ginny Weasley,Luna Lovegood
+Books & films / Harry Potter / 4. Goblet of Fire,adult,3,Why does Harry get extra points in the second task?,He waited to make sure every hostage was saved,He finished first,He fought off a Grindylow army,He rescued Krum
+Books & films / Harry Potter / 4. Goblet of Fire,adult,3,"Which headmaster, a former Death Eater, flees when the Dark Mark burns?",Igor Karkaroff,Madame Maxime,Ludo Bagman,Barty Crouch
+Books & films / Harry Potter / 4. Goblet of Fire,adult,3,How does Cedric get past his dragon?,He turns a rock into a dog to distract it,He flies on his broom,He puts it to sleep,He blinds it with a spell
+Books & films / Harry Potter / 4. Goblet of Fire,adult,3,What wakes Harry at the very start of 'Goblet of Fire'?,His scar hurting after a dream about Voldemort,An owl at the window,Dudley shouting,A Howler
+Books & films / Harry Potter / 4. Goblet of Fire,adult,4,Which dragon breed does Viktor Krum face?,Chinese Fireball,Hungarian Horntail,Swedish Short-Snout,Common Welsh Green
+Books & films / Harry Potter / 4. Goblet of Fire,adult,4,Which dragon breed does Cedric face?,Swedish Short-Snout,Hungarian Horntail,Chinese Fireball,Norwegian Ridgeback
+Books & films / Harry Potter / 4. Goblet of Fire,adult,4,Which dragon breed does Fleur face?,Common Welsh Green,Chinese Fireball,Hungarian Horntail,Hebridean Black
+Books & films / Harry Potter / 4. Goblet of Fire,adult,4,How does Krum get through the lake task?,He partly turns himself into a shark,He uses Gillyweed,He uses a Bubble-Head Charm,He rides a merperson
+Books & films / Harry Potter / 4. Goblet of Fire,adult,4,Which creature in the maze asks Harry a riddle?,A sphinx,A centaur,A troll,A ghost
+Books & films / Harry Potter / 4. Goblet of Fire,adult,5,What is the answer to the sphinx's riddle in the maze?,A spider,A snake,A dragon,A shadow
+Books & films / Harry Potter / 4. Goblet of Fire,adult,5,Who really conjured the Dark Mark at the World Cup?,Barty Crouch Jr,Winky,Lucius Malfoy,Wormtail
+Books & films / Harry Potter / 4. Goblet of Fire,adult,5,Whose wand was used to cast the Dark Mark at the World Cup?,Harry's,Ron's,Winky's own,Barty Crouch Sr's
+Books & films / Harry Potter / 4. Goblet of Fire,adult,5,What does Hermione do with Rita Skeeter at the end of the book?,Keeps her trapped in a jar as a beetle,Reports her to the Ministry,Turns her into a statue,Gets her a job at the Quibbler
+Books & films / Harry Potter / 4. Goblet of Fire,adult,5,Who attacks Fleur in the maze during the third task?,"Viktor Krum, under the Imperius Curse",Cedric Diggory,A Blast-Ended Skrewt,A Dementor
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,4,What animal is Hermione's Patronus?,An otter,A cat,An owl,A hare
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,What position does Ron play for the Gryffindor Quidditch team?,Keeper,Seeker,Beater,Chaser
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,What is the secret group Harry teaches in 'Order of the Phoenix' called?,Dumbledore's Army,The Order of the Phoenix,The Marauders,The Defence Club
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,Where is the headquarters of the Order of the Phoenix?,12 Grimmauld Place,The Burrow,Hogsmeade,The Leaky Cauldron
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,What is the name of the Black family's grumpy house-elf?,Kreacher,Dobby,Winky,Hokey
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,Which character dies in the Department of Mysteries at the end of book 5?,Sirius Black,Remus Lupin,Albus Dumbledore,Cedric Diggory
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,Who kills Sirius Black?,Bellatrix Lestrange,Lucius Malfoy,Lord Voldemort,Peter Pettigrew
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,What does Luna Lovegood wear as earrings?,Radishes,Corks,Spoons,Snitches
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,Which house is Luna Lovegood in?,Ravenclaw,Hufflepuff,Gryffindor,Slytherin
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,"What is Tonks's first name, which she hates?",Nymphadora,Narcissa,Andromeda,Bellatrix
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,Who made the prophecy about Harry and Voldemort?,Sybill Trelawney,Albus Dumbledore,Firenze,Luna Lovegood
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,5,What do the Weasley twins' Skiving Snackboxes do?,Make you ill so you can skip lessons,Make you fly,Do your homework,Turn you into a canary
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,2,What is the Room of Requirement?,A room that appears with whatever you need,The headmaster's office,A secret kitchen,The Ministry's courtroom
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,5,"Which winged horses pull the Hogwarts carriages, seen only by people who have seen death?",Thestrals,Hippogriffs,Abraxans,Pegasi
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,3,What is the name of the magazine edited by Luna Lovegood's father?,The Quibbler,The Daily Prophet,Witch Weekly,The Evening Prophet
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,4,Which pink-cardigan-wearing Ministry official becomes Hogwarts High Inquisitor?,Dolores Umbridge,Rita Skeeter,Bellatrix Lestrange,Mafalda Hopkirk
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,1,Which creatures attack Harry and Dudley in an alley at the start of book 5?,Dementors,Trolls,Dragons,Giants
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,1,What colour does Professor Umbridge love to wear?,Pink,Black,Green,Yellow
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,1,Who is Hagrid's giant half-brother?,Grawp,Fluffy,Norbert,Aragog
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,1,Which of Harry's friends becomes a Gryffindor prefect in book 5?,Ron,Neville,Fred,Ginny
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,1,Which shy Gryffindor boy gets much better at spells in Harry's secret lessons?,Neville Longbottom,Draco Malfoy,Cedric Diggory,Dudley Dursley
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,2,What does Umbridge make Harry write lines with?,A quill that hurts his hand,A golden pen,A stick of chalk,A feather duster
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,2,What do Fred and George turn a school corridor into when they leave?,A swamp,A swimming pool,A sweet shop,An ice rink
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,2,How do Fred and George leave Hogwarts?,They fly away on broomsticks,They take the train,They climb out of a window,They ride a dragon
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,2,Which crystal-ball teacher does Umbridge try to throw out of Hogwarts?,Professor Trelawney,Professor McGonagall,Professor Sprout,Professor Flitwick
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,2,Who is the centaur who becomes a Divination teacher?,Firenze,Buckbeak,Fang,Aragog
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,3,Which young witch in the Order can change her hair colour whenever she likes?,Tonks,Hermione,Luna,Ginny
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,3,Where is Harry's trial held in book 5?,The Ministry of Magic,Hogwarts,Gringotts,The Leaky Cauldron
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,3,Why is Harry put on trial in book 5?,For using magic outside school,For flying a car,For stealing a broom,For fighting Draco
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,3,What does Harry keep dreaming about in book 5?,A long corridor ending in a locked door,A dragon in a cave,A flying car,A giant chessboard
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,3,Which Weasley is bitten by Voldemort's snake at the Ministry?,Mr Weasley,Ron,Percy,Bill
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,4,How does Harry find out Mr Weasley has been attacked?,He sees it in a dream,An owl tells him,Hermione reads it in the paper,Snape tells him
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,4,Which wizard hospital looks after Mr Weasley?,St Mungo's,Hogwarts hospital wing,Azkaban,Gringotts
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,4,Who gives Harry Occlumency lessons?,Professor Snape,Professor Lupin,Dumbledore,Sirius
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,4,What is Occlumency for?,Keeping others out of your mind,Talking to snakes,Turning into an animal,Flying without a broom
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,4,Who does Harry have his first kiss with?,Cho Chang,Ginny Weasley,Hermione Granger,Luna Lovegood
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,5,What does Hermione make so secret group members know when the next meeting is?,Fake Galleon coins,Paper aeroplanes,Talking pictures,Magic pebbles
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,5,Who tells Umbridge about Harry's secret group?,Marietta Edgecombe,Cho Chang,Neville Longbottom,Ginny Weasley
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,5,Which word appears in spots on the face of the girl who tells on the group?,SNEAK,LIAR,TRAITOR,OOPS
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,5,Where are prophecies kept in the Ministry?,The Department of Mysteries,The Auror Office,The Atrium,The Minister's office
+Books & films / Harry Potter / 5. Order of the Phoenix,6-9,5,Who does Umbridge ban from Quidditch along with Fred and George?,Harry,Ron,Ginny,Neville
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,1,Which Minister for Magic refuses to believe Voldemort is back?,Cornelius Fudge,Rufus Scrimgeour,Kingsley Shacklebolt,Barty Crouch
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,1,Which newspaper calls Harry a liar and a show-off in book 5?,The Daily Prophet,The Quibbler,Witch Weekly,The Evening Standard
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,1,Who interviews Harry about Voldemort's return?,Rita Skeeter,Luna Lovegood,Percy Weasley,Lee Jordan
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,1,Who founded the Order of the Phoenix?,Dumbledore,Sirius Black,Mad-Eye Moody,James Potter
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,1,Where did Hagrid go on a secret mission before book 5?,To visit the giants,To Romania for dragons,To Azkaban,To the Forbidden Forest centaurs
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,2,"Which Auror in the Order speaks in a deep, slow voice?",Kingsley Shacklebolt,Mad-Eye Moody,Remus Lupin,Mundungus Fletcher
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,2,What is wrong with Umbridge's Defence Against the Dark Arts lessons?,Pupils only read and never practise spells,She sets too much homework,She only teaches duelling,She lets pupils do whatever they like
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,2,What does Harry see in Snape's Pensieve?,His father bullying a teenage Snape,Voldemort's childhood,Dumbledore's family,His parents' wedding
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,2,What is Mr Weasley guarding when he is attacked?,A door in the Department of Mysteries,The Minister's office,The Hogwarts gates,A Gringotts vault
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,2,Which Order member leaves his watch at Privet Drive just before the Dementors attack?,Mundungus Fletcher,Tonks,Kingsley Shacklebolt,Remus Lupin
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,3,"What is Mrs Figg, Harry's old neighbour, really?",A Squib,A Death Eater,An Auror,A vampire
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,3,What is a Squib?,Someone from a wizarding family who has no magic,A baby dragon,A type of broomstick,A Muggle who can see ghosts
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,3,Who leads the guard that takes Harry from Privet Drive to Grimmauld Place?,Mad-Eye Moody,Hagrid,Mr Weasley,Snape
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,3,Whose screaming portrait hangs in the hall at Grimmauld Place?,Sirius's mother,Phineas Nigellus,Sirius's brother,Bellatrix's father
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,3,Which Weasley brother sides with the Ministry and falls out with his family?,Percy,Bill,Charlie,Fred
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,4,Who carries Umbridge off into the Forbidden Forest?,The centaurs,The giants,Thestrals,The Dementors
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,4,How do Harry and his friends travel to the Ministry of Magic?,Flying on Thestrals,By Floo powder,On the Knight Bus,On broomsticks
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,4,Which Death Eater leads the attack in the Department of Mysteries?,Lucius Malfoy,Wormtail,Barty Crouch Jr,Fenrir Greyback
+Books & films / Harry Potter / 5. Order of the Phoenix,10-13,4,What happens to the prophecy in the Department of Mysteries?,Its glass ball is smashed,Voldemort takes it,Hermione hides it,Dumbledore locks it away
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,1,What exams do Hogwarts students take in fifth year?,O.W.L.s,N.E.W.T.s,S.A.T.s,G.C.S.E.s
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,1,Which other boy could the prophecy have been about?,Neville Longbottom,Ron Weasley,Draco Malfoy,Cedric Diggory
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,1,Why does Dumbledore avoid Harry for most of book 5?,He fears Voldemort could use their link,He blames Harry for Cedric's death,He is away visiting giants,The Ministry ordered him to
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,1,Who tortured Neville's parents into madness?,Bellatrix Lestrange and other Death Eaters,Lucius Malfoy,Wormtail,Fenrir Greyback
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,1,Where do Neville's parents live?,St Mungo's Hospital,Azkaban,Hogsmeade,Godric's Hollow
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,2,Through what does Sirius fall when he dies?,A veil hanging in an ancient archway,A trapdoor,A broken mirror,A fireplace
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,2,Which Unforgivable Curse does Harry fail to cast properly on Bellatrix?,The Cruciatus Curse,The Killing Curse,The Imperius Curse,The Stunning Spell
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,2,Which line from the prophecy says Harry or Voldemort must die?,Neither can live while the other survives,Only one shall see the dawn,The chosen one shall rise,Blood will tell
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,2,What does Dumbledore bring to life to protect Harry in the Ministry Atrium?,The statues of the fountain,The portraits,The suits of armour,The lifts
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,3,Who lies to Harry that Sirius is not at Grimmauld Place?,Kreacher,Snape,Umbridge,Mundungus
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,3,Whose fireplace does Harry use to try to contact Sirius?,Umbridge's,Snape's,McGonagall's,Hagrid's
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,3,Who gives Umbridge fake Veritaserum?,Snape,Slughorn,Hermione,Dumbledore
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,3,Who sent the Dementors to attack Harry in Little Whinging?,Dolores Umbridge,Voldemort,Lucius Malfoy,Cornelius Fudge
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,3,What is the Order guarding for most of book 5?,The prophecy,The Philosopher's Stone,Harry's trunk,Azkaban
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,4,What song do the Slytherins sing to mock Ron's Keeping?,Weasley Is Our King,Ron Can't Save,Pig Boy Blues,Keeper of the Weasels
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,4,Who replaces Harry as Gryffindor Seeker after his ban?,Ginny Weasley,Ron Weasley,Katie Bell,Dean Thomas
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,4,What does Hermione pretend to show Umbridge in the Forbidden Forest?,Dumbledore's secret weapon,A hidden Horcrux,Sirius's hideout,The DA's meeting place
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,4,During which O.W.L. exam do the students see Hagrid attacked at night?,Astronomy,Divination,Potions,Herbology
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,4,Which teacher is badly hurt by Stunning Spells while defending Hagrid?,Professor McGonagall,Professor Sprout,Professor Flitwick,Professor Trelawney
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,5,Who becomes Headmistress after Dumbledore leaves Hogwarts in book 5?,Dolores Umbridge,Minerva McGonagall,Sybill Trelawney,Madam Pomfrey
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,5,How does Dumbledore escape being arrested in his office?,He vanishes in a burst of flame with Fawkes,He Apparates,He hides under a cloak,He flies on a broom
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,5,Why must Harry keep going back to the Dursleys?,His mother's sacrifice protects him where her blood lives,The Ministry orders it,Dumbledore wants him to learn Muggle ways,Sirius cannot look after him
+Books & films / Harry Potter / 5. Order of the Phoenix,14-17,5,What gift from Sirius does Harry only unwrap after Sirius dies?,A two-way mirror,A new broomstick,A pocket Sneakoscope,A photo album
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,1,What is the Order of the Phoenix?,A secret group that fights Voldemort,A Ministry department,A Quidditch team,A shop in Diagon Alley
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,1,What is the full address of the Order's headquarters?,12 Grimmauld Place,4 Privet Drive,93 Diagon Alley,7 Spinner's End
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,1,Which Hogwarts house is Cho Chang in?,Ravenclaw,Hufflepuff,Gryffindor,Slytherin
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,1,Which spell does Harry teach at the very first DA meeting?,"The Disarming Charm, Expelliarmus",The Patronus Charm,The Stunning Spell,The Shield Charm
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,1,What is Umbridge's job at the Ministry?,Senior Undersecretary to the Minister,Head of the Auror Office,Minister for Magic,Head of Magical Games and Sports
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,2,Which pupils join Umbridge's Inquisitorial Squad?,Slytherins such as Draco Malfoy,Gryffindor prefects,Ravenclaw seventh-years,The Hufflepuff Quidditch team
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,2,For how long does Umbridge first ban Harry from Quidditch?,For life,For a week,For one match,Until Christmas
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,2,Which former headmaster's portrait hangs at both Hogwarts and Grimmauld Place?,Phineas Nigellus Black,Armando Dippet,Dilys Derwent,Albus Dumbledore
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,2,What is a Pensieve used for?,Looking at stored memories,Brewing potions,Seeing the future,Sending messages
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,2,What are prophecies stored in at the Ministry?,Small glass spheres,Sealed scrolls,Locked books,Silver goblets
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,3,Where did Sybill Trelawney make the prophecy to Dumbledore?,At the Hog's Head,In Dumbledore's office,At the Three Broomsticks,At the Ministry
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,3,Who overheard part of the prophecy and told Voldemort?,Severus Snape,Peter Pettigrew,Bellatrix Lestrange,Lucius Malfoy
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,3,What happens to Trelawney after Umbridge sacks her?,Dumbledore lets her stay in the castle,She goes to St Mungo's,She joins the Order,She moves to Hogsmeade
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,3,Who finally sees Voldemort in the Ministry Atrium and admits he is back?,Cornelius Fudge,Dolores Umbridge,Percy Weasley,Rufus Scrimgeour
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,4,"According to the prophecy, when would the one to defeat Voldemort be born?",As the seventh month dies,On Midsummer's Eve,At the turn of the year,When the comet returns
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,4,Whose wand does Neville use in book 5?,His father's,His grandmother's,Harry's spare,A brand-new Ollivander
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,4,Which former teacher do Harry and his friends meet at St Mungo's?,Gilderoy Lockhart,Professor Quirrell,Professor Lupin,Professor Binns
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,4,What attacks Ron in the Brain Room?,Floating brains with tentacle-like thoughts,A Boggart,Inferi,A Lethifold
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,5,What does Dumbledore say is the power the Dark Lord knows not?,Love,Courage,Hope,Friendship
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,5,Why can Neville see Thestrals?,He saw his grandfather die,He was born with the gift,He took a potion,Luna taught him
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,5,Which Ministry worker is killed by a Devil's Snare sent to St Mungo's?,Broderick Bode,Bertha Jorkins,Amelia Bones,Arthur Weasley
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,5,What does Percy tell Ron in his letter after Ron becomes a prefect?,To stop being friends with Harry,To join the Inquisitorial Squad,To leave Hogwarts,To apply for the Ministry
+Books & films / Harry Potter / 5. Order of the Phoenix,adult,5,What is the great hall with the golden fountain at the Ministry called?,The Atrium,The Rotunda,The Great Hall,The Chamber of Mysteries
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,5,What is Fred and George's joke shop called?,Weasleys' Wizard Wheezes,Zonko's Joke Shop,Twins' Tricks,The Prank Palace
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,5,Who turns out to be the Half-Blood Prince?,Severus Snape,Tom Riddle,Harry Potter,Rubeus Hagrid
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,1,Who kills Dumbledore at the top of the Astronomy Tower?,Severus Snape,Draco Malfoy,Bellatrix Lestrange,Lord Voldemort
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,1,What is a Horcrux?,An object hiding a piece of someone's soul,A type of broomstick,A wizard's pet,A healing potion
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,1,Who teaches Potions in 'Half-Blood Prince'?,Horace Slughorn,Severus Snape,Remus Lupin,Pomona Sprout
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,1,What does Dumbledore ask Harry to get from Slughorn in 'Half-Blood Prince'?,A memory about Horcruxes,The Elder Wand,A Time-Turner,A bottle of Felix Felicis
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,1,Who does Ron go out with in 'Half-Blood Prince'?,Lavender Brown,Parvati Patil,Luna Lovegood,Romilda Vane
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,1,What task does Voldemort give Draco Malfoy in 'Half-Blood Prince'?,To kill Dumbledore,To steal the Philosopher's Stone,To win the Quidditch Cup,To find Harry's wand
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,2,Into how many pieces did Voldemort mean to split his soul?,7,3,5,12
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,2,Which Horcrux had Dumbledore already destroyed before 'Half-Blood Prince'?,Marvolo Gaunt's ring,Slytherin's locket,Hufflepuff's cup,Nagini
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,4,What is Lord Voldemort's middle name?,Marvolo,Merlin,Morfin,Salazar
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,4,Where did Tom Riddle grow up?,In a Muggle orphanage in London,At Malfoy Manor,In Godric's Hollow,At Hogwarts all year round
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,4,Who was Voldemort's father?,"Tom Riddle, a Muggle",Marvolo Gaunt,Salazar Slytherin,Morfin Gaunt
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,4,Which Horcrux was hidden in a sea cave?,Slytherin's locket,Hufflepuff's cup,Ravenclaw's diadem,The diary
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,5,What was the name of Voldemort's mother?,Merope Gaunt,Bellatrix Black,Narcissa Malfoy,Helena Ravenclaw
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,5,Who takes over as Minister for Magic after Fudge?,Rufus Scrimgeour,Pius Thicknesse,Barty Crouch Sr,Amelia Bones
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,1,Who becomes Gryffindor Quidditch captain in book 6?,Harry,Ron,Ginny,Katie Bell
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,1,Which lucky potion does Harry win in a Potions lesson?,Felix Felicis,Polyjuice Potion,Veritaserum,Skele-Gro
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,1,What is Felix Felicis often called?,Liquid luck,Liquid gold,Dragon juice,Sleepy syrup
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,1,Which new teacher in book 6 loves crystallised pineapple and famous pupils?,Professor Slughorn,Professor Lupin,Professor Lockhart,Professor Moody
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,1,Who finally gets to teach Defence Against the Dark Arts in book 6?,Professor Snape,Professor McGonagall,Hagrid,Professor Flitwick
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,2,Which girl does Harry fall for in book 6?,Ginny Weasley,Hermione Granger,Luna Lovegood,Cho Chang
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,2,How does Harry save Ron after he drinks poison?,He pushes a bezoar into his mouth,He casts a healing spell,He gives him chocolate,He calls Madam Pomfrey
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,2,What is a bezoar?,A stone from a goat's stomach,A magic mushroom,A type of wand,A singing frog
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,2,What does Ron eat by mistake that makes him fall in love with Romilda Vane?,Chocolates with love potion in,A Chocolate Frog,Fizzing Whizzbees,A pumpkin pasty
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,2,Who becomes Gryffindor's Keeper again after the tryouts?,Ron,Neville,Seamus,Dean
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,3,Which Gryffindor girl is cursed by a necklace in Hogsmeade?,Katie Bell,Ginny Weasley,Lavender Brown,Parvati Patil
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,3,Who tries to beat Ron at the Keeper tryouts?,Cormac McLaggen,Neville Longbottom,Dean Thomas,Colin Creevey
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,3,What is wrong with Dumbledore's hand in book 6?,It is black and badly hurt,It is made of silver,It glows green,It has six fingers
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,3,Which werewolf attacks Bill Weasley?,Fenrir Greyback,Remus Lupin,Wormtail,Lucius Malfoy
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,3,What does Hermione send flying at Ron when she is cross with him?,A flock of canaries,A swarm of bees,A bunch of bats,Snowballs
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,4,What is scribbled all over Harry's old Potions book?,Notes from the Half-Blood Prince,Ron's doodles,Secret maps,Recipes for cake
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,4,Where does Harry hide the Half-Blood Prince's book?,In the Room of Requirement,Under his bed,In Hagrid's hut,In the library
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,4,Who is hurt when Harry uses the spell Sectumsempra?,Draco Malfoy,Ron Weasley,Professor Snape,Neville Longbottom
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,4,What creatures lie in the dark lake inside the cave?,Inferi,Merpeople,Mermaids,Grindylows
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,4,Who helps Dumbledore get home from the cave?,Harry,Hagrid,Snape,Ron
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,5,Whose funeral is held at Hogwarts at the end of book 6?,Dumbledore's,Hagrid's,Dobby's,Sirius's
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,5,What does Fawkes do after Dumbledore dies?,Sings a sad song,Lays an egg,Bursts into laughter,Brings Dumbledore back
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,5,Which giant spider's funeral does Hagrid hold in book 6?,Aragog,Mosag,Fang,Buckbeak
+Books & films / Harry Potter / 6. Half-Blood Prince,6-9,5,Who lets Death Eaters into Hogwarts?,Draco Malfoy,Neville Longbottom,Peeves,Mr Filch
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,1,What is Slughorn's group of favourite pupils called?,The Slug Club,The Potion Club,The Golden Circle,The Pineapple Party
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,1,Which subject does the Half-Blood Prince's book help Harry with?,Potions,Charms,Transfiguration,Herbology
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,1,What does Harry drink to help him get Slughorn's memory?,Felix Felicis,Polyjuice Potion,Veritaserum,Butterbeer
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,1,Who is Ginny's boyfriend before Harry in book 6?,Dean Thomas,Neville Longbottom,Seamus Finnigan,Michael Corner
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,1,What pet name does Lavender Brown give Ron?,Won-Won,Ronnikins,Ickle Ronniekins,Big Ron
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,2,What does the spell Sectumsempra do?,Slashes the target as if with a sword,Turns them upside down,Makes them fall asleep,Fixes broken bones
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,2,What does the spell Levicorpus do?,Hangs a person upside down by the ankle,Makes things float,Freezes a person,Mends broken things
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,2,Which magical cabinet does Draco fix to let Death Eaters into Hogwarts?,A Vanishing Cabinet,A Pensieve cabinet,A Disappearing Wardrobe,A Floo cupboard
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,2,Which shop has the cabinet that pairs with the one in Hogwarts?,Borgin and Burkes,Ollivanders,Flourish and Blotts,Honeydukes
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,2,What does Harry suspect Draco has become in book 6?,A Death Eater,An Auror,A vampire,A spy for Dumbledore
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,3,Who was the cursed necklace really meant for?,Dumbledore,Harry,Hermione,Slughorn
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,3,Who was the poisoned mead really meant for?,Dumbledore,Ron,Harry,Snape
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,3,Where does Harry go after drinking Felix Felicis?,To Aragog's funeral at Hagrid's hut,To the Room of Requirement,To Hogsmeade,To the Astronomy Tower
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,3,What do Harry's private lessons with Dumbledore involve?,Looking at memories of Voldemort in the Pensieve,Learning to duel,Practising Occlumency,Flying lessons
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,3,What was the name of Voldemort's grandfather?,Marvolo Gaunt,Morfin Gaunt,Tom Riddle Sr,Salazar Slytherin
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,4,Which job did Tom Riddle ask Dumbledore for?,Defence Against the Dark Arts teacher,Headmaster,Potions teacher,Caretaker
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,4,Which shop did Tom Riddle work at after Hogwarts?,Borgin and Burkes,Gringotts,Ollivanders,The Leaky Cauldron
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,4,Which rich old witch owned Hufflepuff's cup before Riddle stole it?,Hepzibah Smith,Bathilda Bagshot,Merope Gaunt,Muriel Weasley
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,4,Who heals Draco after Harry's Sectumsempra spell?,Professor Snape,Madam Pomfrey,Professor Slughorn,Moaning Myrtle
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,4,How is Harry punished for using Sectumsempra?,Detentions that make him miss the Quidditch final,He is expelled,He loses his wand,He is banned from Hogsmeade forever
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,5,Who plays Seeker in the Quidditch final while Harry is in detention?,Ginny Weasley,Ron Weasley,Katie Bell,Dean Thomas
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,5,Who still wants to marry Bill even after the werewolf attack?,Fleur Delacour,Tonks,Hermione Granger,Cho Chang
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,5,Why does Harry break up with Ginny at the end of book 6?,To keep her safe from Voldemort,Because she likes Dean,Because Ron told him to,Because she is moving away
+Books & films / Harry Potter / 6. Half-Blood Prince,10-13,5,Who makes an Unbreakable Vow with Snape?,Narcissa Malfoy,Bellatrix Lestrange,Lucius Malfoy,Draco Malfoy
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,2,What does Snape promise in his Unbreakable Vow?,To protect Draco and finish his task if he fails,To kill Harry,To leave Hogwarts,To tell Voldemort the prophecy
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,2,Who seals the Unbreakable Vow between Snape and Narcissa?,Bellatrix Lestrange,Wormtail,Lucius Malfoy,Draco Malfoy
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,2,What did Slughorn hide by changing his memory?,That he told young Riddle about Horcruxes,That he was a Death Eater,That he killed a student,That he stole a potion recipe
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,3,What harmed Dumbledore's hand?,A curse on Marvolo Gaunt's ring,A dragon bite,A Potions accident,A duel with Voldemort
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,3,What was Snape's mother called before she married?,Eileen Prince,Merope Gaunt,Lily Evans,Hepzibah Smith
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,3,Why did Snape call himself the Half-Blood Prince?,His mother's maiden name was Prince,He was the son of a king,Slughorn gave him the title,It was his house nickname
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,3,"Who was Voldemort's uncle, who hated Muggles?",Morfin Gaunt,Marvolo Gaunt,Tom Riddle Sr,Regulus Black
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,3,Who was blamed for the murder of the Riddle family?,Morfin Gaunt,Frank Bryce,Merope Gaunt,Bob Ogden
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,4,Which house-elf was framed for Hepzibah Smith's death?,Hokey,Winky,Kreacher,Dobby
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,5,How does Dumbledore open the hidden entrance to the sea cave?,He smears his blood on the rock,He speaks Parseltongue,He uses the Elder Wand alone,He says a password
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,5,Which two house-elves does Harry set to follow Draco?,Kreacher and Dobby,Winky and Dobby,Hokey and Kreacher,Winky and Kreacher
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,5,What does Slughorn's true memory show Riddle asking about?,Splitting the soul into seven pieces,How to open the Chamber,How to become immortal with the Stone,Where the Elder Wand was
+Books & films / Harry Potter / 6. Half-Blood Prince,14-17,5,Which job did Rufus Scrimgeour have before becoming Minister?,Head of the Auror Office,Hogwarts teacher,Gringotts manager,Head of Magical Games and Sports
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,1,What is Professor Slughorn's first name?,Horace,Horatio,Hector,Herbert
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,1,What do sixth-years learn to do in special lessons in book 6?,Apparate,Ride dragons,Brew Felix Felicis,Become Animagi
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,1,What is splinching?,Leaving part of your body behind when you Apparate,A Quidditch foul,A cooking spell,A kind of hiccup curse
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,1,What does Hermione do to Cormac McLaggen at the Keeper tryouts?,Confunds him so he misses a save,Trips him up,Jinxes his broom,Turns him into a frog
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,1,Which school year is Harry in during 'Half-Blood Prince'?,Sixth,Fifth,Seventh,Fourth
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,2,What does Harry pretend to slip into Ron's drink before a match?,Felix Felicis,Polyjuice Potion,Veritaserum,Amortentia
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,2,Who visits the Muggle Prime Minister at the start of book 6?,Fudge and Scrimgeour,Dumbledore and Snape,Kingsley and Tonks,Umbridge and Percy
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,2,In whose office is Ron poisoned?,Slughorn's,Snape's,Dumbledore's,McGonagall's
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,2,What does Scrimgeour want from Harry in book 6?,To be seen supporting the Ministry,To join the Aurors at once,To hand over Dumbledore's secrets,To leave Hogwarts
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,2,Who commentates a Quidditch match in book 6 with very dreamy remarks?,Luna Lovegood,Lee Jordan,Zacharias Smith,Ginny Weasley
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,3,Whose venom does Slughorn want to collect after the spider's funeral?,Aragog's,Nagini's,The basilisk's,Mosag's
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,3,What does the spell Muffliato do?,Fills nearby ears with buzzing so you can't be overheard,Silences a person,Makes you invisible,Locks a door
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,3,What did Merope Gaunt use to make Tom Riddle Sr love her?,A love potion,The Imperius Curse,A Time-Turner,Felix Felicis
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,3,Where does Harry find Draco crying in book 6?,In Moaning Myrtle's bathroom,In the Owlery,In the Slytherin common room,In the Forbidden Forest
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,3,On which street does Snape live?,Spinner's End,Privet Drive,Grimmauld Place,Knockturn Alley
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,4,Which Slytherin heirloom did Hepzibah Smith own as well as Hufflepuff's cup?,Slytherin's locket,Slytherin's ring,Slytherin's sword,Slytherin's diadem
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,4,How did Slytherin's locket end up at Borgin and Burkes?,Merope Gaunt sold it,Riddle sold it,Dumbledore lost it,Hokey stole it
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,4,Who passes the cursed necklace and mead along under the Imperius Curse?,Madam Rosmerta,Madam Pince,Madam Hooch,Professor Trelawney
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,4,"What does too much Felix Felicis cause, according to Slughorn?",Recklessness and overconfidence,Blindness,Bad luck forever,Hair loss
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,4,Which Weasley gets badly scarred during the battle at Hogwarts?,Bill,Charlie,Percy,George
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,5,Who teaches the Apparition lessons?,Wilkie Twycross,Mafalda Hopkirk,Ludo Bagman,Amos Diggory
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,5,What are the three Ds of Apparition?,"Destination, Determination, Deliberation","Distance, Direction, Dedication","Desire, Daring, Discipline","Duty, Drive, Distance"
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,5,Which werewolf bit Remus Lupin as a child?,Fenrir Greyback,Scabior,Antonin Dolohov,Walden Macnair
+Books & films / Harry Potter / 6. Half-Blood Prince,adult,5,What does Dumbledore beg Harry for after drinking the cave potion?,Water,Sleep,Death,His wand
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,2,Which animal is the symbol of Ravenclaw house?,An eagle,A raven,An owl,A lion
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,3,What are Ravenclaw's colours in the books?,Blue and bronze,Green and silver,Red and gold,Yellow and black
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,1,Which Weasley twin dies in the Battle of Hogwarts?,Fred,George,Percy,Charlie
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,1,"Which married couple, Teddy's parents, die in the Battle of Hogwarts?",Remus Lupin and Tonks,Bill and Fleur,Arthur and Molly Weasley,Frank and Alice Longbottom
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,1,Who is Teddy Lupin's godfather?,Harry Potter,Ron Weasley,Sirius Black,Kingsley Shacklebolt
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,1,What shape does Snape's Patronus take?,A doe,A stag,A snake,A raven
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,1,What does Dumbledore leave Ron in his will?,The Deluminator,The Elder Wand,A chess set,His Chocolate Frog cards
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,"What are the Deathly Hallows, apart from the Elder Wand and the Invisibility Cloak?",The Resurrection Stone,The Philosopher's Stone,The Time-Turner,The Sword of Gryffindor
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,What does Dumbledore leave Hermione in his will?,The Tales of Beedle the Bard,Hogwarts: A History,A Time-Turner,His glasses
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,"Which goblin helps Harry, Ron and Hermione break into Gringotts?",Griphook,Ragnok,Bogrod,Gornuk
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,Whose Gringotts vault do they break into?,Bellatrix Lestrange's,The Malfoys',Voldemort's,The Potters'
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,Which Horcrux is hidden in that Gringotts vault?,Hufflepuff's cup,Slytherin's locket,Ravenclaw's diadem,Marvolo Gaunt's ring
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,Who destroys Hufflepuff's cup?,Hermione,Ron,Harry,Neville
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,"What cursed fire, set by Crabbe, destroys Ravenclaw's diadem?",Fiendfyre,Dragonfire,Incendio,Hellflame
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,Who kills Bellatrix Lestrange?,Molly Weasley,Neville Longbottom,Ginny Weasley,Minerva McGonagall
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,What is the name of Bill and Fleur's house by the sea?,Shell Cottage,The Burrow,Spinner's End,Seaview Lodge
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,2,Which house-elf dies at Shell Cottage after rescuing Harry and his friends?,Dobby,Kreacher,Winky,Hokey
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,In which village were Harry's parents living when Voldemort attacked?,Godric's Hollow,Hogsmeade,Little Hangleton,Little Whinging
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,"What is the name of Dumbledore's brother, who runs the Hog's Head?",Aberforth,Ariana,Percival,Elphias
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,Who throws the knife that kills Dobby?,Bellatrix Lestrange,Lucius Malfoy,Fenrir Greyback,Peter Pettigrew
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,What is the name of the Malfoy family home?,Malfoy Manor,Riddle House,Slytherin Hall,The Shrieking Shack
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,Which dark wizard was Dumbledore's close friend as a teenager?,Gellert Grindelwald,Tom Riddle,Antonin Dolohov,Igor Karkaroff
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,What was Dumbledore's sister called?,Ariana,Aberforth,Bathilda,Kendra
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,Whose wand did the Elder Wand belong to just before Draco won it?,Albus Dumbledore,Gellert Grindelwald,Severus Snape,Gregorovitch
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,Why does the Elder Wand obey Harry in the end?,"He disarmed Draco, its master",He found it in the lake,Dumbledore gave it to him,It was made for him
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,"Who does Voldemort kill, wrongly believing it will make the Elder Wand his?",Severus Snape,Lucius Malfoy,Ollivander,Grindelwald
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,Where does Snape die?,The Shrieking Shack,The Astronomy Tower,The Great Hall,The Forbidden Forest
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,3,What does the dying Snape give Harry?,His memories,His wand,A letter,The Half-Blood Prince's book
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,4,Which Hogwarts founder's lost diadem was made into a Horcrux?,Rowena Ravenclaw,Helga Hufflepuff,Godric Gryffindor,Salazar Slytherin
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,4,Who destroys Slytherin's locket with the sword of Gryffindor?,Ron Weasley,Harry Potter,Hermione Granger,Neville Longbottom
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,4,Who kills Voldemort's snake Nagini?,Neville Longbottom,Ron Weasley,Harry Potter,Molly Weasley
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,4,Which Peverell brother owned the Invisibility Cloak?,Ignotus,Cadmus,Antioch,Marvolo
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,4,Which Peverell brother owned the Resurrection Stone?,Cadmus,Ignotus,Antioch,Merope
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,4,Who had already stolen the real locket from the cave and left a note signed 'R.A.B.'?,Regulus Black,Remus Lupin,Rubeus Hagrid,Rodolphus Lestrange
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,4,Harry names his son Albus Severus after which two people?,Dumbledore and Snape,Dumbledore and Sirius,His grandfather and Snape,Dumbledore and Slughorn
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,4,Which three things make up the Deathly Hallows?,"Elder Wand, Resurrection Stone and Invisibility Cloak","Sword, Hat and Wand","Cup, Locket and Diadem","Stone, Mirror and Snitch"
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,5,What is Harry's middle name?,James,Albus,Sirius,Arthur
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,5,Which wizard defeated the dark wizard Grindelwald in 1945?,Albus Dumbledore,Newt Scamander,Alastor Moody,Nicolas Flamel
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,5,What is Ron and Hermione's daughter called?,Rose,Lily,Molly,Victoire
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,5,What is Ron and Hermione's son called?,Hugo,James,Fred,Teddy
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,5,What is Harry and Ginny's daughter called?,Lily Luna,Rose,Molly,Lucy
+Books & films / Harry Potter / 7. Deathly Hallows,14-17,5,What is Hermione's middle name?,Jean,Jane,Rose,Anne
+Books & films / Harry Potter / 7. Deathly Hallows,adult,4,Which character answers 'Always' to Dumbledore's 'After all this time?',Severus Snape,Remus Lupin,Sirius Black,Rubeus Hagrid
+Books & films / Harry Potter / 7. Deathly Hallows,adult,5,What are the full first names of Harry and Ginny's eldest son?,James Sirius,Albus Severus,Arthur Remus,Fred George
+Books & films / Harry Potter / 7. Deathly Hallows,adult,5,"Which object, left to Harry by Dumbledore, says 'I open at the close'?",The Golden Snitch,The Deluminator,The Marauder's Map,A Sneakoscope
+Books & films / Harry Potter / 7. Deathly Hallows,adult,5,What are the last three words of the final Harry Potter book?,All was well,The end came,Mischief managed,Always and forever
+Books & films / Harry Potter / 7. Deathly Hallows,adult,5,Who becomes Minister for Magic after Voldemort's defeat?,Kingsley Shacklebolt,Arthur Weasley,Hermione Granger,Percy Weasley
+Books & films / Harry Potter / 7. Deathly Hallows,adult,5,"Who was the Grey Lady, Ravenclaw's ghost, in life?",Helena Ravenclaw,Rowena Ravenclaw,Myrtle Warren,Ariana Dumbledore
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,1,"What do Harry, Ron and Hermione go searching for in book 7?",Horcruxes,Golden eggs,Dragon eggs,The Philosopher's Stone
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,1,Which snowy owl of Harry's dies at the start of book 7?,Hedwig,Errol,Pigwidgeon,Hermes
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,1,Whose wedding do Harry and his friends go to at the start of book 7?,Bill and Fleur's,Lupin and Tonks's,Ron and Hermione's,Hagrid and Madame Maxime's
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,1,Who becomes headmaster of Hogwarts in book 7?,Snape,Slughorn,Hagrid,Lupin
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,1,Which side wins the Battle of Hogwarts?,Harry and his friends,Voldemort and the Death Eaters,Nobody wins,The giants
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,2,Where do Harry and Hermione sleep while hunting Horcruxes?,In a magic tent,In a castle,On a train,In a tree house
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,2,Which sword does Harry find at the bottom of a frozen pool?,The Sword of Gryffindor,The Sword of Slytherin,A pirate's sword,Hagrid's sword
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,2,What silver animal leads Harry to the frozen pool?,A doe,A stag,An otter,A phoenix
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,2,"How do Harry, Ron and Hermione escape from Gringotts?",On the back of a dragon,On broomsticks,In a mine cart,On Buckbeak
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,3,How many 'Harrys' fly away from Privet Drive to fool the Death Eaters?,Seven,Two,Four,Ten
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,3,What happens to George Weasley's ear in book 7?,It is cursed off,It turns green,It grows huge,It falls asleep
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,3,Who leads Dumbledore's Army at Hogwarts while Harry is away?,Neville Longbottom,Draco Malfoy,Percy Weasley,Lavender Brown
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,3,What does Hermione carry that holds far more than it should?,A small beaded bag,A golden goblet,A pocket watch,A tiny box
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,4,Which name is jinxed so Death Eaters can find anyone who says it?,Voldemort,Dumbledore,Harry Potter,Hogwarts
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,4,Who flies Harry away from Privet Drive on a motorbike?,Hagrid,Sirius,Mr Weasley,Lupin
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,4,What is hidden behind the painting of Ariana in the Hog's Head?,A secret tunnel into Hogwarts,A pile of gold,A Horcrux,A sleeping dragon
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,4,Who brings Hogwarts' statues to life to defend the castle?,Professor McGonagall,Professor Sprout,Hagrid,Mr Filch
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,4,Who leads the Hogwarts house-elves into the battle?,Kreacher,Dobby,Winky,Hokey
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,5,Who finally defeats Voldemort?,Harry,Ron,Neville,Dumbledore
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,5,How many years later is the last chapter of book 7 set?,Nineteen,Five,Ten,Fifty
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,5,At which platform does the last chapter take place?,Platform nine and three-quarters,Platform one,Platform ten,Platform seven
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,5,Who does Harry marry?,Ginny Weasley,Hermione Granger,Luna Lovegood,Cho Chang
+Books & films / Harry Potter / 7. Deathly Hallows,6-9,5,Who does Ron marry?,Hermione Granger,Lavender Brown,Luna Lovegood,Fleur Delacour
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,1,What are the gangs who catch people for gold in book 7 called?,Snatchers,Grabbers,Seekers,Hunters
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,1,What happens when someone says Voldemort's name in book 7?,Death Eaters can track them,Their wand breaks,They fall asleep,Nothing at all
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,1,Whose flying motorbike does Hagrid use in book 7?,Sirius's,Mr Weasley's,Dumbledore's,His own
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,1,Who does Harry see when he turns the Resurrection Stone in the forest?,"His parents, Sirius and Lupin",Dumbledore and Snape,Cedric and Dobby,Fred and Hedwig
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,1,What does Hermione do to keep her parents safe?,Changes their memories so they forget her,Hides them at Hogwarts,Sends them to Azkaban,Turns them into cats
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,2,Which Ministry group does Umbridge run in book 7?,The Muggle-born Registration Commission,The Auror Office,The Department of Mysteries,Magical Games and Sports
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,2,Whose body does Harry borrow with Polyjuice to get into the Ministry?,Albert Runcorn's,Percy Weasley's,Kingsley Shacklebolt's,Mundungus Fletcher's
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,2,Who is wearing Slytherin's locket at the Ministry?,Dolores Umbridge,Pius Thicknesse,Yaxley,Mafalda Hopkirk
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,2,Who stole the locket from Grimmauld Place?,Mundungus Fletcher,Kreacher,Bellatrix Lestrange,Draco Malfoy
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,2,Who did Umbridge get the locket from?,Mundungus Fletcher,Borgin and Burkes,Kreacher,Regulus Black
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,3,Whose lynx Patronus warns the wedding guests that the Ministry has fallen?,Kingsley Shacklebolt's,Lupin's,Tonks's,Mr Weasley's
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,3,Who kills Mad-Eye Moody during the escape from Privet Drive?,Voldemort,Bellatrix Lestrange,Snape,Wormtail
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,3,Whose younger brother was Regulus Black?,Sirius's,Snape's,Lucius Malfoy's,Lupin's
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,3,How does Kreacher change after Harry is kind to him?,He becomes loyal and helpful,He runs away,He joins the Death Eaters,He stops talking
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,3,Whose wand does Harry win from Draco at Malfoy Manor?,Draco's own hawthorn wand,Bellatrix's wand,Lucius's wand,Wormtail's wand
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,4,In which prison is Grindelwald kept?,Nurmengard,Azkaban,Gringotts,The Tower of London
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,4,Which wandmaker is held prisoner in the Malfoys' cellar?,Mr Ollivander,Gregorovitch,Mr Borgin,Mr Diggory
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,4,Who does Bellatrix torture at Malfoy Manor?,Hermione,Ron,Luna,Dean
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,4,What kills Wormtail at Malfoy Manor?,His own silver hand,A Killing Curse,Dobby,A Dementor
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,4,Who was hiding inside old Bathilda Bagshot's body?,Nagini,Wormtail,Voldemort,Bellatrix
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,5,What does Neville pull out of the Sorting Hat during the battle?,The Sword of Gryffindor,A Horcrux,A phoenix,A wand
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,5,Where does Harry meet Dumbledore after Voldemort's curse hits him in the forest?,A place that looks like King's Cross,The Great Hall,Godric's Hollow,Dumbledore's office
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,5,Who lies to Voldemort that Harry is dead?,Narcissa Malfoy,Snape,Bellatrix,Lucius Malfoy
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,5,Why must Harry let Voldemort kill him in the forest?,A piece of Voldemort's soul is inside Harry,It will bring Dumbledore back,It breaks Snape's spell,The prophecy says so
+Books & films / Harry Potter / 7. Deathly Hallows,10-13,5,Who carries Harry's body out of the Forbidden Forest?,Hagrid,Neville,Voldemort,Lucius Malfoy
+Books & films / Harry Potter / 7. Deathly Hallows,adult,1,Who becomes the puppet Minister for Magic after Scrimgeour is killed?,Pius Thicknesse,Cornelius Fudge,Yaxley,Dolores Umbridge
+Books & films / Harry Potter / 7. Deathly Hallows,adult,1,What is the secret radio show that tells the truth during Voldemort's rule?,Potterwatch,Wizard Wireless,The Order Hour,Hogwarts Hour
+Books & films / Harry Potter / 7. Deathly Hallows,adult,1,What is Lee Jordan's code name on the secret radio show?,River,Rapier,Romulus,Rodent
+Books & films / Harry Potter / 7. Deathly Hallows,adult,1,Who writes 'The Life and Lies of Albus Dumbledore'?,Rita Skeeter,Bathilda Bagshot,Elphias Doge,Xenophilius Lovegood
+Books & films / Harry Potter / 7. Deathly Hallows,adult,1,Who wrote the schoolbook 'A History of Magic'?,Bathilda Bagshot,Rita Skeeter,Professor Binns,Miranda Goshawk
+Books & films / Harry Potter / 7. Deathly Hallows,adult,2,What symbol does Xenophilius Lovegood wear around his neck at the wedding?,The sign of the Deathly Hallows,The Dark Mark,A Ravenclaw eagle,A phoenix feather
+Books & films / Harry Potter / 7. Deathly Hallows,adult,2,Why does Xenophilius Lovegood betray Harry to the Death Eaters?,They have taken Luna,He wants the reward,He thinks Harry is a liar,He is under the Imperius Curse
+Books & films / Harry Potter / 7. Deathly Hallows,adult,2,Which story tells of the Deathly Hallows?,The Tale of the Three Brothers,Babbitty Rabbitty,The Fountain of Fair Fortune,The Wizard and the Hopping Pot
+Books & films / Harry Potter / 7. Deathly Hallows,adult,2,Whose mark does Viktor Krum say the Hallows sign is?,Grindelwald's,Voldemort's,Dumbledore's,Karkaroff's
+Books & films / Harry Potter / 7. Deathly Hallows,adult,2,What did Dumbledore leave Harry in his will that the Ministry refused to hand over?,The Sword of Gryffindor,The Elder Wand,Fawkes,His Pensieve
+Books & films / Harry Potter / 7. Deathly Hallows,adult,3,Why can the Sword of Gryffindor destroy Horcruxes?,It soaked up basilisk venom,It was blessed by a phoenix,It was made by Dumbledore,It is cursed
+Books & films / Harry Potter / 7. Deathly Hallows,adult,3,Which werewolf leads the Snatchers who capture Harry's group?,Fenrir Greyback,Remus Lupin,Scabior,Walden Macnair
+Books & films / Harry Potter / 7. Deathly Hallows,adult,3,How does Hermione disguise Harry's face when they are caught?,With a Stinging Jinx,With Polyjuice Potion,With a Hair-Thickening Charm,With his Invisibility Cloak
+Books & films / Harry Potter / 7. Deathly Hallows,adult,3,What false name does Harry give the Snatchers?,Vernon Dudley,Barny Weasley,Stan Shunpike,Albert Runcorn
+Books & films / Harry Potter / 7. Deathly Hallows,adult,3,What does Griphook want as payment for helping break into Gringotts?,The Sword of Gryffindor,The Elder Wand,A sack of Galleons,Harry's Invisibility Cloak
+Books & films / Harry Potter / 7. Deathly Hallows,adult,4,What is Harry's original wand made of?,Holly with a phoenix feather core,Yew with a phoenix feather core,Elder with a Thestral hair core,Willow with a unicorn hair core
+Books & films / Harry Potter / 7. Deathly Hallows,adult,4,How did Regulus Black die?,Dragged into the cave lake by Inferi,Killed by Voldemort in a duel,Kissed by a Dementor,Poisoned by Kreacher
+Books & films / Harry Potter / 7. Deathly Hallows,adult,4,Which words are carved on the grave of Dumbledore's mother and sister?,"Where your treasure is, there will your heart be also",The last enemy that shall be destroyed is death,Always,Here lies the brave
+Books & films / Harry Potter / 7. Deathly Hallows,adult,4,Which words are carved on James and Lily Potter's grave?,The last enemy that shall be destroyed is death,"Where your treasure is, there will your heart be also",Mischief managed,Love is the greatest magic
 Books & films / Harry Potter,6-9,5,Who wrote the Harry Potter books?,J.K. Rowling,Roald Dahl,David Walliams,Enid Blyton
-Books & films / Harry Potter,6-9,5,Which animal is the symbol of Gryffindor house?,A lion,A badger,A snake,An eagle
-Books & films / Harry Potter,10-13,1,"What is the surname of Harry's aunt, uncle and cousin?",Dursley,Weasley,Granger,Malfoy
-Books & films / Harry Potter,10-13,1,What does the spell 'Expelliarmus' do?,Knocks the wand out of someone's hand,Lights up your wand,Makes things float,Unlocks doors
-Books & films / Harry Potter,10-13,1,What is the name of Ron's pet rat?,Scabbers,Trevor,Hedwig,Crookshanks
 Books & films / Harry Potter,10-13,1,How many Harry Potter books are there in the main series?,7,5,6,8
-Books & films / Harry Potter,10-13,1,Which spell makes objects float in the air?,Wingardium Leviosa,Alohomora,Lumos,Accio
-Books & films / Harry Potter,10-13,2,What is the name of the house-elf who Harry sets free?,Dobby,Kreacher,Winky,Hokey
-Books & films / Harry Potter,10-13,2,Who teaches Potions when Harry starts at Hogwarts?,Severus Snape,Remus Lupin,Gilderoy Lockhart,Pomona Sprout
-Books & films / Harry Potter,10-13,2,What was Lord Voldemort's name before he took that name?,Tom Riddle,Peter Pettigrew,Lucius Malfoy,Gellert Grindelwald
-Books & films / Harry Potter,10-13,2,What is the name of the wizard prison?,Azkaban,Nurmengard,Gringotts,The Burrow
-Books & films / Harry Potter,10-13,2,Which ghost haunts a girls' bathroom at Hogwarts?,Moaning Myrtle,Nearly Headless Nick,The Grey Lady,Peeves
-Books & films / Harry Potter,10-13,3,What is the name of the wizard village near Hogwarts?,Hogsmeade,Godric's Hollow,Little Whinging,Ottery St Catchpole
-Books & films / Harry Potter,10-13,3,Which dark creatures guard Azkaban?,Dementors,Trolls,Giants,Werewolves
-Books & films / Harry Potter,10-13,3,What animal is Harry's Patronus?,A stag,A doe,An otter,A dog
 Books & films / Harry Potter,10-13,3,What is the first Harry Potter book called in the UK?,Harry Potter and the Philosopher's Stone,Harry Potter and the Chamber of Secrets,Harry Potter and the Sorcerer's Stone,Harry Potter and the Goblet of Fire
-Books & films / Harry Potter,10-13,3,Which spell is used to drive away Dementors?,Expecto Patronum,Expelliarmus,Stupefy,Riddikulus
-Books & films / Harry Potter,10-13,4,What is the name of the Weasley family home?,The Burrow,Grimmauld Place,Spinner's End,Shell Cottage
-Books & films / Harry Potter,10-13,4,What animal is Hermione's Patronus?,An otter,A cat,An owl,A hare
-Books & films / Harry Potter,10-13,4,Which contest between three wizard schools takes place in 'Goblet of Fire'?,The Triwizard Tournament,The Quidditch World Cup,The House Cup,The Duelling Club
-Books & films / Harry Potter,10-13,4,What is the magic map that shows everyone in Hogwarts called?,The Marauder's Map,The Hogwarts Atlas,The Map of Secrets,The Prowler's Plan
-Books & films / Harry Potter,10-13,4,Which Hogwarts teacher is secretly a werewolf?,Remus Lupin,Sirius Black,Gilderoy Lockhart,Quirinus Quirrell
-Books & films / Harry Potter,10-13,5,What is the magical core of Harry's wand?,A phoenix feather,A unicorn hair,A dragon heartstring,A troll whisker
-Books & films / Harry Potter,10-13,5,What position does Ron play for the Gryffindor Quidditch team?,Keeper,Seeker,Beater,Chaser
-Books & films / Harry Potter,10-13,5,Who turns out to be the Half-Blood Prince?,Severus Snape,Tom Riddle,Harry Potter,Rubeus Hagrid
-Books & films / Harry Potter,10-13,5,What kind of creature is Buckbeak?,A hippogriff,A thestral,A griffin,A phoenix
-Books & films / Harry Potter,10-13,5,What is the name of Dumbledore's phoenix?,Fawkes,Hedwig,Norbert,Aragog
-Books & films / Harry Potter,14-17,1,Who kills Dumbledore at the top of the Astronomy Tower?,Severus Snape,Draco Malfoy,Bellatrix Lestrange,Lord Voldemort
-Books & films / Harry Potter,14-17,1,What animal can Sirius Black turn into?,A big black dog,A rat,A stag,A wolf
-Books & films / Harry Potter,14-17,1,What is a Horcrux?,An object hiding a piece of someone's soul,A type of broomstick,A wizard's pet,A healing potion
-Books & films / Harry Potter,14-17,1,What is Hermione's surname?,Granger,Weasley,Lovegood,Patil
 Books & films / Harry Potter,14-17,1,Which actor plays Harry in the films?,Daniel Radcliffe,Rupert Grint,Tom Felton,Robert Pattinson
-Books & films / Harry Potter,14-17,2,Into how many pieces did Voldemort mean to split his soul?,7,3,5,12
-Books & films / Harry Potter,14-17,2,Who is Harry's godfather?,Sirius Black,Remus Lupin,Albus Dumbledore,Arthur Weasley
-Books & films / Harry Potter,14-17,2,"What are the Deathly Hallows, apart from the Elder Wand and the Invisibility Cloak?",The Resurrection Stone,The Philosopher's Stone,The Time-Turner,The Sword of Gryffindor
-Books & films / Harry Potter,14-17,2,What is the Room of Requirement?,A room that appears with whatever you need,The headmaster's office,A secret kitchen,The Ministry's courtroom
-Books & films / Harry Potter,14-17,2,Who is the grumpy caretaker of Hogwarts?,Argus Filch,Rubeus Hagrid,Horace Slughorn,Kreacher
-Books & films / Harry Potter,14-17,3,Who betrayed Harry's parents to Voldemort?,Peter Pettigrew,Sirius Black,Severus Snape,Igor Karkaroff
-Books & films / Harry Potter,14-17,3,In which village were Harry's parents living when Voldemort attacked?,Godric's Hollow,Hogsmeade,Little Hangleton,Little Whinging
-Books & films / Harry Potter,14-17,3,"What is the name of Dumbledore's brother, who runs the Hog's Head?",Aberforth,Ariana,Percival,Elphias
-Books & films / Harry Potter,14-17,3,What does the Mirror of Erised show you?,Your deepest desire,Your future,Your worst fear,What you looked like as a baby
-Books & films / Harry Potter,14-17,3,Who was the Hufflepuff champion in the Triwizard Tournament?,Cedric Diggory,Ernie Macmillan,Justin Finch-Fletchley,Zacharias Smith
-Books & films / Harry Potter,14-17,4,Which Hogwarts founder's lost diadem was made into a Horcrux?,Rowena Ravenclaw,Helga Hufflepuff,Godric Gryffindor,Salazar Slytherin
-Books & films / Harry Potter,14-17,4,Who destroys Slytherin's locket with the sword of Gryffindor?,Ron Weasley,Harry Potter,Hermione Granger,Neville Longbottom
-Books & films / Harry Potter,14-17,4,Who kills Voldemort's snake Nagini?,Neville Longbottom,Ron Weasley,Harry Potter,Molly Weasley
-Books & films / Harry Potter,14-17,4,Which potion lets you look like someone else for an hour?,Polyjuice Potion,Felix Felicis,Veritaserum,Amortentia
-Books & films / Harry Potter,14-17,4,Which Unforgivable Curse lets you control another person?,The Imperius Curse,The Cruciatus Curse,The Killing Curse,The Jelly-Legs Jinx
-Books & films / Harry Potter,14-17,5,What is Harry's middle name?,James,Albus,Sirius,Arthur
-Books & films / Harry Potter,14-17,5,What was the name of Voldemort's mother?,Merope Gaunt,Bellatrix Black,Narcissa Malfoy,Helena Ravenclaw
-Books & films / Harry Potter,14-17,5,Which wizard defeated the dark wizard Grindelwald in 1945?,Albus Dumbledore,Newt Scamander,Alastor Moody,Nicolas Flamel
-Books & films / Harry Potter,14-17,5,Which wood is Harry's wand made from?,Holly,Yew,Elder,Willow
-Books & films / Harry Potter,14-17,5,"Which winged horses pull the Hogwarts carriages, seen only by people who have seen death?",Thestrals,Hippogriffs,Abraxans,Pegasi
+Books & films / Harry Potter,14-17,5,Who does Neville Longbottom marry?,Hannah Abbott,Luna Lovegood,Ginny Weasley,Susan Bones
+Books & films / Harry Potter,14-17,5,What job does Neville do after the war?,Herbology professor at Hogwarts,Minister for Magic,Auror,Gringotts goblin manager
+Books & films / Harry Potter,14-17,5,Which professional Quidditch team does Ginny play for?,The Holyhead Harpies,The Chudley Cannons,Puddlemere United,The Wimbourne Wasps
 Books & films / Harry Potter,adult,1,In which year was the first Harry Potter book published?,1997,1993,2001,1999
 Books & films / Harry Potter,adult,1,What is the first book called in the USA?,Harry Potter and the Sorcerer's Stone,Harry Potter and the Wizard's Stone,Harry Potter and the Magic Stone,Harry Potter and the Secret Stone
 Books & films / Harry Potter,adult,1,Which actress played Hermione in the films?,Emma Watson,Emma Stone,Bonnie Wright,Evanna Lynch
 Books & films / Harry Potter,adult,1,Which actor played Snape in the films?,Alan Rickman,Gary Oldman,Kenneth Branagh,Jason Isaacs
 Books & films / Harry Potter,adult,1,What is the title of the seventh and final book?,Harry Potter and the Deathly Hallows,Harry Potter and the Half-Blood Prince,Harry Potter and the Order of the Phoenix,Harry Potter and the Cursed Child
-Books & films / Harry Potter,adult,2,Which actor took over as Dumbledore after Richard Harris died?,Michael Gambon,Ian McKellen,Jim Broadbent,John Hurt
-Books & films / Harry Potter,adult,2,Which London station has a Platform 9¾ sign for fans?,King's Cross,Euston,Paddington,St Pancras
-Books & films / Harry Potter,adult,2,Which actor played Hagrid in the films?,Robbie Coltrane,Brendan Gleeson,Timothy Spall,Warwick Davis
-Books & films / Harry Potter,adult,2,What is the 2016 stage play set 19 years after the last book called?,Harry Potter and the Cursed Child,Harry Potter and the Lost Prophecy,Fantastic Beasts,The Tales of Beedle the Bard
-Books & films / Harry Potter,adult,2,Under which pen name does J.K. Rowling write her crime novels?,Robert Galbraith,Richard Bachman,Mary Westmacott,Lemony Snicket
-Books & films / Harry Potter,adult,3,What is the main wizarding newspaper called?,The Daily Prophet,The Quibbler,The Wizarding Times,Witch Weekly
-Books & films / Harry Potter,adult,3,What is the name of the magazine edited by Luna Lovegood's father?,The Quibbler,The Daily Prophet,Witch Weekly,The Evening Prophet
-Books & films / Harry Potter,adult,3,Which actor played Voldemort in the films?,Ralph Fiennes,Jason Isaacs,David Thewlis,Gary Oldman
-Books & films / Harry Potter,adult,3,Which spin-off film series follows the magizoologist Newt Scamander?,Fantastic Beasts,The Marauders,Hogwarts Legacy,Wizards Unite
-Books & films / Harry Potter,adult,3,What does the spell 'Lumos' do?,Lights the tip of your wand,Unlocks a door,Mends broken things,Summons an object
-Books & films / Harry Potter,adult,4,Which character answers 'Always' to Dumbledore's 'After all this time?',Severus Snape,Remus Lupin,Sirius Black,Rubeus Hagrid
-Books & films / Harry Potter,adult,4,Which actor played Sirius Black in the films?,Gary Oldman,Ralph Fiennes,David Thewlis,Jason Isaacs
-Books & films / Harry Potter,adult,4,What does Dumbledore tell Harry he sees in the Mirror of Erised?,A pair of thick woollen socks,His family,A lemon drop,The Elder Wand
-Books & films / Harry Potter,adult,4,Which pink-cardigan-wearing Ministry official becomes Hogwarts High Inquisitor?,Dolores Umbridge,Rita Skeeter,Bellatrix Lestrange,Mafalda Hopkirk
-Books & films / Harry Potter,adult,4,Which Gringotts vault held the Philosopher's Stone?,713,687,394,101
-Books & films / Harry Potter,adult,5,What are the full first names of Harry and Ginny's eldest son?,James Sirius,Albus Severus,Arthur Remus,Fred George
-Books & films / Harry Potter,adult,5,"Which object, left to Harry by Dumbledore, says 'I open at the close'?",The Golden Snitch,The Deluminator,The Marauder's Map,A Sneakoscope
-Books & films / Harry Potter,adult,5,What is the Dursleys' address?,"4 Privet Drive, Little Whinging","12 Grimmauld Place, London","7 Spinner's End, Cokeworth","1 Magnolia Crescent, Surrey"
-Books & films / Harry Potter,adult,5,What are the last three words of the final Harry Potter book?,All was well,The end came,Mischief managed,Always and forever
-Books & films / Harry Potter,adult,5,What job do Hermione's parents do?,Dentists,Doctors,Teachers,Lawyers
-Books & films / Harry Potter,6-9,1,What does Harry Potter wear on his face?,Glasses,A mask,An eye patch,Sunglasses
-Books & films / Harry Potter,6-9,1,What colour is Harry Potter's hair?,Black,Red,Blond,Brown
-Books & films / Harry Potter,6-9,1,What is the name of Harry's spoilt cousin?,Dudley,Draco,Dobby,Dean
-Books & films / Harry Potter,6-9,1,What do witches and wizards use to cast spells?,A wand,A spoon,A pencil,A feather
-Books & films / Harry Potter,6-9,1,Which train takes pupils to Hogwarts?,The Hogwarts Express,The Wizard Whizzer,The Magic Mail,The Broomstick Line
-Books & films / Harry Potter,6-9,1,Where does Harry sleep at the Dursleys' house at the start of the first book?,In the cupboard under the stairs,In the attic,In the garden shed,In the bath
-Books & films / Harry Potter,6-9,1,Which of Harry's friends loves books and studying most?,Hermione,Ron,Hagrid,Dudley
-Books & films / Harry Potter,6-9,1,Which birds deliver the post in the wizard world?,Owls,Pigeons,Parrots,Penguins
-Books & films / Harry Potter,6-9,1,What does Harry's Invisibility Cloak do?,Makes him invisible,Makes him fly,Keeps him dry,Makes him taller
-Books & films / Harry Potter,6-9,1,What is Ron's surname?,Weasley,Potter,Granger,Longbottom
-Books & films / Harry Potter,6-9,2,What is the name of Hagrid's big dog?,Fang,Fluffy,Buckbeak,Scabbers
-Books & films / Harry Potter,6-9,2,What are Gryffindor's colours?,Red and gold,Green and silver,Blue and bronze,Yellow and black
-Books & films / Harry Potter,6-9,2,What are Slytherin's colours?,Green and silver,Red and gold,Blue and bronze,Yellow and black
-Books & films / Harry Potter,6-9,2,"What does Hagrid bring Harry for his 11th birthday, as well as his letter?",A birthday cake,A puppy,A bicycle,A football
-Books & films / Harry Potter,6-9,2,Which ghost belongs to Gryffindor house?,Nearly Headless Nick,The Bloody Baron,The Fat Friar,Peeves
-Books & films / Harry Potter,6-9,2,What is the name of the Hogwarts caretaker's cat?,Mrs Norris,Crookshanks,Tibbles,Mrs Whiskers
-Books & films / Harry Potter,6-9,2,Which animal is the symbol of Ravenclaw house?,An eagle,A raven,An owl,A lion
-Books & films / Harry Potter,6-9,2,What colour is the Hogwarts Express steam engine?,Red,Green,Black,Blue
-Books & films / Harry Potter,6-9,2,Which Weasley twins love jokes and pranks?,Fred and George,Bill and Charlie,Percy and Ron,Fred and Percy
-Books & films / Harry Potter,6-9,2,What is the name of Neville Longbottom's pet toad?,Trevor,Toady,Kermit,Hoppy
-Books & films / Harry Potter,6-9,3,"What is the name of the youngest Weasley child, Ron's sister?",Ginny,Luna,Lavender,Cho
-Books & films / Harry Potter,6-9,3,What are Hufflepuff's colours?,Yellow and black,Red and gold,Green and silver,Blue and bronze
-Books & films / Harry Potter,6-9,3,What are Ravenclaw's colours in the books?,Blue and bronze,Green and silver,Red and gold,Yellow and black
-Books & films / Harry Potter,6-9,3,What is the name of the giant spider in the Forbidden Forest?,Aragog,Shelob,Arachne,Charlotte
-Books & films / Harry Potter,6-9,3,What kind of creature is Dobby?,A house-elf,A goblin,A gnome,A pixie
-Books & films / Harry Potter,6-9,3,What is the name of Hagrid's baby dragon?,Norbert,Puff,Smaug,Toothless
-Books & films / Harry Potter,6-9,3,What is the name of the Weasley family's old owl?,Errol,Hedwig,Pigwidgeon,Hermes
-Books & films / Harry Potter,6-9,3,In which shop does Harry buy his wand?,Ollivanders,Honeydukes,Gringotts,Zonko's
-Books & films / Harry Potter,6-9,3,What does the spell 'Alohomora' do?,Unlocks doors,Makes things float,Turns on a light,Makes you sneeze
-Books & films / Harry Potter,6-9,3,What is the sweet shop in Hogsmeade called?,Honeydukes,Sweetie Shoppe,Candy Cauldron,Zonko's
-Books & films / Harry Potter,6-9,4,Which spell puts out the light from your wand?,Nox,Lumos,Accio,Stupefy
-Books & films / Harry Potter,6-9,4,Which Quidditch balls fly around trying to knock players off their brooms?,Bludgers,Quaffles,Snitches,Bouncers
-Books & films / Harry Potter,6-9,4,Which Quidditch ball do the Chasers throw through the hoops?,The Quaffle,The Bludger,The Snitch,The Sliotar
-Books & films / Harry Potter,6-9,4,How many players are on a Quidditch team?,7,5,11,9
-Books & films / Harry Potter,6-9,4,What is the name of Harry's first racing broomstick?,Nimbus 2000,Firebolt,Cleansweep Seven,Comet 260
-Books & films / Harry Potter,6-9,4,What does the spell 'Accio' do?,Brings an object flying to you,Makes you sneeze,Opens a locked door,Turns you into a frog
-Books & films / Harry Potter,6-9,4,Who is the head of Gryffindor house?,Professor McGonagall,Professor Snape,Professor Flitwick,Professor Sprout
-Books & films / Harry Potter,6-9,4,Which animal can Professor McGonagall turn into?,A cat,A dog,A bird,A rat
-Books & films / Harry Potter,6-9,4,What is the name of the tree that bashes the Weasleys' flying car?,The Whomping Willow,The Grumpy Oak,The Slapping Spruce,The Bashing Birch
-Books & films / Harry Potter,6-9,4,"What is the language of snakes, which Harry can speak, called?",Parseltongue,Snakish,Hissese,Gobbledegook
-Books & films / Harry Potter,6-9,5,Which super-fast broomstick does Sirius Black send Harry?,A Firebolt,A Nimbus 2001,A Cleansweep,A Shooting Star
-Books & films / Harry Potter,6-9,5,What make is the Weasleys' flying car?,A Ford Anglia,A Mini,A Volkswagen Beetle,A Rolls-Royce
-Books & films / Harry Potter,6-9,5,Who guards the entrance to Gryffindor Tower?,The Fat Lady in a painting,A stone gargoyle,Mrs Norris,A talking door knocker
-Books & films / Harry Potter,6-9,5,Which tiny Hogwarts teacher teaches Charms?,Professor Flitwick,Professor Sprout,Professor Quirrell,Professor Binns
-Books & films / Harry Potter,6-9,5,"Which Hogwarts teacher teaches Herbology, all about magical plants?",Professor Sprout,Professor Flitwick,Professor McGonagall,Professor Lupin
-Books & films / Harry Potter,6-9,5,What kind of owl is Hedwig?,A snowy owl,A barn owl,A tawny owl,An eagle owl
-Books & films / Harry Potter,6-9,5,What is Fred and George's joke shop called?,Weasleys' Wizard Wheezes,Zonko's Joke Shop,Twins' Tricks,The Prank Palace
-Books & films / Harry Potter,6-9,5,"Which wizard sweets come in every flavour, even earwax and vomit?",Bertie Bott's Every Flavour Beans,Chocolate Frogs,Fizzing Whizzbees,Drooble's Gum
-Books & films / Harry Potter,6-9,5,What is the purple bus that rescues stranded witches and wizards called?,The Knight Bus,The Night Coach,The Magic Bus,The Wizard Wagon
-Books & films / Harry Potter,6-9,5,What do the hands on the Weasleys' special clock show?,Where each person in the family is,The time in every country,How hungry everyone is,When it will rain
-Books & films / Harry Potter,10-13,1,What is the skull-and-snake sign of Voldemort's followers called?,The Dark Mark,The Death Sign,The Snake Seal,The Black Brand
-Books & films / Harry Potter,10-13,1,What are Lord Voldemort's followers called?,Death Eaters,Dementors,Inferi,Snatchers
-Books & films / Harry Potter,10-13,1,Which spell knocks someone out cold?,Stupefy,Lumos,Accio,Reparo
-Books & films / Harry Potter,10-13,1,What does the spell 'Riddikulus' do?,Turns a Boggart into something funny,Makes someone laugh until they cry,Mends glasses,Makes an object vanish
-Books & films / Harry Potter,10-13,1,What is a Boggart?,A creature that turns into your worst fear,A type of goblin,A swamp monster,A magic sweet
-Books & films / Harry Potter,10-13,1,What is the name of Draco Malfoy's father?,Lucius,Lucian,Severus,Barty
-Books & films / Harry Potter,10-13,1,Which Weasley brother works with dragons in Romania?,Charlie,Bill,Percy,Fred
-Books & films / Harry Potter,10-13,1,Which Weasley brother works for Gringotts and has long hair and a fang earring?,Bill,Charlie,Percy,George
-Books & films / Harry Potter,10-13,1,Which Weasley brother becomes Head Boy and later works at the Ministry?,Percy,Bill,Charlie,Ron
-Books & films / Harry Potter,10-13,1,Which ghost teaches History of Magic at Hogwarts?,Professor Binns,Professor Quirrell,Nearly Headless Nick,The Fat Friar
-Books & films / Harry Potter,10-13,2,What is the name of the troublemaking poltergeist at Hogwarts?,Peeves,Dobby,Filch,Kreacher
-Books & films / Harry Potter,10-13,2,What does the Philosopher's Stone make?,The Elixir of Life,Invisibility Cloaks,Unbreakable wands,Polyjuice Potion
-Books & films / Harry Potter,10-13,2,Which wizard made the Philosopher's Stone?,Nicolas Flamel,Albus Dumbledore,Merlin,Godric Gryffindor
-Books & films / Harry Potter,10-13,2,Which teacher has Voldemort hidden on the back of his head in the first book?,Professor Quirrell,Professor Snape,Professor Lockhart,Professor Lupin
-Books & films / Harry Potter,10-13,2,What monster lives in the Chamber of Secrets?,A basilisk,A dragon,A troll,A giant squid
-Books & films / Harry Potter,10-13,2,Whose old diary turns out to be dangerous in 'Chamber of Secrets'?,Tom Riddle's,Hagrid's,Moaning Myrtle's,Lucius Malfoy's
-Books & films / Harry Potter,10-13,2,What does Harry pull out of the Sorting Hat in the Chamber of Secrets?,The sword of Gryffindor,A wand,A phoenix egg,A golden snitch
-Books & films / Harry Potter,10-13,2,Which famous but useless teacher turns out to be a fraud?,Gilderoy Lockhart,Remus Lupin,Horace Slughorn,Quirinus Quirrell
-Books & films / Harry Potter,10-13,2,"Who opens the Chamber of Secrets in the second book, controlled by the diary?",Ginny Weasley,Draco Malfoy,Hagrid,Neville Longbottom
-Books & films / Harry Potter,10-13,2,What happens to people who see the basilisk's eyes only in a reflection?,They are petrified,They turn invisible,They fall asleep for a week,They start speaking Parseltongue
-Books & films / Harry Potter,10-13,3,Who is the prisoner who escapes in 'Prisoner of Azkaban'?,Sirius Black,Peter Pettigrew,Bellatrix Lestrange,Remus Lupin
-Books & films / Harry Potter,10-13,3,What does a Time-Turner let you do?,Go back in time,Stop time,See the future,Speed up time
-Books & films / Harry Potter,10-13,3,Who gives Hermione a Time-Turner so she can take extra classes?,Professor McGonagall,Professor Dumbledore,Professor Snape,Professor Trelawney
-Books & films / Harry Potter,10-13,3,What was James Potter's nickname among the Marauders?,Prongs,Padfoot,Moony,Wormtail
-Books & films / Harry Potter,10-13,3,What was Sirius Black's Marauder nickname?,Padfoot,Prongs,Moony,Wormtail
-Books & films / Harry Potter,10-13,3,What was Remus Lupin's Marauder nickname?,Moony,Padfoot,Prongs,Wormtail
-Books & films / Harry Potter,10-13,3,What was Peter Pettigrew's Marauder nickname?,Wormtail,Moony,Prongs,Padfoot
-Books & films / Harry Potter,10-13,3,What does a Dementor's Kiss do?,Sucks out a person's soul,Puts you to sleep,Makes you invisible,Turns you to ice
-Books & films / Harry Potter,10-13,3,What does Lupin give Harry to eat after a Dementor attack?,Chocolate,Toast,Pumpkin juice,A Chocolate Frog card
-Books & films / Harry Potter,10-13,3,Who teaches Divination at Hogwarts?,Professor Trelawney,Professor Sprout,Professor Vector,Professor Sinistra
-Books & films / Harry Potter,10-13,4,Which school does Viktor Krum attend?,Durmstrang,Beauxbatons,Hogwarts,Ilvermorny
-Books & films / Harry Potter,10-13,4,Which school does Fleur Delacour attend?,Beauxbatons,Durmstrang,Hogwarts,Castelobruxo
-Books & films / Harry Potter,10-13,4,What position does Viktor Krum play for Bulgaria?,Seeker,Keeper,Beater,Chaser
-Books & films / Harry Potter,10-13,4,Which dragon does Harry face in the first task of the Triwizard Tournament?,A Hungarian Horntail,A Welsh Green,A Chinese Fireball,A Norwegian Ridgeback
-Books & films / Harry Potter,10-13,4,Who does Harry have to rescue from the lake in the second task?,Ron,Hermione,Ginny,Cho
-Books & films / Harry Potter,10-13,4,Which plant lets Harry breathe underwater in the second task?,Gillyweed,Mandrake,Devil's Snare,Bubotuber
-Books & films / Harry Potter,10-13,4,"In the book, who gives Harry the Gillyweed?",Dobby,Neville,Hermione,Moody
-Books & films / Harry Potter,10-13,4,What is the third task of the Triwizard Tournament?,A maze,A duel,A Quidditch match,A potion test
-Books & films / Harry Potter,10-13,4,Who was disguised as Mad-Eye Moody for the whole of 'Goblet of Fire'?,Barty Crouch Jr,Peter Pettigrew,Igor Karkaroff,Ludo Bagman
-Books & films / Harry Potter,10-13,4,Who does Hermione go to the Yule Ball with?,Viktor Krum,Ron Weasley,Harry Potter,Cedric Diggory
-Books & films / Harry Potter,10-13,5,What is the secret group Harry teaches in 'Order of the Phoenix' called?,Dumbledore's Army,The Order of the Phoenix,The Marauders,The Defence Club
-Books & films / Harry Potter,10-13,5,Where is the headquarters of the Order of the Phoenix?,12 Grimmauld Place,The Burrow,Hogsmeade,The Leaky Cauldron
-Books & films / Harry Potter,10-13,5,What is the name of the Black family's grumpy house-elf?,Kreacher,Dobby,Winky,Hokey
-Books & films / Harry Potter,10-13,5,Which character dies in the Department of Mysteries at the end of book 5?,Sirius Black,Remus Lupin,Albus Dumbledore,Cedric Diggory
-Books & films / Harry Potter,10-13,5,Who kills Sirius Black?,Bellatrix Lestrange,Lucius Malfoy,Lord Voldemort,Peter Pettigrew
-Books & films / Harry Potter,10-13,5,What does Luna Lovegood wear as earrings?,Radishes,Corks,Spoons,Snitches
-Books & films / Harry Potter,10-13,5,Which house is Luna Lovegood in?,Ravenclaw,Hufflepuff,Gryffindor,Slytherin
-Books & films / Harry Potter,10-13,5,"What is Tonks's first name, which she hates?",Nymphadora,Narcissa,Andromeda,Bellatrix
-Books & films / Harry Potter,10-13,5,Who made the prophecy about Harry and Voldemort?,Sybill Trelawney,Albus Dumbledore,Firenze,Luna Lovegood
-Books & films / Harry Potter,10-13,5,What do the Weasley twins' Skiving Snackboxes do?,Make you ill so you can skip lessons,Make you fly,Do your homework,Turn you into a canary
-Books & films / Harry Potter,14-17,1,Who teaches Potions in 'Half-Blood Prince'?,Horace Slughorn,Severus Snape,Remus Lupin,Pomona Sprout
-Books & films / Harry Potter,14-17,1,What does Dumbledore ask Harry to get from Slughorn in 'Half-Blood Prince'?,A memory about Horcruxes,The Elder Wand,A Time-Turner,A bottle of Felix Felicis
-Books & films / Harry Potter,14-17,1,What does Harry use to destroy Tom Riddle's diary?,A basilisk fang,The sword of Gryffindor,A killing curse,Fiendfyre
-Books & films / Harry Potter,14-17,1,Who does Ron go out with in 'Half-Blood Prince'?,Lavender Brown,Parvati Patil,Luna Lovegood,Romilda Vane
-Books & films / Harry Potter,14-17,1,What task does Voldemort give Draco Malfoy in 'Half-Blood Prince'?,To kill Dumbledore,To steal the Philosopher's Stone,To win the Quidditch Cup,To find Harry's wand
-Books & films / Harry Potter,14-17,1,Which Weasley twin dies in the Battle of Hogwarts?,Fred,George,Percy,Charlie
-Books & films / Harry Potter,14-17,1,"Which married couple, Teddy's parents, die in the Battle of Hogwarts?",Remus Lupin and Tonks,Bill and Fleur,Arthur and Molly Weasley,Frank and Alice Longbottom
-Books & films / Harry Potter,14-17,1,Who is Teddy Lupin's godfather?,Harry Potter,Ron Weasley,Sirius Black,Kingsley Shacklebolt
-Books & films / Harry Potter,14-17,1,What shape does Snape's Patronus take?,A doe,A stag,A snake,A raven
-Books & films / Harry Potter,14-17,1,What does Dumbledore leave Ron in his will?,The Deluminator,The Elder Wand,A chess set,His Chocolate Frog cards
-Books & films / Harry Potter,14-17,2,What does Dumbledore leave Hermione in his will?,The Tales of Beedle the Bard,Hogwarts: A History,A Time-Turner,His glasses
-Books & films / Harry Potter,14-17,2,"Which goblin helps Harry, Ron and Hermione break into Gringotts?",Griphook,Ragnok,Bogrod,Gornuk
-Books & films / Harry Potter,14-17,2,Whose Gringotts vault do they break into?,Bellatrix Lestrange's,The Malfoys',Voldemort's,The Potters'
-Books & films / Harry Potter,14-17,2,Which Horcrux is hidden in that Gringotts vault?,Hufflepuff's cup,Slytherin's locket,Ravenclaw's diadem,Marvolo Gaunt's ring
-Books & films / Harry Potter,14-17,2,Who destroys Hufflepuff's cup?,Hermione,Ron,Harry,Neville
-Books & films / Harry Potter,14-17,2,Which Horcrux had Dumbledore already destroyed before 'Half-Blood Prince'?,Marvolo Gaunt's ring,Slytherin's locket,Hufflepuff's cup,Nagini
-Books & films / Harry Potter,14-17,2,"What cursed fire, set by Crabbe, destroys Ravenclaw's diadem?",Fiendfyre,Dragonfire,Incendio,Hellflame
-Books & films / Harry Potter,14-17,2,Who kills Bellatrix Lestrange?,Molly Weasley,Neville Longbottom,Ginny Weasley,Minerva McGonagall
-Books & films / Harry Potter,14-17,2,What is the name of Bill and Fleur's house by the sea?,Shell Cottage,The Burrow,Spinner's End,Seaview Lodge
-Books & films / Harry Potter,14-17,2,Which house-elf dies at Shell Cottage after rescuing Harry and his friends?,Dobby,Kreacher,Winky,Hokey
-Books & films / Harry Potter,14-17,3,Who throws the knife that kills Dobby?,Bellatrix Lestrange,Lucius Malfoy,Fenrir Greyback,Peter Pettigrew
-Books & films / Harry Potter,14-17,3,What is the name of the Malfoy family home?,Malfoy Manor,Riddle House,Slytherin Hall,The Shrieking Shack
-Books & films / Harry Potter,14-17,3,Which dark wizard was Dumbledore's close friend as a teenager?,Gellert Grindelwald,Tom Riddle,Antonin Dolohov,Igor Karkaroff
-Books & films / Harry Potter,14-17,3,What was Dumbledore's sister called?,Ariana,Aberforth,Bathilda,Kendra
-Books & films / Harry Potter,14-17,3,Whose wand did the Elder Wand belong to just before Draco won it?,Albus Dumbledore,Gellert Grindelwald,Severus Snape,Gregorovitch
-Books & films / Harry Potter,14-17,3,Why does the Elder Wand obey Harry in the end?,"He disarmed Draco, its master",He found it in the lake,Dumbledore gave it to him,It was made for him
-Books & films / Harry Potter,14-17,3,"Who does Voldemort kill, wrongly believing it will make the Elder Wand his?",Severus Snape,Lucius Malfoy,Ollivander,Grindelwald
-Books & films / Harry Potter,14-17,3,Where does Snape die?,The Shrieking Shack,The Astronomy Tower,The Great Hall,The Forbidden Forest
-Books & films / Harry Potter,14-17,3,What does the dying Snape give Harry?,His memories,His wand,A letter,The Half-Blood Prince's book
-Books & films / Harry Potter,14-17,3,What does 'Priori Incantatem' reveal?,The last spells a wand cast,Who owns a wand,Where a wand was made,How old a wand is
-Books & films / Harry Potter,14-17,4,Which Peverell brother owned the Invisibility Cloak?,Ignotus,Cadmus,Antioch,Marvolo
-Books & films / Harry Potter,14-17,4,Which Peverell brother owned the Resurrection Stone?,Cadmus,Ignotus,Antioch,Merope
-Books & films / Harry Potter,14-17,4,What is Lord Voldemort's middle name?,Marvolo,Merlin,Morfin,Salazar
-Books & films / Harry Potter,14-17,4,What does 'Tom Marvolo Riddle' spell when its letters are rearranged?,I am Lord Voldemort,Darkest wizard lord,Moldy old tremor,Mortal lord vow
-Books & films / Harry Potter,14-17,4,Where did Tom Riddle grow up?,In a Muggle orphanage in London,At Malfoy Manor,In Godric's Hollow,At Hogwarts all year round
-Books & films / Harry Potter,14-17,4,Who was Voldemort's father?,"Tom Riddle, a Muggle",Marvolo Gaunt,Salazar Slytherin,Morfin Gaunt
-Books & films / Harry Potter,14-17,4,Which Horcrux was hidden in a sea cave?,Slytherin's locket,Hufflepuff's cup,Ravenclaw's diadem,The diary
-Books & films / Harry Potter,14-17,4,Who had already stolen the real locket from the cave and left a note signed 'R.A.B.'?,Regulus Black,Remus Lupin,Rubeus Hagrid,Rodolphus Lestrange
-Books & films / Harry Potter,14-17,4,Harry names his son Albus Severus after which two people?,Dumbledore and Snape,Dumbledore and Sirius,His grandfather and Snape,Dumbledore and Slughorn
-Books & films / Harry Potter,14-17,4,Which three things make up the Deathly Hallows?,"Elder Wand, Resurrection Stone and Invisibility Cloak","Sword, Hat and Wand","Cup, Locket and Diadem","Stone, Mirror and Snitch"
-Books & films / Harry Potter,14-17,5,What is Ron and Hermione's daughter called?,Rose,Lily,Molly,Victoire
-Books & films / Harry Potter,14-17,5,What is Ron and Hermione's son called?,Hugo,James,Fred,Teddy
-Books & films / Harry Potter,14-17,5,What is Harry and Ginny's daughter called?,Lily Luna,Rose,Molly,Lucy
-Books & films / Harry Potter,14-17,5,Who does Neville Longbottom marry?,Hannah Abbott,Luna Lovegood,Ginny Weasley,Susan Bones
-Books & films / Harry Potter,14-17,5,What job does Neville do after the war?,Herbology professor at Hogwarts,Minister for Magic,Auror,Gringotts goblin manager
-Books & films / Harry Potter,14-17,5,Which professional Quidditch team does Ginny play for?,The Holyhead Harpies,The Chudley Cannons,Puddlemere United,The Wimbourne Wasps
-Books & films / Harry Potter,14-17,5,Which Quidditch team does Ron support?,The Chudley Cannons,The Holyhead Harpies,The Tutshill Tornados,The Appleby Arrows
-Books & films / Harry Potter,14-17,5,What is the core of Voldemort's wand?,A phoenix feather,A dragon heartstring,A unicorn hair,A basilisk scale
-Books & films / Harry Potter,14-17,5,What wood is Voldemort's wand made from?,Yew,Holly,Elder,Oak
-Books & films / Harry Potter,14-17,5,What is Hermione's middle name?,Jean,Jane,Rose,Anne
 Books & films / Harry Potter,adult,1,In which city did J.K. Rowling write much of the first Harry Potter book?,Edinburgh,London,Manchester,Dublin
 Books & films / Harry Potter,adult,1,Which actor played Ron in the films?,Rupert Grint,Tom Felton,Matthew Lewis,James Phelps
 Books & films / Harry Potter,adult,1,Which actor played Draco Malfoy in the films?,Tom Felton,Rupert Grint,Robert Pattinson,Jamie Campbell Bower
@@ -3217,6 +3751,11 @@ Books & films / Harry Potter,adult,1,How many Harry Potter films were made from 
 Books & films / Harry Potter,adult,1,Which book was split into two films?,Deathly Hallows,Half-Blood Prince,Order of the Phoenix,Goblet of Fire
 Books & films / Harry Potter,adult,1,What are the Harry Potter areas at Universal theme parks called?,The Wizarding World of Harry Potter,Hogwarts Land,Potterworld,Magic Kingdom
 Books & films / Harry Potter,adult,1,Which 2023 video game is set at Hogwarts in the 1800s?,Hogwarts Legacy,Hogwarts Mystery,Wizards Unite,Quidditch Champions
+Books & films / Harry Potter,adult,2,Which actor took over as Dumbledore after Richard Harris died?,Michael Gambon,Ian McKellen,Jim Broadbent,John Hurt
+Books & films / Harry Potter,adult,2,Which London station has a Platform 9¾ sign for fans?,King's Cross,Euston,Paddington,St Pancras
+Books & films / Harry Potter,adult,2,Which actor played Hagrid in the films?,Robbie Coltrane,Brendan Gleeson,Timothy Spall,Warwick Davis
+Books & films / Harry Potter,adult,2,What is the 2016 stage play set 19 years after the last book called?,Harry Potter and the Cursed Child,Harry Potter and the Lost Prophecy,Fantastic Beasts,The Tales of Beedle the Bard
+Books & films / Harry Potter,adult,2,Under which pen name does J.K. Rowling write her crime novels?,Robert Galbraith,Richard Bachman,Mary Westmacott,Lemony Snicket
 Books & films / Harry Potter,adult,2,Who directed the first two Harry Potter films?,Chris Columbus,Alfonso Cuarón,Mike Newell,David Yates
 Books & films / Harry Potter,adult,2,Who directed 'Prisoner of Azkaban'?,Alfonso Cuarón,Chris Columbus,Guillermo del Toro,Mike Newell
 Books & films / Harry Potter,adult,2,Who directed the last four Harry Potter films?,David Yates,Mike Newell,Chris Columbus,Steve Kloves
@@ -3227,6 +3766,8 @@ Books & films / Harry Potter,adult,2,Which actor played Remus Lupin?,David Thewl
 Books & films / Harry Potter,adult,2,Which actress played Dolores Umbridge?,Imelda Staunton,Julie Walters,Miriam Margolyes,Fiona Shaw
 Books & films / Harry Potter,adult,2,Which actor played Horace Slughorn?,Jim Broadbent,Michael Gambon,John Hurt,Kenneth Branagh
 Books & films / Harry Potter,adult,2,Which actor played Gilderoy Lockhart?,Kenneth Branagh,Hugh Grant,Rupert Everett,Jim Broadbent
+Books & films / Harry Potter,adult,3,Which actor played Voldemort in the films?,Ralph Fiennes,Jason Isaacs,David Thewlis,Gary Oldman
+Books & films / Harry Potter,adult,3,Which spin-off film series follows the magizoologist Newt Scamander?,Fantastic Beasts,The Marauders,Hogwarts Legacy,Wizards Unite
 Books & films / Harry Potter,adult,3,Where is the Warner Bros. Studio Tour 'The Making of Harry Potter'?,"Leavesden, near Watford","Pinewood, Buckinghamshire","Shepperton, Surrey","Elstree, Hertfordshire"
 Books & films / Harry Potter,adult,3,Which publisher first published 'Philosopher's Stone' in the UK?,Bloomsbury,Penguin,HarperCollins,Faber & Faber
 Books & films / Harry Potter,adult,3,About how many publishers turned down the first Harry Potter book?,12,2,50,100
@@ -3237,26 +3778,19 @@ Books & films / Harry Potter,adult,3,Which actress played Professor Trelawney?,E
 Books & films / Harry Potter,adult,3,Which actor played Cedric Diggory before finding fame in 'Twilight'?,Robert Pattinson,Taylor Lautner,Eddie Redmayne,Andrew Garfield
 Books & films / Harry Potter,adult,3,Which actor voiced Dobby?,Toby Jones,Warwick Davis,Simon Pegg,Andy Serkis
 Books & films / Harry Potter,adult,3,Which actor played Peter Pettigrew?,Timothy Spall,Toby Jones,David Thewlis,Mark Williams
+Books & films / Harry Potter,adult,4,Which actor played Sirius Black in the films?,Gary Oldman,Ralph Fiennes,David Thewlis,Jason Isaacs
 Books & films / Harry Potter,adult,4,Which Scottish viaduct does the Hogwarts Express cross in the films?,Glenfinnan Viaduct,Forth Bridge,Ribblehead Viaduct,Culloden Viaduct
 Books & films / Harry Potter,adult,4,The Great Hall was inspired by the dining hall of which Oxford college?,Christ Church,Magdalen,Balliol,Trinity
 Books & films / Harry Potter,adult,4,Which Northumberland castle was used for Harry's first flying lesson?,Alnwick Castle,Bamburgh Castle,Warwick Castle,Durham Castle
 Books & films / Harry Potter,adult,4,Which London market was used as the entrance to the Leaky Cauldron?,Leadenhall Market,Borough Market,Camden Market,Covent Garden
 Books & films / Harry Potter,adult,4,Which cathedral's cloisters were used as Hogwarts corridors?,Gloucester Cathedral,Canterbury Cathedral,York Minster,St Paul's Cathedral
-Books & films / Harry Potter,adult,4,What does 'Erised' spell backwards?,Desire,Riser,Desi,Erase
 Books & films / Harry Potter,adult,4,Which company published the Harry Potter books in the USA?,Scholastic,Random House,Simon & Schuster,Penguin
 Books & films / Harry Potter,adult,4,In which year was 'Harry Potter and the Deathly Hallows' published?,2007,2005,2009,2003
 Books & films / Harry Potter,adult,4,What do the initials 'J.K.' in J.K. Rowling stand for?,Joanne Kathleen,Jane Katherine,Julia Kate,Joan Kelly
-Books & films / Harry Potter,adult,4,On what date is Harry Potter's birthday?,31 July,31 October,1 September,25 December
 Books & films / Harry Potter,adult,5,On what date did the Battle of Hogwarts take place?,2 May 1998,31 October 1981,1 September 1997,24 June 1995
 Books & films / Harry Potter,adult,5,In which year was Harry Potter born?,1980,1981,1979,1991
-Books & films / Harry Potter,adult,5,What is Dumbledore's full name?,Albus Percival Wulfric Brian Dumbledore,Albus Brian Aberforth Percival Dumbledore,Albus Wulfric Gellert Dumbledore,Albus Percival Ignotus Dumbledore
 Books & films / Harry Potter,adult,5,What does the Hogwarts motto 'Draco dormiens nunquam titillandus' mean?,Never tickle a sleeping dragon,"Dragons sleep, wizards wake",Wake not the dragon's eye,The dragon never sleeps
 Books & films / Harry Potter,adult,5,Who is Minister for Magic for most of the first five books?,Cornelius Fudge,Rufus Scrimgeour,Pius Thicknesse,Kingsley Shacklebolt
-Books & films / Harry Potter,adult,5,Who takes over as Minister for Magic after Fudge?,Rufus Scrimgeour,Pius Thicknesse,Barty Crouch Sr,Amelia Bones
-Books & films / Harry Potter,adult,5,Who becomes Minister for Magic after Voldemort's defeat?,Kingsley Shacklebolt,Arthur Weasley,Hermione Granger,Percy Weasley
-Books & films / Harry Potter,adult,5,"Who was the Grey Lady, Ravenclaw's ghost, in life?",Helena Ravenclaw,Rowena Ravenclaw,Myrtle Warren,Ariana Dumbledore
-Books & films / Harry Potter,adult,5,Which ghost belongs to Slytherin house?,The Bloody Baron,The Grey Lady,The Fat Friar,Nearly Headless Nick
-Books & films / Harry Potter,adult,5,Which ghost belongs to Hufflepuff house?,The Fat Friar,The Bloody Baron,The Grey Lady,Moaning Myrtle
 Sports / GAA,6-9,1,In which country do people play hurling and Gaelic football?,Ireland,Spain,Australia,Canada
 Sports / GAA,6-9,1,What do hurlers use to hit the ball?,A hurley,A racket,A bat,A golf club
 Sports / GAA,6-9,1,What is the small ball used in hurling called?,A sliotar,A shuttlecock,A puck,A bobbin
