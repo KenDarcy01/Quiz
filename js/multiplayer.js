@@ -58,7 +58,7 @@ async function refreshGame() {
     if (/not in this game/i.test(e.message || '')) { leaveGame(); return; }
     mp.error = mpError(e);
   }
-  if (state.screen === 'mp') render();
+  if (state.screen === 'mp') renderUnlessPicking();
 }
 
 let refreshQueued = null;

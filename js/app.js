@@ -93,7 +93,7 @@ async function refreshQuestions() {
     state.settings.topic = '';
   }
   state.loading = false;
-  render();
+  renderUnlessPicking();
 }
 
 function poolForPlayer(p) {
@@ -690,8 +690,30 @@ function render() {
     account: accountScreen, newPassword: newPasswordScreen,
     join: joinScreen, waiting: waitingScreen, mp: mpScreen,
   };
+  renderHeld = false;
   app.innerHTML = screens[state.screen]();
 }
+
+// Background redraws (live game updates, the poll) must not rebuild the page while a drop-down is
+// open: replacing the <select> closes it, which on iPhone happens every few seconds in the lobby.
+// Hold the redraw until the picker closes; give up holding after a while in case focus gets stuck.
+const PICKER_HOLD_MS = 30000;
+let pickerSince = 0;
+let renderHeld = false;
+
+function renderUnlessPicking() {
+  const a = document.activeElement;
+  const picking = a && a.tagName === 'SELECT' && app.contains(a);
+  if (picking && Date.now() - pickerSince < PICKER_HOLD_MS) { renderHeld = true; return; }
+  render();
+}
+
+app.addEventListener('focusin', (e) => { if (e.target.tagName === 'SELECT') pickerSince = Date.now(); });
+app.addEventListener('focusout', (e) => {
+  if (e.target.tagName !== 'SELECT') return;
+  // Let a change handler redraw first; then catch up on anything held back.
+  setTimeout(() => { if (renderHeld) renderUnlessPicking(); }, 0);
+});
 
 // ---------- Events ----------
 
