@@ -15,6 +15,7 @@ const mp = {
   channel: null,
   poll: null,
   timer: null,
+  seenBreaks: new Set(), // duel and lightning results this phone has already stepped past
 };
 
 function mpError(e) {
@@ -519,9 +520,8 @@ function miniPlay(m, duel = false) {
 function bonusPanel(g, player) {
   const b = g.bonus;
   const game = bonusGame(b.game);
-  const head = `<p class="sticker" style="align-self:flex-start;background:var(--orange);font-size:24px;transform:rotate(-2deg)">🔥 ${b.streak} in a row!</p>`;
   if (b.points != null) {
-    return `${head}<div class="card stack" style="gap:6px">
+    return `<div class="card stack" style="gap:6px">
       <span class="eyebrow">${game.icon} ${game.name}</span>
       ${kickTally(b.kicks, game)}
       <p style="font-weight:800">${esc(player.name)} got ${b.points} of ${KICKS}: +${b.points} bonus point${b.points === 1 ? '' : 's'}</p>
@@ -529,7 +529,7 @@ function bonusPanel(g, player) {
   }
   if (!player.mine) {
     const last = b.kicks[b.kicks.length - 1];
-    return `${head}<div class="card stack" style="gap:6px">
+    return `<div class="card stack" style="gap:6px">
       <span class="eyebrow">${game.icon} ${game.name}</span>
       <p style="font-weight:800">${esc(player.name)} ${game.watching}</p>
       ${kickTally(b.kicks, game)}
@@ -537,7 +537,38 @@ function bonusPanel(g, player) {
     </div>`;
   }
   const m = useMini(`bonus:${b.id}`, b.game || 'penalties', b.kicks, recordTries);
-  return `${head}<div class="card stack" style="gap:10px"><span class="eyebrow">${esc(player.name)}'s bonus game</span>${miniPlay(m)}</div>`;
+  return `<div class="card stack" style="gap:10px"><span class="eyebrow">${esc(player.name)}'s bonus game</span>${miniPlay(m)}</div>`;
+}
+
+// A streak bonus gets its own screen once the question is answered, so the silly game never sits
+// under a question. It ends with a clear step on to the next question.
+function bonusScreen(g, q, player, answer) {
+  const b = g.bonus;
+  const done = b.points != null;
+  const isLast = q.seq >= g.total;
+  let footer = '';
+  if (!done) {
+    if (g.is_host) footer = '<button class="link-btn" data-action="skipBonus" style="align-self:center">Skip the bonus</button>';
+  } else if (g.is_host) {
+    footer = `<button class="btn" data-action="nextMp" ${mp.busy ? 'disabled' : ''}>${isLast ? 'See final scores' : 'On to the next question'}</button>`;
+  } else {
+    footer = `<p class="muted" style="font-weight:700;text-align:center">${isLast ? 'Final scores coming up…' : 'Next question coming up…'}</p>`;
+  }
+  return `
+    <div class="topbar"><span class="chip bonus-chip">🔥 Bonus game</span>${myScores(g)}</div>
+    <p class="notice">Q${q.seq} is finished.${q.answer ? ` The answer was <b>${esc(q.answer)}</b>.` : ''} ${esc(player.name)} got it right${answer.points ? ` (+${answer.points})` : ''}.</p>
+    <div class="interlude-head">
+      <p class="sticker" style="background:var(--orange);font-size:28px;transform:rotate(-2deg)">🔥 ${b.streak} in a row!</p>
+      <h1 class="interlude-title">${done ? 'Bonus game over' : `Bonus game for ${esc(player.name)}`}</h1>
+      ${done ? '' : '<p class="muted" style="font-weight:700;margin:0">No question now. Just the silly game, then back to the quiz.</p>'}
+    </div>
+    ${bonusPanel(g, player)}
+    ${mpNotes()}
+    ${footer}
+    <div class="spacer"></div>
+    <details><summary class="eyebrow" style="cursor:pointer">Scores</summary>${scoreboard(g.players, q.player_id)}</details>
+    ${endLink(g)}
+  `;
 }
 
 // ---------- 1v1 challenges ----------
@@ -905,6 +936,38 @@ function lightningResult(g) {
   </div>`;
 }
 
+// A finished duel or lightning round gets its own result screen on each phone, then a tap goes
+// back to the question, which says whose turn it is.
+function breakResult(g) {
+  const ch = g.challenge;
+  if (ch && ch.status === 'finished' && !mp.seenBreaks.has(`duel:${ch.id}`)) {
+    return { key: `duel:${ch.id}`, chip: '<span class="chip duel-chip">⚔️ Challenge over</span>', body: challengePanel(g) };
+  }
+  const lg = g.lightning;
+  if (lg && lg.status === 'finished' && !mp.seenBreaks.has(`zap:${lg.id}`)) {
+    return { key: `zap:${lg.id}`, chip: '<span class="chip zap-chip">⚡ Lightning round over</span>', body: lightningResult(g) };
+  }
+  return null;
+}
+
+function breakScreen(g, r, q, player) {
+  const back = q.answers.length ? `Back to Q${q.seq}` : `Back to Q${q.seq}: ${q.player_id ? `${esc(player.name)}'s turn` : 'everyone'}`;
+  return `
+    <div class="topbar">${r.chip}${myScores(g)}</div>
+    ${r.body}
+    ${mpNotes()}
+    <button class="btn" data-action="backToQuiz" data-key="${esc(r.key)}">${back}</button>
+    <div class="spacer"></div>
+    <details><summary class="eyebrow" style="cursor:pointer">Scores</summary>${scoreboard(g.players)}</details>
+    ${endLink(g)}
+  `;
+}
+
+function backToQuiz(key) {
+  mp.seenBreaks.add(key);
+  render();
+}
+
 // A challenge has been thrown down: the question waits (and its clock restarts) until the duel is done.
 function challengeWaitScreen(g) {
   return `
@@ -1214,6 +1277,9 @@ function playScreen(g) {
   const myTurn = player.mine;
   const left = mpSecondsLeft();
   const isLast = q.seq >= g.total;
+  if (answer && g.bonus && g.bonus.player_id === q.player_id) return bonusScreen(g, q, player, answer);
+  const pause = breakResult(g);
+  if (pause) return breakScreen(g, pause, q, player);
 
   const hum = (q.media || {}).mode === 'hum';
   const song = hum && q.answer ? `${esc(q.answer)}${q.media.by ? ` <span class="muted" style="font-size:18px">· ${esc(q.media.by)}</span>` : ''}` : '';
@@ -1250,9 +1316,6 @@ function playScreen(g) {
     body = `<p class="muted" style="font-weight:700">${myTurn ? `${esc(player.name)}, say your answer out loud for ${POINTS_STRAIGHT} points.` : `${esc(player.name)} is answering out loud.`}</p>`;
   }
 
-  const bonus = answer && g.bonus && g.bonus.player_id === q.player_id ? g.bonus : null;
-  if (bonus) body += bonusPanel(g, player);
-
   let footer = '';
   if (hum && !answer) {
     if (q.can_judge) {
@@ -1263,10 +1326,7 @@ function playScreen(g) {
         <button class="btn secondary" data-action="humGuess" data-id="" ${mp.busy ? 'disabled' : ''}>Nobody got it</button>`;
     }
   } else if (answer) {
-    if (g.is_host && bonus && bonus.points == null) {
-      footer = `<p class="muted" style="font-weight:700;text-align:center">Waiting for ${esc(player.name)}'s bonus game…</p>
-        <button class="link-btn" data-action="skipBonus" style="align-self:center">Skip the bonus</button>`;
-    } else if (g.is_host) {
+    if (g.is_host) {
       footer = `<button class="btn" data-action="nextMp" ${mp.busy ? 'disabled' : ''}>${isLast ? 'See final scores' : 'Next question'}</button>`;
     }
   } else {
@@ -1293,8 +1353,7 @@ function playScreen(g) {
       <p style="font-family:var(--display);font-size:22px">Q${q.seq} <span class="muted" style="font-family:var(--body);font-weight:700;font-size:16px">of ${g.total} · ${esc(topicLabel(q.topic))}</span></p>
       ${gradeDots(q.grade)}
     </div>
-    ${challengePanel(g)}
-    ${lightningResult(g)}
+    ${g.challenge && g.challenge.status === 'refused' ? challengePanel(g) : ''}
     <h1 class="question">${esc(q.text)}</h1>
     ${q.media_url ? picture(q, Boolean(answer || q.revealed)) : ''}
     ${(q.media || {}).mode === 'clip' ? clipPanel(g, q, Boolean(answer || q.revealed)) : ''}

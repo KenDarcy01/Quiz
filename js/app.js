@@ -749,6 +749,7 @@ app.addEventListener('click', (e) => {
     revealMp,
     kick: () => kick(el.dataset.zone),
     skipBonus,
+    backToQuiz: () => backToQuiz(el.dataset.key),
     humGuess: () => humGuess(el.dataset.id),
     playClip,
     endMp,
