@@ -7594,6 +7594,183 @@ Sports / GAA,adult,5,Which county did Tipperary beat in the 2019 hurling final?,
 Sports / GAA,adult,5,Which county did Kilkenny beat in the 2015 hurling final?,Galway,Tipperary,Waterford,Cork
 Sports / GAA,adult,5,Which county did Tipperary beat in the 2016 hurling final?,Kilkenny,Waterford,Galway,Clare
 Sports / GAA,adult,5,Which county did Kerry beat in the 2014 football final?,Donegal,Mayo,Dublin,Tyrone
+Sports / GAA,6-9,1,"In Gaelic football, which part of the body do you use to kick the ball?",Your foot,Your head,Your knee,Your elbow
+Sports / GAA,6-9,1,What colour flag does the umpire wave when a point is scored?,White,Green,Red,Yellow
+Sports / GAA,6-9,1,What colour flag does the umpire wave when a goal is scored?,Green,White,Blue,Orange
+Sports / GAA,6-9,1,Is camogie played with a hurley and a sliotar?,Yes,"No, with a racket","No, with a bat","No, with a football"
+Sports / GAA,6-9,1,Which game is played with a hurley: hurling or Gaelic football?,Hurling,Gaelic football,Both,Neither
+Sports / GAA,6-9,1,In which province do Cork play?,Munster,Leinster,Ulster,Connacht
+Sports / GAA,6-9,1,In which province do Mayo play?,Connacht,Munster,Ulster,Leinster
+Sports / GAA,6-9,1,In which province do Kilkenny play?,Leinster,Munster,Connacht,Ulster
+Sports / GAA,6-9,1,In which province do Donegal play?,Ulster,Connacht,Leinster,Munster
+Sports / GAA,6-9,1,Which county is nicknamed 'the Rebels'?,Cork,Kerry,Clare,Limerick
+Sports / GAA,6-9,2,How many umpires stand at each set of goalposts?,Two,One,Three,Four
+Sports / GAA,6-9,2,What do umpires wear over their clothes?,A white coat,A red jacket,A yellow bib,A black cape
+Sports / GAA,6-9,2,In which province do Leitrim play?,Connacht,Ulster,Leinster,Munster
+Sports / GAA,6-9,2,In which province do Waterford play?,Munster,Leinster,Connacht,Ulster
+Sports / GAA,6-9,2,In which province do Monaghan play?,Ulster,Leinster,Connacht,Munster
+Sports / GAA,6-9,2,In which province do Laois play?,Leinster,Munster,Connacht,Ulster
+Sports / GAA,6-9,2,Which county wears all-white jerseys and is called 'the Lilywhites'?,Kildare,Cork,Clare,Derry
+Sports / GAA,6-9,2,What do you call a match where the scores are level at the end?,A draw,A wide,A free,A replay
+Sports / GAA,6-9,2,Who blows the whistle and is in charge of a GAA match?,The referee,The umpire,The captain,The linesman
+Sports / GAA,6-9,2,What is the name for the small area right in front of the goal?,The small square,The circle,The box,The D
+Sports / GAA,6-9,3,Which county do the 'Dubs' play for?,Dublin,Down,Derry,Donegal
+Sports / GAA,6-9,3,Which county's footballers have won the most Munster titles?,Kerry,Cork,Clare,Tipperary
+Sports / GAA,6-9,3,"In Gaelic football, can you bounce the ball twice in a row?",No,Yes,Only in the second half,Only goalkeepers can
+Sports / GAA,6-9,3,"In Gaelic football, how many steps can you take holding the ball before you must bounce, solo or pass?",Four,Two,Six,Ten
+Sports / GAA,6-9,3,"Which county wears green and gold and is from Ulster, with Michael Murphy as a legend?",Donegal,Kerry,Meath,Leitrim
+Sports / GAA,6-9,3,Which hurling county wears green and white hoops and is called 'the Treaty County'?,Limerick,Offaly,Kerry,Fermanagh
+Sports / GAA,6-9,3,Which part of the hurley do you hold?,The handle,The bas,The heel,The toe
+Sports / GAA,6-9,3,What is the name for a quick pass where you punch the ball with your fist?,A fist pass (hand pass),A solo,A bounce,A puck
+Sports / GAA,6-9,3,"In hurling, can you pick the ball straight up off the ground with your hand?","No, you must lift it with the hurley","Yes, any time",Only the goalkeeper,Only in the small square
+Sports / GAA,6-9,3,How does the referee start a Gaelic football match?,With a throw-in between midfielders,With a kick-off from the centre,With a coin toss,With a puck-out
+Sports / GAA,6-9,4,Which Ulster county has a red hand on its crest and plays at Healy Park?,Tyrone,Derry,Armagh,Down
+Sports / GAA,6-9,4,Which county wears red and black and plays at Páirc Esler in Newry?,Down,Derry,Antrim,Armagh
+Sports / GAA,6-9,4,"Which Ulster county's colours are blue and white, and is nicknamed 'Breffni'?",Cavan,Monaghan,Fermanagh,Leitrim
+Sports / GAA,6-9,4,Which Dublin player is famous for being a goalkeeper who takes long kick-outs and frees?,Stephen Cluxton,Bernard Brogan,Diarmuid Connolly,Paul Flynn
+Sports / GAA,6-9,4,Which county won the All-Ireland hurling title in 2025?,Tipperary,Cork,Kilkenny,Limerick
+Sports / GAA,6-9,4,Which county did Kerry beat in the 2025 All-Ireland football final?,Donegal,Dublin,Mayo,Galway
+Sports / GAA,6-9,4,"In ladies' football, can players pick the ball straight up off the ground?",Yes,No,Only goalkeepers,Only in extra time
+Sports / GAA,6-9,4,What is it called when a hurler bounces the ball on the hurley while running?,Soloing,Dribbling,Juggling,Tapping
+Sports / GAA,6-9,4,Which kick restarts a Gaelic football game after the ball goes wide?,A kick-out,A penalty,A throw-in,A sideline
+Sports / GAA,6-9,4,Which county plays hurling at Walsh Park and Fraher Field?,Waterford,Wexford,Wicklow,Westmeath
+Sports / GAA,6-9,5,What does the GAA call its competitions for young players aged under 17?,Minor,Junior,Intermediate,Senior
+Sports / GAA,6-9,5,Which Kerry forward from Fossa is famous for scoring brilliant points and goals?,David Clifford,Seán O'Shea,Paul Geaney,Gavin White
+Sports / GAA,6-9,5,Which Croke Park stand is at the Canal End?,The Davin Stand,The Hogan Stand,The Cusack Stand,Hill 16
+Sports / GAA,6-9,5,What is the name of the rooftop walkway tour at Croke Park?,The Skyline,The Sky Walk,The High Road,The Hill Climb
+Sports / GAA,6-9,5,Which county won six All-Ireland football titles in a row?,Dublin,Kerry,Mayo,Tyrone
+Sports / GAA,6-9,5,"What is the GAA grade between minor and senior, for players up to age 20?",Under-20,Senior,Junior,Masters
+Sports / GAA,6-9,5,Which colour card in Gaelic football sends a player off for the rest of the game?,Red,Black,Yellow,Green
+Sports / GAA,6-9,5,Which colour card in football sends a player to the sin bin for ten minutes?,Black,Red,Yellow,Blue
+Sports / GAA,6-9,5,What are the four provinces in the GAA?,"Munster, Leinster, Ulster and Connacht","Munster, Leinster, Ulster and Dublin","North, South, East and West","Cork, Dublin, Galway and Belfast"
+Sports / GAA,6-9,5,Which hurling legend from Kilkenny is known as 'King Henry'?,Henry Shefflin,TJ Reid,DJ Carey,Eddie Keher
+Sports / GAA,10-13,1,In which province do Fermanagh play?,Ulster,Connacht,Leinster,Munster
+Sports / GAA,10-13,1,In which province do Longford play?,Leinster,Connacht,Ulster,Munster
+Sports / GAA,10-13,1,In which province do Sligo play?,Connacht,Ulster,Leinster,Munster
+Sports / GAA,10-13,1,In which province do Carlow play?,Leinster,Munster,Connacht,Ulster
+Sports / GAA,10-13,1,In which province do Clare play?,Munster,Connacht,Leinster,Ulster
+Sports / GAA,10-13,1,Which county plays home games at Austin Stack Park in Tralee?,Kerry,Cork,Limerick,Clare
+Sports / GAA,10-13,1,Which county plays home games at O'Moore Park in Portlaoise?,Laois,Offaly,Kildare,Carlow
+Sports / GAA,10-13,1,Which county plays home games at O'Connor Park in Tullamore?,Offaly,Westmeath,Laois,Longford
+Sports / GAA,10-13,1,Which county plays home games at Markievicz Park?,Sligo,Leitrim,Mayo,Roscommon
+Sports / GAA,10-13,1,Which county plays home games at Brewster Park in Enniskillen?,Fermanagh,Tyrone,Cavan,Monaghan
+Sports / GAA,10-13,2,Which county plays home games at Páirc Tailteann in Navan?,Meath,Louth,Westmeath,Kildare
+Sports / GAA,10-13,2,Which county plays home games at Cusack Park in Mullingar?,Westmeath,Longford,Offaly,Meath
+Sports / GAA,10-13,2,Which county plays home games at Pearse Park?,Longford,Galway,Westmeath,Roscommon
+Sports / GAA,10-13,2,Which county plays home games at MacCumhaill Park in Ballybofey?,Donegal,Derry,Tyrone,Sligo
+Sports / GAA,10-13,2,Which county plays home games at Celtic Park?,Derry,Antrim,Down,Armagh
+Sports / GAA,10-13,2,Which county plays home games at the Athletic Grounds?,Armagh,Antrim,Monaghan,Louth
+Sports / GAA,10-13,2,Which county plays home games at Fraher Field in Dungarvan?,Waterford,Wexford,Cork,Kilkenny
+Sports / GAA,10-13,2,Which Cork-born hurling legend won eight All-Ireland medals and has a bridge and a cup named after him?,Christy Ring,Jack Lynch,Jimmy Barry-Murphy,Seán Óg Ó hAilpín
+Sports / GAA,10-13,2,Which Cork player was born in Fiji and became a hurling star?,Seán Óg Ó hAilpín,Joe Deane,Brian Corcoran,Ben O'Connor
+Sports / GAA,10-13,2,Which Kilkenny forward of the 1990s was famous for his speed and was nicknamed 'DJ'?,DJ Carey,Eddie Keher,Henry Shefflin,Richie Power
+Sports / GAA,10-13,3,Which county's supporters are famous for their orange jerseys and flags?,Armagh,Dublin,Cork,Mayo
+Sports / GAA,10-13,3,What is the name for a free in hurling taken from the 65-metre line?,A 65,A 45,A penalty,A sideline cut
+Sports / GAA,10-13,3,What is the name for a free in football taken from the 45-metre line after a defender puts it wide?,A 45,A 65,A mark,A penalty
+Sports / GAA,10-13,3,"In football, what is a 'mark'?",A clean catch from a kick-out or long kick that earns a free kick,A yellow card,A score from a free,A foul on the goalkeeper
+Sports / GAA,10-13,3,Which trophy is presented to the Ulster football champions?,The Anglo-Celt Cup,The Nestor Cup,The Delaney Cup,The Sam Maguire Cup
+Sports / GAA,10-13,3,Which trophy is presented to the Connacht football champions?,The Nestor Cup,The Anglo-Celt Cup,The Delaney Cup,The O'Duffy Cup
+Sports / GAA,10-13,3,Which trophy is presented to the Leinster football champions?,The Delaney Cup,The Nestor Cup,The Bob O'Keeffe Cup,The Anglo-Celt Cup
+Sports / GAA,10-13,3,Which trophy is presented to the Leinster hurling champions?,The Bob O'Keeffe Cup,The Delaney Cup,The Liam MacCarthy Cup,The Christy Ring Cup
+Sports / GAA,10-13,3,Which hurling competition is the tier just below the Christy Ring Cup?,The Nicky Rackard Cup,The Lory Meagher Cup,The Joe McDonagh Cup,The Fitzgibbon Cup
+Sports / GAA,10-13,3,Which is the lowest tier of the All-Ireland hurling championships?,The Lory Meagher Cup,The Nicky Rackard Cup,The Christy Ring Cup,The Joe McDonagh Cup
+Sports / GAA,10-13,4,Which Limerick forward was Hurler of the Year in 2020?,Gearóid Hegarty,Aaron Gillane,Kyle Hayes,Seán Finn
+Sports / GAA,10-13,4,Which Donegal captain lifted Sam Maguire in 2012?,Michael Murphy,Karl Lacey,Neil McGee,Colm McFadden
+Sports / GAA,10-13,4,Which Donegal defender was Footballer of the Year in 2012?,Karl Lacey,Michael Murphy,Frank McGlynn,Ryan McHugh
+Sports / GAA,10-13,4,Which Dublin forward was Footballer of the Year in 2010?,Bernard Brogan,Alan Brogan,Paul Flynn,Ciarán Kilkenny
+Sports / GAA,10-13,4,Which Tyrone midfielder was Footballer of the Year in 2008?,Seán Cavanagh,Peter Canavan,Brian Dooher,Philip Jordan
+Sports / GAA,10-13,4,Which tall Kerry forward was nicknamed 'Star'?,Kieran Donaghy,Colm Cooper,Paul Galvin,Tommy Walsh
+Sports / GAA,10-13,4,Which Crossmaglen forward was a star of Armagh's 2024 All-Ireland win?,Rian O'Neill,Stefan Campbell,Aidan Forker,Ethan Rafferty
+Sports / GAA,10-13,4,Who managed Armagh to their first All-Ireland football title in 2002?,Joe Kernan,Kieran McGeeney,Brian McAlinden,Paddy O'Rourke
+Sports / GAA,10-13,4,Which Galway forward scored nine points in the 2022 All-Ireland final?,Shane Walsh,Damien Comer,Seán Kelly,Paul Conroy
+Sports / GAA,10-13,4,Which Clare hurler was Hurler of the Year in 2013 and starred in their 2024 win?,Tony Kelly,Shane O'Donnell,Peter Duggan,David Fitzgerald
+Sports / GAA,10-13,5,Which Dublin team of the 1970s was managed by Kevin Heffernan?,Heffo's Army,The Dubs' Dynasty,The Hill Men,Kevin's Kings
+Sports / GAA,10-13,5,Which Galway duo of the 1950s were called 'the Terrible Twins'?,Seán Purcell and Frank Stockwell,Joe Cooney and Tony Keady,Pádraic Joyce and Ja Fallon,Mattie McDonagh and Enda Colleran
+Sports / GAA,10-13,5,"Which Cork player won six All-Ireland medals in a row (five hurling, one football) from 1941 to 1946 and became Taoiseach?",Jack Lynch,Christy Ring,Seán Lemass,Liam Cosgrave
+Sports / GAA,10-13,5,"Which Limerick hurler of the 1930s, from Ahane, was a legendary forward?",Mick Mackey,Ciarán Carey,Paddy Scanlan,Ger Hegarty
+Sports / GAA,10-13,5,Which Kerry midfielder won four Footballer of the Year awards in the 1980s?,Jack O'Shea,Mick O'Connell,Páidí Ó Sé,Mikey Sheehy
+Sports / GAA,10-13,5,Which Cork woman won 18 All-Ireland medals in football and camogie?,Rena Buckley,Briege Corkery,Valerie Mulcahy,Juliet Murphy
+Sports / GAA,10-13,5,Which county's ladies footballers won four All-Irelands in a row from 2017 to 2020?,Dublin,Cork,Mayo,Galway
+Sports / GAA,10-13,5,Which county's ladies footballers won eleven All-Irelands between 2005 and 2016?,Cork,Dublin,Kerry,Monaghan
+Sports / GAA,10-13,5,In which year was the Ladies Gaelic Football Association founded?,1974,1904,1884,1999
+Sports / GAA,10-13,5,In which year was the Camogie Association founded?,1904,1884,1974,1922
+Sports / GAA,14-17,1,Which county wears primrose and blue?,Roscommon,Clare,Longford,Laois
+Sports / GAA,14-17,1,Which Leinster county wears red and white?,Louth,Kildare,Wicklow,Laois
+Sports / GAA,14-17,1,Which Ulster county wears green and white?,Fermanagh,Donegal,Antrim,Cavan
+Sports / GAA,14-17,1,Which Connacht county wears black and white?,Sligo,Mayo,Leitrim,Roscommon
+Sports / GAA,14-17,1,Which county plays home games at St Tiernach's Park in Clones?,Monaghan,Cavan,Fermanagh,Armagh
+Sports / GAA,14-17,1,Which county plays home games in Aughrim?,Wicklow,Wexford,Carlow,Kildare
+Sports / GAA,14-17,1,What is the online streaming service for GAA games run by the GAA and RTÉ?,GAAGO,RTÉ Sport+,Croke TV,GAA Live
+Sports / GAA,14-17,1,Which pair took over as the main presenters of 'The Sunday Game' after Michael Lyster?,Joanne Cantwell and Des Cahill,Marty Morrissey and Ger Canning,Darragh Maloney and Jacqui Hurley,Evanne Ní Chuilinn and Damien O'Meara
+Sports / GAA,14-17,1,Which country singer played five concerts at Croke Park in 2022?,Garth Brooks,Dolly Parton,Shania Twain,Kenny Rogers
+Sports / GAA,14-17,1,Which county plays home games at Páirc Seán Mac Diarmada in Carrick-on-Shannon?,Leitrim,Roscommon,Longford,Sligo
+Sports / GAA,14-17,2,Roughly how long is a full-size Gaelic pitch?,130 to 145 metres,80 to 90 metres,100 metres exactly,200 metres
+Sports / GAA,14-17,2,Roughly how wide is a full-size Gaelic pitch?,80 to 90 metres,50 metres,130 metres,110 to 120 metres
+Sports / GAA,14-17,2,How high is the crossbar on Gaelic goalposts?,2.5 metres,2 metres,3 metres,1.8 metres
+Sports / GAA,14-17,2,Roughly how far apart are the posts on Gaelic goals?,6.5 metres,5 metres,7.32 metres,10 metres
+Sports / GAA,14-17,2,In which year did Croke Park host its first soccer international?,2007,2001,2010,1999
+Sports / GAA,14-17,2,Which Croke Park stand is named after Maurice Davin?,The Davin Stand,The Hogan Stand,The Cusack Stand,The Nally Stand
+Sports / GAA,14-17,2,"What was the Tommy Murphy Cup, played from 2004 to 2008?",A second-tier football championship,A hurling league,A ladies' football final,A colleges cup
+Sports / GAA,14-17,2,"What was the 'qualifier' system, started in 2001?",A back-door route for teams knocked out of their province,A penalty shoot-out,A club competition,A replay rule
+Sports / GAA,14-17,2,On which day was the All-Ireland club football final traditionally played?,St Patrick's Day,Easter Sunday,St Stephen's Day,New Year's Day
+Sports / GAA,14-17,2,Which county's hurlers play in saffron and white?,Antrim,Clare,Kilkenny,Wexford
+Sports / GAA,14-17,3,Which Galway hurler was Hurler of the Year in 1988 and died suddenly in 2017?,Tony Keady,Joe Cooney,Pete Finnerty,Conor Hayes
+Sports / GAA,14-17,3,Which Offaly hurler was named on the GAA's Hurling Team of the Millennium?,Brian Whelahan,Johnny Dooley,Joe Dooley,Michael Duignan
+Sports / GAA,14-17,3,Which Roscommon midfielder of the 1970s later became Chief of Staff of the Irish Army?,Dermot Earley,Tony McManus,Harry Keegan,Gerry Fitzmaurice
+Sports / GAA,14-17,3,Which Dublin full-forward scored 2-6 in the 1977 All-Ireland final?,Jimmy Keaveney,Brian Mullins,Tony Hanahoe,Bobby Doyle
+Sports / GAA,14-17,3,Which Kerry midfielder from Valentia Island was famed for his high fielding in the 1950s and 60s?,Mick O'Connell,Jack O'Shea,Páidí Ó Sé,Mick O'Dwyer
+Sports / GAA,14-17,3,Which Kilkenny forward scored 2-11 in the 1971 hurling final but still lost?,Eddie Keher,Pat Henderson,Frank Cummins,Noel Skehan
+Sports / GAA,14-17,3,Which Cork hurler was Hurler of the Year in both 1992 and 1999?,Brian Corcoran,Joe Deane,Seán Óg Ó hAilpín,Tomás Mulcahy
+Sports / GAA,14-17,3,Which Waterford forward scored three goals in the 2007 Munster final and was Hurler of the Year?,Dan Shanahan,John Mullane,Ken McGrath,Eoin Kelly
+Sports / GAA,14-17,3,Which Tipperary forward was Hurler of the Year in 2010?,Lar Corbett,Eoin Kelly,Noel McGrath,Séamus Callanan
+Sports / GAA,14-17,3,Which Tipperary captain lifted Liam MacCarthy in 2019 and was Hurler of the Year?,Séamus Callanan,Pádraic Maher,Noel McGrath,Bubbles O'Dwyer
+Sports / GAA,14-17,4,Who succeeded Jim Gavin as Dublin football manager in 2020?,Dessie Farrell,Pat Gilroy,Paul Caffrey,Jason Sherlock
+Sports / GAA,14-17,4,Which manager led Mayo to the 2020 and 2021 All-Ireland finals?,James Horan,Stephen Rochford,Kevin McStay,Pat Holmes
+Sports / GAA,14-17,4,Who managed Donegal to the 2025 All-Ireland final?,Jim McGuinness,Rory Gallagher,Declan Bonner,Paddy Carr
+Sports / GAA,14-17,4,Which Clare captain gave a famous victory speech after the 1995 All-Ireland?,Anthony Daly,Brian Lohan,Seánie McMahon,Jamesie O'Connor
+Sports / GAA,14-17,4,Which county ended an 81-year wait for the Liam MacCarthy Cup in 1995?,Clare,Offaly,Wexford,Galway
+Sports / GAA,14-17,4,Which county won the 1998 hurling title after losing that year's Leinster final?,Offaly,Kilkenny,Waterford,Clare
+Sports / GAA,14-17,4,What happened in the 1998 Clare v Offaly hurling semi-final replay?,"The referee ended it early, sparking a sit-down protest by fans",The floodlights failed,It was abandoned for snow,Both teams walked off
+Sports / GAA,14-17,4,By how many points did Kilkenny beat Waterford in the 2008 hurling final?,23,3,10,15
+Sports / GAA,14-17,4,Which manager took charge of Waterford during 2008 and led them to that year's final?,Davy Fitzgerald,Justin McCarthy,Derek McGrath,Gerald McCarthy
+Sports / GAA,14-17,4,Which county won three All-Ireland football titles in a row from 1964 to 1966?,Galway,Kerry,Down,Dublin
+Sports / GAA,14-17,5,Which GAA founder from Clare ran a 'grind school' in Dublin?,Michael Cusack,Maurice Davin,Thomas Croke,Pat Nally
+Sports / GAA,14-17,5,How many men are said to have attended the GAA's founding meeting in Hayes' Hotel?,Seven,Twelve,Twenty,Three
+Sports / GAA,14-17,5,In which year did the GAA buy the ground that became Croke Park?,1913,1884,1922,1950
+Sports / GAA,14-17,5,Which Tipperary footballer was shot dead on Bloody Sunday 1920 at Croke Park?,Michael Hogan,Tom Semple,Pat Nally,Dan Breen
+Sports / GAA,14-17,5,"Which games, an Irish version of the ancient Olympics, were revived at Croke Park in 1924?",The Tailteann Games,The Celtic Games,The Fianna Games,The Brehon Games
+Sports / GAA,14-17,5,"Which Belfast GAA ground is to be rebuilt as a stadium of about 34,000 seats?",Casement Park,Corrigan Park,Celtic Park,The Athletic Grounds
+Sports / GAA,14-17,5,Which county won the 1960 and 1961 football titles and won again in 1968?,Down,Cavan,Tyrone,Armagh
+Sports / GAA,14-17,5,Which county won the 1996 football title after a replay against Mayo?,Meath,Kerry,Dublin,Cork
+Sports / GAA,14-17,5,"Which county won the hurling titles of 1984, 1986 and 1990?",Cork,Tipperary,Kilkenny,Galway
+Sports / GAA,14-17,5,Which county won the hurling titles of 1987 and 1988?,Galway,Kilkenny,Tipperary,Cork
+Sports / GAA,adult,1,Which county won the first ever All-Ireland ladies' football title in 1974?,Tipperary,Kerry,Cork,Offaly
+Sports / GAA,adult,1,The Sam Maguire Cup is named after a man from which Cork town?,Dunmanway,Clonakilty,Bandon,Skibbereen
+Sports / GAA,adult,1,In which year was the Liam MacCarthy Cup first presented to the hurling champions?,1923,1884,1950,1910
+Sports / GAA,adult,1,In which year was the Sam Maguire Cup first presented?,1928,1884,1960,1910
+Sports / GAA,adult,1,Which Dublin manager of the 1970s was the man behind 'Heffo's Army'?,Kevin Heffernan,Tony Hanahoe,Paddy Cullen,Jim Gavin
+Sports / GAA,adult,2,Which manager guided Offaly to their 1982 football win over Kerry?,Eugene McGee,Mick O'Dwyer,Kevin Heffernan,Seán Boylan
+Sports / GAA,adult,5,Which Wexford hurling legend of the 1950s has a hurling cup named after him?,Nicky Rackard,Billy Rackard,Bobby Rackard,Ned Wheeler
+Sports / GAA,adult,4,Which Cavan captain is remembered in the song 'Gallant John Joe'?,John Joe O'Reilly,Mick Higgins,Peter Donohoe,Charlie Gallagher
+Sports / GAA,adult,3,"Which 1961 final drew Croke Park's record crowd of over 90,000?",Down v Offaly,Kerry v Dublin,Cavan v Kerry,Galway v Meath
+Sports / GAA,adult,3,Which county did Down beat in the 1994 football final?,Dublin,Kerry,Cork,Mayo
+Sports / GAA,adult,2,"Which county won the 1989 hurling title, ending a 16-year wait?",Tipperary,Galway,Cork,Kilkenny
+Sports / GAA,adult,2,Which county did Donegal beat to win their first All-Ireland football title in 1992?,Dublin,Kerry,Mayo,Meath
+Sports / GAA,adult,2,Who managed Donegal to their first All-Ireland in 1992?,Brian McEniff,Jim McGuinness,Declan Bonner,Mickey Moran
+Sports / GAA,adult,5,Who captained Down to the 1991 football title?,Paddy O'Rourke,Mickey Linden,James McCartan,Ross Carr
+Sports / GAA,adult,5,Who captained Derry to their only football title in 1993?,Henry Downey,Anthony Tohill,Joe Brolly,Dermot McNicholl
+Sports / GAA,adult,3,By how many points did Dublin beat Tyrone in the 1995 football final?,One,Five,Ten,Three
+Sports / GAA,adult,2,Which Kerry forward chipped Paddy Cullen from a quick free in the 1978 final?,Mikey Sheehy,Pat Spillane,John Egan,Ger Power
+Sports / GAA,adult,3,Which former Kerry wing-back managed them to the 1997 and 2000 titles?,Páidí Ó Sé,Mick O'Dwyer,Jack O'Connor,Pat O'Shea
+Sports / GAA,adult,4,Which Kerry forward scored nine points in the 1997 All-Ireland final?,Maurice Fitzgerald,Mike Frank Russell,Dara Ó Cinnéide,Johnny Crowley
+Sports / GAA,adult,4,Who captained Galway to the 1998 football title?,Ray Silke,Pádraic Joyce,Ja Fallon,Kevin Walsh
+Sports / GAA,adult,4,Who managed Galway to the 1998 and 2001 football titles?,John O'Mahony,Pádraic Joyce,Peter Ford,Liam Sammon
+Sports / GAA,adult,4,Which Meath forward was nicknamed 'Jinksy'?,David Beggy,Bernard Flynn,Brian Stafford,Colm O'Rourke
+Sports / GAA,adult,5,Which Meath player scored the goal in the fourth game of the 1991 Leinster saga against Dublin?,Kevin Foley,Colm O'Rourke,Bernard Flynn,Liam Hayes
+Sports / GAA,adult,5,How many All-Ireland senior football medals did Kerry's Ger Power win?,8,5,6,10
+Sports / GAA,adult,5,Which Cork club is famous for winning seven All-Ireland club football titles?,Nemo Rangers,St Finbarr's,Castlehaven,Clonakilty
+Sports / GAA,adult,4,Which Galway club won three All-Ireland club football titles in a row from 2018 to 2020?,Corofin,Salthill-Knocknacarra,Killererin,Mountbellew-Moylough
+Sports / GAA,adult,3,Which Kilkenny club produced both Henry Shefflin and TJ Reid?,Ballyhale Shamrocks,James Stephens,Dicksboro,O'Loughlin Gaels
 Sports / NBA basketball,6-9,1,Which sport is played in the NBA?,Basketball,Football,Baseball,Ice hockey
 Sports / NBA basketball,6-9,1,How many points is a shot from behind the three-point line worth?,3,1,2,4
 Sports / NBA basketball,6-9,1,What is it called when a basketball player bounces the ball as they move?,Dribbling,Juggling,Volleying,Bowling
@@ -8494,3 +8671,161 @@ Sports / Rugby,adult,5,"The first ever rugby international, in 1871, was between
 Sports / Rugby,adult,5,In which year did rugby union turn professional?,1995,1987,1999,2003
 Sports / Rugby,adult,5,Ciaran Fitzgerald captained Ireland to Triple Crowns in 1982 and which other year?,1985,1984,1987,1989
 Sports / Rugby,adult,5,Who captained Scotland to the 1990 Grand Slam?,David Sole,Gavin Hastings,Finlay Calder,John Jeffrey
+Sports / Rugby,6-9,1,Can you throw the ball forward to a teammate in rugby?,"No, passes must go backwards or sideways","Yes, any time",Only the captain can,Only in the second half
+Sports / Rugby,6-9,1,What do rugby players do to score a try?,Put the ball down over the other team's try line,Kick it into a net,Throw it through a hoop,Hit it with a bat
+Sports / Rugby,6-9,1,What shape are rugby goalposts?,H-shaped,O-shaped,T-shaped,Square
+Sports / Rugby,6-9,1,What colour card sends a rugby player to the sin bin?,Yellow,Red,Blue,Green
+Sports / Rugby,6-9,1,What do rugby referees blow to stop play?,A whistle,A horn,A bell,A trumpet
+Sports / Rugby,6-9,1,What colour is the rugby ball usually?,"White, often with coloured patterns",Orange,Black,Pink
+Sports / Rugby,6-9,1,Which Irish province plays in red?,Munster,Leinster,Ulster,Connacht
+Sports / Rugby,6-9,1,Which Irish province plays in blue?,Leinster,Munster,Ulster,Connacht
+Sports / Rugby,6-9,1,Which Irish province plays in Belfast?,Ulster,Munster,Leinster,Connacht
+Sports / Rugby,6-9,2,What do you call the player who wears number 8 in rugby?,The number 8,The full-back,The hooker,The winger
+Sports / Rugby,6-9,2,Who throws the ball in at a line-out?,The hooker,The full-back,The referee,The fly-half
+Sports / Rugby,6-9,2,What is a 'grubber kick'?,A kick that rolls along the ground,A very high kick,A kick at the posts,A kick-off
+Sports / Rugby,6-9,2,What is a 'sidestep'?,A quick change of direction to dodge a tackler,A type of scrum,A pass to the side,A kick into touch
+Sports / Rugby,6-9,2,What is a 'dummy pass'?,Pretending to pass to fool defenders,A pass to the referee,A pass that hits the post,A pass with two hands
+Sports / Rugby,6-9,2,How many points does a team get for a try plus a successful conversion?,7,5,6,8
+Sports / Rugby,6-9,2,Which animal is the nickname of South Africa's rugby team?,The Springbok,The Lion,The Elephant,The Zebra
+Sports / Rugby,6-9,2,Which animal nickname does Argentina's rugby team have?,The Pumas,The Jaguars,The Condors,The Llamas
+Sports / Rugby,6-9,2,Which animal is on the badge of the British & Irish Lions?,A lion,A dragon,A bear,An eagle
+Sports / Rugby,6-9,2,What is the name of the Irish rugby team's home stadium in Dublin?,The Aviva Stadium,Croke Park,Thomond Park,The RDS
+Sports / Rugby,6-9,3,What is a 'hand-off' or 'fend' in rugby?,Pushing a tackler away with your hand,Passing with one hand,Catching a kick,Shaking hands after a game
+Sports / Rugby,6-9,3,Which number does the tighthead prop usually wear?,3,1,5,9
+Sports / Rugby,6-9,3,Which number does the loosehead prop usually wear?,1,3,2,8
+Sports / Rugby,6-9,3,Which trophy goes to the home nation that beats the other three in the Six Nations?,The Triple Crown,The Grand Slam,The Calcutta Cup,The Wooden Spoon
+Sports / Rugby,6-9,3,What is the New Zealand women's rugby team called?,The Black Ferns,The Silver Ferns,The Kiwis,The All Whites
+Sports / Rugby,6-9,3,Which Ireland winger was born in New Zealand and is famous for his long left-footed kicks?,James Lowe,Mack Hansen,Hugo Keenan,Keith Earls
+Sports / Rugby,6-9,3,Which Ireland winger was born in Australia and joined Connacht?,Mack Hansen,James Lowe,Jacob Stockdale,Tommy Bowe
+Sports / Rugby,6-9,3,Which Ireland hooker from Leinster is famous for scoring tries from line-outs?,Dan Sheehan,Rob Herring,Rory Best,Rónan Kelleher
+Sports / Rugby,6-9,3,Which Ireland prop from Wexford is famous for his strength and soft hands?,Tadhg Furlong,Andrew Porter,Cian Healy,Mike Ross
+Sports / Rugby,6-9,4,Which Leinster prop was nicknamed 'Church'?,Cian Healy,Tadhg Furlong,Andrew Porter,Mike Ross
+Sports / Rugby,6-9,4,Which Ireland back-row forward was nicknamed 'the Tullow Tank'?,Seán O'Brien,Jamie Heaslip,Stephen Ferris,David Wallace
+Sports / Rugby,6-9,4,Which Limerick-born Munster winger scored lots of tries for Ireland and is from Moyross?,Keith Earls,Simon Zebo,Andrew Conway,Denis Hickie
+Sports / Rugby,6-9,4,Which Ulster winger scored a famous try for the Lions in 2009 and played for Ireland?,Tommy Bowe,Andrew Trimble,Craig Gilroy,Jacob Stockdale
+Sports / Rugby,6-9,4,Which Leinster full-back won five Six Nations titles and is known as 'Rob'?,Rob Kearney,Rob Herring,Robbie Henshaw,Rob Penney
+Sports / Rugby,6-9,4,Which Ireland fly-half from Munster kicked lots of points from 2023 onwards and is from Cork?,Jack Crowley,Ross Byrne,Joey Carbery,Ciarán Frawley
+Sports / Rugby,6-9,4,"Which Ireland fly-half from Leinster, born in 2003, became the main number 10 in 2025?",Sam Prendergast,Jack Crowley,Harry Byrne,Ross Byrne
+Sports / Rugby,6-9,4,Which Leinster centre partnered Bundee Aki in the Ireland midfield for years?,Garry Ringrose,Jamie Osborne,Hugo Keenan,Jordan Larmour
+Sports / Rugby,6-9,4,Which Ireland full-back from Leinster played every minute of the 2023 Grand Slam?,Hugo Keenan,Rob Kearney,Jordan Larmour,Jimmy O'Brien
+Sports / Rugby,6-9,4,Who coached Ireland to the 2023 Grand Slam?,Andy Farrell,Joe Schmidt,Declan Kidney,Eddie O'Sullivan
+Sports / Rugby,6-9,5,What is a '50:22' kick?,"A kick from your own half that bounces into touch in the other team's 22, giving you the line-out",A kick worth 50 points,A drop goal from 22 metres,A kick-off that goes 50 metres
+Sports / Rugby,6-9,5,How many replacements can a team use in international rugby?,8,5,3,15
+Sports / Rugby,6-9,5,How many players are in a full international match-day squad?,23,15,30,18
+Sports / Rugby,6-9,5,How many points is a try worth in rugby league?,4,5,3,6
+Sports / Rugby,6-9,5,How many points is a drop goal worth in rugby league?,1,2,3,4
+Sports / Rugby,6-9,5,How many tackles does a rugby league team get before handing over the ball?,Six,Four,Eight,Ten
+Sports / Rugby,6-9,5,How long is each half in a rugby sevens match?,7 minutes,10 minutes,20 minutes,40 minutes
+Sports / Rugby,6-9,5,Which city hosts a famous sevens tournament in Asia every year?,Hong Kong,Tokyo,Singapore,Seoul
+Sports / Rugby,6-9,5,What is a 'blood bin' replacement?,A temporary sub while a bleeding player is treated,A permanent sub,A player sent off,A spare referee
+Sports / Rugby,6-9,5,Which famous Fijian sevens player was nicknamed 'the Wizard'?,Waisale Serevi,Jonah Lomu,Brian Lima,Rupeni Caucaunibuca
+Sports / Rugby,10-13,1,Which Irish province plays its home games at the Kingspan Stadium (Ravenhill)?,Ulster,Munster,Leinster,Connacht
+Sports / Rugby,10-13,1,Which Munster ground in Cork is also called Musgrave Park?,Virgin Media Park,Páirc Uí Chaoimh,Thomond Park,Turner's Cross
+Sports / Rugby,10-13,1,What is the All Blacks' famous home stadium in Auckland?,Eden Park,Ellis Park,Suncorp Stadium,Newlands
+Sports / Rugby,10-13,1,In which South African stadium did the 1995 World Cup final take place?,Ellis Park,Newlands,Loftus Versfeld,Kings Park
+Sports / Rugby,10-13,1,What was Twickenham renamed in 2024 after a sponsorship deal?,Allianz Stadium,Emirates Stadium,Vodafone Arena,Etihad Park
+Sports / Rugby,10-13,1,"Which country won the 2021 women's Rugby World Cup, played in 2022?",New Zealand,England,France,Canada
+Sports / Rugby,10-13,1,Which country's women's team did Ireland famously beat at the 2014 World Cup?,New Zealand,England,Australia,France
+Sports / Rugby,10-13,1,In which year did Ireland's women win the Six Nations Grand Slam?,2013,2009,2018,2023
+Sports / Rugby,10-13,1,Have Ireland's men ever reached a Rugby World Cup semi-final (up to 2023)?,No,"Yes, once","Yes, twice","Yes, in 2015"
+Sports / Rugby,10-13,2,Which All Black fly-half was World Rugby Player of the Year in 2016 and 2017?,Beauden Barrett,Dan Carter,Richie Mo'unga,Aaron Cruden
+Sports / Rugby,10-13,2,Which All Black lock was World Rugby Player of the Year in 2014?,Brodie Retallick,Sam Whitelock,Kieran Read,Ali Williams
+Sports / Rugby,10-13,2,Which All Black number 8 was World Rugby Player of the Year in 2013?,Kieran Read,Richie McCaw,Jerome Kaino,Ardie Savea
+Sports / Rugby,10-13,2,Which French flanker was World Rugby Player of the Year in 2011?,Thierry Dusautoir,Imanol Harinordoquy,Serge Betsen,Sébastien Chabal
+Sports / Rugby,10-13,2,Which Welsh winger was World Rugby Player of the Year in 2008?,Shane Williams,Leigh Halfpenny,George North,Gareth Thomas
+Sports / Rugby,10-13,2,Which South African winger was World Rugby Player of the Year in 2007?,Bryan Habana,Cheslin Kolbe,Jean de Villiers,Breyton Paulse
+Sports / Rugby,10-13,2,Which Irish province won four Pro14 titles in a row from 2018 to 2021?,Leinster,Munster,Ulster,Connacht
+Sports / Rugby,10-13,2,How many European Cups had Leinster won by 2025?,4,2,6,3
+Sports / Rugby,10-13,2,"Which French club had won the most European Cups by 2024, with six?",Toulouse,Toulon,La Rochelle,Clermont
+Sports / Rugby,10-13,2,"Which English club won the European Cup in 2016, 2017 and 2019?",Saracens,Leicester,Exeter,Wasps
+Sports / Rugby,10-13,3,Which English club beat Racing 92 in the 2020 European Cup final?,Exeter Chiefs,Saracens,Leicester Tigers,Bath
+Sports / Rugby,10-13,3,Which English club won the European Cup in 2001 and 2002?,Leicester Tigers,Bath,Wasps,Northampton
+Sports / Rugby,10-13,3,Which Welsh team won the Pro12 in 2017?,Scarlets,Ospreys,Cardiff,Dragons
+Sports / Rugby,10-13,3,Which Ireland fly-half led them to the 1948 Grand Slam and was voted Ireland's greatest player?,Jack Kyle,Karl Mullen,Tony O'Reilly,Mike Gibson
+Sports / Rugby,10-13,3,Which trophy did Ireland win in 2004 for the first time since 1985?,The Triple Crown,The Grand Slam,The Six Nations,The Webb Ellis Cup
+Sports / Rugby,10-13,3,In which city did Ireland clinch the 2014 Six Nations title in Brian O'Driscoll's last game?,Paris,Rome,Cardiff,Edinburgh
+Sports / Rugby,10-13,3,Which team did Italy beat in their very first Six Nations match in 2000?,Scotland,Ireland,Wales,France
+Sports / Rugby,10-13,3,Which country won the Six Nations Grand Slam in 2022?,France,Ireland,England,Wales
+Sports / Rugby,10-13,3,Which country won the Six Nations Grand Slam in 2019?,Wales,Ireland,England,France
+Sports / Rugby,10-13,3,Which country won the Six Nations Grand Slam in 2016?,England,Wales,Ireland,France
+Sports / Rugby,10-13,4,Which country joined the Home Nations in 1910 to form the Five Nations?,France,Italy,Belgium,Spain
+Sports / Rugby,10-13,4,In which country is the State of Origin rugby league series played?,Australia,New Zealand,England,France
+Sports / Rugby,10-13,4,Which two Australian states play rugby league's State of Origin?,New South Wales and Queensland,Victoria and Tasmania,Western Australia and South Australia,Queensland and Victoria
+Sports / Rugby,10-13,4,Where is rugby league's Challenge Cup final usually played?,Wembley Stadium,Twickenham,Old Trafford,Murrayfield
+Sports / Rugby,10-13,4,Which Samoan centre was nicknamed 'the Chiropractor' for his huge tackles?,Brian Lima,Tana Umaga,Alesana Tuilagi,Pat Lam
+Sports / Rugby,10-13,4,Which Australian lock captained the 1999 World Cup winners and was nicknamed 'Nobody'?,John Eales,George Gregan,Stirling Mortlock,Phil Kearns
+Sports / Rugby,10-13,4,Which Australian winger was famous for his 'goose-step' in the 1990s?,David Campese,Joe Roff,Lote Tuqiri,Ben Tune
+Sports / Rugby,10-13,4,Which French full-back of the 1980s and 90s was famous for counter-attacking flair?,Serge Blanco,Philippe Sella,Thomas Castaignède,Fabien Galthié
+Sports / Rugby,10-13,4,Which Welsh fly-half of the 1970s was nicknamed 'the King'?,Barry John,Phil Bennett,Gareth Edwards,JPR Williams
+Sports / Rugby,10-13,4,Which Welsh full-back with long sideburns was famous in the 1970s and became a surgeon?,JPR Williams,Gareth Edwards,Gerald Davies,Phil Bennett
+Sports / Rugby,10-13,5,"Which Lions team won its only Test series in New Zealand, in 1971?",The 1971 Lions,The 1974 Lions,The 1997 Lions,The 2005 Lions
+Sports / Rugby,10-13,5,Which Welsh coach led the 1971 Lions in New Zealand?,Carwyn James,Ray Prosser,Syd Millar,Clive Rowlands
+Sports / Rugby,10-13,5,"Which English coach led the 2005 Lions, who lost every Test to New Zealand?",Clive Woodward,Ian McGeechan,Graham Henry,Eddie Jones
+Sports / Rugby,10-13,5,"Which Scottish coach led the Lions in 1989, 1993, 1997 and 2009?",Ian McGeechan,Jim Telfer,Gregor Townsend,Andy Robinson
+Sports / Rugby,10-13,5,Which country did the Lions beat 2-1 in 1989?,Australia,New Zealand,South Africa,Argentina
+Sports / Rugby,10-13,5,Which country beat the Lions 2-1 in 2001?,Australia,New Zealand,South Africa,France
+Sports / Rugby,10-13,5,How many points is a penalty try worth in rugby union?,7,5,6,8
+Sports / Rugby,10-13,5,Which famous Welsh scrum-half scored a try in the 1973 Barbarians v New Zealand game?,Gareth Edwards,Phil Bennett,Barry John,Terry Holmes
+Sports / Rugby,10-13,5,Which coach led Ireland to the 1985 Triple Crown?,Mick Doyle,Eddie O'Sullivan,Declan Kidney,Warren Gatland
+Sports / Rugby,10-13,5,"In which year did Ireland win back-to-back Six Nations titles for the first time, 2014 and which year?",2015,2016,2013,2018
+Sports / Rugby,14-17,1,How long does a player spend in the sin bin after a yellow card?,10 minutes,5 minutes,20 minutes,The rest of the game
+Sports / Rugby,14-17,1,"Under World Rugby's 2025 law, what happens after a '20-minute red card'?",The player can be replaced after 20 minutes,The team plays with 14 for the rest of the game,The game is replayed,The player returns after 20 minutes
+Sports / Rugby,14-17,1,How many points does a team get for losing a game by seven points or fewer in the Six Nations?,1 (a losing bonus point),2,0,3
+Sports / Rugby,14-17,1,What is 'jackaling' at a ruck?,A player trying to steal the ball over a tackled player,Kicking the ball from a ruck,Falling on the ball,Rolling away
+Sports / Rugby,14-17,1,What is a 'goal-line drop-out'?,A restart from the try line after a defending team holds the ball up,A drop goal from the try line,A kick-off from halfway,A penalty kick
+Sports / Rugby,14-17,1,What is a 'turnover' in rugby?,When the defending team wins the ball back,A change of ends at half-time,A kick-off,A replacement
+Sports / Rugby,14-17,1,What is a 'chip kick'?,A short kick over the defence to regather,A kick at goal,A kick into touch,A low rolling kick
+Sports / Rugby,14-17,1,Which rugby position is between the scrum-half and the centres?,Fly-half,Full-back,Winger,Hooker
+Sports / Rugby,14-17,1,What is the 'front row' of a scrum made up of?,Two props and the hooker,The locks,The flankers and number 8,The scrum-half and fly-half
+Sports / Rugby,14-17,1,Which law says players can't be in front of a teammate who kicks or carries the ball?,Offside,Forward pass,Knock-on,Obstruction
+Sports / Rugby,14-17,2,Which English rugby league legend became Ireland's head coach?,Andy Farrell,Shaun Edwards,Jason Robinson,Kevin Sinfield
+Sports / Rugby,14-17,2,Which Munster great became Ireland's forwards coach in 2023?,Paul O'Connell,Peter O'Mahony,Donncha O'Callaghan,Mick Galwey
+Sports / Rugby,14-17,2,Which Leinster number 8 won 95 Ireland caps and toured with the Lions in 2009 and 2013?,Jamie Heaslip,Jack Conan,Caelan Doris,Seán O'Brien
+Sports / Rugby,14-17,2,Which Munster lock captained the 2009 Lions in South Africa?,Paul O'Connell,Donncha O'Callaghan,Mick O'Driscoll,Billy Holland
+Sports / Rugby,14-17,2,"Which Munster scrum-half, small but brave, won two European Cups and 98 Ireland caps?",Peter Stringer,Conor Murray,Tomás O'Leary,Craig Casey
+Sports / Rugby,14-17,2,Which Leinster centre partnered Brian O'Driscoll for Ireland for most of the 2000s?,Gordon D'Arcy,Shane Horgan,Kevin Maggs,Paddy Wallace
+Sports / Rugby,14-17,2,"Which Leinster winger, nicknamed 'Shaggy', scored a famous try against England in 2006 at Twickenham?",Shane Horgan,Denis Hickie,Girvan Dempsey,Luke Fitzgerald
+Sports / Rugby,14-17,2,"Which Irish province's ground is Thomond Park, scene of a famous unbeaten European run?",Munster,Leinster,Ulster,Connacht
+Sports / Rugby,14-17,3,Which famous Ireland captain led them to the 1948 Grand Slam?,Karl Mullen,Jack Kyle,Bill McKay,Jim McCarthy
+Sports / Rugby,14-17,3,Which French scrum-half was Player of the Year in 2002 and later coached France?,Fabien Galthié,Antoine Dupont,Pierre Berbizier,Dimitri Yachvili
+Sports / Rugby,14-17,3,Which Springbok flanker was World Player of the Year in 2004?,Schalk Burger,Pieter-Steph du Toit,Juan Smith,Victor Matfield
+Sports / Rugby,14-17,3,Which Welsh team plays at the Cardiff Arms Park?,Cardiff Rugby,Dragons,Ospreys,Scarlets
+Sports / Rugby,14-17,3,Which Scottish club plays at Scotstoun Stadium?,Glasgow Warriors,Edinburgh,Ayr,Melrose
+Sports / Rugby,14-17,3,"Which Italian club, based in Parma, played in the Pro14 and URC as Zebre?",Zebre Parma,Benetton,Petrarca,Calvisano
+Sports / Rugby,14-17,3,Ireland and which country play for the Lansdowne Cup?,Australia,New Zealand,South Africa,Argentina
+Sports / Rugby,14-17,3,Which nation do Ireland face for the Centenary Quaich?,Scotland,Wales,England,Italy
+Sports / Rugby,14-17,4,In which year did France become part of the international championship?,1910,1883,1947,2000
+Sports / Rugby,14-17,4,In which year was the first Home Nations Championship played?,1883,1871,1910,1923
+Sports / Rugby,14-17,4,"Which school's pupil, William Webb Ellis, is linked to the origin of rugby?",Rugby School,Eton College,Harrow School,Clongowes Wood
+Sports / Rugby,14-17,4,"Which country beat Ireland in their first-ever Test match, in 1875?",England,Scotland,Wales,France
+Sports / Rugby,14-17,4,Which Japanese city hosted the 2019 World Cup final?,Yokohama,Tokyo,Osaka,Kobe
+Sports / Rugby,14-17,4,"Which country reached the World Cup quarter-finals for the first time in 2019, as hosts?",Japan,Italy,Georgia,USA
+Sports / Rugby,14-17,4,Which country did Ireland beat in Cardiff to clinch the 2009 Grand Slam?,Wales,England,Scotland,France
+Sports / Rugby,14-17,4,Which ground hosted Ireland's famous 43-13 win over England in 2007?,Croke Park,Lansdowne Road,Thomond Park,Ravenhill
+Sports / Rugby,14-17,4,Which French scrum-half won Olympic sevens gold in 2024?,Antoine Dupont,Thomas Ramos,Damian Penaud,Matthieu Jalibert
+Sports / Rugby,14-17,4,Which country did France beat in the Paris 2024 men's sevens final?,Fiji,New Zealand,South Africa,Australia
+Sports / Rugby,14-17,5,Which famous 1905 New Zealand team toured Britain and gave the All Blacks name its fame?,The Originals,The Invincibles,The Grand Slammers,The Wanderers
+Sports / Rugby,14-17,5,Which 1924 New Zealand touring side won every match and got the nickname 'the Invincibles'?,The 1924 All Blacks,The 1905 All Blacks,The 1971 Lions,The 1984 Wallabies
+Sports / Rugby,14-17,5,Which 1984 Australian team won a Grand Slam against all four home nations?,The 1984 Wallabies,The 1999 Wallabies,The 1991 Wallabies,The 2003 Wallabies
+Sports / Rugby,14-17,5,Which Irish lock was the first man to play in five Lions tours?,Willie John McBride,Mike Gibson,Paul O'Connell,Moss Keane
+Sports / Rugby,14-17,5,"Which Ireland centre went on five Lions tours, from 1966 to 1977?",Mike Gibson,Willie John McBride,Ollie Campbell,Tony Ward
+Sports / Rugby,14-17,5,Which Irish fly-half of the late 1970s and early 80s rivalled Ollie Campbell for the number 10 shirt?,Tony Ward,Mike Gibson,Barry McGann,Paul Dean
+Sports / Rugby,14-17,5,Which Irish fly-half kicked all of Ireland's points to win the 1982 Triple Crown decider against Scotland?,Ollie Campbell,Tony Ward,Paul Dean,Michael Kiernan
+Sports / Rugby,14-17,5,Which Irish centre's drop goal beat England to clinch the 1985 Triple Crown?,Michael Kiernan,Brendan Mullin,Paul Dean,Keith Crossan
+Sports / Rugby,14-17,5,"Which Ireland coach was in charge from 2001 to 2008, winning three Triple Crowns?",Eddie O'Sullivan,Warren Gatland,Declan Kidney,Brian Ashton
+Sports / Rugby,adult,1,In which year did Ireland win their first Grand Slam?,1948,1985,1951,1899
+Sports / Rugby,adult,1,Which country did Ireland beat in Dublin to seal the 2023 Grand Slam?,England,Scotland,France,Wales
+Sports / Rugby,adult,3,Which 1924 New Zealand touring team won every match on its tour?,The Invincibles,The Originals,The Untouchables,The Immortals
+Sports / Rugby,adult,3,Which coach led Leinster to their first Heineken Cup in 2009?,Michael Cheika,Joe Schmidt,Leo Cullen,Matt O'Connor
+Sports / Rugby,adult,3,In which year did Munster first win the Heineken Cup?,2006,2008,2002,2000
+Sports / Rugby,adult,4,"In 1984, which touring country beat Ireland, England, Wales and Scotland for a Grand Slam?",Australia,New Zealand,South Africa,Fiji
+Sports / Rugby,adult,4,What was the score when Ireland beat New Zealand in Chicago in 2016?,40-29,29-20,16-9,23-18
+Sports / Rugby,adult,4,Which coach led Ireland to their first series win in New Zealand in 2022?,Andy Farrell,Joe Schmidt,Declan Kidney,Eddie O'Sullivan
+Sports / Rugby,adult,5,Which French club did Ulster beat in the 1999 European Cup final?,Colomiers,Toulouse,Perpignan,Biarritz
+Sports / Rugby,adult,5,Which club did Munster beat in the 2006 Heineken Cup final?,Biarritz,Toulouse,Leicester,Perpignan
+Sports / Rugby,adult,5,Which club did Munster beat in the 2008 Heineken Cup final?,Toulouse,Biarritz,Wasps,Leicester
+Sports / Rugby,adult,5,Which province did Connacht beat in the 2016 Pro12 final?,Leinster,Glasgow,Munster,Ulster
+Sports / Rugby,adult,5,Which club beat Munster 9-8 in the 2000 Heineken Cup final?,Northampton,Leicester,Wasps,Toulouse
+Sports / Rugby,adult,1,Which country did Ireland beat 13-8 in the pool stage of the 2023 World Cup?,South Africa,New Zealand,France,Scotland
+Sports / Rugby,adult,4,Which province did Leinster beat in the all-Irish 2012 Heineken Cup final?,Ulster,Munster,Connacht,Northampton
+Sports / Rugby,adult,4,Which French club did Leinster beat in the 2018 European Cup final in Bilbao?,Racing 92,Toulouse,Clermont,La Rochelle
