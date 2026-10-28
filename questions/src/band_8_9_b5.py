@@ -12,7 +12,7 @@ Q = [
 ('G',1,"What do people carve faces into at Halloween?","Pumpkins or turnips","Apples","Bananas","Potatoes"),
 ('G',1,"What do you call a person who rides racehorses?","A jockey","A cowboy","A knight","A farmer"),
 ('S',1,"What do you call the gas that makes balloons float up?","Helium","Oxygen","Steam","Smoke"),
-('S',1,"Which planet has big rings around it?","Saturn","Mercury","Mars","Earth"),
+("S",1,"Which planet is sixth from the Sun and has bright rings?","Saturn","Jupiter","Uranus","Neptune"),
 ("S",1,"What do you call a frog's long jump-ready back legs good for?","Jumping and swimming","Climbing trees","Digging holes","Flying"),
 ('S',1,"What is the name of the large sea bird with a colourful beak that lives on the Skelligs?","The puffin","The penguin","The parrot","The toucan"),
 ("S",1,"What does an octopus squirt to escape from danger?","Ink","Water balloons","Glue","Bubbles of air"),

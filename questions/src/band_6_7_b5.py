@@ -152,7 +152,7 @@ Q = [
 ('N',3,"What is 11 + 4?","15","14","16","17"),
 ('N',3,"What is the Irish word for the number one?","A haon","A dó","A trí","A ceathair"),
 ('N',3,"What number is 10 more than 25?","35","26","15","45"),
-("N",3,"How many sides do two triangles have altogether?","6","3","8","5"),
+("N",3,"How many sides do two squares and a triangle have altogether?","11","10","12","9"),
 ('N',3,"What is 2 + 2 + 2 + 2?","8","6","10","4"),
 # Grade 4
 ('G',4,"In the fairy tale Rumpelstiltskin, what could he spin straw into?","Gold","Silver","Silk","Chocolate"),
