@@ -178,7 +178,7 @@ Q = [
 ('Y',4,"Which is the longest river in Ireland and Britain?","The Shannon","The Thames","The Severn","The Liffey"),
 ('Y',4,"Which lake on the Shannon has an island called Holy Island and is near Clare, Galway and Tipperary?","Lough Derg","Lough Ree","Lough Allen","Lough Corrib"),
 ('Y',4,"Which is the biggest lake in the Republic of Ireland?","Lough Corrib","Lough Neagh","Lough Derg","Lough Mask"),
-("Y",4,"Which Scandinavian country is famous for IKEA and ABBA?","Sweden","Norway","Denmark","Finland"),
+("Y",4,"Which Scandinavian country gives out the Nobel Prizes (apart from the Peace Prize)?","Sweden","Norway","Denmark","Finland"),
 ('Y',4,"Which country is Mount Etna, Europe's most active volcano, in?","Italy","Iceland","Greece","Spain"),
 ('Y',4,"In which country is the Black Forest?","Germany","Austria","France","Switzerland"),
 ('H',4,"Which Dutch prince became King William III and won the Battle of the Boyne?","William of Orange","William the Conqueror","Henry VIII","James II"),
