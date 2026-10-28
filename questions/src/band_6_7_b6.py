@@ -245,7 +245,7 @@ Q = [
 ('M',5,"In Coco, what does Miguel love to play?","The guitar","The drums","The piano","The trumpet"),
 ('M',5,"In Luca, what kind of creatures are Luca and Alberto?","Sea monsters","Mermaids","Fish","Dragons"),
 ('M',5,"In Turning Red, what animal does Mei turn into?","A red panda","A fox","A tiger","A red dragon"),
-('M',5,"Which Irish county has won the most All-Ireland football titles?","Kerry","Dublin","Mayo","Cork"),
+("M",5,"What do you call the stick used to play hockey?","A hockey stick","A hurley","A bat","A racket"),
 ('M',5,"Which famous Irish band sang 'Beautiful Day'?","U2","Westlife","The Cranberries","Boyzone"),
 ('M',5,"In Kung Fu Panda, what is the name of Po's wise old turtle teacher?","Oogway","Shifu","Tigress","Mantis"),
 ('N',5,"What is 15 + 15?","30","25","35","20"),

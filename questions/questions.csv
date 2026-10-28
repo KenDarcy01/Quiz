@@ -2647,7 +2647,7 @@ History,6-7,5,Which American president is on Mount Rushmore and was the very fir
 "Sport, music & film",6-7,5,"In Coco, what does Miguel love to play?",The guitar,The drums,The piano,The trumpet
 "Sport, music & film",6-7,5,"In Luca, what kind of creatures are Luca and Alberto?",Sea monsters,Mermaids,Fish,Dragons
 "Sport, music & film",6-7,5,"In Turning Red, what animal does Mei turn into?",A red panda,A fox,A tiger,A red dragon
-"Sport, music & film",6-7,5,Which Irish county has won the most All-Ireland football titles?,Kerry,Dublin,Mayo,Cork
+"Sport, music & film",6-7,5,What do you call the stick used to play hockey?,A hockey stick,A hurley,A bat,A racket
 "Sport, music & film",6-7,5,Which famous Irish band sang 'Beautiful Day'?,U2,Westlife,The Cranberries,Boyzone
 "Sport, music & film",6-7,5,"In Kung Fu Panda, what is the name of Po's wise old turtle teacher?",Oogway,Shifu,Tigress,Mantis
 Maths & numbers,6-7,5,What is 15 + 15?,30,25,35,20
@@ -3073,6 +3073,506 @@ Science & nature,8-9,5,Which blood cells help fight germs?,White blood cells,Red
 Maths & numbers,8-9,5,What is 10% of 200?,20,2,10,100
 Maths & numbers,8-9,5,What is 11 x 11?,121,111,112,"1,111"
 Maths & numbers,8-9,5,How many degrees are in a right angle?,90,45,180,360
+General knowledge,8-9,1,"If it is 'raining cats and dogs', what is the weather like?",Raining very heavily,Sunny,Snowing,Foggy
+General knowledge,8-9,1,What is the Irish word for 'girl'?,Cailín,Buachaill,Bean,Fear
+General knowledge,8-9,1,What is the Irish word for 'boy'?,Buachaill,Cailín,Daidí,Mamaí
+General knowledge,8-9,1,What do you call a person who designs and paints pictures?,An artist,A plumber,A pilot,A jockey
+General knowledge,8-9,1,Which Irish crisps come in a red bag called 'Cheese & Onion'?,Tayto,Doritos,Hula Hoops,Pringles
+General knowledge,8-9,1,What is the name for the money used in Ireland?,The euro,The pound,The dollar,The punt
+General knowledge,8-9,1,What do you call the book you use to find words that mean the same thing?,A thesaurus,An atlas,A diary,An encyclopedia
+General knowledge,8-9,1,What do people carve faces into at Halloween?,Pumpkins or turnips,Apples,Bananas,Potatoes
+General knowledge,8-9,1,What do you call a person who rides racehorses?,A jockey,A cowboy,A knight,A farmer
+Science & nature,8-9,1,What do you call the gas that makes balloons float up?,Helium,Oxygen,Steam,Smoke
+Science & nature,8-9,1,Which planet has big rings around it?,Saturn,Mercury,Mars,Earth
+Science & nature,8-9,1,What do you call a frog's long jump-ready back legs good for?,Jumping and swimming,Climbing trees,Digging holes,Flying
+Science & nature,8-9,1,What is the name of the large sea bird with a colourful beak that lives on the Skelligs?,The puffin,The penguin,The parrot,The toucan
+Science & nature,8-9,1,What does an octopus squirt to escape from danger?,Ink,Water balloons,Glue,Bubbles of air
+Science & nature,8-9,1,What do caterpillars spin around themselves before turning into moths?,A cocoon,A web,A nest,A shell
+Science & nature,8-9,1,What happens to water when it gets very cold?,It freezes,It boils,It disappears,It turns to sand
+Science & nature,8-9,1,What do you call the invisible pull that makes a magnet stick to a fridge?,Magnetism,Gravity,Friction,Static
+Science & nature,8-9,1,Which plant can sting you if you brush against its leaves?,A nettle,A daisy,A clover,A buttercup
+Geography,8-9,1,Which Irish province is Cork in?,Munster,Leinster,Connacht,Ulster
+Geography,8-9,1,How many counties are in the province of Munster?,6,4,9,12
+Geography,8-9,1,Which is the smallest of Ireland's four provinces by number of counties?,Connacht,Leinster,Munster,Ulster
+Geography,8-9,1,Which big island is at the 'toe' of Italy's boot?,Sicily,Sardinia,Corsica,Malta
+Geography,8-9,1,What do you call a person who makes maps?,A cartographer,A carpenter,A cardiologist,A cartoonist
+Geography,8-9,1,What colour is the Union Jack mostly?,"Red, white and blue","Green, white and orange",Black and gold,Yellow and green
+Geography,8-9,1,"What is the name of the big train station in Dublin on the north side, beside the Spire?",Connolly,Heuston,Pearse,Euston
+Geography,8-9,1,"What is the tall, thin silver monument on O'Connell Street in Dublin called?",The Spire,Nelson's Pillar,The Needle,The Obelisk
+History,8-9,1,"In Irish legend, which son of Fionn went to Tír na nÓg, the land of youth?",Oisín,Cú Chulainn,Setanta,Diarmuid
+History,8-9,1,"In Irish legend, what was Tír na nÓg?",The land of eternal youth,A castle in Cork,A Viking ship,A giant's cave
+History,8-9,1,Who were the ancient Celtic priests and wise men?,Druids,Knights,Monks,Pharaohs
+History,8-9,1,Which explorer from Kildare led expeditions to Antarctica on the ship Endurance?,Ernest Shackleton,Tom Crean,Christopher Columbus,Roald Amundsen
+History,8-9,1,What did Irish people mainly eat before the Great Famine?,Potatoes,Rice,Pasta,Bread rolls
+History,8-9,1,What was the name of Ireland's money before the euro?,The punt,The pound sterling,The shilling only,The dollar
+History,8-9,1,In which year did Ireland start using the euro coins and notes?,2002,1990,2010,1980
+History,8-9,1,"What were castles often surrounded by, full of water?",A moat,A maze,A fence,A garden
+"Sport, music & film",8-9,1,What is the name of the Irish drum played with a little stick?,The bodhrán,The bongo,The tabla,The snare
+"Sport, music & film",8-9,1,What musical instrument is a small metal whistle in Irish music?,The tin whistle,The trumpet,The harmonica,The kazoo
+"Sport, music & film",8-9,1,"Which city hosted the Summer Olympics in 2021, a year late?",Tokyo,Paris,London,Rio de Janeiro
+"Sport, music & film",8-9,1,Which game has a character called Steve who mines blocks?,Minecraft,Roblox,Fortnite,Among Us
+"Sport, music & film",8-9,1,Which Pixar film is about a robot cleaning up Earth?,WALL-E,Up,Cars,Brave
+"Sport, music & film",8-9,1,Which ogre's wife is called Fiona?,Shrek,The Grinch,Hagrid,Mike Wazowski
+"Sport, music & film",8-9,1,What colour belt is the highest in karate?,Black,White,Yellow,Pink
+"Sport, music & film",8-9,1,In which game do you try to get 'checkmate'?,Chess,Draughts,Ludo,Snap
+Maths & numbers,8-9,1,What is 7 x 4?,28,24,32,11
+Maths & numbers,8-9,1,What is 15 - 7?,8,7,9,22
+Maths & numbers,8-9,1,How many cents are in €1?,100,10,50,"1,000"
+Maths & numbers,8-9,1,What is 9 + 8?,17,16,18,98
+Maths & numbers,8-9,1,How many sides do three triangles have altogether?,9,6,12,3
+Maths & numbers,8-9,1,What is 30 + 15?,45,35,40,315
+Maths & numbers,8-9,1,"Which number is odd: 14, 22 or 17?",17,14,22,None of them
+Maths & numbers,8-9,1,What is 11 - 6?,5,4,6,7
+General knowledge,8-9,2,What does it mean if someone is 'over the moon'?,They are very happy,They are an astronaut,They are tired,They are angry
+General knowledge,8-9,2,What does 'a piece of cake' mean when talking about a test?,Very easy,Very hard,Delicious,Very long
+General knowledge,8-9,2,What is the Irish word for 'Monday'?,Dé Luain,Dé Máirt,Dé hAoine,Dé Domhnaigh
+General knowledge,8-9,2,What is the Irish word for 'Friday'?,Dé hAoine,Dé Luain,Dé Sathairn,Déardaoin
+General knowledge,8-9,2,What is the title of the leader of the Irish government?,The Taoiseach,The President,The Prime Minister,The Mayor
+General knowledge,8-9,2,What is the name of the Irish parliament?,The Oireachtas (with the Dáil and Seanad),Westminster,The Senate House,Congress
+General knowledge,8-9,2,"What do you call a word made from two words joined together, like 'football'?",A compound word,A prefix,An adverb,A noun phrase
+General knowledge,8-9,2,Which letter is silent in the word 'knee'?,K,N,E,None
+General knowledge,8-9,2,What is the opposite of 'cheerful'?,Gloomy,Funny,Loud,Kind
+Science & nature,8-9,2,What colour is an octopus's blood?,Blue,Red,Green,Yellow
+Science & nature,8-9,2,What colour is a giraffe's tongue?,Dark blue-purple,Pink,Green,Yellow
+Science & nature,8-9,2,"What is the name for the place where two bones meet, like your knee or elbow?",A joint,A muscle,A vein,A nerve
+Science & nature,8-9,2,What is glass made from?,Sand,Wood,Plastic,Paper
+Science & nature,8-9,2,Which wild cat-like animal with a bushy tail lives in Irish woods and is rare?,The pine marten,The badger,The otter,The stoat
+Science & nature,8-9,2,"What is the name of the huge, gentle shark that visits Irish coasts in summer?",The basking shark,The great white shark,The hammerhead,The tiger shark
+Science & nature,8-9,2,"Which part of your eye is coloured: blue, green or brown?",The iris,The pupil,The eyelash,The lid
+Science & nature,8-9,2,"Which plant, often called the 'Venus flytrap', eats insects?",A carnivorous plant,A cactus,A fern,A moss
+Science & nature,8-9,2,Which muscle under your lungs helps you breathe in?,The diaphragm,The biceps,The heart,The tongue
+Geography,8-9,2,What is the name of the biggest island off the coast of Ireland?,Achill Island,Tory Island,Valentia Island,Clare Island
+Geography,8-9,2,Which mountains are just south of Dublin?,The Wicklow Mountains,The Mourne Mountains,The Galtees,MacGillycuddy's Reeks
+Geography,8-9,2,Which Northern Irish mountains inspired C.S. Lewis's Narnia?,The Mourne Mountains,The Wicklow Mountains,The Burren,The Comeraghs
+Geography,8-9,2,Which river runs through Cork city?,The Lee,The Liffey,The Suir,The Boyne
+Geography,8-9,2,Which Portuguese football star has scored more international goals than any other man?,Cristiano Ronaldo,Luís Figo,Eusébio,Bruno Fernandes
+Geography,8-9,2,What is the name of the famous unfinished church in Barcelona?,La Sagrada Família,Notre-Dame,St Peter's,Westminster Abbey
+Geography,8-9,2,Which African country is famous for the Serengeti and its huge animal migrations?,Tanzania,Egypt,Morocco,Nigeria
+Geography,8-9,2,What are the long black boats rowed by a man with a pole in Venice called?,Gondolas,Canoes,Junks,Currachs
+History,8-9,2,Which Irish leader of 1916 was so badly injured he was executed sitting in a chair?,James Connolly,Patrick Pearse,Thomas Clarke,Joseph Plunkett
+History,8-9,2,Which building on O'Connell Street was the rebels' headquarters in 1916?,The GPO (General Post Office),Dublin Castle,Trinity College,The Custom House
+History,8-9,2,Which Kerry man walked across Antarctica's ice and later opened a pub called the South Pole Inn?,Tom Crean,Ernest Shackleton,Robert Scott,Edmund Hillary
+History,8-9,2,What did the Normans build all over Ireland after they arrived in 1169?,Stone castles,Pyramids,Round towers,Skyscrapers
+History,8-9,2,Who invented the printing press in Europe around 1440?,Johannes Gutenberg,Thomas Edison,Isaac Newton,William Caxton
+History,8-9,2,"Who invented the television, showing it for the first time in 1926?",John Logie Baird,Thomas Edison,Alexander Graham Bell,Steve Jobs
+History,8-9,2,Which Greek hero was killed by an arrow in his heel?,Achilles,Hercules,Odysseus,Perseus
+History,8-9,2,Which hero from Greek myths was the strongest man and did twelve labours?,Hercules,Achilles,Theseus,Jason
+"Sport, music & film",8-9,2,What instrument is the 'fiddle' in Irish music?,A violin,A cello,A guitar,A flute
+"Sport, music & film",8-9,2,Which Irish pipes are played by squeezing a bag under the arm with the elbow?,Uilleann pipes,Bagpipes,Tin whistle,Bodhrán
+"Sport, music & film",8-9,2,What are the colours of the five Olympic rings?,"Blue, yellow, black, green and red","Red, white, blue, green and gold","Pink, purple, orange, blue and black",All gold
+"Sport, music & film",8-9,2,Which tennis tournament in London is played on grass?,Wimbledon,The French Open,The US Open,The Australian Open
+"Sport, music & film",8-9,2,Which Northern Irish golfer won the Masters in 2025?,Rory McIlroy,Shane Lowry,Pádraig Harrington,Graeme McDowell
+"Sport, music & film",8-9,2,Which Irish gymnast won Olympic gold on the pommel horse in 2024?,Rhys McClenaghan,Kellie Harrington,Daniel Wiffen,Paul O'Donovan
+"Sport, music & film",8-9,2,Which Irish swimmer won Olympic gold in the 800m freestyle in 2024?,Daniel Wiffen,Rhys McClenaghan,Mona McSharry,Michael Phelps
+"Sport, music & film",8-9,2,What is the name of Greg Heffley's best friend in Diary of a Wimpy Kid?,Rowley,Rodrick,Manny,Fregley
+Maths & numbers,8-9,2,What is 7 x 2?,14,12,16,9
+Maths & numbers,8-9,2,What is 24 - 12?,12,10,14,36
+Maths & numbers,8-9,2,What is half of 90?,45,40,35,50
+Maths & numbers,8-9,2,What number is the Roman numeral III?,3,4,2,111
+Maths & numbers,8-9,2,How many minutes are in a quarter of an hour?,15,25,10,4
+Maths & numbers,8-9,2,What is 4 x 4?,16,8,12,44
+Maths & numbers,8-9,2,"If a bus has 20 people and 5 get off, how many are left?",15,25,10,14
+Maths & numbers,8-9,2,What is 35 + 15?,50,40,45,55
+General knowledge,8-9,3,What does it mean to 'let the cat out of the bag'?,To tell a secret,To free a pet,To go shopping,To tidy up
+General knowledge,8-9,3,What is the Irish word for 'Saturday'?,Dé Sathairn,Dé Domhnaigh,Dé Céadaoin,Dé hAoine
+General knowledge,8-9,3,What is the Irish word for 'Sunday'?,Dé Domhnaigh,Dé Luain,Dé Sathairn,Déardaoin
+General knowledge,8-9,3,What is the name of the Irish lower house of parliament where TDs sit?,Dáil Éireann,Seanad Éireann,The House of Lords,Áras an Uachtaráin
+General knowledge,8-9,3,What does 'TD' stand for in Irish politics?,Teachta Dála,Top Director,Taoiseach Deputy,Tour de Dublin
+General knowledge,8-9,3,What is the plural of 'tooth'?,Teeth,Tooths,Teeths,Toothes
+General knowledge,8-9,3,"What word means a 'baby' sheep, and is also a type of meat?",Lamb,Mutton,Veal,Pork
+General knowledge,8-9,3,What do you call a person who is afraid of spiders? They have…,Arachnophobia,Claustrophobia,Hydrophobia,Acrophobia
+General knowledge,8-9,3,Which prefix turns 'happy' into its opposite?,Un-,Dis-,Re-,Pre-
+Science & nature,8-9,3,"Which planet has the most volcanoes, with Olympus Mons the biggest of all?",Mars,Venus,Earth,Mercury
+Science & nature,8-9,3,Which bird lays the biggest eggs?,The ostrich,The eagle,The swan,The penguin
+Science & nature,8-9,3,What is the name of the bright spots of light that shoot across the night sky?,Shooting stars (meteors),Planets,Satellites,Comets that land
+Science & nature,8-9,3,What do you call a scientist who studies insects?,An entomologist,An etymologist,A zoologist,A botanist
+Science & nature,8-9,3,Where in Ireland do wild red deer live in a national park?,Killarney,Phoenix Park only,Dublin city,The Aran Islands
+Science & nature,8-9,3,What is the name of the long tube where most food is absorbed after the stomach?,The small intestine,The windpipe,The bladder,The aorta
+Science & nature,8-9,3,How long does it take the Earth to go around the Sun?,About a year,A day,A month,A week
+Science & nature,8-9,3,Which metal are most drinks cans made from?,Aluminium,Gold,Lead,Silver
+Science & nature,8-9,3,"What do you call a group of stars that make a picture in the sky, like the Plough?",A constellation,A galaxy,A comet,A planet
+Geography,8-9,3,What is the name of the biggest county in Ulster?,Donegal,Antrim,Tyrone,Down
+Geography,8-9,3,Which tall mountain in Donegal is shaped like a cone?,Errigal,Carrauntoohil,Croagh Patrick,Slieve Bloom
+Geography,8-9,3,Which three Irish rivers are called 'the Three Sisters'?,"The Barrow, the Nore and the Suir","The Liffey, the Lee and the Boyne","The Shannon, the Erne and the Bann","The Corrib, the Moy and the Clare"
+Geography,8-9,3,What is the capital of Romania?,Bucharest,Budapest,Sofia,Belgrade
+Geography,8-9,3,"Which country is famous for waffles, chocolate and Brussels sprouts?",Belgium,Switzerland,Norway,Ireland
+Geography,8-9,3,What is the name of the big art museum in Paris with a glass pyramid?,The Louvre,The Prado,The Tate,The Uffizi
+Geography,8-9,3,Which tiny country is completely inside the city of Rome?,Vatican City,Monaco,San Marino,Malta
+Geography,8-9,3,Which country has more people: Ireland or Germany?,Germany,Ireland,They are equal,Neither has people
+History,8-9,3,"Which Norman knight, nicknamed Strongbow, came to Ireland in 1170?",Richard de Clare,William the Conqueror,Brian Boru,Hugh O'Neill
+History,8-9,3,Which battle in 1690 was fought on a river in County Meath?,The Battle of the Boyne,The Battle of Clontarf,The Battle of Kinsale,The Battle of Hastings
+History,8-9,3,In which year did the Great Famine in Ireland begin?,1845,1916,1066,1990
+History,8-9,3,What was the name of the small lifeboat Shackleton sailed across stormy seas to get help in 1916?,The James Caird,The Titanic,The Mayflower,The Beagle
+History,8-9,3,Which Greek monster had snakes for hair and could turn people to stone?,Medusa,The Minotaur,The Cyclops,The Hydra
+History,8-9,3,Which one-eyed giant did Odysseus trick in Greek myths?,The Cyclops,Medusa,The Minotaur,Cerberus
+History,8-9,3,What was the name of the three-headed dog that guarded the Greek underworld?,Cerberus,Fluffy,Hydra,Pegasus
+History,8-9,3,What was the name of the flying horse in Greek myths?,Pegasus,Bucephalus,Shadowfax,Black Beauty
+"Sport, music & film",8-9,3,Which Pokémon type is strong against Fire types?,Water,Grass,Bug,Ice
+"Sport, music & film",8-9,3,Which game has you building and exploring with friends in places like 'Adopt Me!' and 'Brookhaven'?,Roblox,Minecraft,FIFA,Tetris
+"Sport, music & film",8-9,3,Which Nintendo game has you living on an island with animal neighbours?,Animal Crossing,Mario Kart,Splatoon,Kirby
+"Sport, music & film",8-9,3,Who wrote 'The World's Worst Children' and 'Gangsta Granny'?,David Walliams,Roald Dahl,Jacqueline Wilson,Liz Pichon
+"Sport, music & film",8-9,3,Which book series by Dav Pilkey is about a dog-headed police officer?,Dog Man,Captain Underpants,Bad Guys,Cat Kid
+"Sport, music & film",8-9,3,How many players are on a basketball team on court?,5,6,7,11
+"Sport, music & film",8-9,3,"In which sport would you see a scrum, a lineout and a try?",Rugby,Soccer,Hurling,Basketball
+"Sport, music & film",8-9,3,"In which Star Wars film did we first meet Luke Skywalker, in 1977?",A New Hope,The Phantom Menace,The Force Awakens,Return of the Jedi
+Maths & numbers,8-9,3,What is 8 x 3?,24,21,27,11
+Maths & numbers,8-9,3,What number is the Roman numeral XX?,20,11,22,200
+Maths & numbers,8-9,3,What is 45 - 18?,27,23,33,37
+Maths & numbers,8-9,3,Which weighs more: a tonne or a kilogram?,A tonne,A kilogram,They are the same,It depends what's in it
+Maths & numbers,8-9,3,What is one third of 30?,10,15,3,20
+Maths & numbers,8-9,3,How often does a leap year happen?,Every 4 years,Every year,Every 10 years,Every 2 years
+Maths & numbers,8-9,3,What is 6 x 5?,30,25,35,11
+Maths & numbers,8-9,3,"If a cinema ticket costs €8, how much do two tickets cost?",€16,€10,€14,€18
+General knowledge,8-9,4,What does it mean if you 'break the ice'?,Start a conversation and make people relax,Fall through a frozen lake,Make a drink cold,Smash a window
+General knowledge,8-9,4,What is the Irish word for 'Wednesday'?,Dé Céadaoin,Déardaoin,Dé Máirt,Dé Luain
+General knowledge,8-9,4,"Who is the head of state in Ireland, living in Áras an Uachtaráin?",The President (an tUachtarán),The Taoiseach,The King,The Ceann Comhairle
+General knowledge,8-9,4,What is a 'palindrome'?,"A word that reads the same backwards, like 'level'",A long word,A word with no vowels,A made-up word
+General knowledge,8-9,4,What does 'bilingual' mean?,Able to speak two languages,Having two bikes,Living in two houses,Being very tall
+General knowledge,8-9,4,"What do you call the punctuation mark that shows something belongs to someone, like in 'Sam's'?",An apostrophe,A comma,A full stop,A hyphen
+General knowledge,8-9,4,"What do you call the program you use to look at websites, like Chrome or Safari?",A web browser,A spreadsheet,A printer,A search key
+General knowledge,8-9,4,Which company makes the Galaxy phones?,Samsung,Apple,Nokia,Sony
+General knowledge,8-9,4,What do the letters 'PE' stand for on a school timetable?,Physical Education,Personal English,Painting and Embroidery,Practical Electronics
+Science & nature,8-9,4,"Which planet is nicknamed Earth's 'twin' because it is a similar size, but is boiling hot?",Venus,Mars,Mercury,Uranus
+Science & nature,8-9,4,"What do we call animals at risk of dying out, like tigers?",Endangered,Extinct,Nocturnal,Domestic
+Science & nature,8-9,4,Which part of a tree takes up water from the ground?,The roots,The leaves,The bark,The flowers
+Science & nature,8-9,4,Which tiny bird can fly backwards?,The hummingbird,The robin,The sparrow,The wren
+Science & nature,8-9,4,"Which small bird is called 'the king of the birds' in Irish folk tales, with 'Wren Boys' on 26 December?",The wren,The robin,The blackbird,The crow
+Science & nature,8-9,4,What do you call the drops of water that form on a cold window?,Condensation,Evaporation,Melting,Freezing
+Science & nature,8-9,4,How many kidneys do most people have?,2,1,3,4
+Science & nature,8-9,4,Which animal is bigger with longer ears and legs: a hare or a rabbit?,A hare,A rabbit,They are the same,A guinea pig
+Science & nature,8-9,4,What is the bone at the front of your knee called?,The kneecap (patella),The skull,The hip,The rib
+Geography,8-9,4,Which huge river flows through the Amazon rainforest?,The Amazon,The Nile,The Mississippi,The Danube
+Geography,8-9,4,Which country is Lake Garda in?,Italy,Switzerland,Austria,France
+Geography,8-9,4,Which country's capital is Luxembourg?,Luxembourg,Belgium,Switzerland,Austria
+Geography,8-9,4,Which small British territory is a huge rock at the southern tip of Spain?,Gibraltar,Malta,Monaco,Andorra
+Geography,8-9,4,"Which Irish county is famous for the Burren, a rocky limestone landscape?",Clare,Kerry,Sligo,Wicklow
+Geography,8-9,4,Which mountain range has the highest mountain in Ireland?,MacGillycuddy's Reeks,The Wicklow Mountains,The Mournes,The Twelve Bens
+Geography,8-9,4,Which ocean surrounds Antarctica?,The Southern Ocean,The Arctic Ocean,The Atlantic Ocean,The Indian Ocean
+Geography,8-9,4,Which famous Brazilian footballer was known by one name and won three World Cups?,Pelé,Neymar,Ronaldo,Kaká
+History,8-9,4,Which Irish man led the 'Flight of the Earls' in 1607 with Rory O'Donnell?,Hugh O'Neill,Brian Boru,Wolfe Tone,Robert Emmet
+History,8-9,4,Which Irish rebel leader led the 1798 United Irishmen rebellion and had French help?,Wolfe Tone,Michael Collins,Daniel O'Connell,Patrick Pearse
+History,8-9,4,Who was the leader of Ireland for many years and wrote the 1937 Constitution?,Éamon de Valera,Michael Collins,Seán Lemass,Arthur Griffith
+History,8-9,4,In which year did Ireland join the European Economic Community (now the EU)?,1973,1922,1990,2002
+History,8-9,4,Which ancient wonder was a lighthouse in Egypt?,The Lighthouse of Alexandria,The Colossus,The Hanging Gardens,The Sphinx
+History,8-9,4,Which volcano buried the city of Pompeii?,Vesuvius,Etna,Stromboli,Krakatoa
+History,8-9,4,Which Viking explorer reached North America around the year 1000?,Leif Erikson,Erik the Red,Harald Hardrada,Ragnar
+History,8-9,4,What did Ancient Greeks invent that is now a big sporting event every four years?,The Olympic Games,The World Cup,Wimbledon,The Tour de France
+"Sport, music & film",8-9,4,"In Star Wars, who is Luke Skywalker's father?",Darth Vader,Obi-Wan Kenobi,Han Solo,Yoda
+"Sport, music & film",8-9,4,What is the name of the furry Wookiee in Star Wars?,Chewbacca,Ewok,Jabba,R2-D2
+"Sport, music & film",8-9,4,"Which superhero team includes Iron Man, Thor and Captain America?",The Avengers,The Justice League,The X-Men,The Fantastic Four
+"Sport, music & film",8-9,4,What is the name of Thor's hammer?,Mjölnir,Excalibur,Stormbreaker,The Thunderer
+"Sport, music & film",8-9,4,Which country hosted the 2024 Olympic Games?,France (Paris),Japan,The USA,Australia
+"Sport, music & film",8-9,4,How many minutes is a normal soccer match (not counting extra time)?,90,60,80,70
+"Sport, music & film",8-9,4,Which Irish rower brothers won Olympic silver in 2016 and are from Skibbereen?,Gary and Paul O'Donovan,The Keane brothers,The Kearney brothers,The Brogan brothers
+"Sport, music & film",8-9,4,"In Fortnite, what do players jump out of at the start of a match?",A battle bus,A plane,A helicopter,A rocket
+Maths & numbers,8-9,4,What is 9 x 6?,54,45,56,63
+Maths & numbers,8-9,4,What number is the Roman numeral IX?,9,11,4,6
+Maths & numbers,8-9,4,What is 72 - 25?,47,53,43,57
+Maths & numbers,8-9,4,How many metres are in a kilometre?,"1,000",100,10,"10,000"
+Maths & numbers,8-9,4,What is three quarters of 40?,30,20,10,35
+Maths & numbers,8-9,4,What is 125 + 75?,200,190,210,150
+Maths & numbers,8-9,4,"If you buy a toy for €3.50 and pay with a €5 note, how much change do you get?",€1.50,€2.50,€1.00,€2.00
+Maths & numbers,8-9,4,How many sides does a decagon have?,10,12,8,9
+General knowledge,8-9,5,What is the Irish word for 'Thursday'?,Déardaoin,Dé Máirt,Dé Céadaoin,Dé hAoine
+General knowledge,8-9,5,Who is the person in charge of keeping order in the Dáil?,The Ceann Comhairle,The Taoiseach,The President,The Tánaiste
+General knowledge,8-9,5,What is the title of the deputy leader of the Irish government?,The Tánaiste,The Ceann Comhairle,The Uachtarán,The Garda Commissioner
+General knowledge,8-9,5,What does 'RTÉ' stand for?,Raidió Teilifís Éireann,Radio Television Europe,Real Time Entertainment,Republic TV Éire
+General knowledge,8-9,5,What does it mean to 'bite off more than you can chew'?,Try to do more than you can manage,Eat too fast,Bite your tongue,Lose a tooth
+General knowledge,8-9,5,Which word is a simile: 'as cold as ice' or 'the ice was cold'?,As cold as ice,The ice was cold,Both,Neither
+General knowledge,8-9,5,Who wrote the old fables 'The Tortoise and the Hare' and 'The Fox and the Grapes'?,Aesop,Hans Christian Andersen,The Brothers Grimm,Roald Dahl
+General knowledge,8-9,5,What do you call the person who tells a story in a book?,The narrator,The editor,The illustrator,The publisher
+General knowledge,8-9,5,"What is the name of the famous Irish writer of Dracula, born in Dublin?",Bram Stoker,Oscar Wilde,James Joyce,W.B. Yeats
+Science & nature,8-9,5,"What do we call a huge group of billions of stars, like the Milky Way?",A galaxy,A constellation,A solar system,A planet
+Science & nature,8-9,5,Which planet takes the shortest time to go around the Sun?,Mercury,Venus,Earth,Neptune
+Science & nature,8-9,5,What are Saturn's rings mostly made of?,Ice and rock,Gold,Gas clouds,Sand
+Science & nature,8-9,5,"Which Australian animal looks like a small bear and digs burrows, with square poo?",The wombat,The koala,The kangaroo,The platypus
+Science & nature,8-9,5,Which gas do we breathe out that plants use?,Carbon dioxide,Oxygen,Nitrogen,Helium
+Science & nature,8-9,5,What does a tadpole grow first as it turns into a frog?,Back legs,Wings,A shell,Fins
+Science & nature,8-9,5,Why do footballs and runners slow down on long grass more than on smooth ground?,More friction,Less gravity,More magnetism,Less air
+Science & nature,8-9,5,"Which animal has the longest pregnancy, nearly two years?",The elephant,The whale,The giraffe,The horse
+Science & nature,8-9,5,"Which bird, common in Ireland, is black and white and said to steal shiny things?",The magpie,The robin,The swallow,The blackbird
+Geography,8-9,5,"Which famous composer was born in Salzburg, Austria?",Wolfgang Amadeus Mozart,Ludwig van Beethoven,Johann Sebastian Bach,Frédéric Chopin
+Geography,8-9,5,What is the capital of the Czech Republic?,Prague,Vienna,Budapest,Warsaw
+Geography,8-9,5,Which country is the island of Crete part of?,Greece,Italy,Turkey,Cyprus
+Geography,8-9,5,"Which country is Lapland, Santa's home in stories, mostly in?",Finland,Iceland,Canada,Russia
+Geography,8-9,5,Which sea lies between Europe and Africa?,The Mediterranean Sea,The Caribbean Sea,The North Sea,The Black Sea
+Geography,8-9,5,What is the name of the stretch of sea between County Antrim and Scotland?,The North Channel,The English Channel,The Bristol Channel,The Solent
+Geography,8-9,5,Which city is the second biggest on the island of Ireland?,Belfast,Cork,Galway,Limerick
+Geography,8-9,5,"What is the name of the big inlet of the sea in Kerry, home of Fungie the dolphin's town?",Dingle Bay,Galway Bay,Bantry Bay,Dublin Bay
+History,8-9,5,Which Irish politician was called 'the uncrowned king of Ireland' in the 1880s?,Charles Stewart Parnell,Daniel O'Connell,Michael Collins,Éamon de Valera
+History,8-9,5,Which treaty in 1921 led to the Irish Free State?,The Anglo-Irish Treaty,The Treaty of Versailles,The Treaty of Limerick,The Good Friday Agreement
+History,8-9,5,Which two leaders from Northern Ireland won the Nobel Peace Prize in 1998?,John Hume and David Trimble,Gerry Adams and Ian Paisley,Bertie Ahern and Tony Blair,Mary Robinson and John Major
+History,8-9,5,"Who was the first President of Ireland, in 1938?",Douglas Hyde,Éamon de Valera,Mary Robinson,Michael D. Higgins
+History,8-9,5,What was the name of the boat Saint Brendan was said to sail?,A currach (leather boat),A longship,A galleon,A canoe made of gold
+History,8-9,5,Which Roman emperor was said to play music while Rome burned?,Nero,Augustus,Julius Caesar,Caligula
+History,8-9,5,Which famous French leader was short and lost the Battle of Waterloo? (He was actually average height!),Napoleon,Charlemagne,Louis XIV,Joan of Arc
+History,8-9,5,Which Macedonian king built a huge empire by the age of 30?,Alexander the Great,Julius Caesar,Genghis Khan,Napoleon
+"Sport, music & film",8-9,5,Which Irish band had hits with 'Zombie' and 'Linger'?,The Cranberries,U2,Westlife,The Corrs
+"Sport, music & film",8-9,5,Which Irish boy band sang 'Flying Without Wings'?,Westlife,Boyzone,One Direction,The Script
+"Sport, music & film",8-9,5,In which sport do Irish players compete for the Triple Crown in the Six Nations?,Rugby,Hurling,Soccer,Cricket
+"Sport, music & film",8-9,5,Which Ulster county won its first All-Ireland football title in 2002?,Armagh,Tyrone,Donegal,Down
+"Sport, music & film",8-9,5,What colour jersey does the leader of the Tour de France wear?,Yellow,Green,Pink,Red
+"Sport, music & film",8-9,5,"In Star Wars, what colour is Yoda's skin?",Green,Blue,Grey,Purple
+"Sport, music & film",8-9,5,Which Marvel hero is a king of Wakanda?,Black Panther,Iron Man,Hulk,Ant-Man
+"Sport, music & film",8-9,5,Who played Willy Wonka in the 2023 film 'Wonka'?,Timothée Chalamet,Tom Holland,Johnny Depp,Harry Styles
+Maths & numbers,8-9,5,What is 11 x 5?,55,50,60,16
+Maths & numbers,8-9,5,What is the Roman numeral for 4?,IV,IIII,VI,XL
+Maths & numbers,8-9,5,What is 8 x 8?,64,56,72,16
+Maths & numbers,8-9,5,How many millilitres are in a litre?,"1,000",100,10,500
+Maths & numbers,8-9,5,What is 1/2 + 1/4?,3/4,2/6,1/6,2/4
+Maths & numbers,8-9,5,What is 250 - 75?,175,185,165,225
+Maths & numbers,8-9,5,How many seconds are in 2 minutes?,120,100,60,200
+Maths & numbers,8-9,5,"What is the next number: 3, 6, 9, 12, …?",15,13,14,18
+General knowledge,8-9,1,"What number do you ring in Ireland for an emergency, as well as 999?",112,111,123,100
+General knowledge,8-9,1,What is the Irish word for 'brother'?,Deartháir,Deirfiúr,Daideó,Uncail
+General knowledge,8-9,1,What is the Irish word for 'sister'?,Deirfiúr,Deartháir,Mamó,Aintín
+General knowledge,8-9,1,What is the Irish dish of mashed potato and cabbage often eaten at Halloween?,Colcannon,Coddle,Boxty,Stew
+General knowledge,8-9,1,What is the shape of the Nike logo called?,The swoosh,The tick-tock,The wave,The arrow
+General knowledge,8-9,1,Which yellow fast-food 'M' is the logo of a famous burger company?,McDonald's,Burger King,Subway,KFC
+General knowledge,8-9,1,Which colour is 'dubh' in Irish?,Black,White,Brown,Grey
+General knowledge,8-9,1,Which colour is 'bán' in Irish?,White,Black,Blue,Pink
+General knowledge,8-9,1,What do you call a person who trains to fight fires?,A firefighter,A lifeguard,A paramedic,A park ranger
+Science & nature,8-9,1,What do you call the tiny drops of water you find on grass in the early morning?,Dew,Frost,Hail,Sleet
+Science & nature,8-9,1,What do you call the white icy covering on grass on a very cold morning?,Frost,Dew,Fog,Mist
+Science & nature,8-9,1,What do you call a cloud that is right down at ground level?,Fog,Rain,Thunder,Smoke
+Science & nature,8-9,1,What comes from silkworms?,Silk,Wool,Cotton,Leather
+Science & nature,8-9,1,Which plant does cotton come from?,The cotton plant,Sheep,Trees,Silkworms
+Science & nature,8-9,1,"What do you call a sound that bounces back to you, like in a cave?",An echo,A whisper,A shout,A hum
+Science & nature,8-9,1,What do you call it when an animal's colours help it hide?,Camouflage,Hibernation,Migration,Metamorphosis
+Science & nature,8-9,1,Which part of your body gets 'goosebumps' when you are cold?,Your skin,Your hair only,Your teeth,Your eyes
+Science & nature,8-9,1,"Are mushrooms plants, animals or fungi?",Fungi,Plants,Animals,Minerals
+Geography,8-9,1,Which country's capital is Tokyo?,Japan,China,Korea,Thailand
+Geography,8-9,1,Whose face is on the US one-dollar bill?,George Washington,Abraham Lincoln,Donald Duck,John F. Kennedy
+Geography,8-9,1,"What is the name of the huge, deep valley in Arizona, USA?",The Grand Canyon,Death Valley,Niagara Gorge,The Rift Valley
+Geography,8-9,1,Which continent is India in?,Asia,Africa,Europe,Oceania
+Geography,8-9,1,Which county has the town of Bray and the Sugarloaf Mountain?,Wicklow,Wexford,Waterford,Westmeath
+Geography,8-9,1,Which famous castle near Shannon in County Clare holds medieval banquets?,Bunratty Castle,Blarney Castle,Dublin Castle,Kilkenny Castle
+Geography,8-9,1,"Which mountain in Japan is a tall, snowy volcano?",Mount Fuji,Mount Etna,Mount Everest,Mount Olympus
+Geography,8-9,1,"What is the tallest building in the world, in Dubai?",The Burj Khalifa,The Empire State Building,The Shard,The Eiffel Tower
+History,8-9,1,Which army of thousands of clay soldiers was found in China?,The Terracotta Army,The Clay Legion,The Stone Guards,The Mud Warriors
+History,8-9,1,Which young French girl led armies in the 1400s and is now a saint?,Joan of Arc,Marie Antoinette,Anne Frank,Queen Victoria
+History,8-9,1,Which famous pirate had a black beard and lit fuses in it?,Blackbeard,Captain Hook,Long John Silver,Jack Sparrow
+History,8-9,1,What did the ancient Chinese invent that shoots colourful sparks into the sky?,Fireworks,Aeroplanes,Light bulbs,Torches
+History,8-9,1,What was the name of the age when people first made tools from bronze?,The Bronze Age,The Stone Age,The Iron Age,The Ice Age
+History,8-9,1,Which Italian explorer travelled to China and wrote about it in the 1200s?,Marco Polo,Christopher Columbus,Galileo,Amerigo Vespucci
+History,8-9,1,What did people use to keep food cold before fridges?,Ice houses and cold cellars,Freezers,Air conditioning,Fans
+History,8-9,1,Which old toy is a spinning top you whip with a string?,A whip and top,A yo-yo,A frisbee,A kite
+"Sport, music & film",8-9,1,What does Homer Simpson love to eat?,Doughnuts,Broccoli,Fish,Salad
+"Sport, music & film",8-9,1,What is the name of the restaurant where SpongeBob works?,The Krusty Krab,The Chum Bucket,Burger Bob's,The Salty Spitoon
+"Sport, music & film",8-9,1,What is the name of the van Scooby-Doo and his friends ride in?,The Mystery Machine,The Ghost Bus,The Scooby Van,The Spook Mobile
+"Sport, music & film",8-9,1,"Which cartoon rabbit says 'What's up, Doc?'",Bugs Bunny,Peter Rabbit,Roger Rabbit,Thumper
+"Sport, music & film",8-9,1,What colour is the Hulk?,Green,Red,Purple,Blue
+"Sport, music & film",8-9,1,What does Groot say in Guardians of the Galaxy?,I am Groot,Hello there,To infinity!,Hulk smash
+"Sport, music & film",8-9,1,"In tennis, what is the score called when both players have 40?",Deuce,Love,Advantage,Tie
+"Sport, music & film",8-9,1,What do the Minions love to eat?,Bananas,Apples,Carrots,Cheese
+Maths & numbers,8-9,1,What is 10 + 7?,17,16,18,107
+Maths & numbers,8-9,1,What is 5 x 10?,50,15,60,510
+Maths & numbers,8-9,1,Which month has 30 days: May or June?,June,May,Both,Neither
+Maths & numbers,8-9,1,What is 19 - 9?,10,9,11,28
+Maths & numbers,8-9,1,"Which number is even: 7, 11 or 18?",18,7,11,None of them
+Maths & numbers,8-9,1,How many legs do 5 dogs have altogether?,20,15,25,10
+Maths & numbers,8-9,1,What is double 15?,30,25,35,45
+Maths & numbers,8-9,1,What is 3 x 7?,21,24,18,10
+General knowledge,8-9,2,What is the Irish word for 'grandmother'?,Mamó,Daideó,Aintín,Deirfiúr
+General knowledge,8-9,2,What does it mean to be 'all ears'?,To be listening carefully,To have big ears,To be deaf,To be sleepy
+General knowledge,8-9,2,What does it mean to 'cost an arm and a leg'?,To be very expensive,To be free,To hurt,To be broken
+General knowledge,8-9,2,What is a Dublin 'coddle' made of?,"Sausages, rashers and potatoes",Fish and chips,Rice and beans,Bread and jam
+General knowledge,8-9,2,What is 'boxty'?,An Irish potato pancake,A boxing glove,A cardboard box,A Christmas cake
+General knowledge,8-9,2,"Which Spanish dish is made of rice, seafood and saffron in a big pan?",Paella,Pizza,Sushi,Goulash
+General knowledge,8-9,2,What are the twelve animals of the Chinese calendar called?,The Chinese zodiac,The Chinese alphabet,The Chinese wall,The Chinese flags
+General knowledge,8-9,2,What do you call the language of hand signs used by deaf people in Ireland?,Irish Sign Language,Morse code,Braille,Semaphore
+General knowledge,8-9,2,Which name is a palindrome: Hannah or Holly?,Hannah,Holly,Both,Neither
+Science & nature,8-9,2,What does rubber come from?,The sap of rubber trees,Oil wells only,Cows,Sand
+Science & nature,8-9,2,What is paper made from?,Wood pulp from trees,Sand,Plastic,Wool
+Science & nature,8-9,2,Which insect looks just like a twig to hide from birds?,A stick insect,A ladybird,A wasp,A dragonfly
+Science & nature,8-9,2,What do you call the path electricity flows around?,A circuit,A pipe,A ring road,A tunnel
+Science & nature,8-9,2,What happens to light when it hits a mirror?,It reflects (bounces back),It disappears,It turns into sound,It gets heavier
+Science & nature,8-9,2,What makes sounds?,Vibrations,Colours,Shadows,Magnets
+Science & nature,8-9,2,What does a cactus store in its thick stem?,Water,Sand,Honey,Air
+Science & nature,8-9,2,Which seabird with a black cap migrates from the Arctic to the Antarctic every year?,The Arctic tern,The puffin,The seagull,The cormorant
+Science & nature,8-9,2,Which part of your body has thousands of taste buds?,Your tongue,Your nose,Your teeth,Your cheeks
+Geography,8-9,2,Which food made from corn is folded and filled in Mexico?,A taco,A croissant,A bagel,A crumpet
+Geography,8-9,2,Which big rock in the middle of Australia is sacred to Aboriginal people?,Uluru,Ayers Hill,Table Mountain,The Rock of Cashel
+Geography,8-9,2,Which flat-topped mountain overlooks Cape Town in South Africa?,Table Mountain,Kilimanjaro,Mount Kenya,Uluru
+Geography,8-9,2,Which county has the Rock of Cashel?,Tipperary,Kilkenny,Cork,Limerick
+Geography,8-9,2,In which county are Kylemore Abbey and Connemara?,Galway,Mayo,Sligo,Donegal
+Geography,8-9,2,Which huge waterfall is on the border of Zambia and Zimbabwe?,Victoria Falls,Niagara Falls,Angel Falls,Iguazu Falls
+Geography,8-9,2,What do you call a person who comes from Wales?,Welsh,Walish,Wallish,Wellian
+Geography,8-9,2,What do you call a person who comes from the Netherlands?,Dutch,Netherish,Hollish,Danish
+History,8-9,2,Which English leader brought an army to Ireland in 1649 and is still remembered badly?,Oliver Cromwell,Henry VIII,William of Orange,King John
+History,8-9,2,Which Roman slave led a huge revolt against Rome?,Spartacus,Julius Caesar,Nero,Brutus
+History,8-9,2,What was the legendary lost city that sank beneath the sea?,Atlantis,Troy,Pompeii,El Dorado
+History,8-9,2,"What was El Dorado, which explorers searched for in South America?",A legendary city of gold,A river of chocolate,A mountain of ice,A hidden sea
+History,8-9,2,Which ancient people built the stone village of Skara Brae in Scotland?,Stone Age farmers,The Romans,The Vikings,The Normans
+History,8-9,2,Which age came after the Bronze Age?,The Iron Age,The Stone Age,The Ice Age,The Space Age
+History,8-9,2,What happened to two of Henry VIII's six wives?,They were beheaded,They became queens of France,They ran away to sea,They became nuns in Spain
+History,8-9,2,"What did Tudor people use instead of toilet paper, sometimes?","Moss, leaves or rags",Newspaper,Plastic,Tin foil
+"Sport, music & film",8-9,2,Which Disney villain is a sea witch with octopus legs?,Ursula,Maleficent,Cruella,Scar
+"Sport, music & film",8-9,2,Who is Simba's evil uncle in The Lion King?,Scar,Mufasa,Rafiki,Zazu
+"Sport, music & film",8-9,2,Which god of the underworld is the villain in Disney's Hercules?,Hades,Zeus,Ares,Poseidon
+"Sport, music & film",8-9,2,What is the name of the baby green alien in The Mandalorian?,Grogu (Baby Yoda),Ewok,Jar Jar,Porg
+"Sport, music & film",8-9,2,Which two droids are friends in Star Wars: one gold and one blue and white?,C-3PO and R2-D2,BB-8 and K-2SO,IG-11 and R5,Wall-E and Eve
+"Sport, music & film",8-9,2,What does Gromit's owner Wallace love to eat?,Cheese,Fish,Bananas,Cabbage
+"Sport, music & film",8-9,2,What is Doctor Who's time machine called?,The TARDIS,The DeLorean,The Time Turner,The Capsule
+"Sport, music & film",8-9,2,What is the top score you can make in one visit in snooker?,147,180,100,200
+Maths & numbers,8-9,2,What is 8 x 2?,16,10,18,14
+Maths & numbers,8-9,2,What is 40 - 15?,25,35,15,30
+Maths & numbers,8-9,2,How many hours are in 3 days?,72,48,60,36
+Maths & numbers,8-9,2,What is half of 70?,35,30,40,45
+Maths & numbers,8-9,2,What is the Roman numeral VII?,7,6,8,12
+Maths & numbers,8-9,2,"If you have €10 and spend €6, how much is left?",€4,€3,€5,€16
+Maths & numbers,8-9,2,What is 6 x 9?,54,56,63,15
+Maths & numbers,8-9,2,How many sides do two pentagons have altogether?,10,8,12,5
+General knowledge,8-9,3,What is the Irish word for 'grandfather'?,Daideó,Mamó,Uncail,Deartháir
+General knowledge,8-9,3,What does it mean to 'hit the hay'?,To go to bed,To play hurling,To mow the lawn,To feed horses
+General knowledge,8-9,3,What does it mean if something happens 'once in a blue moon'?,Very rarely,Every night,Every month,When it rains
+General knowledge,8-9,3,Which Hungarian stew is made with beef and paprika?,Goulash,Paella,Lasagne,Risotto
+General knowledge,8-9,3,"In the Chinese zodiac, which animal is first?",The rat,The dragon,The tiger,The ox
+General knowledge,8-9,3,What do you call the writing for blind people made of raised dots?,Braille,Morse code,Ogham,Semaphore
+General knowledge,8-9,3,Which word is an anagram of 'night'?,Thing,Knight,Nights,Tight
+General knowledge,8-9,3,What does 'ASAP' stand for?,As soon as possible,Always say a please,All stars and planets,After school and play
+General knowledge,8-9,3,What is the name of the Irish president who served from 2011 to 2025?,Michael D. Higgins,Mary McAleese,Mary Robinson,Bertie Ahern
+Science & nature,8-9,3,"What is the biggest dinosaur ever found, a giant long-necked plant-eater from Argentina?",Argentinosaurus,Tyrannosaurus,Velociraptor,Stegosaurus
+Science & nature,8-9,3,"What do you call materials that let electricity flow through them, like copper?",Conductors,Insulators,Magnets,Batteries
+Science & nature,8-9,3,"What do you call materials that do NOT let electricity through, like plastic?",Insulators,Conductors,Circuits,Switches
+Science & nature,8-9,3,Which muscle makes you hiccup when it jerks?,The diaphragm,The heart,The biceps,The tongue
+Science & nature,8-9,3,"What do we call the line of who eats who in nature, like grass → rabbit → fox?",A food chain,A food court,A life cycle,A water cycle
+Science & nature,8-9,3,What do we call the circle of water from sea to cloud to rain and back?,The water cycle,The food chain,The tide,The rain cycle
+Science & nature,8-9,3,How do whales breathe?,"Through a blowhole, using lungs",Through gills,Through their skin,They don't breathe
+Science & nature,8-9,3,What colour is a polar bear's skin under its fur?,Black,White,Pink,Brown
+Science & nature,8-9,3,Where on the International Space Station do astronauts live?,In orbit around Earth,On the Moon,On Mars,At the North Pole
+Geography,8-9,3,Which country is the Acropolis in?,Greece,Italy,Turkey,Egypt
+Geography,8-9,3,Which city is the Kremlin in?,Moscow,Kyiv,Warsaw,Berlin
+Geography,8-9,3,What language do people in Austria mainly speak?,German,Austrian,French,Dutch
+Geography,8-9,3,Which two main languages are spoken in Canada?,English and French,English and Spanish,French and German,English and Irish
+Geography,8-9,3,Which tall sea cliffs in Donegal are among the highest in Europe?,Slieve League,The Cliffs of Moher,The Gobbins,The Old Head of Kinsale
+Geography,8-9,3,"Which county in Northern Ireland is full of lakes, with Lough Erne?",Fermanagh,Antrim,Down,Armagh
+Geography,8-9,3,Which animal is called the 'ship of the desert'?,The camel,The horse,The elephant,The lizard
+Geography,8-9,3,Which Croatian city on the coast was used to film King's Landing in Game of Thrones?,Dubrovnik,Zagreb,Split,Rijeka
+History,8-9,3,Which country's east coast did Captain James Cook map in 1770?,Australia,Canada,India,Brazil
+History,8-9,3,"Which country's huge fleet, the Armada, did Elizabeth I's navy defeat in 1588?",Spain,France,Holland,Portugal
+History,8-9,3,What did the Ancient Egyptians use to keep their mummies' organs?,Canopic jars,Lunch boxes,Treasure chests,Glass bottles
+History,8-9,3,"In which ancient land was the wheel first used, about 5,500 years ago?",Mesopotamia (now Iraq),Ireland,Australia,America
+History,8-9,3,"Which pirate was a woman who sailed with Calico Jack, as well as Mary Read?",Anne Bonny,Grace O'Malley,Joan of Arc,Blackbeard
+History,8-9,3,Which American pilot made the first solo flight across the Atlantic in 1927?,Charles Lindbergh,Amelia Earhart,Orville Wright,Neil Armstrong
+History,8-9,3,Which Irish county was home to the High Kings at Tara?,Meath,Kildare,Westmeath,Louth
+History,8-9,3,What were the laws in Ireland that stopped Catholics owning land and going to school called?,The Penal Laws,The Corn Laws,The Poor Laws,The Brehon Laws
+"Sport, music & film",8-9,3,"In The Simpsons, what is the name of Bart's sister who plays the saxophone?",Lisa,Maggie,Marge,Patty
+"Sport, music & film",8-9,3,What is the name of SpongeBob's grumpy neighbour who plays the clarinet?,Squidward,Patrick,Mr Krabs,Plankton
+"Sport, music & film",8-9,3,Which villain in Avengers collects the Infinity Stones?,Thanos,Loki,Ultron,Red Skull
+"Sport, music & film",8-9,3,Which pink cartoon cat walks to his own jazzy theme tune?,The Pink Panther,Garfield,Tom,Hello Kitty
+"Sport, music & film",8-9,3,How many keys does a standard piano have?,88,52,100,64
+"Sport, music & film",8-9,3,Which family of instruments includes the trumpet and trombone?,Brass,Woodwind,Strings,Percussion
+"Sport, music & film",8-9,3,Which family of instruments includes the flute and clarinet?,Woodwind,Brass,Strings,Percussion
+"Sport, music & film",8-9,3,"Which famous horse race is held at Aintree, near Liverpool?",The Grand National,The Derby,The Gold Cup,The Melbourne Cup
+Maths & numbers,8-9,3,What is 7 x 5?,35,30,40,12
+Maths & numbers,8-9,3,What is 64 - 32?,32,34,30,36
+Maths & numbers,8-9,3,What is the Roman numeral XII?,12,7,110,14
+Maths & numbers,8-9,3,How many minutes are in an hour and a half?,90,130,150,60
+Maths & numbers,8-9,3,What is one third of 12?,4,3,6,9
+Maths & numbers,8-9,3,What is 150 + 50?,200,160,250,100
+Maths & numbers,8-9,3,"If one sweet costs 20c, how much do 5 sweets cost?",€1,€0.80,€1.20,€2
+Maths & numbers,8-9,3,What shape has 3 sides and all of them the same length?,An equilateral triangle,A square,A right angle,A rectangle
+General knowledge,8-9,4,What does it mean to 'spill the beans'?,To tell a secret,To make a mess,To cook dinner,To go shopping
+General knowledge,8-9,4,"Which Italian dish is layers of pasta, meat sauce and cheese?",Lasagne,Risotto,Pesto,Paella
+General knowledge,8-9,4,What does 'emoji' come from: which language?,Japanese,English,Spanish,Emojish
+General knowledge,8-9,4,What does the 'G' in 'GAA' stand for?,Gaelic,Great,Green,Games
+General knowledge,8-9,4,What is the name of the Irish president elected in 2025?,Catherine Connolly,Heather Humphreys,Michael D. Higgins,Mary Lou McDonald
+General knowledge,8-9,4,Which Irish writer wrote 'The Happy Prince' and 'The Selfish Giant'?,Oscar Wilde,Roald Dahl,Bram Stoker,W.B. Yeats
+General knowledge,8-9,4,Which Belfast-born writer created Narnia?,C.S. Lewis,J.R.R. Tolkien,Enid Blyton,Eoin Colfer
+General knowledge,8-9,4,Which Wexford author wrote the Artemis Fowl books?,Eoin Colfer,Roddy Doyle,Cecelia Ahern,John Boyne
+General knowledge,8-9,4,Which word is a homophone of 'flour'?,Flower,Floor,Flair,Flute
+Science & nature,8-9,4,Which part of the body do the words 'cardiac' and 'cardio' refer to?,The heart,The lungs,The brain,The feet
+Science & nature,8-9,4,"How fast can a sneeze travel, roughly?",Over 100 km per hour,1 km per hour,10 km per hour,As fast as light
+Science & nature,8-9,4,Which blood vessels carry blood back to the heart?,Veins,Arteries,Nerves,Tendons
+Science & nature,8-9,4,What kind of energy comes from the Sun to a solar panel?,Light energy,Sound energy,Nuclear energy from the panel,Wind energy
+Science & nature,8-9,4,Which gas do fizzy drinks and plants have in common?,Carbon dioxide,Helium,Oxygen only,Neon
+Science & nature,8-9,4,"How many legs does a spider's relative, the scorpion, have?",8,6,10,4
+Science & nature,8-9,4,What type of animal is a spider?,An arachnid,An insect,A crustacean,A reptile
+Science & nature,8-9,4,Which egg-laying mammal from Australia has a duck's bill?,The platypus,The echidna,The wombat,The otter
+Science & nature,8-9,4,"What colour light do plants use least, which is why leaves look that colour?",Green,Red,Blue,Yellow
+Geography,8-9,4,Which sea is north of Turkey?,The Black Sea,The Red Sea,The Dead Sea,The Irish Sea
+Geography,8-9,4,What is the name of the island country in the Mediterranean with Valletta as its capital?,Malta,Cyprus,Sicily,Crete
+Geography,8-9,4,Which is the longest river in Ireland and Britain?,The Shannon,The Thames,The Severn,The Liffey
+Geography,8-9,4,"Which lake on the Shannon has an island called Holy Island and is near Clare, Galway and Tipperary?",Lough Derg,Lough Ree,Lough Allen,Lough Corrib
+Geography,8-9,4,Which is the biggest lake in the Republic of Ireland?,Lough Corrib,Lough Neagh,Lough Derg,Lough Mask
+Geography,8-9,4,Which Scandinavian country is famous for IKEA and ABBA?,Sweden,Norway,Denmark,Finland
+Geography,8-9,4,"Which country is Mount Etna, Europe's most active volcano, in?",Italy,Iceland,Greece,Spain
+Geography,8-9,4,In which country is the Black Forest?,Germany,Austria,France,Switzerland
+History,8-9,4,Which Dutch prince became King William III and won the Battle of the Boyne?,William of Orange,William the Conqueror,Henry VIII,James II
+History,8-9,4,Who lost the Battle of the Boyne in 1690?,King James II,King William III,Oliver Cromwell,Brian Boru
+History,8-9,4,"What were the old Irish laws, made by judges called brehons, called?",Brehon Laws,Penal Laws,Roman Laws,Norman Laws
+History,8-9,4,Which English king was the father of Elizabeth I?,Henry VIII,Henry VII,Edward VI,Richard III
+History,8-9,4,Which Chinese emperor's tomb is guarded by the Terracotta Army?,Qin Shi Huang,Kublai Khan,Genghis Khan,Puyi
+History,8-9,4,What were the round tents that Mongol people lived in called?,Yurts (gers),Igloos,Tepees,Wigwams
+History,8-9,4,What did the Ancient Egyptians believe the god Ra was?,The Sun god,The god of the sea,The god of football,The Moon
+History,8-9,4,Which scientist is the only person to win Nobel Prizes in both physics and chemistry?,Marie Curie,Albert Einstein,Isaac Newton,Rosalind Franklin
+"Sport, music & film",8-9,4,In which year did Ireland's soccer team reach the World Cup quarter-final in Italy?,1990,1966,2002,2016
+"Sport, music & film",8-9,4,Who is the Republic of Ireland's all-time top goalscorer in men's soccer?,Robbie Keane,Roy Keane,Niall Quinn,Shay Given
+"Sport, music & film",8-9,4,Who captained Ireland's women's soccer team at the 2023 World Cup?,Katie McCabe,Katie Taylor,Sonia O'Sullivan,Rachel Blackmore
+"Sport, music & film",8-9,4,"Which Irish jockey was the first woman to win the Grand National, in 2021?",Rachel Blackmore,Katie Walsh,Nina Carberry,Sonia O'Sullivan
+"Sport, music & film",8-9,4,"Which Irish runner won the 5,000m world title in 1995?",Sonia O'Sullivan,Ciara Mageean,Rhasidat Adeleke,Catherina McKiernan
+"Sport, music & film",8-9,4,Which swimmer won the most Olympic gold medals ever?,Michael Phelps,Mark Spitz,Ian Thorpe,Katie Ledecky
+"Sport, music & film",8-9,4,In which country was the 2022 men's FIFA World Cup held?,Qatar,Russia,Brazil,Argentina
+"Sport, music & film",8-9,4,Which country won the 2023 women's FIFA World Cup?,Spain,England,USA,Australia
+Maths & numbers,8-9,4,What is 8 x 6?,48,42,54,14
+Maths & numbers,8-9,4,"What is 1,000 - 250?",750,650,850,800
+Maths & numbers,8-9,4,What is the Roman numeral XL?,40,60,90,11
+Maths & numbers,8-9,4,How many right angles are in a square?,4,2,3,1
+Maths & numbers,8-9,4,What is 1/4 as a percentage?,25%,14%,40%,75%
+Maths & numbers,8-9,4,What is 25 x 3?,75,70,80,28
+Maths & numbers,8-9,4,How many quarters are in 3 whole pizzas?,12,3,9,4
+Maths & numbers,8-9,4,"What is the next number: 2, 4, 8, 16, …?",32,20,24,18
+General knowledge,8-9,5,What does it mean to 'have a chip on your shoulder'?,To feel resentful about something,To be hungry,To be injured,To be very tidy
+General knowledge,8-9,5,Which famous Irish poet wrote 'The Lake Isle of Innisfree'?,W.B. Yeats,Seamus Heaney,Patrick Kavanagh,Oscar Wilde
+General knowledge,8-9,5,Which Irish poet from Derry won the Nobel Prize for Literature in 1995?,Seamus Heaney,W.B. Yeats,Samuel Beckett,James Joyce
+General knowledge,8-9,5,What do you write on the front of an envelope?,The address,A poem,Your homework,The date of birth
+General knowledge,8-9,5,Which language does the word 'pizza' come from?,Italian,French,Greek,English
+General knowledge,8-9,5,What do you call the person who draws the pictures in a book?,The illustrator,The author,The narrator,The publisher
+General knowledge,8-9,5,Which word means 'happening every year'?,Annual,Monthly,Daily,Weekly
+General knowledge,8-9,5,Which word means 'a period of 100 years'?,A century,A decade,A millennium,A fortnight
+General knowledge,8-9,5,What is a 'fortnight'?,Two weeks,Four nights,A month,A fort at night
+Science & nature,8-9,5,Which fruit has its seeds on the outside?,The strawberry,The apple,The banana,The orange
+Science & nature,8-9,5,What is the name of the bright star that sailors used to find north?,The North Star (Polaris),Sirius,The Sun,Venus
+Science & nature,8-9,5,What is the name of the rocky belt between Mars and Jupiter?,The asteroid belt,The Kuiper belt,The Milky Way,The ring of fire
+Science & nature,8-9,5,Which dwarf planet used to be called the ninth planet?,Pluto,Ceres,Eris,Charon
+Science & nature,8-9,5,How long does light from the Sun take to reach Earth?,About 8 minutes,About 8 seconds,About 8 hours,About 8 days
+Science & nature,8-9,5,Which animal sleeps standing up and can lock its legs?,The horse,The dog,The cat,The pig
+Science & nature,8-9,5,What do we call the bones in your back that protect your spinal cord?,Vertebrae (the spine),Ribs,Femurs,Skull bones
+Science & nature,8-9,5,What type of animal is a seahorse?,A fish,A horse,A mammal,A reptile
+Science & nature,8-9,5,What do you call the crusty layer that forms over a cut as it heals?,A scab,A blister,A bruise,A freckle
+Geography,8-9,5,Which European capital is split by the River Danube into Buda and Pest?,Budapest,Vienna,Prague,Bratislava
+Geography,8-9,5,What is the capital of Bulgaria?,Sofia,Bucharest,Athens,Zagreb
+Geography,8-9,5,What is the capital of Slovakia?,Bratislava,Ljubljana,Prague,Budapest
+Geography,8-9,5,"Which long, thin country runs down the west coast of South America?",Chile,Peru,Argentina,Uruguay
+Geography,8-9,5,Which imaginary line is at 0° latitude?,The equator,The prime meridian,The Arctic Circle,The date line
+Geography,8-9,5,What was County Laois once called?,Queen's County,King's County,Kingdom County,Royal County
+Geography,8-9,5,Which county was once called 'King's County'?,Offaly,Laois,Meath,Kildare
+Geography,8-9,5,Which mountain is the highest in Northern Ireland?,Slieve Donard,Errigal,Carrauntoohil,Cuilcagh
+History,8-9,5,Which Irish leader ran the 1920s War of Independence's spy network and died at Béal na Bláth?,Michael Collins,Éamon de Valera,Arthur Griffith,W.T. Cosgrave
+History,8-9,5,Which war followed the Anglo-Irish Treaty in 1922–23?,The Irish Civil War,The War of Independence,The Emergency,The Land War
+History,8-9,5,"What did people in Ireland call World War Two, when Ireland stayed neutral?",The Emergency,The Great War,The Troubles,The Blitz
+History,8-9,5,What name is given to the conflict in Northern Ireland from the late 1960s to 1998?,The Troubles,The Emergency,The Rising,The Plantation
+History,8-9,5,What was the 'Plantation of Ulster' in the 1600s?,Settling English and Scottish people on Irish land,Planting a forest,A potato farm,A Viking camp
+History,8-9,5,Which ancient Greek wrote about the lost city of Atlantis?,Plato,Homer,Aristotle,Socrates
+History,8-9,5,Which emperor of France crowned himself in 1804?,Napoleon,Louis XVI,Charlemagne,Charles de Gaulle
+History,8-9,5,In which year could most Irish women first vote in elections?,1918,1798,1990,1850
+"Sport, music & film",8-9,5,"Which Irish singer won Eurovision twice, in 1980 and 1987?",Johnny Logan,Dana,Niamh Kavanagh,Linda Martin
+"Sport, music & film",8-9,5,How many times has Ireland won the Eurovision Song Contest?,7,3,5,10
+"Sport, music & film",8-9,5,In which athletics event do you throw a heavy metal ball as far as you can?,The shot put,The javelin,The long jump,The hurdles
+"Sport, music & film",8-9,5,Which six countries play in rugby's Six Nations?,"Ireland, England, Scotland, Wales, France and Italy","Ireland, England, Scotland, Wales, France and Spain","Ireland, England, Scotland, Wales, New Zealand and Italy","Ireland, England, France, Spain, Italy and Germany"
+"Sport, music & film",8-9,5,"In golf, what is it called when you get the ball in the hole with one shot?",A hole in one,An eagle,A birdie,A bogey
+"Sport, music & film",8-9,5,Which Irish boxer won Olympic gold in 2020 and 2024 at lightweight?,Kellie Harrington,Katie Taylor,Amy Broadhurst,Michaela Walsh
+"Sport, music & film",8-9,5,Which Irish sprinter won European gold medals and ran in the 2024 Olympic 400m final?,Rhasidat Adeleke,Sonia O'Sullivan,Ciara Mageean,Sarah Lavin
+"Sport, music & film",8-9,5,Which famous horse-racing festival is held at Ballybrit every summer?,The Galway Races,The Cheltenham Festival,Punchestown,The Grand National
+Maths & numbers,8-9,5,What is 12 x 11?,132,121,144,122
+Maths & numbers,8-9,5,What is 5% of 100?,5,50,0.5,20
+Maths & numbers,8-9,5,How many degrees does a half turn make?,180,90,360,270
+Maths & numbers,8-9,5,What is the area of a rectangle 6 cm long and 4 cm wide?,24 cm²,20 cm²,10 cm²,12 cm²
+Maths & numbers,8-9,5,What is the perimeter of a square with sides of 7 cm?,28 cm,49 cm,21 cm,14 cm
+Maths & numbers,8-9,5,What is 0.1 as a fraction?,1/10,1/100,1/1,10/1
+Maths & numbers,8-9,5,Round 47 to the nearest ten.,50,40,45,47
+Maths & numbers,8-9,5,What is 3 squared (3 x 3)?,9,6,33,12
 General knowledge,8-9,1,What do bees and wasps have that can hurt you?,A sting,A horn,A claw,A beak
 General knowledge,8-9,1,What do you call the person who drives a train?,A train driver,A pilot,A captain,A jockey
 General knowledge,8-9,2,What is the opposite of 'whisper'?,Shout,Mumble,Sing,Sneeze
