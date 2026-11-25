@@ -160,7 +160,7 @@ function startMpGame() {
 
 function hostMark(right) {
   const q = mp.game.question;
-  buzz(right ? 'right' : 'wrong');
+  haptic(right ? 'right' : 'wrong');
   mpStep(async () => {
     await rpc('submit_answer', {
       p_game_question_id: q.id, p_player_id: q.player_id, p_is_correct: right, p_used_choices: false,

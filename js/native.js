@@ -17,7 +17,7 @@ function publicPageUrl() {
 }
 
 // A short vibration: 'right' and 'wrong' after the quiz master marks an answer, 'tap' for small things.
-function buzz(kind) {
+function haptic(kind) {
   if (!NATIVE || !PLUGINS.Haptics) return;
   if (kind === 'tap') quietly(() => PLUGINS.Haptics.impact({ style: 'LIGHT' }));
   else quietly(() => PLUGINS.Haptics.notification({ type: kind === 'right' ? 'SUCCESS' : 'ERROR' }));

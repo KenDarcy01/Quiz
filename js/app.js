@@ -231,7 +231,7 @@ function settle(right, points) {
   g.points = right ? points : 0;
   g.scores[p] += g.points;
   if (right) g.correct[p] += 1;
-  buzz(right ? 'right' : 'wrong');
+  haptic(right ? 'right' : 'wrong');
   persist();
   render();
 }
