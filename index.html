@@ -18,6 +18,7 @@
 </head>
 <body>
   <main id="app" aria-live="polite"></main>
+  <script src="js/native.js"></script>
   <script src="js/csv.js"></script>
   <script src="js/questions.js"></script>
   <script src="js/vendor/supabase.js"></script>
@@ -26,7 +27,8 @@
   <script src="js/multiplayer.js"></script>
   <script src="js/app.js"></script>
   <script>
-    if ('serviceWorker' in navigator) {
+    // The app stores ship their own copy of the files, so only the website uses the offline cache.
+    if ('serviceWorker' in navigator && !NATIVE) {
       window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
     }
   </script>

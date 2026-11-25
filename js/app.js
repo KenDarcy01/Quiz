@@ -231,6 +231,7 @@ function settle(right, points) {
   g.points = right ? points : 0;
   g.scores[p] += g.points;
   if (right) g.correct[p] += 1;
+  haptic(right ? 'right' : 'wrong');
   persist();
   render();
 }
@@ -575,6 +576,10 @@ function settingsScreen() {
       <button class="btn secondary" type="button" data-action="forget">Forget questions already asked</button>
       <button class="btn secondary" type="button" data-action="toLocal">Cancel</button>
     </form>
+    <p class="muted" style="font-size:14px;text-align:center">
+      <a href="${WEB_URL}privacy.html" target="_blank" rel="noopener">Privacy</a> ·
+      <a href="${WEB_URL}support.html" target="_blank" rel="noopener">Help and support</a>
+    </p>
   `;
 }
 
@@ -692,6 +697,7 @@ function render() {
   };
   renderHeld = false;
   app.innerHTML = screens[state.screen]();
+  keepAwake(['pass', 'question', 'scores', 'waiting', 'mp'].includes(state.screen));
 }
 
 // Background redraws (live game updates, the poll) must not rebuild the page while a drop-down is
@@ -867,6 +873,7 @@ function saveSettings(f) {
   else render();
 }
 
+startNative();
 render();
 refreshQuestions();
 startAuth();

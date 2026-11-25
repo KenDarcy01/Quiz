@@ -1,0 +1,10 @@
+{
+  "appId": "app.familyquiz.quiz",
+  "appName": "Family Quiz",
+  "webDir": "www",
+  "backgroundColor": "#EEE7FF",
+  "plugins": {
+    "SplashScreen": { "launchShowDuration": 800, "backgroundColor": "#EEE7FF", "showSpinner": false },
+    "StatusBar": { "style": "LIGHT", "backgroundColor": "#EEE7FF", "overlaysWebView": false }
+  }
+}
