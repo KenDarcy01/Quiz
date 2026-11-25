@@ -160,6 +160,7 @@ function startMpGame() {
 
 function hostMark(right) {
   const q = mp.game.question;
+  buzz(right ? 'right' : 'wrong');
   mpStep(async () => {
     await rpc('submit_answer', {
       p_game_question_id: q.id, p_player_id: q.player_id, p_is_correct: right, p_used_choices: false,
@@ -1225,7 +1226,7 @@ function setMpPref(el) {
 function lobbyScreen(g) {
   const inGame = new Set(g.players.map((p) => p.profile_id));
   const mine = isFullAccount() ? [auth.profile, ...auth.kids].filter((p) => p && !inGame.has(p.id)) : [];
-  const watchUrl = g.watch_key ? `${location.origin}${location.pathname.replace(/[^/]*$/, '')}watch.html?k=${encodeURIComponent(g.watch_key)}` : '';
+  const watchUrl = g.watch_key ? `${publicPageUrl().replace(/[^/]*$/, '')}watch.html?k=${encodeURIComponent(g.watch_key)}` : '';
   return `
     <div class="topbar"><span class="eyebrow">Lobby</span><button class="link-btn" data-action="leaveMp">Leave</button></div>
     <div class="pass" style="gap:6px">
@@ -1430,7 +1431,6 @@ function resumeMp() {
 // Shares the watch link with the phone's share sheet, or copies it where sharing isn't available.
 async function shareWatch(url, el) {
   try {
-    if (navigator.share) await navigator.share({ title: 'Watch our Family Quiz', url });
-    else { await navigator.clipboard.writeText(url); el.textContent = 'Link copied'; }
+    if (!(await shareLink('Watch our Family Quiz', url))) { await navigator.clipboard.writeText(url); el.textContent = 'Link copied'; }
   } catch { /* share sheet closed */ }
 }

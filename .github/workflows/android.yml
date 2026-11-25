@@ -1,0 +1,69 @@
+name: Android app
+
+# Pull requests: check the app compiles.
+# "Run workflow" on the Actions tab: build a signed app bundle (.aab) to download from the run,
+# and send it to Google Play internal testing once the PLAY_SERVICE_ACCOUNT_JSON secret is set.
+# Secrets are listed in docs/app-stores.md.
+on:
+  pull_request:
+    paths: [ios/**, android/**, js/**, index.html, styles.css, questions/questions.csv, package.json, package-lock.json, capacitor.config.json, scripts/**, .github/workflows/**]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    env:
+      HAS_PLAY: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: npm ci
+      - run: npm run build
+      - run: npx cap sync android
+
+      - name: Check the app compiles
+        if: github.event_name == 'pull_request'
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      - name: Build the signed app bundle
+        if: github.event_name == 'workflow_dispatch'
+        working-directory: android
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          VERSION_CODE: ${{ github.run_number }}
+        run: |
+          set -euo pipefail
+          export ANDROID_KEYSTORE_PATH="$RUNNER_TEMP/upload.jks"
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 -d > "$ANDROID_KEYSTORE_PATH"
+          export VERSION_NAME=$(node -p "require('../package.json').version")
+          ./gradlew bundleRelease
+
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'workflow_dispatch'
+        with:
+          name: family-quiz-android-${{ github.run_number }}
+          path: android/app/build/outputs/bundle/release/app-release.aab
+
+      - name: Send to Google Play internal testing
+        if: github.event_name == 'workflow_dispatch' && env.HAS_PLAY == 'true'
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: app.familyquiz.quiz
+          releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
+          track: internal
+          status: draft

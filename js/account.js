@@ -75,7 +75,7 @@ function signUp(name, email, password) {
     const { data, error } = await sb.auth.signUp({
       email,
       password,
-      options: { data: { full_name: name }, emailRedirectTo: location.origin + location.pathname },
+      options: { data: { full_name: name }, emailRedirectTo: publicPageUrl() },
     });
     if (error) throw error;
     if (!data.session) {
@@ -87,7 +87,7 @@ function signUp(name, email, password) {
 
 function sendReset(email) {
   return authStep(async () => {
-    const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname });
+    const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: publicPageUrl() });
     if (error) throw error;
     auth.mode = 'signin';
     auth.message = `We sent a link to ${email} to set a new password.`;
